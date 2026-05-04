@@ -300,6 +300,7 @@ Some cards have victory points marked on them.
 
 - **Event cards:** Every new round a new event card is revealed with slight modifications to conditions. Extra strong modification the round before end of era — Turmoil!
 - **Monetary system:** (under design)
+- **Building track (Scythe-style):** Each player mat has a fixed number of building slots per class (proposed: 4 Military, 4 Market, 4 Science, 4 Misc, 3 Wonders = 19 total). Buildings start on the player mat. Placing a building onto a map region removes it from the mat and reveals a benefit in the slot underneath. Benefits tier per track: gold first, then actions/market actions, then points. Wonder track gives points only, with increasing amounts per building placed (e.g. 2 / 4 / 7 VP). This limits building spam and ties deployment progression to economic advancement. Open question: does "4 per type" mean per card class or per specific building card?
 
 ---
 
