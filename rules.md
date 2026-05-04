@@ -20,7 +20,21 @@ The game consists of 12 rounds where each player has one turn each. At the start
 
 ### Player Empire Mat
 
-Each player has their own empire mat. The number of Empire card slots expands each era: 3 slots in Era I, 4 in Era II, and 5 in Era III. Empire cards can be bought at the market from a set of available cards using money and Market actions.
+Each player has their own empire mat with two independent tracking systems:
+
+**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. This expands each era: 3 slots in Era I, 4 in Era II, 5 in Era III. Selling a card frees a slot.
+
+**Class building tracks:** Each card class has a fixed row of slots on the mat with benefits hidden underneath. Every time you buy a card of a class, you advance that class's track — moving the token from mat to board reveals the benefit. This is permanent: selling a card later does not restore the track slot. Class limits are hard caps on total purchases across the whole game.
+
+| Class | Track slots | Benefit pattern |
+|-------|-------------|-----------------|
+| Military | 4 | +2 gold → +2 gold → +1 attack action/era → +1 VP |
+| Market | 4 | +2 gold → +2 gold → +1 market action/era → +1 VP |
+| Science | 4 | +2 gold → +3 gold → +1 market action/era → +2 VP |
+| Misc | 4 | +2 gold → +2 gold → +1 attack action/era → +1 VP |
+| Wonders | 3 | +2 VP → +4 VP → +7 VP |
+
+The action and VP benefits at the end of each track are the primary incentives to push deep into a class. The gold benefits in the early slots help recoup the cost of building up that engine.
 
 ### Market Mat
 
@@ -34,11 +48,11 @@ When purchased, Empire cards are added to the player's empire mat and modifier c
 
 The 12 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
 
-| Era | Empire card slots on player mat | Empire cards in market | Modifier cards in market |
-|-----|--------------------------------|------------------------|--------------------------|
-| 1   | 3                              | 4                      | 2                        |
-| 2   | 4                              | 4                      | 2                        |
-| 3   | 5                              | 5                      | ?                        |
+| Era | Active card slots | Empire cards in market | Modifier cards in market |
+|-----|-------------------|------------------------|--------------------------|
+| 1   | 3                 | 4                      | 2                        |
+| 2   | 4                 | 4                      | 2                        |
+| 3   | 5                 | 5                      | ?                        |
 
 ### Player Order and the Initiative Track
 
@@ -278,6 +292,7 @@ Empire cards are used to enact decrees in your empire.
 
 **Properties:**
 - **Cost:** Each card has two prices — a gold cost and a resource or commodity cost. Pay one or the other. Example: `3 gold OR 1 stone`. Your empire's tile composition and buildings determine which currency is easier to spend.
+- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc) and at most 3 Wonder cards over the entire game. Each purchase advances that class's building track on your player mat and reveals the next benefit.
 - **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., have four mountain regions). Unfulfilled requirements at the end of the game may affect scoring.
 
 ### Empire Card Classes
@@ -300,7 +315,6 @@ Some cards have victory points marked on them.
 
 - **Event cards:** Every new round a new event card is revealed with slight modifications to conditions. Extra strong modification the round before end of era — Turmoil!
 - **Monetary system:** (under design)
-- **Building track (Scythe-style):** Each player mat has a fixed number of building slots per class (proposed: 4 Military, 4 Market, 4 Science, 4 Misc, 3 Wonders = 19 total). Buildings start on the player mat. Placing a building onto a map region removes it from the mat and reveals a benefit in the slot underneath. Benefits tier per track: gold first, then actions/market actions, then points. Wonder track gives points only, with increasing amounts per building placed (e.g. 2 / 4 / 7 VP). This limits building spam and ties deployment progression to economic advancement. Open question: does "4 per type" mean per card class or per specific building card?
 
 ---
 
