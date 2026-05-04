@@ -315,6 +315,8 @@ Some cards have victory points marked on them.
 
 - **Event cards:** Every new round a new event card is revealed with slight modifications to conditions. Extra strong modification the round before end of era — Turmoil!
 - **Monetary system:** (under design)
+- **Shared world buildings:** Common buildings pre-placed on the map at game start. Any player controlling the tile gets the basic benefit. A player can claim a common building by buying the matching Empire card on that tile — the building becomes personal and loses its shared status, creating a race to claim them. Builder VP is awarded immediately and permanently. Open questions: how to price the claim discount given the existing gold-OR-resource dual pricing system; exact benefit types; total count per map; interaction with building destruction on conquest.
+- **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
 
 ---
 
