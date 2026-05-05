@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import type { GameState, Player, PlayerId, CombatResult } from '../types/game'
 import { buildInitialMap } from '../data/initialMap'
-import { BASE_DECK, shuffle, drawOne, modifierToNumber } from '../data/modifierDeck'
+import { BASE_DECK, INDEPENDENT_DECK, shuffle, drawOne, modifierToNumber } from '../data/modifierDeck'
 import { TERRAIN } from '../data/terrainConfig'
 import { getNeighbors, hexKey, isAdjacent } from '../utils/hex'
 
@@ -117,18 +117,26 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     const defenderPlayer = target.owner ? players.find(p => p.id === target.owner) : null
     const defSrc = defenderPlayer
       ? drawOne(defenderPlayer.modifierDeck, defenderPlayer.modifierDiscard)
-      : drawOne(shuffle([...BASE_DECK]), [])
+      : drawOne(shuffle([...INDEPENDENT_DECK]), [])
 
     const atkVal = modifierToNumber(atk.card)
     const defVal = modifierToNumber(defSrc.card)
     const atkTotal = 1 + atkVal
-    const defTotal = 1 + cfg.defenseBonus + defVal
+    // Independent (neutral) regions don't benefit from terrain defense bonuses
+    const defBonus = target.owner ? cfg.defenseBonus : 0
+    const defTotal = 1 + defBonus + defVal
 
     const success = atk.card !== 'fail' && (atk.card === 'success' || atkTotal > defTotal)
 
-    // On fail, reshuffle attacker deck
-    const finalAtkDeck = atk.card === 'fail' ? shuffle([...BASE_DECK]) : atk.deck
-    const finalAtkDiscard = atk.card === 'fail' ? [] : atk.discard
+    // Fail or Success: reshuffle the player's full personal deck (preserving all modifications)
+    const atkNeedsReshuffle = atk.card === 'fail' || atk.card === 'success'
+    const finalAtkDeck = atkNeedsReshuffle ? shuffle([...atk.deck, ...atk.discard]) : atk.deck
+    const finalAtkDiscard = atkNeedsReshuffle ? [] : atk.discard
+
+    // Same for defending player
+    const defNeedsReshuffle = defenderPlayer && (defSrc.card === 'fail' || defSrc.card === 'success')
+    const finalDefDeck = defNeedsReshuffle ? shuffle([...defSrc.deck, ...defSrc.discard]) : defSrc.deck
+    const finalDefDiscard = defNeedsReshuffle ? [] : defSrc.discard
 
     const combatResult: CombatResult = {
       attackerRoll: atk.card,
@@ -172,7 +180,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
           }
         }
         if (defenderPlayer && p.id === defenderPlayer.id) {
-          return { ...p, modifierDeck: defSrc.deck, modifierDiscard: defSrc.discard }
+          return { ...p, modifierDeck: finalDefDeck, modifierDiscard: finalDefDiscard }
         }
         return p
       })

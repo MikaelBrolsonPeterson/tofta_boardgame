@@ -48,11 +48,11 @@ When purchased, Empire cards are added to the player's empire mat and modifier c
 
 The 12 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
 
-| Era | Active card slots | Empire cards in market | Modifier cards in market |
-|-----|-------------------|------------------------|--------------------------|
-| 1   | 3                 | 4                      | 2                        |
-| 2   | 4                 | 4                      | 2                        |
-| 3   | 5                 | 5                      | ?                        |
+| Era | Active card slots | Empire cards in market |
+|-----|-------------------|------------------------|
+| 1   | 3                 | 4                      |
+| 2   | 4                 | 4                      |
+| 3   | 5                 | 5                      |
 
 ### Player Order and the Initiative Track
 
@@ -135,7 +135,7 @@ A region is controlled by the player who last conquered it, unless that player h
 
 ### Independent Regions
 
-At the start of the game the map is filled with independent regions. They do not add region defense bonuses to strength when attacked and are therefore simpler to conquer. But beware of the fail card!
+At the start of the game the map is filled with independent regions. They do not add region defense bonuses to strength when attacked and are therefore simpler to conquer. The independent state modifier deck also contains no Fail card — but beware of the Fail card in your own deck!
 
 ### Taxation and Upkeep
 
@@ -224,10 +224,12 @@ Strength is the sum of:
 
 | Condition     | Effect |
 |---------------|--------|
-| Advantage     | Draw two cards from the modifier deck and pick the best. If Fail is drawn, the attack succeeds but the deck is reshuffled. |
-| Disadvantage  | Draw two cards from the modifier deck and pick the worst. The player will not automatically succeed. |
+| Advantage     | Draw two cards from the modifier deck and pick the best. If Fail is drawn it is ignored (pick the other card), but the deck is still reshuffled. If both cards are Fail, the attack fails and the deck reshuffles. |
+| Disadvantage  | Draw two cards and pick the worst. Success is ignored (pick the other card) but the deck is still reshuffled. If both are Success, the attack succeeds and the deck reshuffles. |
 
 ### Starting Strength Modifier Deck
+
+Whenever a player draws **Fail** or **Success** from their personal modifier deck, the deck is immediately reshuffled — all cards (remaining deck + discard, including the just-drawn card) are shuffled back together. Any modifications to the deck from Draft and Cull actions are preserved.
 
 | Modifier              | # Cards |
 |-----------------------|---------|
@@ -237,15 +239,14 @@ Strength is the sum of:
 | 0                     | 4       |
 | +1                    | 2       |
 | +2                    | 1       |
-| Successful attack     | 1       |
+| Successful attack (reshuffle) | 1 |
 
 ### Independent State Modifier Deck
 
-Independent states have a separate modifier deck that all players draw from when calculating the independent region's defensive strength.
+Independent states draw from a shared deck that is reshuffled fresh for every attack — it does not deplete between attacks. The deck has no Fail card: undefended territory offers no auto-loss, only a straight modifier comparison.
 
 | Modifier              | # Cards |
 |-----------------------|---------|
-| Fail attack (reshuffle) | 1 (2?) |
 | -2                    | 1       |
 | -1                    | 2       |
 | 0                     | 4       |
@@ -304,6 +305,29 @@ Empire cards are used to enact decrees in your empire.
 | Science  | Lilac  | Give more market actions; give more attack actions; allow taking cards from market without paying; allow conquering regions without attacking (must be adjacent to a controlled region) |
 | Wonders  | Brown  | VP for end-game scoring |
 | Misc     | Grey   | Fishing (access water tiles); Cavalry (attack non-adjacent territory); gain taxation from isolated controlled regions |
+
+### Modifier Deck Upgrades
+
+Instead of buying an Empire card, a player may spend a market action to improve their personal modifier deck in one of two ways:
+
+**Draft** (1 market action + 2 gold): Draw 2 cards face-down from the shared Modifier Draw Pile. Look at both privately, add one to your modifier discard pile, and return the other face-down to the bottom of the Draw Pile. If both drawn cards are Fail, you must add one — there is no opt-out. The added card enters circulation the next time your deck reshuffles.
+
+**Cull** (1 market action + 2 gold): Search your modifier deck and discard pile. Choose any 3 cards, inspect them, and permanently remove 1 to the Trash (out of the game). Return the other 2 to your deck and reshuffle. **Fail and Success cards cannot be culled** — they are permanent fixtures of every player's deck.
+
+### Modifier Draw Pile
+
+The shared Modifier Draw Pile is set up once at game start and is available to all players. Cards returned to it go face-down to the bottom. When the pile runs out, shuffle all returned cards to form a new pile.
+
+Its composition is designed to raise your average attack strength over the starting deck, but with greater variance — powerful cards and terrible cards both appear more frequently.
+
+| Modifier              | # Cards |
+|-----------------------|---------|
+| Fail attack (reshuffle) | 2     |
+| -1                    | 1       |
+| 0                     | 2       |
+| +1                    | 3       |
+| +2                    | 4       |
+| Successful attack     | 3       |
 
 ### Victory Points
 
@@ -367,10 +391,13 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 |------|-----|------|-----------|--------|
 | Cartography | I | 3 gold OR 1 food | — | Once per era, reveal 3 face-down regions anywhere on the map. |
 | Dispatch | I | 3 gold OR 1 food | — | +1 market action per era. |
+| Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2. |
 | Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | Reduce all your region upkeep by 1 (minimum 0) this era. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
 | Guild | II | 7 gold OR 1 paper + 1 food | — | +2 market actions per era. |
+| War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
 | Alchemy | III | 6 gold OR 1 wild | — | Once per round, convert any 2 commodities into 1 wild. |
+| Grand Archive | III | 10 gold OR 2 paper + 1 wild | — | Your Draft actions draw 4 cards and keep 2; your Cull actions choose from 5 cards and remove 2. |
 
 ### Wonders (Brown)
 
@@ -389,8 +416,10 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Fishing Fleet | I | 3 gold OR 1 wood | — | Conquer water and ocean tiles (requires attack action as normal). |
 | Pillage | I | 3 gold OR 1 food | — | When you successfully conquer a region this era, gain gold equal to its taxation value. |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
+| Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
 | Cavalry | II | 6 gold OR 2 food | — | Once per era, attack a territory not adjacent to your empire. |
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource or commodity from a player you share a border with (they lose it). |
+| Recruiting Officer | II | 6 gold OR 1 food + 1 cloth | — | Once per era: perform a Draft action at no market action or gold cost. |
 | Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon up to 3 regions, then immediately claim 2 adjacent independent regions without attack actions. |
 | Supply Lines | II | 7 gold OR 1 food + 1 cloth | — | Isolated regions generate half taxation instead of none. |
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |

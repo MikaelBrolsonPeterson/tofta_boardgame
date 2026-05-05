@@ -2,6 +2,9 @@ import type { ModifierValue } from '../types/game'
 
 export const BASE_DECK: ModifierValue[] = ['fail', -2, -1, -1, 0, 0, 0, 0, 1, 1, 2, 'success']
 
+// Independent regions use a deck without 'fail' — no auto-loss for undefended territory
+export const INDEPENDENT_DECK: ModifierValue[] = [-2, -1, -1, 0, 0, 0, 0, 1, 1, 2, 'success']
+
 export function shuffle(deck: ModifierValue[]): ModifierValue[] {
   const d = [...deck]
   for (let i = d.length - 1; i > 0; i--) {
