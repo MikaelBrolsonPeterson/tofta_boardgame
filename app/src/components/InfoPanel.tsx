@@ -46,8 +46,8 @@ export default function InfoPanel() {
       {lastCombat && (
         <div className={`mt-1 p-2 rounded text-xs border ${lastCombat.success ? 'border-green-600 bg-green-900/30' : 'border-red-600 bg-red-900/30'}`}>
           <div className="font-semibold text-white mb-1">{lastCombat.success ? '⚔️ Victory' : '💀 Defeat'}</div>
-          <div className="text-slate-300">Attacker: {modifierLabel(lastCombat.attackerRoll)} → {lastCombat.attackerTotal}</div>
-          <div className="text-slate-300">Defender: {modifierLabel(lastCombat.defenderRoll)} → {lastCombat.defenderTotal}</div>
+          <div className="text-slate-300">Attacker: {modifierLabel(lastCombat.attackerRoll)}{lastCombat.attackerRoll !== 'success' && lastCombat.attackerRoll !== 'fail' && ` → ${lastCombat.attackerTotal}`}</div>
+          <div className="text-slate-300">Defender: {modifierLabel(lastCombat.defenderRoll)}{lastCombat.defenderRoll !== 'success' && lastCombat.defenderRoll !== 'fail' && ` → ${lastCombat.defenderTotal}`}</div>
         </div>
       )}
     </div>

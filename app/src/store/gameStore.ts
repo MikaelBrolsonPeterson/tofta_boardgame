@@ -138,13 +138,18 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     const finalDefDeck = defNeedsReshuffle ? shuffle([...defSrc.deck, ...defSrc.discard]) : defSrc.deck
     const finalDefDiscard = defNeedsReshuffle ? [] : defSrc.discard
 
+    const fmtStrength = (card: typeof atk.card, total: number) =>
+      card === 'success' ? 'SUCCESS' : card === 'fail' ? 'FAIL' : String(total)
+
     const combatResult: CombatResult = {
       attackerRoll: atk.card,
       defenderRoll: defSrc.card,
       attackerTotal: atkTotal,
       defenderTotal: defTotal,
       success,
-      message: success ? `Attack succeeded! (${atkTotal} vs ${defTotal})` : `Attack failed. (${atkTotal} vs ${defTotal})`,
+      message: success
+        ? `Attack succeeded! (${fmtStrength(atk.card, atkTotal)} vs ${fmtStrength(defSrc.card, defTotal)})`
+        : `Attack failed. (${fmtStrength(atk.card, atkTotal)} vs ${fmtStrength(defSrc.card, defTotal)})`,
     }
 
     const key = hexKey(toQ, toR)
