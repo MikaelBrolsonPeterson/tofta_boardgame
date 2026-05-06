@@ -19,8 +19,8 @@ const CLASS_DOT_COLOR: Record<CardClass, string> = {
 
 function benefitLabel(b: TrackBenefit): string {
   if (b.type === 'gold') return `+${b.amount}g`
-  if (b.type === 'attackAction') return '+atk'
-  if (b.type === 'marketAction') return '+mkt'
+  if (b.type === 'attackAction') return `+${b.amount}atk`
+  if (b.type === 'marketAction') return `+${b.amount}mkt`
   if (b.type === 'vp') return `+${b.amount}VP`
   return ''
 }

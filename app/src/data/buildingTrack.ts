@@ -10,34 +10,34 @@ export const CLASS_LIMIT: Record<CardClass, number> = {
 
 export type TrackBenefit =
   | { type: 'gold'; amount: number }
-  | { type: 'attackAction' }
-  | { type: 'marketAction' }
+  | { type: 'attackAction'; amount: number }
+  | { type: 'marketAction'; amount: number }
   | { type: 'vp'; amount: number }
 
 export const TRACK_BENEFITS: Record<CardClass, TrackBenefit[]> = {
   military: [
+    { type: 'attackAction', amount: 1 },
     { type: 'gold', amount: 2 },
-    { type: 'gold', amount: 2 },
-    { type: 'attackAction' },
-    { type: 'vp', amount: 1 },
+    { type: 'attackAction', amount: 2 },
+    { type: 'vp', amount: 4 },
   ],
   market: [
+    { type: 'marketAction', amount: 1 },
     { type: 'gold', amount: 2 },
-    { type: 'gold', amount: 2 },
-    { type: 'marketAction' },
-    { type: 'vp', amount: 1 },
+    { type: 'marketAction', amount: 2 },
+    { type: 'vp', amount: 4 },
   ],
   science: [
-    { type: 'gold', amount: 2 },
+    { type: 'marketAction', amount: 1 },
     { type: 'gold', amount: 3 },
-    { type: 'marketAction' },
-    { type: 'vp', amount: 2 },
+    { type: 'marketAction', amount: 2 },
+    { type: 'vp', amount: 7 },
   ],
   misc: [
+    { type: 'attackAction', amount: 1 },
     { type: 'gold', amount: 2 },
-    { type: 'gold', amount: 2 },
-    { type: 'attackAction' },
-    { type: 'vp', amount: 1 },
+    { type: 'attackAction', amount: 2 },
+    { type: 'vp', amount: 4 },
   ],
   wonders: [
     { type: 'vp', amount: 2 },

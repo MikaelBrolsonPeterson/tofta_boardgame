@@ -340,11 +340,11 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         if (benefit.type === 'gold') {
           newGold += benefit.amount
         } else if (benefit.type === 'attackAction') {
-          newAttackActionsPerTurn += 1
-          newAttackActionsRemaining += 1
+          newAttackActionsPerTurn += benefit.amount
+          newAttackActionsRemaining += benefit.amount
         } else if (benefit.type === 'marketAction') {
-          newMarketActionsPerTurn += 1
-          newMarketActionsRemaining += 1
+          newMarketActionsPerTurn += benefit.amount
+          newMarketActionsRemaining += benefit.amount
         } else if (benefit.type === 'vp') {
           newVP += benefit.amount
         }
