@@ -78,6 +78,7 @@ export interface GameState {
   conquestProgress: Record<string, number>
   log: string[]
   lastCombat: CombatResult | null
-  marketCards: EmpireCard[]
+  marketCards: (EmpireCard | null)[]
   marketDeck: EmpireCard[]
+  pendingClaims: Record<string, PlayerId>
 }

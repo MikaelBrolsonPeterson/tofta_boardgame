@@ -63,6 +63,7 @@ interface Actions {
   abandonSelected: () => void
   endTurn: () => void
   buyCard: (cardId: string, payWithGold: boolean) => void
+  replenishMarket: () => void
 }
 
 // Initialise market: deal 4 Era 1 cards face-up, rest go to deck
@@ -88,6 +89,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
   lastCombat: null,
   marketCards: _initialMarketCards,
   marketDeck: _initialMarketDeck,
+  pendingClaims: {},
 
   selectHex: (q, r) => {
     const { phase } = get()
@@ -186,25 +188,26 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     set(s => {
       const newRegions = { ...s.regions }
       const newProgress = { ...s.conquestProgress }
+      const newPendingClaims = { ...s.pendingClaims }
 
       if (conquered) {
         newRegions[key] = { ...target, owner: attacker.id }
         delete newProgress[key]
+        delete newPendingClaims[key]
       } else if (success) {
         newProgress[key] = progress
       } else {
         delete newProgress[key]
+        // Revolt: failed attack on neutral territory creates a pending claim
+        if (!target.owner) {
+          newPendingClaims[key] = attacker.id
+        }
       }
-
-      // Failed vs independent: gain half taxation
-      let goldBonus = 0
-      if (!success && !target.owner) goldBonus = Math.ceil(cfg.taxation / 2)
 
       const newPlayers = s.players.map(p => {
         if (p.id === attacker.id) {
           return {
             ...p,
-            gold: p.gold + goldBonus,
             attackActionsRemaining: p.attackActionsRemaining - 1,
             modifierDeck: finalAtkDeck,
             modifierDiscard: finalAtkDiscard,
@@ -221,12 +224,14 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       }))
 
       const progressNote = !conquered && success ? ` (${progress}/${required})` : ''
-      const logEntry = `${attacker.name} → ${cfg.label} (${toQ},${toR}): ${combatResult.message}${progressNote}`
+      const revoltNote = !success && !target.owner ? ' [Revolt pending]' : ''
+      const logEntry = `${attacker.name} → ${cfg.label} (${toQ},${toR}): ${combatResult.message}${progressNote}${revoltNote}`
 
       return {
         regions: newRegions,
         players: finalPlayers,
         conquestProgress: newProgress,
+        pendingClaims: newPendingClaims,
         phase: 'action',
         attackSourceHex: null,
         selectedHex: { q: toQ, r: toR },
@@ -363,39 +368,54 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         victoryPoints: newVP,
       }
 
-      // Replace card in market
-      const newMarketCards = [...s.marketCards]
-      const remaining = s.marketDeck.filter(c => c.era === s.era)
-      const others = s.marketDeck.filter(c => c.era !== s.era)
-      if (remaining.length > 0) {
-        const [drawn, ...rest] = remaining
-        newMarketCards[cardIndex] = drawn
-        const newMarketDeck = [...rest, ...others]
-        const newPlayers = s.players.map((p, i) =>
-          i === s.currentPlayerIndex
-            ? { ...updatedPlayer, incomeRate: calcIncomeRate(s.regions, p.id) }
-            : p
-        )
-        return {
-          players: newPlayers,
-          marketCards: newMarketCards,
-          marketDeck: newMarketDeck,
-          log: [...s.log, `${player.name} bought ${card.name}.`],
+      // Leave slot empty until replenished
+      const newMarketCards = [...s.marketCards] as (EmpireCard | null)[]
+      newMarketCards[cardIndex] = null
+      const newPlayers = s.players.map((p, i) =>
+        i === s.currentPlayerIndex
+          ? { ...updatedPlayer, incomeRate: calcIncomeRate(s.regions, p.id) }
+          : p
+      )
+      return {
+        players: newPlayers,
+        marketCards: newMarketCards,
+        log: [...s.log, `${player.name} bought ${card.name}.`],
+      }
+    })
+  },
+
+  replenishMarket: () => {
+    set(s => {
+      const player = s.players[s.currentPlayerIndex]
+      if (player.marketActionsRemaining <= 0) return s
+
+      const emptySlots = s.marketCards.filter(c => c === null).length
+      if (emptySlots === 0) return s
+
+      const cost = 2 + emptySlots
+      if (player.gold < cost) return s
+
+      const eraCards = s.marketDeck.filter(c => c.era === s.era)
+      const otherCards = s.marketDeck.filter(c => c.era !== s.era)
+      const newMarketCards = [...s.marketCards] as (EmpireCard | null)[]
+      let deck = [...eraCards]
+
+      for (let i = 0; i < newMarketCards.length; i++) {
+        if (newMarketCards[i] === null && deck.length > 0) {
+          newMarketCards[i] = deck.shift()!
         }
-      } else {
-        // No replacement — remove slot (splice out)
-        newMarketCards.splice(cardIndex, 1)
-        const newPlayers = s.players.map((p, i) =>
-          i === s.currentPlayerIndex
-            ? { ...updatedPlayer, incomeRate: calcIncomeRate(s.regions, p.id) }
-            : p
-        )
-        return {
-          players: newPlayers,
-          marketCards: newMarketCards,
-          marketDeck: others,
-          log: [...s.log, `${player.name} bought ${card.name}.`],
-        }
+      }
+
+      const newPlayers = s.players.map((p, i) => {
+        if (i !== s.currentPlayerIndex) return p
+        return { ...p, gold: p.gold - cost, marketActionsRemaining: p.marketActionsRemaining - 1 }
+      })
+
+      return {
+        players: newPlayers,
+        marketCards: newMarketCards,
+        marketDeck: [...deck, ...otherCards],
+        log: [...s.log, `${player.name} replenished market for ${cost}g.`],
       }
     })
   },
@@ -427,10 +447,24 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         ...(eraChanged ? [`══ Era ${newEra} begins! ══`] : []),
       ]
 
-      // Refresh market when era changes
+      // Resolve Revolt claims and refresh market when era changes
+      let newRegions = s.regions
       let newMarketCards = s.marketCards
       let newMarketDeck = s.marketDeck
+      let newPendingClaims = s.pendingClaims
       if (eraChanged) {
+        newRegions = { ...s.regions }
+        // Transfer any revolted neutral tiles to claimants
+        for (const [claimKey, claimantId] of Object.entries(s.pendingClaims)) {
+          const tile = newRegions[claimKey]
+          if (tile && tile.owner === null) {
+            newRegions[claimKey] = { ...tile, owner: claimantId }
+            const claimantName = s.players.find(p => p.id === claimantId)?.name ?? claimantId
+            logs.push(`${claimantName} received ${TERRAIN[tile.terrain].label} (${tile.q},${tile.r}) via Revolt.`)
+          }
+        }
+        newPendingClaims = {}
+
         const marketSize = newEra === 3 ? 5 : 4
         const eraCards = shuffleArray(s.marketDeck.filter(c => c.era === newEra))
         const otherCards = s.marketDeck.filter(c => c.era !== newEra)
@@ -438,8 +472,14 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         newMarketDeck = [...eraCards.slice(marketSize), ...otherCards]
       }
 
+      // Recalculate income after any region changes
+      const finalPlayers = newPlayers.map(p => ({
+        ...p, incomeRate: calcIncomeRate(newRegions, p.id),
+      }))
+
       return {
-        players: newPlayers,
+        regions: newRegions,
+        players: finalPlayers,
         currentPlayerIndex: nextIndex,
         round: newRound,
         era: newEra,
@@ -447,6 +487,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         selectedHex: null,
         attackSourceHex: null,
         conquestProgress: {},
+        pendingClaims: newPendingClaims,
         lastCombat: null,
         log: [...s.log, ...logs],
         marketCards: newMarketCards,

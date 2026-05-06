@@ -16,10 +16,12 @@ interface Props {
   isAttackSource: boolean
   isValidTarget: boolean
   isAttackMode: boolean
+  hasPendingClaim: boolean
+  claimColor?: string
   onClick: () => void
 }
 
-export default function HexTile({ region, selected, isAttackSource, isValidTarget, isAttackMode, onClick }: Props) {
+export default function HexTile({ region, selected, isAttackSource, isValidTarget, isAttackMode, hasPendingClaim, claimColor, onClick }: Props) {
   const { x, y } = hexToPixel(region.q, region.r)
   const cfg = TERRAIN[region.terrain]
   const points = hexCorners(x, y)
@@ -50,6 +52,17 @@ export default function HexTile({ region, selected, isAttackSource, isValidTarge
           fill={PLAYER_COLORS[region.owner]}
           stroke="#1a1a2e"
           strokeWidth={1}
+        />
+      )}
+      {/* Revolt: pending claim ring */}
+      {hasPendingClaim && (
+        <polygon
+          points={points}
+          fill="none"
+          stroke={claimColor ?? '#f59e0b'}
+          strokeWidth={2.5}
+          strokeDasharray="4 3"
+          opacity={0.85}
         />
       )}
       {/* Valid attack target pulse ring */}

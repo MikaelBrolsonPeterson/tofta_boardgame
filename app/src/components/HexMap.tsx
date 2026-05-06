@@ -4,7 +4,7 @@ import { hexKey, isAdjacent, SVG_VIEWBOX } from '../utils/hex'
 import { TERRAIN } from '../data/terrainConfig'
 
 export default function HexMap() {
-  const { regions, players, currentPlayerIndex, phase, selectedHex, attackSourceHex, selectHex } = useGameStore()
+  const { regions, players, currentPlayerIndex, phase, selectedHex, attackSourceHex, selectHex, pendingClaims } = useGameStore()
   const currentPlayer = players[currentPlayerIndex]
 
   const validTargets = new Set<string>()
@@ -33,6 +33,8 @@ export default function HexMap() {
             isAttackSource={attackSourceHex?.q === region.q && attackSourceHex?.r === region.r}
             isValidTarget={validTargets.has(key)}
             isAttackMode={phase === 'select-attack-target'}
+            hasPendingClaim={key in pendingClaims}
+            claimColor={pendingClaims[key] ? players.find(p => p.id === pendingClaims[key])?.color : undefined}
             onClick={() => selectHex(region.q, region.r)}
           />
         )

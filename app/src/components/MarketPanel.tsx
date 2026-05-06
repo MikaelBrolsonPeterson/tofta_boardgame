@@ -112,9 +112,12 @@ function CardTile({ card, canBuyGold, canBuyAlt, onBuyGold, onBuyAlt }: CardTile
 }
 
 export default function MarketPanel() {
-  const { marketCards, players, currentPlayerIndex, buyCard } = useGameStore()
+  const { marketCards, players, currentPlayerIndex, buyCard, replenishMarket } = useGameStore()
   const player = players[currentPlayerIndex]
   const actionsLeft = player.marketActionsRemaining
+  const emptySlots = marketCards.filter(c => c === null).length
+  const replenishCost = 2 + emptySlots
+  const canReplenish = actionsLeft > 0 && emptySlots > 0 && player.gold >= replenishCost
 
   return (
     <div className="flex flex-col gap-2 p-3 rounded-lg border border-slate-600 bg-slate-800 overflow-y-auto flex-1 min-h-0">
@@ -125,11 +128,31 @@ export default function MarketPanel() {
         </span>
       </div>
 
+      {emptySlots > 0 && (
+        <button
+          onClick={replenishMarket}
+          disabled={!canReplenish}
+          className="w-full px-2 py-1 rounded text-xs font-semibold bg-slate-700 text-slate-200 border border-slate-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-600 transition-colors"
+        >
+          Replenish ({emptySlots} empty slot{emptySlots !== 1 ? 's' : ''}) — {replenishCost}g
+        </button>
+      )}
+
       <div className="flex flex-col gap-2">
-        {marketCards.length === 0 && (
-          <div className="text-xs text-slate-500 italic">No cards available.</div>
+        {marketCards.every(c => c === null) && (
+          <div className="text-xs text-slate-500 italic">Market is empty.</div>
         )}
-        {marketCards.map(card => {
+        {marketCards.map((card, idx) => {
+          if (!card) {
+            return (
+              <div
+                key={`empty-${idx}`}
+                className="flex items-center justify-center p-4 rounded border border-dashed border-slate-600 text-xs text-slate-600 italic"
+              >
+                Empty slot
+              </div>
+            )
+          }
           const hasAction = actionsLeft > 0
           const goldOk = hasAction && canAffordGold(card, player.gold)
           const altOk = hasAction && canAffordAlt(card, player.resources, player.commodities)
