@@ -4,6 +4,27 @@ export type PlayerId = 'player1' | 'player2' | 'player3' | 'player4' | 'player5'
 
 export type ModifierValue = 'fail' | 'success' | -2 | -1 | 0 | 1 | 2
 
+export type CardClass = 'military' | 'market' | 'science' | 'wonders' | 'misc'
+export type ResourceType = 'stone' | 'wood' | 'food'
+export type CommodityType = 'iron' | 'paper' | 'cloth' | 'glass' | 'wild'
+
+export interface AltCostItem {
+  type: ResourceType | CommodityType
+  amount: number
+}
+
+export interface EmpireCard {
+  id: string
+  name: string
+  class: CardClass
+  era: 1 | 2 | 3
+  goldCost: number
+  altCost: AltCostItem[]
+  placement: string
+  effect: string
+  vp: number
+}
+
 export interface HexCoord {
   q: number
   r: number
@@ -29,6 +50,9 @@ export interface Player {
   incomeRate: number
   modifierDeck: ModifierValue[]
   modifierDiscard: ModifierValue[]
+  activeCards: EmpireCard[]
+  buildingTrack: Record<CardClass, number>
+  victoryPoints: number
 }
 
 export interface CombatResult {
@@ -54,4 +78,6 @@ export interface GameState {
   conquestProgress: Record<string, number>
   log: string[]
   lastCombat: CombatResult | null
+  marketCards: EmpireCard[]
+  marketDeck: EmpireCard[]
 }

@@ -1,9 +1,20 @@
 import { create } from 'zustand'
-import type { GameState, Player, PlayerId, CombatResult } from '../types/game'
+import type { GameState, Player, PlayerId, CombatResult, EmpireCard, CardClass } from '../types/game'
 import { buildInitialMap } from '../data/initialMap'
 import { BASE_DECK, INDEPENDENT_DECK, shuffle, drawOne, modifierToNumber } from '../data/modifierDeck'
 import { TERRAIN } from '../data/terrainConfig'
 import { getNeighbors, hexKey, isAdjacent } from '../utils/hex'
+import { EMPIRE_CARDS } from '../data/empireCards'
+import { CLASS_LIMIT, TRACK_BENEFITS } from '../data/buildingTrack'
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
 
 const PLAYER_COLORS = ['#3b82f6', '#ef4444', '#22c55e', '#f97316', '#a855f7']
 
@@ -22,6 +33,9 @@ function makePlayer(index: number): Player {
     incomeRate: 0,
     modifierDeck: shuffle([...BASE_DECK]),
     modifierDiscard: [],
+    activeCards: [],
+    buildingTrack: { military: 0, market: 0, science: 0, wonders: 0, misc: 0 },
+    victoryPoints: 0,
   }
 }
 
@@ -48,7 +62,17 @@ interface Actions {
   executeAttack: (toQ: number, toR: number) => void
   abandonSelected: () => void
   endTurn: () => void
+  buyCard: (cardId: string, payWithGold: boolean) => void
 }
+
+// Initialise market: deal 4 Era 1 cards face-up, rest go to deck
+const _era1Shuffled = shuffleArray(EMPIRE_CARDS.filter(c => c.era === 1))
+const _initialMarketCards: EmpireCard[] = _era1Shuffled.slice(0, 4)
+const _initialMarketDeck: EmpireCard[] = [
+  ..._era1Shuffled.slice(4),
+  ...shuffleArray(EMPIRE_CARDS.filter(c => c.era === 2)),
+  ...shuffleArray(EMPIRE_CARDS.filter(c => c.era === 3)),
+]
 
 export const useGameStore = create<GameState & Actions>((set, get) => ({
   regions: buildInitialMap(),
@@ -62,6 +86,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
   conquestProgress: {},
   log: ['Game started. Player 1\'s turn.'],
   lastCombat: null,
+  marketCards: _initialMarketCards,
+  marketDeck: _initialMarketDeck,
 
   selectHex: (q, r) => {
     const { phase } = get()
@@ -235,6 +261,145 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     })
   },
 
+  buyCard: (cardId, payWithGold) => {
+    set(s => {
+      const player = s.players[s.currentPlayerIndex]
+      const cardIndex = s.marketCards.findIndex(c => c.id === cardId)
+      if (cardIndex === -1) return s
+
+      const card = s.marketCards[cardIndex]
+
+      // Check market action available
+      if (player.marketActionsRemaining <= 0) return s
+
+      // Check class limit
+      const cls = card.class as CardClass
+      if (player.buildingTrack[cls] >= CLASS_LIMIT[cls]) return s
+
+      // Check active slot limit
+      const maxSlots = s.era === 1 ? 3 : s.era === 2 ? 4 : 5
+      if (player.activeCards.length >= maxSlots) return s
+
+      // Check affordability
+      if (payWithGold) {
+        if (player.gold < card.goldCost) return s
+      } else {
+        // Must satisfy ALL altCost items
+        for (const item of card.altCost) {
+          const resKeys = ['stone', 'wood', 'food']
+          const comKeys = ['iron', 'paper', 'cloth', 'glass', 'wild']
+          if (resKeys.includes(item.type)) {
+            if (player.resources[item.type as keyof typeof player.resources] < item.amount) return s
+          } else if (comKeys.includes(item.type)) {
+            if (player.commodities[item.type as keyof typeof player.commodities] < item.amount) return s
+          }
+        }
+      }
+
+      // Deduct cost
+      let newResources = { ...player.resources }
+      let newCommodities = { ...player.commodities }
+      let newGold = player.gold
+
+      if (payWithGold) {
+        newGold -= card.goldCost
+      } else {
+        for (const item of card.altCost) {
+          const resKeys = ['stone', 'wood', 'food']
+          if (resKeys.includes(item.type)) {
+            newResources = {
+              ...newResources,
+              [item.type]: newResources[item.type as keyof typeof newResources] - item.amount,
+            }
+          } else {
+            newCommodities = {
+              ...newCommodities,
+              [item.type]: newCommodities[item.type as keyof typeof newCommodities] - item.amount,
+            }
+          }
+        }
+      }
+
+      // Apply track benefit at current position (before incrementing)
+      const trackPos = player.buildingTrack[cls]
+      const benefits = TRACK_BENEFITS[cls]
+      const benefit = benefits[trackPos]
+
+      let newAttackActionsPerTurn = player.attackActionsPerTurn
+      let newAttackActionsRemaining = player.attackActionsRemaining
+      let newMarketActionsPerTurn = player.marketActionsPerTurn
+      let newMarketActionsRemaining = player.marketActionsRemaining
+      let newVP = player.victoryPoints + card.vp
+
+      if (benefit) {
+        if (benefit.type === 'gold') {
+          newGold += benefit.amount
+        } else if (benefit.type === 'attackAction') {
+          newAttackActionsPerTurn += 1
+          newAttackActionsRemaining += 1
+        } else if (benefit.type === 'marketAction') {
+          newMarketActionsPerTurn += 1
+          newMarketActionsRemaining += 1
+        } else if (benefit.type === 'vp') {
+          newVP += benefit.amount
+        }
+      }
+
+      // Decrement market actions
+      newMarketActionsRemaining -= 1
+
+      // Build updated player
+      const updatedPlayer: Player = {
+        ...player,
+        gold: newGold,
+        resources: newResources,
+        commodities: newCommodities,
+        activeCards: [...player.activeCards, card],
+        buildingTrack: { ...player.buildingTrack, [cls]: trackPos + 1 },
+        attackActionsPerTurn: newAttackActionsPerTurn,
+        attackActionsRemaining: newAttackActionsRemaining,
+        marketActionsPerTurn: newMarketActionsPerTurn,
+        marketActionsRemaining: newMarketActionsRemaining,
+        victoryPoints: newVP,
+      }
+
+      // Replace card in market
+      const newMarketCards = [...s.marketCards]
+      const remaining = s.marketDeck.filter(c => c.era === s.era)
+      const others = s.marketDeck.filter(c => c.era !== s.era)
+      if (remaining.length > 0) {
+        const [drawn, ...rest] = remaining
+        newMarketCards[cardIndex] = drawn
+        const newMarketDeck = [...rest, ...others]
+        const newPlayers = s.players.map((p, i) =>
+          i === s.currentPlayerIndex
+            ? { ...updatedPlayer, incomeRate: calcIncomeRate(s.regions, p.id) }
+            : p
+        )
+        return {
+          players: newPlayers,
+          marketCards: newMarketCards,
+          marketDeck: newMarketDeck,
+          log: [...s.log, `${player.name} bought ${card.name}.`],
+        }
+      } else {
+        // No replacement — remove slot (splice out)
+        newMarketCards.splice(cardIndex, 1)
+        const newPlayers = s.players.map((p, i) =>
+          i === s.currentPlayerIndex
+            ? { ...updatedPlayer, incomeRate: calcIncomeRate(s.regions, p.id) }
+            : p
+        )
+        return {
+          players: newPlayers,
+          marketCards: newMarketCards,
+          marketDeck: others,
+          log: [...s.log, `${player.name} bought ${card.name}.`],
+        }
+      }
+    })
+  },
+
   endTurn: () => {
     set(s => {
       const player = s.players[s.currentPlayerIndex]
@@ -243,6 +408,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const isNewRound = nextIndex === 0
       const newRound = isNewRound ? s.round + 1 : s.round
       const newEra = newRound > 8 ? 3 : newRound > 4 ? 2 : 1
+      const eraChanged = newEra !== s.era
 
       const newPlayers = s.players.map((p, i) => {
         const refreshed = {
@@ -258,8 +424,19 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const logs: string[] = [
         `${player.name} ended turn. (+${income} gold)`,
         ...(isNewRound ? [`── Round ${newRound} ──`] : []),
-        ...(newEra !== s.era ? [`══ Era ${newEra} begins! ══`] : []),
+        ...(eraChanged ? [`══ Era ${newEra} begins! ══`] : []),
       ]
+
+      // Refresh market when era changes
+      let newMarketCards = s.marketCards
+      let newMarketDeck = s.marketDeck
+      if (eraChanged) {
+        const marketSize = newEra === 3 ? 5 : 4
+        const eraCards = shuffleArray(s.marketDeck.filter(c => c.era === newEra))
+        const otherCards = s.marketDeck.filter(c => c.era !== newEra)
+        newMarketCards = eraCards.slice(0, marketSize)
+        newMarketDeck = [...eraCards.slice(marketSize), ...otherCards]
+      }
 
       return {
         players: newPlayers,
@@ -272,6 +449,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         conquestProgress: {},
         lastCombat: null,
         log: [...s.log, ...logs],
+        marketCards: newMarketCards,
+        marketDeck: newMarketDeck,
       }
     })
   },

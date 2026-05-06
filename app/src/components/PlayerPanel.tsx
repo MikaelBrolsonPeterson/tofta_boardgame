@@ -1,4 +1,13 @@
-import type { Player } from '../types/game'
+import type { Player, CardClass } from '../types/game'
+import BuildingTrack from './BuildingTrack'
+
+const CLASS_BADGE: Record<CardClass, string> = {
+  military: 'bg-red-900 text-red-300',
+  market: 'bg-green-900 text-green-300',
+  science: 'bg-purple-900 text-purple-300',
+  wonders: 'bg-amber-900 text-amber-300',
+  misc: 'bg-slate-700 text-slate-300',
+}
 
 interface Props {
   player: Player
@@ -19,6 +28,7 @@ export default function PlayerPanel({ player, isActive }: Props) {
         <Stat label="Income" value={`${player.incomeRate >= 0 ? '+' : ''}${player.incomeRate}`} highlight={player.incomeRate >= 0} warn={player.incomeRate < 0} />
         <Stat label="Attacks" value={`${player.attackActionsRemaining}/${player.attackActionsPerTurn}`} />
         <Stat label="Market" value={`${player.marketActionsRemaining}/${player.marketActionsPerTurn}`} />
+        <Stat label="VP" value={String(player.victoryPoints)} highlight />
       </div>
 
       <div className="border-t border-slate-600 pt-2 text-xs text-slate-400">
@@ -39,6 +49,27 @@ export default function PlayerPanel({ player, isActive }: Props) {
           <span>🫙 {player.commodities.glass}</span>
           <span>⭐ {player.commodities.wild}</span>
         </div>
+      </div>
+
+      {player.activeCards.length > 0 && (
+        <div className="border-t border-slate-600 pt-2 text-xs">
+          <div className="font-semibold text-slate-300 mb-1">Active Cards</div>
+          <div className="flex flex-col gap-0.5">
+            {player.activeCards.map(card => (
+              <div key={card.id} className="flex items-center gap-1">
+                <span className={`px-1 rounded text-xs ${CLASS_BADGE[card.class]}`}>
+                  {card.class.slice(0, 3)}
+                </span>
+                <span className="text-slate-300 truncate">{card.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div className="border-t border-slate-600 pt-2 text-xs">
+        <div className="font-semibold text-slate-300 mb-1">Building Track</div>
+        <BuildingTrack buildingTrack={player.buildingTrack} />
       </div>
 
       <div className="text-xs text-slate-500">

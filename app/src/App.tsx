@@ -4,6 +4,7 @@ import PlayerPanel from './components/PlayerPanel'
 import InfoPanel from './components/InfoPanel'
 import ActionPanel from './components/ActionPanel'
 import GameLog from './components/GameLog'
+import MarketPanel from './components/MarketPanel'
 
 export default function App() {
   const { players, currentPlayerIndex, round, era } = useGameStore()
@@ -44,29 +45,9 @@ export default function App() {
         </div>
 
         {/* Right panel */}
-        <div className="w-64 flex-shrink-0 flex flex-col gap-3 p-3">
+        <div className="w-64 flex-shrink-0 flex flex-col gap-3 p-3 min-h-0">
           <GameLog />
-          <div className="p-3 rounded-lg border border-slate-600 bg-slate-800 text-xs text-slate-400">
-            <div className="font-semibold text-slate-300 mb-2">Legend</div>
-            <div className="flex flex-col gap-1">
-              {[
-                ['#27ae60', 'Grassland — tax 3, upkeep 1'],
-                ['#7f8c8d', 'Mountain — tax 1, upkeep 3, def +2'],
-                ['#1e8449', 'Forest — tax 1, upkeep 2, def +1'],
-                ['#4a6b3a', 'Swamp — tax 0, 2 attacks needed'],
-                ['#d4ac0d', 'Desert — attacker disadvantage'],
-                ['#b7950b', 'Capitol — tax 4, 3 attacks needed'],
-                ['#7d6608', 'Ruins — tax 2, def −1, +1 Wild/round'],
-                ['#2980b9', 'Water — taxation only'],
-                ['#1a5e8a', 'Ocean — needs Navy card'],
-              ].map(([color, label]) => (
-                <div key={color} className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded flex-shrink-0" style={{ backgroundColor: color }} />
-                  <span>{label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <MarketPanel />
         </div>
       </div>
 

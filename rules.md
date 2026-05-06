@@ -111,15 +111,18 @@ Resources and commodities reset to zero at each era transition.
 
 ### End Conditions
 
-- Players complete all 12 rounds.
-- Taking another player's capitol will end the game (?). If the capitol is retaken (or freed by a third player) during the next round, the game continues?
+*(Under design — see Mechanics Under Consideration)*
+
+The primary end condition is completing all 12 rounds. A potential alternate end condition is capturing an opponent's Capitol, but the exact rules around this are unresolved.
 
 ### Scoring
 
+*(Under design — see Mechanics Under Consideration)*
+
 | Era    | Scoring rules |
 |--------|---------------|
-| 1 and 2 | Runtime scoring. Scoring for regions? |
-| 3       | Final scoring. Scoring for regions, Empire cards, and remaining money. |
+| 1 and 2 | Interim scoring at era transition. Exact criteria TBD. |
+| 3       | Final scoring. Regions, Empire cards, Wonder VPs, and remaining gold all contribute. |
 
 ---
 
@@ -336,6 +339,22 @@ Some cards have victory points marked on them.
 ---
 
 ## Mechanics Under Consideration
+
+- **Game length and era structure:** The current structure is 12 rounds across 3 eras of 4 rounds each. Questions to settle: Does 12 rounds feel right for 2 players vs 5 players — should game length scale with player count? Is 4 rounds per era enough time to build an economy before it resets? An era of 3 rounds would make resource investment feel more urgent; 5 rounds would allow more deliberate play. Target play time (60 min? 90 min?) should drive this decision.
+
+- **Win and end conditions:** Two models to consider:
+  1. *Fixed length:* All 12 rounds are always played; highest VP wins. Clean and predictable, but late-game can feel anticlimactic if one player dominates.
+  2. *Capitol capture trigger:* Capturing an opponent's Capitol ends the game at the close of that round (giving all other players one final turn). The captured player is eliminated or scores immediately and sits out. Disputed questions: can a Capitol be recaptured in the same round? Does eliminating a player in a 3+ player game create a runaway-leader problem?
+  A hybrid option: Capitol capture scores a large VP bonus and triggers a final scoring, but the game always plays out all 12 rounds — no elimination.
+
+- **Scoring criteria:** The following are candidates for VP sources — none are finalised:
+  - Regions controlled at end of game (flat per region, or weighted by terrain value?)
+  - Regions controlled at each era transition (interim scoring)
+  - Empire cards with printed VP (Wonders and select others)
+  - Gold remaining in treasury (Grand Market card already references this)
+  - Fulfilled objective cards (if added)
+  - Building track milestones on the player mat
+  A key design question: should interim era scoring reward expansion, income, or both? Rewarding only regions risks turtling; rewarding only income discourages aggression.
 
 - **Event cards:** Every new round a new event card is revealed with slight modifications to conditions. Extra strong modification the round before end of era — Turmoil!
 - **Monetary system:** (under design)
