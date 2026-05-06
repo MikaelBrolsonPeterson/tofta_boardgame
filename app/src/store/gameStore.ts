@@ -447,7 +447,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         ...(eraChanged ? [`══ Era ${newEra} begins! ══`] : []),
       ]
 
-      // Resolve Revolt claims and refresh market when era changes
+      // Resolve Revolt claims and refresh market when era changes; fill empty slots each round
       let newRegions = s.regions
       let newMarketCards = s.marketCards
       let newMarketDeck = s.marketDeck
@@ -470,6 +470,19 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         const otherCards = s.marketDeck.filter(c => c.era !== newEra)
         newMarketCards = eraCards.slice(0, marketSize)
         newMarketDeck = [...eraCards.slice(marketSize), ...otherCards]
+      } else if (isNewRound) {
+        // Fill empty slots from current era deck between rounds
+        const eraCards = newMarketDeck.filter(c => c.era === s.era)
+        const otherCards = newMarketDeck.filter(c => c.era !== s.era)
+        const filled = [...newMarketCards] as (EmpireCard | null)[]
+        let deck = [...eraCards]
+        for (let i = 0; i < filled.length; i++) {
+          if (filled[i] === null && deck.length > 0) {
+            filled[i] = deck.shift()!
+          }
+        }
+        newMarketCards = filled
+        newMarketDeck = [...deck, ...otherCards]
       }
 
       // Recalculate income after any region changes
