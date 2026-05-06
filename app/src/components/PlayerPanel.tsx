@@ -12,9 +12,10 @@ const CLASS_BADGE: Record<CardClass, string> = {
 interface Props {
   player: Player
   isActive: boolean
+  ownedRegions: number
 }
 
-export default function PlayerPanel({ player, isActive }: Props) {
+export default function PlayerPanel({ player, isActive, ownedRegions }: Props) {
   return (
     <div className={`flex flex-col gap-2 p-3 rounded-lg border ${isActive ? 'border-yellow-400 bg-slate-700' : 'border-slate-600 bg-slate-800'}`}>
       <div className="flex items-center gap-2">
@@ -51,9 +52,12 @@ export default function PlayerPanel({ player, isActive }: Props) {
         </div>
       </div>
 
-      {player.activeCards.length > 0 && (
+      {(player.activeCards.length > 0 || ownedRegions > 0) && (
         <div className="border-t border-slate-600 pt-2 text-xs">
-          <div className="font-semibold text-slate-300 mb-1">Active Cards</div>
+          <div className="flex items-center justify-between mb-1">
+            <span className="font-semibold text-slate-300">Buildings</span>
+            <span className="text-slate-500">{player.activeCards.length}/{ownedRegions}</span>
+          </div>
           <div className="flex flex-col gap-0.5">
             {player.activeCards.map(card => (
               <div key={card.id} className="flex items-center gap-1">

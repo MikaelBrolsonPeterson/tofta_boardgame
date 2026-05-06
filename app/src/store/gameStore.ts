@@ -281,9 +281,9 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const cls = card.class as CardClass
       if (player.buildingTrack[cls] >= CLASS_LIMIT[cls]) return s
 
-      // Check active slot limit
-      const maxSlots = s.era === 1 ? 3 : s.era === 2 ? 4 : 5
-      if (player.activeCards.length >= maxSlots) return s
+      // One building per owned region
+      const ownedRegions = Object.values(s.regions).filter(r => r.owner === player.id).length
+      if (player.activeCards.length >= ownedRegions) return s
 
       // Check affordability
       if (payWithGold) {

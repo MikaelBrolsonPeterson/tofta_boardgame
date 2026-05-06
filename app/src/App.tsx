@@ -7,7 +7,8 @@ import GameLog from './components/GameLog'
 import MarketPanel from './components/MarketPanel'
 
 export default function App() {
-  const { players, currentPlayerIndex, round, era } = useGameStore()
+  const { players, currentPlayerIndex, round, era, regions } = useGameStore()
+  const regionList = Object.values(regions)
   const currentPlayer = players[currentPlayerIndex]
 
   return (
@@ -34,6 +35,7 @@ export default function App() {
               key={player.id}
               player={player}
               isActive={i === currentPlayerIndex}
+              ownedRegions={regionList.filter(r => r.owner === player.id).length}
             />
           ))}
           <InfoPanel />
