@@ -18,6 +18,16 @@ You are two competing beehives in a park called Bulltofta. You race for claiming
 
 The game consists of 15 rounds where each player has one turn each. Each player's base actions scale with the current era — in Era 1 players have 1 attack and 1 market action, in Era 2 they have 2 of each, and in Era 3 they have 3 of each. Additional actions of both types can be acquired by purchasing and assigning Empire cards to your Empire.
 
+### Starting State
+
+Each player begins with:
+- **5 gold**
+- **1 Capitol** (taxation 4, upkeep 1)
+- **1 adjacent grassland** (taxation 3, upkeep 1)
+- Starting income rate: **5 gold per round**
+
+The first conquest decision — grassland for income, mountain for stone, forest for wood — sets the strategic tone for Era I.
+
 ### Player Empire Mat
 
 Each player has their own empire mat with two independent tracking systems:
@@ -426,7 +436,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 
 - **Scoring criteria:** Mostly settled. Milestones and Awards system adopted (see Scoring section). Open question: what does interim era scoring reward at end of Era 1 and Era 2?
 
-- **Monetary system:** (under design)
+- **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting income rate: 5 gold/round. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
