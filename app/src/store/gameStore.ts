@@ -398,7 +398,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const eraCards = s.marketDeck.filter(c => c.era === s.era)
       const otherCards = s.marketDeck.filter(c => c.era !== s.era)
       const newMarketCards = [...s.marketCards] as (EmpireCard | null)[]
-      let deck = [...eraCards]
+      const deck = [...eraCards]
 
       for (let i = 0; i < newMarketCards.length; i++) {
         if (newMarketCards[i] === null && deck.length > 0) {
@@ -475,7 +475,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         const eraCards = newMarketDeck.filter(c => c.era === s.era)
         const otherCards = newMarketDeck.filter(c => c.era !== s.era)
         const filled = [...newMarketCards] as (EmpireCard | null)[]
-        let deck = [...eraCards]
+        const deck = [...eraCards]
         for (let i = 0; i < filled.length; i++) {
           if (filled[i] === null && deck.length > 0) {
             filled[i] = deck.shift()!
