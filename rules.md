@@ -268,7 +268,7 @@ Conquering a region costs one Attack action. The conquest succeeds if the attack
 
 - **Success:** Take control of the region and place your indicator there. Conquered regions provide tax but also cost upkeep.
 - **Failure:** The region remains independent, but the player gains half the taxation of the region (rounded up) right away, which can be used to purchase cards.
-- **Versus another player:** Remove that player's token and place one of your own instead.
+- **Versus another player:** Remove that player's token and place one of your own instead. The attacker takes up to 2 resources or commodities from the conquered region's stockpile; any remainder returns to the general supply. Any building token on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the building is replanted on a new eligible tile. Any on-loss effects on the losing player's Empire cards trigger immediately.
 
 ### Multiple Attacks to Conquer
 
@@ -522,3 +522,4 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |
 | Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid an opponent's region adjacent to water or ocean — steal gold equal to that region's taxation value. |
 | Navy | III | 10 gold OR 2 wood + 1 iron | — | Full ocean access. +1 attack action usable only on ocean and water tiles. |
+| Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions this era, gain +1 VP. |
