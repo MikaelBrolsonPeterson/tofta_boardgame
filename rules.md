@@ -181,9 +181,21 @@ At the start of the game the map is filled with independent regions. They do not
 
 Taxation is the primary way players make money. Some of it is spent on upkeep to maintain control of territories.
 
-**Connectivity:** A region must have a continuous path of player-controlled regions back to the Capitol to generate taxation. Regions that lack this path produce no tax — only upkeep. This discourages overextension and disconnected expansion.
+**Connectivity:** A region must have a continuous path of player-controlled regions back to the Capitol to generate taxation. Regions that lack this path produce no tax — only upkeep.
 
 **Exception:** The player start region is the Capitol.
+
+**Scaling upkeep:** Large empires become progressively more expensive to maintain. Once your empire exceeds a size threshold, all regions cost additional upkeep:
+
+| Empire size | Upkeep modifier |
+|-------------|----------------|
+| 1–5 regions | Base upkeep |
+| 6–9 regions | +1 to all regions |
+| 10+ regions | +2 to all regions |
+
+*(Thresholds subject to playtesting.)*
+
+**If you cannot pay upkeep:** You must abandon regions of your choice until your upkeep is affordable. Forced abandonment can cascade — dropping a region may break connectivity, cutting taxation and making it even harder to cover remaining upkeep.
 
 ### Resources
 
@@ -217,7 +229,7 @@ Resources and commodities are stored on the region that produces them and accumu
 
 - When spending a resource or commodity to buy a card, the player chooses which region to take it from.
 - Stockpiles are public information.
-- When a region is conquered, the conqueror takes all stockpiled resources and commodities on that region. This makes well-stocked regions tempting raid targets.
+- When a region is conquered, the conqueror takes up to **2 resources or commodities** from the stockpile. Any remainder is destroyed. This makes well-stocked regions tempting raid targets while limiting chain-raid snowballing.
 
 ### Buildings
 
@@ -385,6 +397,27 @@ Some cards have victory points marked on them.
 
 ---
 
+## Comeback Mechanic
+
+At the end of each round, the player in last place draws the top card from the **Catch-Up Deck** and adds it to their modifier discard pile. It enters circulation the next time their deck reshuffles.
+
+**Last place** is determined by:
+1. Fewest regions controlled
+2. Tiebreak: lowest income rate
+3. Tiebreak: lowest taxation
+
+The Catch-Up Deck consists of 12 cards with colored faces (distinct from all other modifier cards) but identical backs. Cards are shuffled face-down and drawn from the top.
+
+| Modifier | # Cards |
+|----------|---------|
+| +2 | 6 |
+| +3 | 5 |
+| Successful attack (reshuffle) | 1 |
+
+When the deck runs out, reshuffle all 12 cards back in. The colored face ensures catch-up cards can always be identified and separated after the game.
+
+---
+
 ## Mechanics Under Consideration
 
 - **Game length and era structure:** Currently 15 rounds across 3 eras of 5 rounds each (playtesting with 1v1). Questions to revisit after playtesting: Does 15 rounds feel right for 2 players vs 5 players — should game length scale with player count? Target play time (60 min? 90 min?) should drive this decision.
@@ -393,9 +426,8 @@ Some cards have victory points marked on them.
 
 - **Scoring criteria:** Mostly settled. Milestones and Awards system adopted (see Scoring section). Open question: what does interim era scoring reward at end of Era 1 and Era 2?
 
-- **Event cards:** Every new round a new event card is revealed with slight modifications to conditions. Extra strong modification the round before end of era — Turmoil!
 - **Monetary system:** (under design)
-- **Snowballing and comeback mechanics:** The stockpile raid system risks accelerating a winning player's advantage — raiding resources fuels further purchases and raids. Needs dedicated design attention before first playtest.
+- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Shared world buildings:** Common buildings pre-placed on the map at game start. Any player controlling the tile gets the basic benefit. A player can claim a common building by buying the matching Empire card on that tile — the building becomes personal and loses its shared status, creating a race to claim them. Builder VP is awarded immediately and permanently. Open questions: how to price the claim discount given the existing gold-OR-resource dual pricing system; exact benefit types; total count per map; interaction with building destruction on conquest.
