@@ -16,15 +16,15 @@ You are two competing beehives in a park called Bulltofta. You race for claiming
 
 ### General
 
-The game consists of 12 rounds where each player has one turn each. At the start each player has 1 attack action and 1 market action per turn. More actions of both types can be acquired by purchasing and assigning Empire cards to your Empire.
+The game consists of 15 rounds where each player has one turn each. Each player's base actions scale with the current era — in Era 1 players have 1 attack and 1 market action, in Era 2 they have 2 of each, and in Era 3 they have 3 of each. Additional actions of both types can be acquired by purchasing and assigning Empire cards to your Empire.
 
 ### Player Empire Mat
 
 Each player has their own empire mat with two independent tracking systems:
 
-**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. This expands each era: 3 slots in Era I, 4 in Era II, 5 in Era III. Selling a card frees a slot.
+**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. This expands each era: 3 slots in Era I, 4 in Era II, 5 in Era III. Discarding a card frees a slot.
 
-**Class building tracks:** Each card class has a fixed row of slots on the mat with benefits hidden underneath. Every time you buy a card of a class, you advance that class's track — moving the token from mat to board reveals the benefit. This is permanent: selling a card later does not restore the track slot. Class limits are hard caps on total purchases across the whole game.
+**Class building tracks:** Each card class has a fixed row of slots on the mat with benefits hidden underneath. Every time you buy a card of a class, you advance that class's track — moving the token from mat to board reveals the benefit. This is permanent: discarding a card later does not restore the track slot. Class limits are hard caps on total purchases across the whole game.
 
 | Class | Track slots | Benefit pattern |
 |-------|-------------|-----------------|
@@ -46,7 +46,7 @@ When purchased, Empire cards are added to the player's empire mat and modifier c
 
 ### Eras
 
-The 12 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
+The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
 
 | Era | Active card slots | Empire cards in market |
 |-----|-------------------|------------------------|
@@ -54,7 +54,13 @@ The 12 rounds are divided into 3 Eras. Different eras have unique Empire cards, 
 | 2   | 4                 | 4                      |
 | 3   | 5                 | 5                      |
 
-### Player Order and the Initiative Track
+### Player Order
+
+At the start of the game, a first player is chosen randomly and given the first player marker. After each round, the marker passes clockwise. Player turns within a round proceed in the opposite direction — counterclockwise — so the player just before the marker holder in clockwise order goes second, and so on. This ensures turn order rotates fairly across all players over time.
+
+#### Variant: Initiative Track
+
+For a more strategic turn order experience, replace the rotating marker with the following system:
 
 At the start of each era, players select their position on the Initiative Track. The track has **N+2 spots** where N is the number of players — always two more spots than players, making the bottom positions genuinely tempting.
 
@@ -72,7 +78,7 @@ Lower spots (later in turn order) grant increasingly valuable rewards. Only posi
 | 6 | +1 extra attack action this era | 4+ players |
 | 7 | Draw 2 Empire cards, keep 1 free | 5+ players |
 
-**Incentives for going first:** first market pick each round, first to act on Event cards.
+**Incentives for going first:** first market pick each round.
 
 **Incentives for going last:** full information, and the ability to attack a high-value region right before the round resets — leaving an opponent to start their next turn with crippled income and no immediate recourse (the "king hit").
 
@@ -88,10 +94,10 @@ A player performs their actions in any order.
 
 | Name | Description |
 |------|-------------|
-| Market action | Costs a Market action. Either: buy a card from market; perform any actions stated on the card; or add card to Empire mat on an empty space (not a decree — card's effect goes into effect immediately). |
+| Market action | Costs a Market action. Either: buy a card from market (requires a free slot on your Empire mat — discard a card first if full); perform any actions stated on the card; or add card to Empire mat on an empty space (not a decree — card's effect goes into effect immediately). |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
 | Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). Any building on the region is destroyed. Income rate is recalculated immediately — abandoning a region in the middle of your empire may isolate other tiles, cutting their taxation. |
-| Sell Empire card | Can be performed whenever the player wants, except during an Attack action. Sell an Empire card to make room for a newly purchased card. |
+| Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
 
 ### End of Round
 
@@ -103,26 +109,57 @@ When the round ends each player:
 
 | Era | Ends at round | What happens |
 |-----|---------------|--------------|
-| 1   | 4             | Light scoring; remove unpurchased Era cards; populate market with next era cards; recalculate Income Rate; players select Initiative Track positions |
-| 2   | 8             | Same as above |
-| 3   | 12            | Full scoring |
+| 1   | 5             | Light scoring; remove unpurchased Era cards; populate market with next era cards; recalculate Income Rate; players select Initiative Track positions |
+| 2   | 10            | Same as above |
+| 3   | 15            | Full scoring |
 
-Resources and commodities reset to zero at each era transition.
+Resources and commodities accumulate on their producing regions and persist across era transitions.
 
 ### End Conditions
 
-*(Under design — see Mechanics Under Consideration)*
+The primary end condition is completing all 15 rounds. The game can also end early via Capitol capture.
 
-The primary end condition is completing all 12 rounds. A potential alternate end condition is capturing an opponent's Capitol, but the exact rules around this are unresolved.
+**Capitol Capture:** When a player captures an opponent's Capitol, the current round plays out to its end as normal — all remaining players still take their turns. Any player whose turn comes after the capture may attempt to recapture the Capitol. If the Capitol is still captured when the round ends, the game ends immediately and full scoring begins. The player who captured the Capitol gains **+5 VP**.
+
+If the Capitol is recaptured before the round ends, the game continues normally.
 
 ### Scoring
 
-*(Under design — see Mechanics Under Consideration)*
+#### Milestones
 
-| Era    | Scoring rules |
-|--------|---------------|
-| 1 and 2 | Interim scoring at era transition. Exact criteria TBD. |
-| 3       | Final scoring. Regions, Empire cards, Wonder VPs, and remaining gold all contribute. |
+Milestones are claimed permanently by the first player to meet the condition. Each milestone awards **5 VP** to the claimer only. Once claimed, no other player can claim it.
+
+| Milestone | Condition |
+|-----------|-----------|
+| Ruins Explorer | Conquer an Ancient Ruins region |
+| Prosperous Empire | Reach an income rate of 10 |
+| Developed Lands | Have 3 regions of the same terrain type with buildings |
+| Master of a Class | First to max out any single class track |
+
+#### Awards
+
+Awards are funded by any player during the game at a cost of 1 market action + 3 gold. At final scoring, the player leading each funded award category scores **5 VP**; the runner-up scores **2 VP**. Unfunded awards are not scored.
+
+| Award | Scored by |
+|-------|-----------|
+| Treasure Hoard | Most gold in treasury |
+| Prosperous Realm | Highest income rate |
+| Renaissance Empire | Most total building track steps across all classes |
+| Grand Architect | Empire cards with highest combined cost |
+| Industrial Power | Most commodities produced per round |
+
+#### Era Transition Scoring
+
+At the end of Era 1 and Era 2, interim scoring takes place. *(Criteria TBD — see Mechanics Under Consideration)*
+
+#### Final Scoring
+
+At the end of Era 3, full scoring takes place:
+- Regions controlled (1 VP each)
+- Empire cards with printed VP (Wonders and select others)
+- Gold remaining in treasury (via Grand Market card)
+- Milestone VP
+- Award VP
 
 ---
 
@@ -144,15 +181,13 @@ At the start of the game the map is filled with independent regions. They do not
 
 Taxation is the primary way players make money. Some of it is spent on upkeep to maintain control of territories.
 
-**Special case:** Regions not adjacent to any other player-controlled regions will not produce tax, just upkeep.
+**Connectivity:** A region must have a continuous path of player-controlled regions back to the Capitol to generate taxation. Regions that lack this path produce no tax — only upkeep. This discourages overextension and disconnected expansion.
 
 **Exception:** The player start region is the Capitol.
 
 ### Resources
 
-Resources (Stone, Wood, Food) are **not generated automatically by terrain**. They are produced only by resource buildings placed on eligible tiles via Empire cards. Controlling mountains does nothing on its own — you need a Quarry on one first.
-
-Resources carry over between rounds within an era but **reset to zero at each era transition**.
+Resources (Stone, Wood, Food) are **not generated automatically by terrain**. They are produced only by resource buildings placed on eligible tiles via Empire cards — or by certain Empire cards that generate resources based on region position (e.g. border regions, regions adjacent to specific terrain). Controlling mountains does nothing on its own — you need a Quarry or a relevant Empire card first.
 
 | Resource | Produced by | Eligible terrain |
 |----------|-------------|-----------------|
@@ -164,7 +199,7 @@ Resources carry over between rounds within an era but **reset to zero at each er
 
 ### Commodities
 
-Commodities are a processed tier above raw resources, produced by commodity buildings. They are required for most Era II and III Empire cards. Commodities also carry over within an era and reset at era transition.
+Commodities are a processed tier above raw resources, produced by commodity buildings. They are required for most Era II and III Empire cards.
 
 | Commodity | Produced by | Eligible terrain |
 |-----------|-------------|-----------------|
@@ -176,14 +211,26 @@ Commodities are a processed tier above raw resources, produced by commodity buil
 
 **Wild** counts as any commodity but **cannot substitute for resources**. It is generated automatically by controlling an Ancient Ruins region — no building required.
 
+### Resource and Commodity Stockpiles
+
+Resources and commodities are stored on the region that produces them and accumulate over time. They do not reset at era transitions.
+
+- When spending a resource or commodity to buy a card, the player chooses which region to take it from.
+- Stockpiles are public information.
+- When a region is conquered, the conqueror takes all stockpiled resources and commodities on that region. This makes well-stocked regions tempting raid targets.
+
 ### Buildings
 
 Both resource buildings and commodity buildings follow the same placement rules:
 
 - When you purchase a building card, you immediately place the building token on an eligible tile you currently control. If you have no eligible tile, you may not purchase the card.
-- The building is attached to that tile. If an opponent conquers the tile, the building is **destroyed**.
+- The building is attached to that tile. If an opponent conquers the tile, the building is **destroyed** and the conqueror takes any stockpile on that region.
 - Only one building per tile.
 - A building generates its output each round as long as you control the tile.
+
+#### Positional Resource Generation
+
+Some Empire cards generate resources or commodities based on the position of regions rather than buildings. For example, a card might cause all your mountain regions bordering an opponent to produce Stone each round regardless of whether a Quarry is present. These cards are designed to create valuable, contested stockpiles on frontier regions — tempting raid targets that reward both aggression and defense.
 
 ### Region Types
 
@@ -340,24 +387,17 @@ Some cards have victory points marked on them.
 
 ## Mechanics Under Consideration
 
-- **Game length and era structure:** The current structure is 12 rounds across 3 eras of 4 rounds each. Questions to settle: Does 12 rounds feel right for 2 players vs 5 players — should game length scale with player count? Is 4 rounds per era enough time to build an economy before it resets? An era of 3 rounds would make resource investment feel more urgent; 5 rounds would allow more deliberate play. Target play time (60 min? 90 min?) should drive this decision.
+- **Game length and era structure:** Currently 15 rounds across 3 eras of 5 rounds each (playtesting with 1v1). Questions to revisit after playtesting: Does 15 rounds feel right for 2 players vs 5 players — should game length scale with player count? Target play time (60 min? 90 min?) should drive this decision.
 
-- **Win and end conditions:** Two models to consider:
-  1. *Fixed length:* All 12 rounds are always played; highest VP wins. Clean and predictable, but late-game can feel anticlimactic if one player dominates.
-  2. *Capitol capture trigger:* Capturing an opponent's Capitol ends the game at the close of that round (giving all other players one final turn). The captured player is eliminated or scores immediately and sits out. Disputed questions: can a Capitol be recaptured in the same round? Does eliminating a player in a 3+ player game create a runaway-leader problem?
-  A hybrid option: Capitol capture scores a large VP bonus and triggers a final scoring, but the game always plays out all 12 rounds — no elimination.
+- **Win and end conditions:** Settled. Game runs 15 rounds; highest VP wins. Capitol capture ends the game at close of that round (+5 VP for capturer); recapture before round end cancels the trigger. No player elimination.
 
-- **Scoring criteria:** The following are candidates for VP sources — none are finalised:
-  - Regions controlled at end of game (flat per region, or weighted by terrain value?)
-  - Regions controlled at each era transition (interim scoring)
-  - Empire cards with printed VP (Wonders and select others)
-  - Gold remaining in treasury (Grand Market card already references this)
-  - Fulfilled objective cards (if added)
-  - Building track milestones on the player mat
-  A key design question: should interim era scoring reward expansion, income, or both? Rewarding only regions risks turtling; rewarding only income discourages aggression.
+- **Scoring criteria:** Mostly settled. Milestones and Awards system adopted (see Scoring section). Open question: what does interim era scoring reward at end of Era 1 and Era 2?
 
 - **Event cards:** Every new round a new event card is revealed with slight modifications to conditions. Extra strong modification the round before end of era — Turmoil!
 - **Monetary system:** (under design)
+- **Snowballing and comeback mechanics:** The stockpile raid system risks accelerating a winning player's advantage — raiding resources fuels further purchases and raids. Needs dedicated design attention before first playtest.
+- **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
+- **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Shared world buildings:** Common buildings pre-placed on the map at game start. Any player controlling the tile gets the basic benefit. A player can claim a common building by buying the matching Empire card on that tile — the building becomes personal and loses its shared status, creating a race to claim them. Builder VP is awarded immediately and permanently. Open questions: how to price the claim discount given the existing gold-OR-resource dual pricing system; exact benefit types; total count per map; interaction with building destruction on conquest.
 - **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
 
@@ -427,6 +467,12 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Great Wall | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
 | Grand Market | III | 9 gold OR 1 cloth + 1 paper | — | +1 VP per 5 gold in treasury at end of game. |
 | Cathedral | III | 11 gold OR 2 glass + 1 stone | — | +3 VP. All your regions gain +1 defense permanently. |
+
+### Military (Red) — Positional Resource Cards
+
+| Card | Era | Cost | Placement | Effect |
+|------|-----|------|-----------|--------|
+| Border Quarries | II | 6 gold OR 1 iron | — | All your mountain regions bordering another player produce 1 Stone per round, regardless of buildings. |
 
 ### Misc (Grey)
 
