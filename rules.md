@@ -552,4 +552,4 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
 | Grand Purge | III | 7 gold OR 1 iron | Perform three Cull actions at no cost. |
 | Propaganda | III | 6 gold OR 1 wild | Draw 5 from the Modifier Draw Pile, add 3 to your discard pile, return the rest face-down. |
-| Overhaul | III | 8 gold OR 2 paper | Trash the top card of your modifier deck without looking (if it is Fail or Success, discard it instead). Then draw 3 from the Modifier Draw Pile, add 2 to your discard pile, return 1 face-down. |
+| Overhaul | III | 8 gold OR 2 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. Then draw 3 from the Modifier Draw Pile, add 2 to your discard pile, return 1 face-down. |
