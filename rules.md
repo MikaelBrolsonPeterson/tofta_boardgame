@@ -4,7 +4,7 @@
 
 ## Synopsis
 
-You are the Queen of a small, small empire. Your empire may lack in size but certainly not in hunger for more power! The object of the game is to expand your empire by conquest, develop an economy, and hinder your opponent. Points are scored by fulfilling objectives, expanding your empire, and claiming regions adjacent to any of your current empire tiles.
+You are the Queen of a small, small empire. Your empire may lack in size but certainly not in hunger for more power! The object of the game is to expand your empire by conquest, develop an economy, and hinder your opponent. Points are scored by fulfilling objectives and expanding your empire.
 
 ### Alternate Synopsis
 
@@ -50,19 +50,19 @@ The action and VP benefits at the end of each track are the primary incentives t
 
 All players can use their market action to buy cards from the market. The market has two kinds of cards:
 1. Empire cards
-2. Deck modifier cards
+2. Action cards
 
-When purchased, Empire cards are added to the player's empire mat and modifier cards to the modifier deck respectively.
+When purchased, Empire cards are placed on the player's Empire mat. Action cards execute immediately on purchase and are then trashed.
 
 ### Eras
 
 The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
 
-| Era | Active card slots | Empire cards in market |
-|-----|-------------------|------------------------|
-| 1   | 3                 | 4                      |
-| 2   | 4                 | 4                      |
-| 3   | 5                 | 5                      |
+| Era | Active card slots | Cards in market |
+|-----|-------------------|-----------------|
+| 1   | 3                 | 5               |
+| 2   | 4                 | 5               |
+| 3   | 5                 | 5               |
 
 ### Player Order
 
@@ -104,7 +104,7 @@ A player performs their actions in any order.
 
 | Name | Description |
 |------|-------------|
-| Market action | Costs a Market action. Either: buy a card from market (requires a free slot on your Empire mat — discard a card first if full); perform any actions stated on the card; or add card to Empire mat on an empty space (not a decree — card's effect goes into effect immediately). |
+| Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); perform a Draft or Cull action; fund an Award (3 gold); or trade with a neighboring player. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
 | Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). Any building on the region is destroyed. Income rate is recalculated immediately — abandoning a region in the middle of your empire may isolate other tiles, cutting their taxation. |
 | Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
@@ -274,7 +274,7 @@ Conquering a region costs one Attack action. The conquest succeeds if the attack
 
 - **Success:** Take control of the region and place your indicator there. Conquered regions provide tax but also cost upkeep.
 - **Failure:** The region remains independent, but the player gains half the taxation of the region (rounded up) right away, which can be used to purchase cards.
-- **Versus another player:** Remove that player's token and place one of your own instead. The attacker takes up to 2 resources or commodities from the conquered region's stockpile; any remainder returns to the general supply. Any building token on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the building is replanted on a new eligible tile. Any on-loss effects on the losing player's Empire cards trigger immediately.
+- **Versus another player:** Remove that player's token and place one of your own instead. The attacker takes up to 2 resources or commodities from the conquered region's stockpile; any remainder returns to the general supply. Any building token on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the building is replanted on a new eligible tile. Replanting costs 1 market action and no additional gold — place the building token on any eligible tile you currently control. Any on-loss effects on the losing player's Empire cards trigger immediately.
 
 ### Multiple Attacks to Conquer
 
@@ -378,7 +378,7 @@ Empire cards are used to enact decrees in your empire.
 
 Action cards appear in the market alongside Empire cards, occupying the same slots. They are era-specific. When purchased with a market action, the effect resolves immediately and the card is trashed — it never goes on the Empire mat and occupies no card slot.
 
-Action cards are more powerful deck manipulation than the standard Draft and Cull actions. They advance the purchasing player's class building track like any other card purchase.
+Action cards are more powerful deck manipulation than the standard Draft and Cull actions.
 
 Action card effects that draw from the Modifier Draw Pile follow the same reshuffle rule as combat: if a Fail or Success card is drawn, reshuffle the Draw Pile after all cards have been added to your discard pile. Action card effects that draw from your modifier deck always draw from the top — never search the deck. Untrashed cards drawn from your modifier deck go to your discard pile, not back to the top.
 
@@ -458,15 +458,17 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
+| Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength while on your mat. |
 | Watchtower | I | 3 gold OR 1 stone | Any controlled region | +1 defense to one region. Limit 1 per region. |
 | Mountain Fort | I | 3 gold OR 1 stone | Any controlled region | +1 defense to this region and all adjacent. Stacks. |
-| Battering Ram | I | 3 gold OR 1 stone | — | Target region loses 1 defense this era. |
+| Battering Ram | I | 3 gold OR 1 stone | — | Choose one region when playing this card. That region loses 1 defense while this card is on your mat. |
 | War Camp | I | 5 gold OR 2 food | Any controlled region | +1 attack action per era. |
-| Siege Engine | II | 5 gold OR 1 iron | — | Target region loses its terrain defense bonus for one attack. |
+| Siege Engine | II | 5 gold OR 1 iron | — | Once per era: target region loses its terrain defense bonus for one attack. |
 | Shield Wall | II | 7 gold OR 1 iron + 1 food | — | All your regions gain +1 defense this round. Once per era. |
 | Castle | II | 6 gold OR 2 stone | Any controlled region | +2 defense to this region and all adjacent. Stacks. |
-| Mercenaries | II | 6 gold OR 2 food | — | Gain 2 extra attack actions this era. Each used attack costs 1 additional gold. |
-| Fortress | III | 9 gold OR 3 stone | Any controlled region | +3 defense to one region permanently. |
+| Mercenaries | II | 6 gold OR 2 food | — | While on your mat: +2 extra attack actions per era. Each used attack costs 1 additional gold. |
+| Fortress | III | 9 gold OR 3 stone | Any controlled region | +3 defense to this region while this card is on your mat. |
+| Iron Legion | III | 9 gold OR 2 iron + 1 food | — | +2 base attack strength while on your mat. Requires Military Academy on your Empire mat. |
 
 ### Market (Green) — Resource buildings
 
@@ -495,13 +497,15 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Cartography | I | 3 gold OR 1 food | — | Once per era, reveal 3 face-down regions anywhere on the map. |
+| Cartography | I | 3 gold OR 1 food | — | Once per era: look at the top 3 cards of the current era deck, then return them in any order. |
 | Dispatch | I | 3 gold OR 1 food | — | +1 market action per era. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2. |
-| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | Reduce all your region upkeep by 1 (minimum 0) this era. |
+| Logistics | II | 6 gold OR 1 paper + 1 food | — | +1 attack action per era. Once per era: move one of your building tokens to another eligible region you control. |
+| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: reduce all your region upkeep by 1 (minimum 0). |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
 | Guild | II | 7 gold OR 1 paper + 1 food | — | +2 market actions per era. |
 | War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
+| Innovation | III | 9 gold OR 2 paper | — | +1 market action per era. Once per round: your next market purchase this round costs 2 less gold (minimum 1 gold). |
 | Alchemy | III | 6 gold OR 1 wild | — | Once per round, convert any 2 commodities into 1 wild. |
 | Grand Archive | III | 10 gold OR 2 paper + 1 wild | — | Your Draft actions draw 4 cards and keep 2; your Cull actions choose from 5 cards and remove 2. |
 
@@ -509,6 +513,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
+| Shrine | I | 4 gold OR 1 stone | — | +1 VP. Once per era, after a failed attack, gain 3 gold. |
 | Monument | II | 7 gold OR 1 stone + 1 cloth | — | +2 VP. |
 | Lighthouse | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks against water and ocean regions. |
 | Great Wall | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
@@ -520,12 +525,13 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | Border Quarries | II | 6 gold OR 1 iron | — | All your mountain regions bordering another player produce 1 Stone per round, regardless of buildings. |
+| Border Lumber | III | 8 gold OR 1 iron + 1 wood | — | All your forest regions bordering another player produce 1 Wood per round, regardless of buildings. |
 
 ### Misc (Grey)
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Fishing Fleet | I | 3 gold OR 1 wood | — | Conquer water and ocean tiles (requires attack action as normal). |
+| Fishing Fleet | I | 3 gold OR 1 wood | — | Conquer water tiles. Ocean tiles require Harbor or Navy. |
 | Pillage | I | 3 gold OR 1 food | — | When you successfully conquer a region this era, gain gold equal to its taxation value. |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
@@ -538,6 +544,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid an opponent's region adjacent to water or ocean — steal gold equal to that region's taxation value. |
 | Navy | III | 10 gold OR 2 wood + 1 iron | — | Full ocean access. +1 attack action usable only on ocean and water tiles. |
 | Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions this era, gain +1 VP. |
+| Inquisition | III | 8 gold OR 1 iron + 1 paper | — | Once per era: remove any 1 card from the market (that slot refills immediately). Gain gold equal to half that card's gold cost, rounded down. |
 
 ### Action Cards (execute on purchase, then trash)
 
