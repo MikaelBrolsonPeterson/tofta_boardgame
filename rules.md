@@ -384,6 +384,8 @@ Action cards appear in the market alongside Empire cards, occupying the same slo
 
 Action cards are more powerful deck manipulation than the standard Draft and Cull actions. They advance the purchasing player's class building track like any other card purchase.
 
+Action card effects that draw from the Modifier Draw Pile follow the same reshuffle rule as combat: if a Fail or Success card is drawn, reshuffle the Draw Pile after all cards have been added to your discard pile. Action card effects that trash from your modifier deck always draw from the top — never search the deck.
+
 ### Modifier Deck Upgrades
 
 Instead of buying an Empire card, a player may spend a market action to improve their personal modifier deck in one of two ways:
@@ -543,11 +545,11 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Effect |
 |------|-----|------|--------|
-| Scout | I | 3 gold | Draw 3 cards from the Modifier Draw Pile, add 1 to your discard pile, return the rest face-down. |
-| Purge | I | 3 gold | Cull 2 cards instead of 1. Fail and Success still cannot be culled. |
+| Scout | I | 3 gold | Draw 3 from the Modifier Draw Pile, add 1 to your discard pile, return the rest face-down. |
+| Purge | I | 3 gold | Perform two Cull actions at no cost. |
 | Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest face-down. |
-| Reformation | II | 5 gold OR 1 paper | Search your deck and discard pile, trash up to 2 cards. Fail and Success cannot be trashed. Reshuffle. |
-| Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile, add all 3 to your discard pile. |
-| Grand Purge | III | 7 gold OR 1 iron | Search your deck and discard pile, trash up to 4 cards. Fail and Success cannot be trashed. Reshuffle. |
+| Reformation | II | 5 gold OR 1 paper | Draw 4 cards from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), return the rest to the top and reshuffle your deck. |
+| Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
+| Grand Purge | III | 7 gold OR 1 iron | Draw 6 cards from the top of your modifier deck, trash 2 (Fail and Success cannot be trashed), return the rest to the top and reshuffle your deck. |
 | Propaganda | III | 6 gold OR 1 wild | Draw 5 from the Modifier Draw Pile, add 3 to your discard pile, return the rest face-down. |
-| Overhaul | III | 8 gold OR 2 paper | Search your deck and discard pile, trash up to 3 cards, then draw 3 from the Modifier Draw Pile and add all to your discard pile. Fail and Success cannot be trashed. Reshuffle. |
+| Overhaul | III | 8 gold OR 2 paper | Draw 4 from the top of your modifier deck, trash 2 (Fail and Success cannot be trashed), then draw 3 from the Modifier Draw Pile and add all to your discard pile. Reshuffle your deck. |
