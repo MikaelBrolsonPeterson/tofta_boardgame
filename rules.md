@@ -445,6 +445,8 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
+- **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
+- **Physical player pieces:** Inventory available physical pieces (meeples, tokens, dice, etc.) and determine how each maps to game components — region control markers, building tokens, VP trackers, resource/commodity storage, etc.
 
 ---
 
