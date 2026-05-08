@@ -354,10 +354,10 @@ If you have no eligible trading partner or prefer not to fund an opponent, you m
 
 ## Market
 
-At any given time, 5 Empire cards and 2 Strength modifier cards are available for purchase. When buying a card a player pays the cost indicated on the card to the bank.
+At any given time, 5 cards are available for purchase — a mix of Empire cards and Action cards drawn from the current era deck. When a card is purchased, the slot refills immediately from the era deck. When buying a card a player pays the cost indicated on the card to the bank.
 
-- **Strength modifier cards** are added to the Strength modifier discard pile.
 - **Empire cards** are executed right away or placed on the Empire mat.
+- **Action cards** are executed immediately on purchase, then trashed.
 
 ### Empire Cards
 
@@ -377,6 +377,12 @@ Empire cards are used to enact decrees in your empire.
 | Science  | Lilac  | Give more market actions; give more attack actions; allow taking cards from market without paying; allow conquering regions without attacking (must be adjacent to a controlled region) |
 | Wonders  | Brown  | VP for end-game scoring |
 | Misc     | Grey   | Fishing (access water tiles); Cavalry (attack non-adjacent territory); gain taxation from isolated controlled regions |
+
+### Action Cards
+
+Action cards appear in the market alongside Empire cards, occupying the same slots. They are era-specific. When purchased with a market action, the effect resolves immediately and the card is trashed — it never goes on the Empire mat and occupies no card slot.
+
+Action cards are more powerful deck manipulation than the standard Draft and Cull actions. They advance the purchasing player's class building track like any other card purchase.
 
 ### Modifier Deck Upgrades
 
@@ -532,3 +538,16 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid an opponent's region adjacent to water or ocean — steal gold equal to that region's taxation value. |
 | Navy | III | 10 gold OR 2 wood + 1 iron | — | Full ocean access. +1 attack action usable only on ocean and water tiles. |
 | Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions this era, gain +1 VP. |
+
+### Action Cards (execute on purchase, then trash)
+
+| Card | Era | Cost | Effect |
+|------|-----|------|--------|
+| Scout | I | 3 gold | Draw 3 cards from the Modifier Draw Pile, add 1 to your discard pile, return the rest face-down. |
+| Purge | I | 3 gold | Cull 2 cards instead of 1. Fail and Success still cannot be culled. |
+| Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest face-down. |
+| Reformation | II | 5 gold OR 1 paper | Search your deck and discard pile, trash up to 2 cards. Fail and Success cannot be trashed. Reshuffle. |
+| Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile, add all 3 to your discard pile. |
+| Grand Purge | III | 7 gold OR 1 iron | Search your deck and discard pile, trash up to 4 cards. Fail and Success cannot be trashed. Reshuffle. |
+| Propaganda | III | 6 gold OR 1 wild | Draw 5 from the Modifier Draw Pile, add 3 to your discard pile, return the rest face-down. |
+| Overhaul | III | 8 gold OR 2 paper | Search your deck and discard pile, trash up to 3 cards, then draw 3 from the Modifier Draw Pile and add all to your discard pile. Fail and Success cannot be trashed. Reshuffle. |
