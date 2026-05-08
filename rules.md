@@ -390,7 +390,7 @@ Action card effects that draw from the Modifier Draw Pile follow the same reshuf
 
 Instead of buying an Empire card, a player may spend a market action to improve their personal modifier deck in one of two ways:
 
-**Draft** (1 market action + 2 gold): Draw 2 cards face-down from the shared Modifier Draw Pile. Look at both privately, add one to your modifier discard pile, and return the other face-down to the bottom of the Draw Pile. If both drawn cards are Fail, you must add one — there is no opt-out. The added card enters circulation the next time your deck reshuffles.
+**Draft** (1 market action + 2 gold): Draw 2 cards from the shared Modifier Draw Pile. Look at both privately, add one to your modifier discard pile, and return the other to the bottom of the Modifier Draw Pile. If both drawn cards are Fail, you must add one — there is no opt-out. The added card enters circulation the next time your deck reshuffles.
 
 **Cull** (1 market action + 2 gold): Search your modifier deck and discard pile. Choose any 3 cards, inspect them, and permanently remove 1 to the Trash (out of the game). Return the other 2 to your deck and reshuffle. **Fail and Success cards cannot be culled** — they are permanent fixtures of every player's deck.
 
@@ -545,11 +545,11 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Effect |
 |------|-----|------|--------|
-| Scout | I | 3 gold | Draw 3 from the Modifier Draw Pile, add 1 to your discard pile, return the rest face-down. |
+| Scout | I | 3 gold | Draw 3 from the Modifier Draw Pile, add 1 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Purge | I | 3 gold | Perform two Cull actions at no cost. |
-| Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest face-down. |
+| Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Reformation | II | 5 gold OR 1 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. |
 | Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
 | Grand Purge | III | 7 gold OR 1 iron | Perform three Cull actions at no cost. |
-| Propaganda | III | 6 gold OR 1 wild + 1 paper | Draw 5 from the Modifier Draw Pile, add 3 to your discard pile, return the rest face-down. |
-| Overhaul | III | 8 gold OR 2 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. Then draw 3 from the Modifier Draw Pile, add 2 to your discard pile, return 1 face-down. |
+| Propaganda | III | 6 gold OR 1 wild + 1 paper | Draw 5 from the Modifier Draw Pile, add 3 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
+| Overhaul | III | 8 gold OR 2 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. Then draw 3 from the Modifier Draw Pile, add 2 to your discard pile, return 1 to the bottom of the Modifier Draw Pile. |
