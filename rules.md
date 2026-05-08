@@ -119,7 +119,7 @@ When the round ends each player:
 
 | Era | Ends at round | What happens |
 |-----|---------------|--------------|
-| 1   | 5             | Light scoring; remove unpurchased Era cards; populate market with next era cards; recalculate Income Rate; players select Initiative Track positions |
+| 1   | 5             | Remove unpurchased Era cards; populate market with next era cards; recalculate Income Rate; players select Initiative Track positions |
 | 2   | 10            | Same as above |
 | 3   | 15            | Full scoring |
 
@@ -157,10 +157,6 @@ Awards are funded by any player during the game at a cost of 1 market action + 3
 | Renaissance Empire | Most total building track steps across all classes |
 | Grand Architect | Empire cards with highest combined cost |
 | Industrial Power | Most commodities produced per round |
-
-#### Era Transition Scoring
-
-At the end of Era 1 and Era 2, interim scoring takes place. *(Criteria TBD — see Mechanics Under Consideration)*
 
 #### Final Scoring
 
@@ -442,7 +438,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 
 - **Win and end conditions:** Settled. Game runs 15 rounds; highest VP wins. Capitol capture ends the game at close of that round (+5 VP for capturer); recapture before round end cancels the trigger. No player elimination.
 
-- **Scoring criteria:** Mostly settled. Milestones and Awards system adopted (see Scoring section). Open question: what does interim era scoring reward at end of Era 1 and Era 2?
+- **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
 - **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting income rate: 5 gold/round. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
