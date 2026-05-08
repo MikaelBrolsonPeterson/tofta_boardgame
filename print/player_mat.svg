@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 210" width="297mm" height="210mm">
+<defs>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect width="297" height="210" fill="#f8f9fa"/>
+<rect x="1.5" y="1.5" width="294" height="207" fill="none" stroke="#2d3748" stroke-width="0.8" rx="1.5"/>
+
+<!-- ===== HEADER ===== -->
+<rect x="1.5" y="1.5" width="294" height="15" fill="#2d3748" rx="1.5"/>
+<rect x="1.5" y="9" width="294" height="7.5" fill="#2d3748"/><!-- square off bottom corners -->
+<text x="6" y="11.5" font-size="7" font-weight="bold" fill="white">TOFTA</text>
+<text x="27" y="11" font-size="5" fill="#a0aec0">PLAYER MAT</text>
+
+<!-- Name field -->
+<rect x="70" y="3.5" width="85" height="10" fill="none" stroke="#718096" stroke-width="0.4" rx="1"/>
+<text x="73" y="10.5" font-size="4" fill="#a0aec0">Name: ____________________________</text>
+
+<!-- Color field -->
+<rect x="158" y="3.5" width="24" height="10" fill="none" stroke="#718096" stroke-width="0.4" rx="1"/>
+<text x="160" y="10.5" font-size="4" fill="#a0aec0">■ Color</text>
+
+<!-- VP label -->
+<text x="186" y="9" font-size="4.5" fill="#e2e8f0" font-weight="bold">VP</text>
+
+<!-- VP track boxes (0,5,10,...50) at x=193 to 293 -->
+<!-- 11 boxes, each 8.5mm wide, 1mm gap → 9.5mm step -->
+<!-- x positions: 193, 202.5, 212, 221.5, 231, 240.5, 250, 259.5, 269, 278.5, 288 -->
+<rect x="193" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="197.25" y="10.5" font-size="4" fill="white" text-anchor="middle">0</text>
+
+<rect x="202.5" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="206.75" y="10.5" font-size="4" fill="white" text-anchor="middle">5</text>
+
+<rect x="212" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="216.25" y="10.5" font-size="4" fill="white" text-anchor="middle">10</text>
+
+<rect x="221.5" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="225.75" y="10.5" font-size="4" fill="white" text-anchor="middle">15</text>
+
+<rect x="231" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="235.25" y="10.5" font-size="4" fill="white" text-anchor="middle">20</text>
+
+<rect x="240.5" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="244.75" y="10.5" font-size="4" fill="white" text-anchor="middle">25</text>
+
+<rect x="250" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="254.25" y="10.5" font-size="4" fill="white" text-anchor="middle">30</text>
+
+<rect x="259.5" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="263.75" y="10.5" font-size="4" fill="white" text-anchor="middle">35</text>
+
+<rect x="269" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="273.25" y="10.5" font-size="4" fill="white" text-anchor="middle">40</text>
+
+<rect x="278.5" y="3.5" width="8.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="282.75" y="10.5" font-size="4" fill="white" text-anchor="middle">45</text>
+
+<rect x="288" y="3.5" width="7.5" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="291.75" y="10.5" font-size="4" fill="white" text-anchor="middle">50</text>
+
+<!-- ===== LEFT PANEL (x=2-76) ===== -->
+<rect x="2" y="17" width="74" height="107" fill="#edf2f7" stroke="#cbd5e0" stroke-width="0.4" rx="1"/>
+
+<!-- INCOME section -->
+<rect x="4" y="19" width="70" height="7" fill="#4a5568" rx="0.5"/>
+<text x="39" y="24.5" font-size="5" font-weight="bold" fill="white" text-anchor="middle">INCOME</text>
+
+<!-- Taxation row -->
+<text x="7" y="33" font-size="4.5" fill="#4a5568">Taxation</text>
+<rect x="48" y="28" width="22" height="8" fill="white" stroke="#a0aec0" stroke-width="0.4" rx="0.5"/>
+
+<!-- Upkeep row -->
+<text x="7" y="43" font-size="4.5" fill="#4a5568">Upkeep</text>
+<text x="45" y="43" font-size="5" fill="#e53e3e">−</text>
+<rect x="48" y="38" width="22" height="8" fill="white" stroke="#a0aec0" stroke-width="0.4" rx="0.5"/>
+
+<!-- Divider line -->
+<line x1="6" y1="49" x2="72" y2="49" stroke="#a0aec0" stroke-width="0.5"/>
+
+<!-- Income Rate row -->
+<text x="7" y="58" font-size="4.5" fill="#4a5568">Income Rate</text>
+<text x="45" y="58" font-size="5" fill="#4a5568">=</text>
+<rect x="48" y="53" width="22" height="8" fill="#ebf8ff" stroke="#63b3ed" stroke-width="0.5" rx="0.5"/>
+
+<!-- Note -->
+<text x="7" y="67" font-size="3.5" fill="#718096">recalculated each era</text>
+<text x="7" y="71" font-size="3.5" fill="#718096">Tax − Upkeep = Income</text>
+
+<!-- GOLD section -->
+<rect x="4" y="74" width="70" height="7" fill="#d69e2e" rx="0.5"/>
+<text x="39" y="79.5" font-size="5" font-weight="bold" fill="white" text-anchor="middle">GOLD</text>
+<rect x="18" y="83" width="40" height="10" fill="white" stroke="#d69e2e" stroke-width="0.5" rx="0.5"/>
+<text x="7" y="91" font-size="4" fill="#718096">Starting: 5</text>
+
+<!-- MODIFIER DECK section -->
+<rect x="4" y="96" width="70" height="7" fill="#4a5568" rx="0.5"/>
+<text x="39" y="101.5" font-size="5" font-weight="bold" fill="white" text-anchor="middle">MODIFIER DECK</text>
+
+<!-- Deck area -->
+<rect x="5" y="105" width="30" height="16" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<text x="20" y="111.5" font-size="4" fill="#718096" text-anchor="middle">DECK</text>
+<text x="20" y="118" font-size="3.5" fill="#a0aec0" text-anchor="middle">face down</text>
+
+<!-- Discard area -->
+<rect x="44" y="105" width="28" height="16" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<text x="58" y="111.5" font-size="4" fill="#718096" text-anchor="middle">DISCARD</text>
+<text x="58" y="118" font-size="3.5" fill="#a0aec0" text-anchor="middle">face up</text>
+
+<!-- Draft/Cull reminder -->
+<text x="7" y="124" font-size="3.5" fill="#718096">Draft/Cull: 1 action + 2g</text>
+
+<!-- ===== ACTIVE CARD SLOTS (x=78-295, y=17-124) ===== -->
+<!-- 5 slots, each 41.4mm wide, 1mm gap -->
+<!-- Slot x positions: 78, 120.4, 162.8, 205.2, 247.6 → adjust to: 79, 121, 163, 205, 247 -->
+
+<!-- Slot headers background -->
+<rect x="78" y="17" width="217" height="107" fill="#edf2f7" stroke="#cbd5e0" stroke-width="0.4" rx="1"/>
+<text x="186.5" y="23" font-size="5" font-weight="bold" fill="#4a5568" text-anchor="middle">ACTIVE EMPIRE CARD SLOTS</text>
+
+<!-- SLOT 1 -->
+<rect x="81" y="25" width="40" height="95" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<rect x="81" y="25" width="40" height="8" fill="#4a5568" rx="1"/>
+<rect x="81" y="30" width="40" height="3" fill="#4a5568"/>
+<text x="101" y="31" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">1</text>
+<text x="101" y="37" font-size="3.5" fill="#718096" text-anchor="middle">ERA I+</text>
+
+<!-- SLOT 2 -->
+<rect x="123" y="25" width="40" height="95" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<rect x="123" y="25" width="40" height="8" fill="#4a5568" rx="1"/>
+<rect x="123" y="30" width="40" height="3" fill="#4a5568"/>
+<text x="143" y="31" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">2</text>
+<text x="143" y="37" font-size="3.5" fill="#718096" text-anchor="middle">ERA I+</text>
+
+<!-- SLOT 3 -->
+<rect x="165" y="25" width="40" height="95" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<rect x="165" y="25" width="40" height="8" fill="#4a5568" rx="1"/>
+<rect x="165" y="30" width="40" height="3" fill="#4a5568"/>
+<text x="185" y="31" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">3</text>
+<text x="185" y="37" font-size="3.5" fill="#718096" text-anchor="middle">ERA I+</text>
+
+<!-- SLOT 4 (Era II unlock) -->
+<rect x="207" y="25" width="40" height="95" fill="#fff5f5" stroke="#feb2b2" stroke-width="0.5" rx="1"/>
+<rect x="207" y="25" width="40" height="8" fill="#c53030" rx="1"/>
+<rect x="207" y="30" width="40" height="3" fill="#c53030"/>
+<text x="227" y="31" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">4</text>
+<text x="227" y="37" font-size="3.5" fill="#c53030" text-anchor="middle">ERA II+</text>
+
+<!-- SLOT 5 (Era III unlock) -->
+<rect x="249" y="25" width="40" height="95" fill="#fff5f5" stroke="#feb2b2" stroke-width="0.5" rx="1"/>
+<rect x="249" y="25" width="40" height="8" fill="#9b2c2c" rx="1"/>
+<rect x="249" y="30" width="40" height="3" fill="#9b2c2c"/>
+<text x="269" y="31" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">5</text>
+<text x="269" y="37" font-size="3.5" fill="#9b2c2c" text-anchor="middle">ERA III</text>
+
+<!-- Era slots legend -->
+<text x="186.5" y="122" font-size="3.5" fill="#718096" text-anchor="middle">Slots 4 &amp; 5 are locked until Era II / III. Discard a card to free a slot.</text>
+
+<!-- ===== BUILDING TRACKS ===== -->
+<!-- Divider -->
+<line x1="2" y1="125" x2="295" y2="125" stroke="#2d3748" stroke-width="0.6"/>
+<rect x="2" y="125" width="294" height="6" fill="#2d3748"/>
+<text x="149" y="130" font-size="5" font-weight="bold" fill="white" text-anchor="middle">CLASS BUILDING TRACKS</text>
+<text x="285" y="130" font-size="3.5" fill="#a0aec0" text-anchor="middle">LIMIT</text>
+
+<!-- Track layout: each row 14mm tall, y=131 to 209 (78mm / 5 rows ~15.6mm each) -->
+<!-- Row structure: color stripe (3mm) | label (50mm) | 4 slots (from x=56 to x=290) | limit badge -->
+<!-- Slot dimensions: w=45, gap=10mm, arrow between -->
+
+<!-- === MILITARY (Red) === -->
+<!-- Row: y=131-145 -->
+<rect x="2" y="131" width="3" height="14" fill="#e53e3e"/>
+<rect x="2" y="131" width="54" height="14" fill="#fff5f5" stroke="#fed7d7" stroke-width="0.2"/>
+<text x="29" y="137" font-size="4.5" font-weight="bold" fill="#c53030" text-anchor="middle">MILITARY</text>
+<text x="29" y="142" font-size="3.5" fill="#e53e3e" text-anchor="middle">Red cards</text>
+
+<!-- 4 track slots -->
+<rect x="57" y="132" width="45" height="12" fill="white" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
+<text x="79.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="79.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 1</text>
+
+<text x="103.5" y="139" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="108" y="132" width="45" height="12" fill="white" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
+<text x="130.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="130.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 2</text>
+
+<text x="154.5" y="139" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="159" y="132" width="55" height="12" fill="white" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
+<text x="186.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 atk/era</text>
+<text x="186.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 3</text>
+
+<text x="215.5" y="139" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="220" y="132" width="45" height="12" fill="#fff5f5" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
+<text x="242.5" y="138.5" font-size="4" fill="#c53030" text-anchor="middle">+1 VP</text>
+<text x="242.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 4</text>
+
+<rect x="270" y="133" width="22" height="10" fill="#e53e3e" rx="1"/>
+<text x="281" y="139.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
+
+<!-- === MARKET (Green) === -->
+<!-- Row: y=146-160 -->
+<rect x="2" y="146" width="3" height="14" fill="#38a169"/>
+<rect x="2" y="146" width="54" height="14" fill="#f0fff4" stroke="#c6f6d5" stroke-width="0.2"/>
+<text x="29" y="152" font-size="4.5" font-weight="bold" fill="#276749" text-anchor="middle">MARKET</text>
+<text x="29" y="157" font-size="3.5" fill="#38a169" text-anchor="middle">Green cards</text>
+
+<rect x="57" y="147" width="45" height="12" fill="white" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
+<text x="79.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+
+<text x="103.5" y="154" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="108" y="147" width="45" height="12" fill="white" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
+<text x="130.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+
+<text x="154.5" y="154" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="159" y="147" width="55" height="12" fill="white" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
+<text x="186.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 mkt/era</text>
+
+<text x="215.5" y="154" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="220" y="147" width="45" height="12" fill="#f0fff4" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
+<text x="242.5" y="153.5" font-size="4" fill="#276749" text-anchor="middle">+1 VP</text>
+
+<rect x="270" y="148" width="22" height="10" fill="#38a169" rx="1"/>
+<text x="281" y="154.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
+
+<!-- === SCIENCE (Purple) === -->
+<!-- Row: y=161-175 -->
+<rect x="2" y="161" width="3" height="14" fill="#805ad5"/>
+<rect x="2" y="161" width="54" height="14" fill="#faf5ff" stroke="#e9d8fd" stroke-width="0.2"/>
+<text x="29" y="167" font-size="4.5" font-weight="bold" fill="#553c9a" text-anchor="middle">SCIENCE</text>
+<text x="29" y="172" font-size="3.5" fill="#805ad5" text-anchor="middle">Lilac cards</text>
+
+<rect x="57" y="162" width="45" height="12" fill="white" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
+<text x="79.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+
+<text x="103.5" y="169" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="108" y="162" width="45" height="12" fill="white" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
+<text x="130.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+3 gold</text>
+
+<text x="154.5" y="169" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="159" y="162" width="55" height="12" fill="white" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
+<text x="186.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 mkt/era</text>
+
+<text x="215.5" y="169" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="220" y="162" width="45" height="12" fill="#faf5ff" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
+<text x="242.5" y="168.5" font-size="4" fill="#553c9a" text-anchor="middle">+2 VP</text>
+
+<rect x="270" y="163" width="22" height="10" fill="#805ad5" rx="1"/>
+<text x="281" y="169.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
+
+<!-- === MISC (Grey) === -->
+<!-- Row: y=176-190 -->
+<rect x="2" y="176" width="3" height="14" fill="#718096"/>
+<rect x="2" y="176" width="54" height="14" fill="#f7fafc" stroke="#e2e8f0" stroke-width="0.2"/>
+<text x="29" y="182" font-size="4.5" font-weight="bold" fill="#4a5568" text-anchor="middle">MISC</text>
+<text x="29" y="187" font-size="3.5" fill="#718096" text-anchor="middle">Grey cards</text>
+
+<rect x="57" y="177" width="45" height="12" fill="white" stroke="#718096" stroke-width="0.5" rx="0.5"/>
+<text x="79.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+
+<text x="103.5" y="184" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="108" y="177" width="45" height="12" fill="white" stroke="#718096" stroke-width="0.5" rx="0.5"/>
+<text x="130.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+
+<text x="154.5" y="184" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="159" y="177" width="55" height="12" fill="white" stroke="#718096" stroke-width="0.5" rx="0.5"/>
+<text x="186.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 atk/era</text>
+
+<text x="215.5" y="184" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="220" y="177" width="45" height="12" fill="#f7fafc" stroke="#718096" stroke-width="0.5" rx="0.5"/>
+<text x="242.5" y="183.5" font-size="4" fill="#4a5568" text-anchor="middle">+1 VP</text>
+
+<rect x="270" y="178" width="22" height="10" fill="#718096" rx="1"/>
+<text x="281" y="184.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
+
+<!-- === WONDERS (Gold/Brown) === -->
+<!-- Row: y=191-207 -->
+<rect x="2" y="191" width="3" height="16" fill="#d69e2e"/>
+<rect x="2" y="191" width="54" height="16" fill="#fffff0" stroke="#fefcbf" stroke-width="0.2"/>
+<text x="29" y="197" font-size="4.5" font-weight="bold" fill="#744210" text-anchor="middle">WONDERS</text>
+<text x="29" y="202" font-size="3.5" fill="#d69e2e" text-anchor="middle">Brown cards</text>
+
+<!-- 3 slots for Wonders -->
+<rect x="57" y="193" width="60" height="12" fill="white" stroke="#d69e2e" stroke-width="0.5" rx="0.5"/>
+<text x="87" y="199.5" font-size="4" fill="#744210" text-anchor="middle">+2 VP</text>
+
+<text x="118.5" y="200" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="122" y="193" width="60" height="12" fill="white" stroke="#d69e2e" stroke-width="0.5" rx="0.5"/>
+<text x="152" y="199.5" font-size="4" fill="#744210" text-anchor="middle">+4 VP</text>
+
+<text x="183.5" y="200" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
+
+<rect x="187" y="193" width="60" height="12" fill="#fffff0" stroke="#d69e2e" stroke-width="1" rx="0.5"/>
+<text x="217" y="199.5" font-size="4" fill="#744210" text-anchor="middle">+7 VP</text>
+
+<rect x="270" y="194" width="22" height="10" fill="#d69e2e" rx="1"/>
+<text x="281" y="200.5" font-size="4" fill="white" text-anchor="middle">MAX 3</text>
+
+<!-- Bottom note -->
+<text x="149" y="208.5" font-size="3.5" fill="#718096" text-anchor="middle">Track slot benefits are revealed permanently when reached. Discarding a card does not reset the track.</text>
+
+</svg>

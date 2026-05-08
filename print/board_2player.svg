@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 297" width="420mm" height="297mm">
+<defs>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .hex-label { font-size: 3px; text-anchor: middle; font-weight: bold; }
+    .hex-stat  { font-size: 2.8px; text-anchor: middle; fill: rgba(0,0,0,0.7); }
+    .hex-note  { font-size: 2.5px; text-anchor: middle; fill: rgba(0,0,0,0.6); }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect width="420" height="297" fill="#f0ede8"/>
+<rect x="1.5" y="1.5" width="417" height="294" fill="none" stroke="#2d3748" stroke-width="0.8" rx="2"/>
+
+<!-- ===== HEADER ===== -->
+<rect x="1.5" y="1.5" width="417" height="12" fill="#2d3748" rx="2"/>
+<rect x="1.5" y="7" width="417" height="6.5" fill="#2d3748"/>
+<text x="6" y="10" font-size="7" font-weight="bold" fill="white">TOFTA</text>
+<text x="28" y="9.5" font-size="4.5" fill="#a0aec0">2-PLAYER BOARD — BULLTOFTA</text>
+<text x="300" y="9.5" font-size="3.5" fill="#718096">Era I: rounds 1–5 | Era II: 6–10 | Era III: 11–15</text>
+
+<!-- ===== HEX MAP AREA ===== -->
+<rect x="3" y="14" width="128" height="137" fill="#d4e8f0" stroke="#4a90d9" stroke-width="0.5" rx="1"/>
+<text x="67" y="20" font-size="5" font-weight="bold" fill="#2b6cb0" text-anchor="middle">MAP</text>
+
+<!-- ===
+     HEX GRID (pointy-top, R=12mm)
+     hex_w=20.784, row_spacing=18, odd_offset=10.392
+     x0=15, y0=24
+     cx = x0 + col*20.784 + (odd_row ? 10.392 : 0)
+     cy = y0 + row*18
+=== -->
+
+<!-- ROW 0 (even): cols 1,2,3 — cy=24 -->
+<!-- [1,0] Forest: cx=35.8 -->
+<polygon points="35.8,12 46.2,18 46.2,30 35.8,36 25.4,30 25.4,18" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="35.8" y="22.5" class="hex-label" fill="#a8d5a8">Forest</text>
+<text x="35.8" y="26.5" class="hex-stat">T:1 U:2 D+1</text>
+
+<!-- [2,0] Capitol P1: cx=56.6 -->
+<polygon points="56.6,12 67.0,18 67.0,30 56.6,36 46.2,30 46.2,18" fill="#e8a000" stroke="#1a1a1a" stroke-width="0.6"/>
+<text x="56.6" y="20.5" class="hex-label" fill="white">♛ CAPITOL</text>
+<text x="56.6" y="24" class="hex-label" fill="white">PLAYER 1</text>
+<text x="56.6" y="28" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:4 U:1 D+2</text>
+<text x="56.6" y="31.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">3 attacks · disadv.</text>
+
+<!-- [3,0] Grassland (P1 start): cx=77.4 -->
+<polygon points="77.4,12 87.8,18 87.8,30 77.4,36 67.0,30 67.0,18" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="77.4" y="22" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="77.4" y="26" class="hex-stat">T:3 U:1</text>
+<text x="77.4" y="30" class="hex-note">P1 START</text>
+
+<!-- ROW 1 (odd, +10.4): cols 0,1,2,3 — cy=42 -->
+<!-- [0,1] Mountain: cx=25.4 -->
+<polygon points="25.4,30 35.8,36 35.8,48 25.4,54 15.0,48 15.0,36" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="25.4" y="40" class="hex-label" fill="white">Mountain</text>
+<text x="25.4" y="44" class="hex-stat" style="fill:rgba(255,255,255,0.85)">T:1 U:3 D+2</text>
+
+<!-- [1,1] Grassland: cx=46.2 -->
+<polygon points="46.2,30 56.6,36 56.6,48 46.2,54 35.8,48 35.8,36" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="46.2" y="40" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="46.2" y="44" class="hex-stat">T:3 U:1</text>
+
+<!-- [2,1] Desert: cx=67.0 -->
+<polygon points="67.0,30 77.4,36 77.4,48 67.0,54 56.6,48 56.6,36" fill="#d4b862" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="67.0" y="40" class="hex-label" fill="#4a3800">Desert</text>
+<text x="67.0" y="44" class="hex-stat">T:1 U:0 A+1</text>
+<text x="67.0" y="48" class="hex-note">atk disadv.</text>
+
+<!-- [3,1] Forest: cx=87.7 -->
+<polygon points="87.7,30 98.1,36 98.1,48 87.7,54 77.3,48 77.3,36" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="87.7" y="40" class="hex-label" fill="#a8d5a8">Forest</text>
+<text x="87.7" y="44" class="hex-stat">T:1 U:2 D+1</text>
+
+<!-- ROW 2 (even): cols 0,1,2,3,4 — cy=60 -->
+<!-- [0,2] Ocean: cx=15 -->
+<polygon points="15.0,48 25.4,54 25.4,66 15.0,72 4.6,66 4.6,54" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="15.0" y="58" class="hex-label" fill="#a8d5ff">Ocean</text>
+<text x="15.0" y="62" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:1 U:0 A+1</text>
+<text x="15.0" y="65.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">Navy req.</text>
+
+<!-- [1,2] Swamp: cx=35.8 -->
+<polygon points="35.8,48 46.2,54 46.2,66 35.8,72 25.4,66 25.4,54" fill="#5d7a3e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="35.8" y="58" class="hex-label" fill="#d4f0a0">Swamp</text>
+<text x="35.8" y="62" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:0 U:1 D+1</text>
+<text x="35.8" y="65.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">2 attacks</text>
+
+<!-- [2,2] Mountain: cx=56.6 -->
+<polygon points="56.6,48 67.0,54 67.0,66 56.6,72 46.2,66 46.2,54" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="56.6" y="58" class="hex-label" fill="white">Mountain</text>
+<text x="56.6" y="62" class="hex-stat" style="fill:rgba(255,255,255,0.85)">T:1 U:3 D+2</text>
+
+<!-- [3,2] Grassland: cx=77.4 -->
+<polygon points="77.4,48 87.8,54 87.8,66 77.4,72 67.0,66 67.0,54" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="77.4" y="58" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="77.4" y="62" class="hex-stat">T:3 U:1</text>
+
+<!-- [4,2] Forest: cx=98.1 -->
+<polygon points="98.1,48 108.5,54 108.5,66 98.1,72 87.7,66 87.7,54" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="98.1" y="58" class="hex-label" fill="#a8d5a8">Forest</text>
+<text x="98.1" y="62" class="hex-stat">T:1 U:2 D+1</text>
+
+<!-- ROW 3 (odd): cols 0,1,2,3,4 — cy=78 -->
+<!-- [0,3] Ocean: cx=25.4 -->
+<polygon points="25.4,66 35.8,72 35.8,84 25.4,90 15.0,84 15.0,72" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="25.4" y="76" class="hex-label" fill="#a8d5ff">Ocean</text>
+<text x="25.4" y="80" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:1 U:0</text>
+<text x="25.4" y="83.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">Navy req.</text>
+
+<!-- [1,3] Grassland: cx=46.2 -->
+<polygon points="46.2,66 56.6,72 56.6,84 46.2,90 35.8,84 35.8,72" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="46.2" y="76" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="46.2" y="80" class="hex-stat">T:3 U:1</text>
+
+<!-- [2,3] Ancient Ruins (center!): cx=67.0 -->
+<polygon points="67.0,66 77.4,72 77.4,84 67.0,90 56.6,84 56.6,72" fill="#8B4513" stroke="#ffd700" stroke-width="0.8"/>
+<text x="67.0" y="73.5" class="hex-label" fill="#ffd700">★ ANCIENT</text>
+<text x="67.0" y="77.5" class="hex-label" fill="#ffd700">RUINS ★</text>
+<text x="67.0" y="81.5" class="hex-stat" style="fill:rgba(255,220,100,0.9)">T:2 U:2 D−1</text>
+<text x="67.0" y="85" class="hex-note" style="fill:rgba(255,220,100,0.8)">+1 Wild/round</text>
+
+<!-- [3,3] Mountain: cx=87.7 -->
+<polygon points="87.7,66 98.1,72 98.1,84 87.7,90 77.3,84 77.3,72" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="87.7" y="76" class="hex-label" fill="white">Mountain</text>
+<text x="87.7" y="80" class="hex-stat" style="fill:rgba(255,255,255,0.85)">T:1 U:3 D+2</text>
+
+<!-- [4,3] Ocean: cx=108.5 -->
+<polygon points="108.5,66 118.9,72 118.9,84 108.5,90 98.1,84 98.1,72" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="108.5" y="76" class="hex-label" fill="#a8d5ff">Ocean</text>
+<text x="108.5" y="80" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:1 U:0</text>
+<text x="108.5" y="83.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">Navy req.</text>
+
+<!-- ROW 4 (even): cols 0,1,2,3,4 — cy=96 -->
+<!-- [0,4] Forest: cx=15 -->
+<polygon points="15.0,84 25.4,90 25.4,102 15.0,108 4.6,102 4.6,90" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="15.0" y="94" class="hex-label" fill="#a8d5a8">Forest</text>
+<text x="15.0" y="98" class="hex-stat">T:1 U:2 D+1</text>
+
+<!-- [1,4] Grassland: cx=35.8 -->
+<polygon points="35.8,84 46.2,90 46.2,102 35.8,108 25.4,102 25.4,90" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="35.8" y="94" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="35.8" y="98" class="hex-stat">T:3 U:1</text>
+
+<!-- [2,4] Mountain: cx=56.6 -->
+<polygon points="56.6,84 67.0,90 67.0,102 56.6,108 46.2,102 46.2,90" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="56.6" y="94" class="hex-label" fill="white">Mountain</text>
+<text x="56.6" y="98" class="hex-stat" style="fill:rgba(255,255,255,0.85)">T:1 U:3 D+2</text>
+
+<!-- [3,4] Swamp: cx=77.4 -->
+<polygon points="77.4,84 87.8,90 87.8,102 77.4,108 67.0,102 67.0,90" fill="#5d7a3e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="77.4" y="94" class="hex-label" fill="#d4f0a0">Swamp</text>
+<text x="77.4" y="98" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:0 U:1 D+1</text>
+<text x="77.4" y="101.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">2 attacks</text>
+
+<!-- [4,4] Ocean: cx=98.1 -->
+<polygon points="98.1,84 108.5,90 108.5,102 98.1,108 87.7,102 87.7,90" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="98.1" y="94" class="hex-label" fill="#a8d5ff">Ocean</text>
+<text x="98.1" y="98" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:1 U:0</text>
+<text x="98.1" y="101.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">Navy req.</text>
+
+<!-- ROW 5 (odd): cols 0,1,2,3 — cy=114 -->
+<!-- [0,5] Forest: cx=25.4 -->
+<polygon points="25.4,102 35.8,108 35.8,120 25.4,126 15.0,120 15.0,108" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="25.4" y="112" class="hex-label" fill="#a8d5a8">Forest</text>
+<text x="25.4" y="116" class="hex-stat">T:1 U:2 D+1</text>
+
+<!-- [1,5] Desert: cx=46.2 -->
+<polygon points="46.2,102 56.6,108 56.6,120 46.2,126 35.8,120 35.8,108" fill="#d4b862" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="46.2" y="112" class="hex-label" fill="#4a3800">Desert</text>
+<text x="46.2" y="116" class="hex-stat">T:1 U:0 A+1</text>
+<text x="46.2" y="120" class="hex-note">atk disadv.</text>
+
+<!-- [2,5] Grassland: cx=67.0 -->
+<polygon points="67.0,102 77.4,108 77.4,120 67.0,126 56.6,120 56.6,108" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="67.0" y="112" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="67.0" y="116" class="hex-stat">T:3 U:1</text>
+
+<!-- [3,5] Mountain: cx=87.7 -->
+<polygon points="87.7,102 98.1,108 98.1,120 87.7,126 77.3,120 77.3,108" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="87.7" y="112" class="hex-label" fill="white">Mountain</text>
+<text x="87.7" y="116" class="hex-stat" style="fill:rgba(255,255,255,0.85)">T:1 U:3 D+2</text>
+
+<!-- ROW 6 (even): cols 1,2,3 — cy=132 -->
+<!-- [1,6] Grassland P2 start: cx=35.8 -->
+<polygon points="35.8,120 46.2,126 46.2,138 35.8,144 25.4,138 25.4,126" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="35.8" y="130" class="hex-label" fill="#1a4a1a">Grassland</text>
+<text x="35.8" y="134" class="hex-stat">T:3 U:1</text>
+<text x="35.8" y="138" class="hex-note">P2 START</text>
+
+<!-- [2,6] Capitol P2: cx=56.6 -->
+<polygon points="56.6,120 67.0,126 67.0,138 56.6,144 46.2,138 46.2,126" fill="#e8a000" stroke="#1a1a1a" stroke-width="0.6"/>
+<text x="56.6" y="128.5" class="hex-label" fill="white">♛ CAPITOL</text>
+<text x="56.6" y="132" class="hex-label" fill="white">PLAYER 2</text>
+<text x="56.6" y="136" class="hex-stat" style="fill:rgba(255,255,255,0.8)">T:4 U:1 D+2</text>
+<text x="56.6" y="139.5" class="hex-note" style="fill:rgba(255,255,255,0.7)">3 attacks · disadv.</text>
+
+<!-- [3,6] Forest: cx=77.4 -->
+<polygon points="77.4,120 87.8,126 87.8,138 77.4,144 67.0,138 67.0,126" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.4"/>
+<text x="77.4" y="130" class="hex-label" fill="#a8d5a8">Forest</text>
+<text x="77.4" y="134" class="hex-stat">T:1 U:2 D+1</text>
+
+<!-- Map legend -->
+<rect x="3" y="152" width="128" height="40" fill="#e8f4f8" stroke="#4a90d9" stroke-width="0.4" rx="1"/>
+<text x="67" y="158" font-size="4" font-weight="bold" fill="#2b6cb0" text-anchor="middle">LEGEND — T=Taxation U=Upkeep D=Defense mod A=Attack mod</text>
+<text x="6" y="163.5" font-size="3" fill="#4a5568">■ Grassland T:3 U:1     ■ Mountain T:1 U:3 D+2   ■ Forest T:1 U:2 D+1</text>
+<text x="6" y="168" font-size="3" fill="#4a5568">■ Swamp T:0 U:1 D+1 ×2  ■ Desert T:1 U:0 A+1 disadv  ■ Ocean T:1 U:0 Navy</text>
+<text x="6" y="172.5" font-size="3" fill="#4a5568">■ Capitol T:4 U:1 D+2 ×3 disadv    ★ Ancient Ruins T:2 U:2 D−1 +1Wild</text>
+<text x="6" y="177" font-size="3" fill="#4a5568">×2/×3 = attacks needed to conquer.  D−1 = easier to attack.</text>
+<text x="6" y="181" font-size="3" fill="#4a5568">Upkeep scaling: 6–9 regions +1, 10+ regions +2 to all upkeep.</text>
+<text x="6" y="185.5" font-size="3" fill="#4a5568">Forests: per 3 controlled = +1 attack action/era.</text>
+
+<!-- Player starting modifier deck reminder -->
+<rect x="3" y="194" width="128" height="32" fill="#ffe8e8" stroke="#e53e3e" stroke-width="0.4" rx="1"/>
+<text x="67" y="200" font-size="4" font-weight="bold" fill="#c53030" text-anchor="middle">STARTING MODIFIER DECK (per player)</text>
+<text x="6" y="205.5" font-size="3" fill="#4a5568">1× Fail (reshuffle)   1× −2   2× −1   4× 0   2× +1   1× +2   1× Success (reshuffle)</text>
+<text x="6" y="210" font-size="3.5" fill="#c53030" font-weight="bold">Draw Fail or Success → reshuffle entire deck immediately.</text>
+<text x="6" y="214.5" font-size="3" fill="#4a5568">Advantage: draw 2, pick best (Fail ignored, Success → reshuffle).</text>
+<text x="6" y="219" font-size="3" fill="#4a5568">Disadvantage: draw 2, pick worst (Success ignored, Fail → reshuffle).</text>
+<text x="6" y="223.5" font-size="3" fill="#4a5568">vs. Independent region: use Ind. State deck (no Fail, reshuffle each attack).</text>
+
+<!-- ===== RIGHT PANEL ===== -->
+
+<!-- ROUND TRACKER -->
+<rect x="133" y="14" width="145" height="28" fill="#edf2f7" stroke="#a0aec0" stroke-width="0.4" rx="1"/>
+<text x="205.5" y="21" font-size="5" font-weight="bold" fill="#2d3748" text-anchor="middle">ROUND TRACKER</text>
+
+<!-- Era I: rounds 1-5 -->
+<rect x="136" y="23" width="43" height="7" fill="#3182ce" rx="0.5"/>
+<text x="157.5" y="28" font-size="3.5" fill="white" text-anchor="middle">ERA I</text>
+<rect x="136" y="30" width="7" height="10" fill="#bee3f8" stroke="#63b3ed" stroke-width="0.3" rx="0.3"/>
+<text x="139.5" y="37" font-size="4" fill="#2b6cb0" text-anchor="middle">1</text>
+<rect x="144" y="30" width="7" height="10" fill="#bee3f8" stroke="#63b3ed" stroke-width="0.3" rx="0.3"/>
+<text x="147.5" y="37" font-size="4" fill="#2b6cb0" text-anchor="middle">2</text>
+<rect x="152" y="30" width="7" height="10" fill="#bee3f8" stroke="#63b3ed" stroke-width="0.3" rx="0.3"/>
+<text x="155.5" y="37" font-size="4" fill="#2b6cb0" text-anchor="middle">3</text>
+<rect x="160" y="30" width="7" height="10" fill="#bee3f8" stroke="#63b3ed" stroke-width="0.3" rx="0.3"/>
+<text x="163.5" y="37" font-size="4" fill="#2b6cb0" text-anchor="middle">4</text>
+<rect x="168" y="30" width="7" height="10" fill="#bee3f8" stroke="#63b3ed" stroke-width="0.3" rx="0.3"/>
+<text x="171.5" y="37" font-size="4" fill="#2b6cb0" text-anchor="middle">5</text>
+
+<!-- Era II: rounds 6-10 -->
+<rect x="182" y="23" width="43" height="7" fill="#38a169" rx="0.5"/>
+<text x="203.5" y="28" font-size="3.5" fill="white" text-anchor="middle">ERA II</text>
+<rect x="182" y="30" width="7" height="10" fill="#c6f6d5" stroke="#48bb78" stroke-width="0.3" rx="0.3"/>
+<text x="185.5" y="37" font-size="4" fill="#276749" text-anchor="middle">6</text>
+<rect x="190" y="30" width="7" height="10" fill="#c6f6d5" stroke="#48bb78" stroke-width="0.3" rx="0.3"/>
+<text x="193.5" y="37" font-size="4" fill="#276749" text-anchor="middle">7</text>
+<rect x="198" y="30" width="7" height="10" fill="#c6f6d5" stroke="#48bb78" stroke-width="0.3" rx="0.3"/>
+<text x="201.5" y="37" font-size="4" fill="#276749" text-anchor="middle">8</text>
+<rect x="206" y="30" width="7" height="10" fill="#c6f6d5" stroke="#48bb78" stroke-width="0.3" rx="0.3"/>
+<text x="209.5" y="37" font-size="4" fill="#276749" text-anchor="middle">9</text>
+<rect x="214" y="30" width="10" height="10" fill="#c6f6d5" stroke="#48bb78" stroke-width="0.3" rx="0.3"/>
+<text x="219" y="37" font-size="4" fill="#276749" text-anchor="middle">10</text>
+
+<!-- Era III: rounds 11-15 -->
+<rect x="228" y="23" width="47" height="7" fill="#c53030" rx="0.5"/>
+<text x="251.5" y="28" font-size="3.5" fill="white" text-anchor="middle">ERA III</text>
+<rect x="228" y="30" width="8" height="10" fill="#fed7d7" stroke="#fc8181" stroke-width="0.3" rx="0.3"/>
+<text x="232" y="37" font-size="4" fill="#c53030" text-anchor="middle">11</text>
+<rect x="237" y="30" width="8" height="10" fill="#fed7d7" stroke="#fc8181" stroke-width="0.3" rx="0.3"/>
+<text x="241" y="37" font-size="4" fill="#c53030" text-anchor="middle">12</text>
+<rect x="246" y="30" width="8" height="10" fill="#fed7d7" stroke="#fc8181" stroke-width="0.3" rx="0.3"/>
+<text x="250" y="37" font-size="4" fill="#c53030" text-anchor="middle">13</text>
+<rect x="255" y="30" width="8" height="10" fill="#fed7d7" stroke="#fc8181" stroke-width="0.3" rx="0.3"/>
+<text x="259" y="37" font-size="4" fill="#c53030" text-anchor="middle">14</text>
+<rect x="264" y="30" width="10" height="10" fill="#fed7d7" stroke="#fc8181" stroke-width="0.3" rx="0.3"/>
+<text x="269" y="37" font-size="4" fill="#c53030" text-anchor="middle">15</text>
+
+<!-- INITIATIVE TRACK (2 players = N+2 = 4 positions) -->
+<rect x="133" y="44" width="145" height="80" fill="#fffff0" stroke="#d69e2e" stroke-width="0.5" rx="1"/>
+<rect x="133" y="44" width="145" height="9" fill="#d69e2e" rx="1"/>
+<rect x="133" y="49" width="145" height="4" fill="#d69e2e"/>
+<text x="205.5" y="50.5" font-size="5" font-weight="bold" fill="white" text-anchor="middle">INITIATIVE TRACK (2 players, era start)</text>
+<text x="205.5" y="56" font-size="3.5" fill="#744210" text-anchor="middle">Earlier position = first market pick. Later = bonus + last attack of round.</text>
+
+<!-- 4 position rows -->
+<!-- Pos 1 -->
+<rect x="136" y="59" width="139" height="14" fill="white" stroke="#d69e2e" stroke-width="0.3" rx="0.5"/>
+<rect x="136" y="59" width="10" height="14" fill="#2d3748" rx="0.5"/>
+<text x="141" y="68" font-size="5" fill="white" text-anchor="middle" font-weight="bold">1</text>
+<rect x="148" y="61" width="14" height="10" fill="#f0f0f0" stroke="#a0aec0" stroke-width="0.3" rx="1"/>
+<text x="166" y="67.5" font-size="4" fill="#4a5568">No bonus  |  First market pick each round</text>
+
+<!-- Pos 2 -->
+<rect x="136" y="74" width="139" height="14" fill="white" stroke="#d69e2e" stroke-width="0.3" rx="0.5"/>
+<rect x="136" y="74" width="10" height="14" fill="#4a5568" rx="0.5"/>
+<text x="141" y="83" font-size="5" fill="white" text-anchor="middle" font-weight="bold">2</text>
+<rect x="148" y="76" width="14" height="10" fill="#f0f0f0" stroke="#a0aec0" stroke-width="0.3" rx="1"/>
+<text x="166" y="82.5" font-size="4" fill="#4a5568">+2 gold</text>
+
+<!-- Pos 3 -->
+<rect x="136" y="89" width="139" height="14" fill="white" stroke="#d69e2e" stroke-width="0.3" rx="0.5"/>
+<rect x="136" y="89" width="10" height="14" fill="#718096" rx="0.5"/>
+<text x="141" y="98" font-size="5" fill="white" text-anchor="middle" font-weight="bold">3</text>
+<rect x="148" y="91" width="14" height="10" fill="#f0f0f0" stroke="#a0aec0" stroke-width="0.3" rx="1"/>
+<text x="166" y="97.5" font-size="4" fill="#4a5568">+1 resource or commodity (your choice)</text>
+
+<!-- Pos 4 -->
+<rect x="136" y="104" width="139" height="14" fill="#fffff0" stroke="#d69e2e" stroke-width="0.5" rx="0.5"/>
+<rect x="136" y="104" width="10" height="14" fill="#d69e2e" rx="0.5"/>
+<text x="141" y="113" font-size="5" fill="white" text-anchor="middle" font-weight="bold">4</text>
+<rect x="148" y="106" width="14" height="10" fill="#f0f0f0" stroke="#a0aec0" stroke-width="0.3" rx="1"/>
+<text x="166" y="112.5" font-size="4" fill="#744210">+3 gold  |  Last pick, "king hit" position</text>
+
+<text x="136" y="122.5" font-size="3" fill="#718096">Selection order: holder of pos 1 last era picks first, then clockwise. Game start: random.</text>
+
+<!-- MILESTONES -->
+<rect x="133" y="128" width="145" height="63" fill="#fffff0" stroke="#d69e2e" stroke-width="0.4" rx="1"/>
+<rect x="133" y="128" width="145" height="8" fill="#b7791f" rx="1"/>
+<rect x="133" y="133" width="145" height="3" fill="#b7791f"/>
+<text x="205.5" y="134" font-size="5" font-weight="bold" fill="white" text-anchor="middle">MILESTONES — 5 VP (first to claim, permanent)</text>
+
+<rect x="136" y="138" width="68" height="22" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="137" y="144" font-size="4" fill="#744210">□ Ruins Explorer</text>
+<text x="137" y="149.5" font-size="3.2" fill="#4a5568">Conquer an Ancient Ruins region.</text>
+<rect x="138" y="152" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="145" y="156.5" font-size="3" fill="#718096">Claimed by: ____________</text>
+
+<rect x="208" y="138" width="68" height="22" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="209" y="144" font-size="4" fill="#744210">□ Prosperous Empire</text>
+<text x="209" y="149.5" font-size="3.2" fill="#4a5568">Reach an income rate of 10.</text>
+<rect x="210" y="152" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="217" y="156.5" font-size="3" fill="#718096">Claimed by: ____________</text>
+
+<rect x="136" y="162" width="68" height="22" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="137" y="168" font-size="4" fill="#744210">□ Developed Lands</text>
+<text x="137" y="173.5" font-size="3.2" fill="#4a5568">3 regions of same type with buildings.</text>
+<rect x="138" y="176" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="145" y="180.5" font-size="3" fill="#718096">Claimed by: ____________</text>
+
+<rect x="208" y="162" width="68" height="22" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="209" y="168" font-size="4" fill="#744210">□ Master of a Class</text>
+<text x="209" y="173.5" font-size="3.2" fill="#4a5568">First to max out any class track.</text>
+<rect x="210" y="176" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="217" y="180.5" font-size="3" fill="#718096">Claimed by: ____________</text>
+
+<!-- AWARDS -->
+<rect x="133" y="193" width="145" height="65" fill="#fff5f0" stroke="#c05621" stroke-width="0.4" rx="1"/>
+<rect x="133" y="193" width="145" height="8" fill="#c05621" rx="1"/>
+<rect x="133" y="198" width="145" height="3" fill="#c05621"/>
+<text x="205.5" y="199" font-size="4.5" font-weight="bold" fill="white" text-anchor="middle">AWARDS — Fund: 1 mkt action + 3g → scores 5VP / 2VP at end</text>
+
+<!-- 5 award tiles -->
+<rect x="136" y="203" width="54" height="20" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="163" y="209" font-size="3.5" fill="#c05621" text-anchor="middle" font-weight="bold">Treasure Hoard</text>
+<text x="163" y="214" font-size="3" fill="#4a5568" text-anchor="middle">Most gold in treasury</text>
+<rect x="140" y="216" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="147" y="220.5" font-size="3" fill="#718096">Funded □</text>
+
+<rect x="193" y="203" width="54" height="20" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="220" y="209" font-size="3.5" fill="#c05621" text-anchor="middle" font-weight="bold">Prosperous Realm</text>
+<text x="220" y="214" font-size="3" fill="#4a5568" text-anchor="middle">Highest income rate</text>
+<rect x="197" y="216" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="204" y="220.5" font-size="3" fill="#718096">Funded □</text>
+
+<rect x="136" y="225" width="52" height="20" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="162" y="231" font-size="3.5" fill="#c05621" text-anchor="middle" font-weight="bold">Renaissance Emp.</text>
+<text x="162" y="236" font-size="3" fill="#4a5568" text-anchor="middle">Most track steps total</text>
+<rect x="140" y="238" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="147" y="242.5" font-size="3" fill="#718096">Funded □</text>
+
+<rect x="191" y="225" width="42" height="20" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="212" y="231" font-size="3.5" fill="#c05621" text-anchor="middle" font-weight="bold">Grand Architect</text>
+<text x="212" y="236" font-size="3" fill="#4a5568" text-anchor="middle">Highest card cost sum</text>
+<rect x="195" y="238" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="202" y="242.5" font-size="3" fill="#718096">Funded □</text>
+
+<rect x="236" y="225" width="40" height="20" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="256" y="231" font-size="3.5" fill="#c05621" text-anchor="middle" font-weight="bold">Industrial Power</text>
+<text x="256" y="236" font-size="3" fill="#4a5568" text-anchor="middle">Most commodities/round</text>
+<rect x="240" y="238" width="5" height="5" fill="none" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="247" y="242.5" font-size="3" fill="#718096">Funded □</text>
+
+<!-- ===== SECOND COLUMN RIGHT PANEL (x=282-415) ===== -->
+
+<!-- DECKS AREA -->
+<rect x="282" y="44" width="135" height="68" fill="#edf2f7" stroke="#a0aec0" stroke-width="0.4" rx="1"/>
+<rect x="282" y="44" width="135" height="8" fill="#4a5568" rx="1"/>
+<rect x="282" y="49" width="135" height="3" fill="#4a5568"/>
+<text x="349.5" y="50" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">SHARED DECKS</text>
+
+<!-- Modifier Draw Pile -->
+<rect x="285" y="55" width="38" height="30" fill="white" stroke="#a0aec0" stroke-width="0.4" rx="0.5"/>
+<text x="304" y="61" font-size="3.5" fill="#4a5568" text-anchor="middle" font-weight="bold">MOD DRAW</text>
+<text x="304" y="66" font-size="3" fill="#718096" text-anchor="middle">PILE</text>
+<text x="304" y="71" font-size="3" fill="#a0aec0" text-anchor="middle">(face down)</text>
+<text x="304" y="76" font-size="3" fill="#a0aec0" text-anchor="middle">15 cards total</text>
+
+<!-- Catch-up deck -->
+<rect x="328" y="55" width="38" height="30" fill="#ebf8ff" stroke="#63b3ed" stroke-width="0.4" rx="0.5"/>
+<text x="347" y="61" font-size="3.5" fill="#2b6cb0" text-anchor="middle" font-weight="bold">CATCH-UP</text>
+<text x="347" y="66" font-size="3" fill="#2b6cb0" text-anchor="middle">DECK</text>
+<text x="347" y="71" font-size="3" fill="#4a5568" text-anchor="middle">(colored face)</text>
+<text x="347" y="76" font-size="3" fill="#4a5568" text-anchor="middle">12 cards</text>
+
+<!-- Trash -->
+<rect x="371" y="55" width="30" height="30" fill="#fff5f5" stroke="#fc8181" stroke-width="0.4" rx="0.5"/>
+<text x="386" y="67" font-size="3.5" fill="#c53030" text-anchor="middle" font-weight="bold">TRASH</text>
+<text x="386" y="73" font-size="3" fill="#a0aec0" text-anchor="middle">(out of game)</text>
+
+<!-- Catch-up reminder -->
+<text x="285" y="91" font-size="3" fill="#718096">Each round end: last-place player draws 1 catch-up card.</text>
+<text x="285" y="96" font-size="3" fill="#718096">Last = fewest regions → lowest income → lowest taxation.</text>
+<text x="285" y="101" font-size="3" fill="#718096">Catch-up deck: 6×(+2), 5×(+3), 1×Success. Reshuffle when empty.</text>
+<text x="285" y="106" font-size="3" fill="#718096">Colored face — separate from modifier deck after game.</text>
+
+<!-- TURN STRUCTURE REFERENCE -->
+<rect x="282" y="115" width="135" height="85" fill="#f0fff4" stroke="#38a169" stroke-width="0.4" rx="1"/>
+<rect x="282" y="115" width="135" height="8" fill="#276749" rx="1"/>
+<rect x="282" y="120" width="135" height="3" fill="#276749"/>
+<text x="349.5" y="121" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">TURN STRUCTURE</text>
+<text x="285" y="129" font-size="3.5" fill="#276749" font-weight="bold">Base actions per era:  I: 1 atk + 1 mkt  |  II: 2+2  |  III: 3+3</text>
+<text x="285" y="135" font-size="3.5" fill="#2d3748" font-weight="bold">MARKET ACTION — spend 1 market action to:</text>
+<text x="285" y="140" font-size="3" fill="#4a5568">• Buy a card (Empire: needs free slot; Action: execute + trash)</text>
+<text x="285" y="144.5" font-size="3" fill="#4a5568">• Draft or Cull (1 action + 2 gold)</text>
+<text x="285" y="149" font-size="3" fill="#4a5568">• Fund an Award (3 gold)</text>
+<text x="285" y="153.5" font-size="3" fill="#4a5568">• Trade with a neighbor (2g/resource, 3g/commodity)</text>
+<text x="285" y="159" font-size="3.5" fill="#2d3748" font-weight="bold">ATTACK ACTION — attack adjacent region:</text>
+<text x="285" y="164" font-size="3" fill="#4a5568">• Attacker vs Defender: sum base + region mod + deck draw + card bonuses</text>
+<text x="285" y="168.5" font-size="3" fill="#4a5568">• Win: take region. Lose vs. independent: gain ½ taxation (round up).</text>
+<text x="285" y="173" font-size="3" fill="#4a5568">• Capitol capture: round finishes; if held at end → game over, +5VP</text>
+<text x="285" y="178.5" font-size="3.5" fill="#2d3748" font-weight="bold">FREE ACTIONS (any number, any time):</text>
+<text x="285" y="183.5" font-size="3" fill="#4a5568">• Abandon region (→ independent, building destroyed, income recalcs)</text>
+<text x="285" y="188" font-size="3" fill="#4a5568">• Discard Empire card (free slot; cannot benefit then discard same action)</text>
+<text x="285" y="192.5" font-size="3.5" fill="#2d3748" font-weight="bold">END OF ROUND: collect income (taxation − upkeep)</text>
+
+<!-- ERA TRANSITION reminder -->
+<rect x="282" y="203" width="135" height="20" fill="#faf5ff" stroke="#805ad5" stroke-width="0.4" rx="1"/>
+<text x="349.5" y="209" font-size="4" fill="#553c9a" text-anchor="middle" font-weight="bold">ERA TRANSITION (end of rounds 5 and 10)</text>
+<text x="285" y="214.5" font-size="3" fill="#4a5568">Remove unpurchased era cards. Add next era cards. Recalculate</text>
+<text x="285" y="218.5" font-size="3" fill="#4a5568">Income Rate. Select Initiative Track positions for new era.</text>
+
+<!-- ===== VP SCORING TRACK (bottom strip) ===== -->
+<rect x="3" y="252" width="414" height="26" fill="#2d3748" stroke="#1a1a1a" stroke-width="0.5" rx="1"/>
+<text x="7" y="258.5" font-size="3.5" fill="#e2e8f0" font-weight="bold">VICTORY POINTS</text>
+
+<!-- VP boxes 0-50, each 7.8mm wide, from x=7 to x=7+51*7.8=404 -->
+<!-- Position i: x = 7 + i*7.8, y=260, width=7.5, height=16 -->
+<!-- Color: multiples of 10 = gold, multiples of 5 = silver, others = dark -->
+
+<!-- VP 0 -->
+<rect x="7" y="260" width="7.5" height="16" fill="#d69e2e" stroke="#f6ad55" stroke-width="0.4" rx="0.3"/>
+<text x="10.75" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">0</text>
+
+<!-- VP 1-4 -->
+<rect x="15.3" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="19.05" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">1</text>
+<rect x="23.6" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="27.35" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">2</text>
+<rect x="31.9" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="35.65" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">3</text>
+<rect x="40.2" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="43.95" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">4</text>
+
+<!-- VP 5 -->
+<rect x="48.5" y="260" width="7.5" height="16" fill="#718096" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="52.25" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">5</text>
+
+<!-- VP 6-9 -->
+<rect x="56.8" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="60.55" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">6</text>
+<rect x="65.1" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="68.85" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">7</text>
+<rect x="73.4" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="77.15" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">8</text>
+<rect x="81.7" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="85.45" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">9</text>
+
+<!-- VP 10 -->
+<rect x="90.0" y="260" width="7.5" height="16" fill="#d69e2e" stroke="#f6ad55" stroke-width="0.4" rx="0.3"/>
+<text x="93.75" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">10</text>
+
+<!-- VP 11-14 -->
+<rect x="98.3" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="102.05" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">11</text>
+<rect x="106.6" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="110.35" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">12</text>
+<rect x="114.9" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="118.65" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">13</text>
+<rect x="123.2" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="126.95" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">14</text>
+
+<!-- VP 15 -->
+<rect x="131.5" y="260" width="7.5" height="16" fill="#718096" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="135.25" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">15</text>
+
+<!-- VP 16-19 -->
+<rect x="139.8" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="143.55" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">16</text>
+<rect x="148.1" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="151.85" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">17</text>
+<rect x="156.4" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="160.15" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">18</text>
+<rect x="164.7" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="168.45" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">19</text>
+
+<!-- VP 20 -->
+<rect x="173.0" y="260" width="7.5" height="16" fill="#d69e2e" stroke="#f6ad55" stroke-width="0.4" rx="0.3"/>
+<text x="176.75" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">20</text>
+
+<!-- VP 21-24 -->
+<rect x="181.3" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="185.05" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">21</text>
+<rect x="189.6" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="193.35" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">22</text>
+<rect x="197.9" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="201.65" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">23</text>
+<rect x="206.2" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="209.95" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">24</text>
+
+<!-- VP 25 -->
+<rect x="214.5" y="260" width="7.5" height="16" fill="#718096" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="218.25" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">25</text>
+
+<!-- VP 26-29 -->
+<rect x="222.8" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="226.55" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">26</text>
+<rect x="231.1" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="234.85" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">27</text>
+<rect x="239.4" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="243.15" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">28</text>
+<rect x="247.7" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="251.45" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">29</text>
+
+<!-- VP 30 -->
+<rect x="256.0" y="260" width="7.5" height="16" fill="#d69e2e" stroke="#f6ad55" stroke-width="0.4" rx="0.3"/>
+<text x="259.75" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">30</text>
+
+<!-- VP 31-34 -->
+<rect x="264.3" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="268.05" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">31</text>
+<rect x="272.6" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="276.35" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">32</text>
+<rect x="280.9" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="284.65" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">33</text>
+<rect x="289.2" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="292.95" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">34</text>
+
+<!-- VP 35 -->
+<rect x="297.5" y="260" width="7.5" height="16" fill="#718096" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="301.25" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">35</text>
+
+<!-- VP 36-39 -->
+<rect x="305.8" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="309.55" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">36</text>
+<rect x="314.1" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="317.85" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">37</text>
+<rect x="322.4" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="326.15" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">38</text>
+<rect x="330.7" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="334.45" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">39</text>
+
+<!-- VP 40 -->
+<rect x="339.0" y="260" width="7.5" height="16" fill="#d69e2e" stroke="#f6ad55" stroke-width="0.4" rx="0.3"/>
+<text x="342.75" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">40</text>
+
+<!-- VP 41-44 -->
+<rect x="347.3" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="351.05" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">41</text>
+<rect x="355.6" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="359.35" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">42</text>
+<rect x="363.9" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="367.65" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">43</text>
+<rect x="372.2" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="375.95" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">44</text>
+
+<!-- VP 45 -->
+<rect x="380.5" y="260" width="7.5" height="16" fill="#718096" stroke="#a0aec0" stroke-width="0.4" rx="0.3"/>
+<text x="384.25" y="270" font-size="4.5" fill="white" text-anchor="middle" font-weight="bold">45</text>
+
+<!-- VP 46-49 -->
+<rect x="388.8" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="392.55" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">46</text>
+<rect x="397.1" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="400.85" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">47</text>
+<rect x="405.4" y="260" width="7.5" height="16" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.3"/>
+<text x="409.15" y="270" font-size="4" fill="#e2e8f0" text-anchor="middle">48</text>
+
+<!-- Note about higher VP -->
+<text x="5" y="280" font-size="3" fill="#a0aec0">Place tokens on track. For VP above 50 use a note card.</text>
+
+</svg>

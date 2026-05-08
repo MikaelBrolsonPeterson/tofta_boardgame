@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 210" width="297mm" height="210mm">
+
+<!-- Background -->
+<rect width="297" height="210" fill="#f8f9fa"/>
+<rect x="1.5" y="1.5" width="294" height="207" fill="none" stroke="#2d3748" stroke-width="0.8" rx="1.5"/>
+
+<!-- ===== HEADER ===== -->
+<rect x="1.5" y="1.5" width="294" height="15" fill="#2d3748" rx="1.5"/>
+<rect x="1.5" y="9" width="294" height="7.5" fill="#2d3748"/>
+<text x="6" y="11.5" font-size="7" font-weight="bold" fill="white" font-family="Arial">TOFTA</text>
+<text x="27" y="11" font-size="5" fill="#a0aec0" font-family="Arial">MARKET MAT</text>
+
+<!-- Round tracker -->
+<text x="120" y="9" font-size="4.5" fill="#e2e8f0" font-family="Arial" font-weight="bold">ROUND</text>
+<!-- 15 round boxes -->
+<!-- Row 1: rounds 1-5 (Era I) -->
+<rect x="142" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="146" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">1</text>
+<rect x="151" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="155" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">2</text>
+<rect x="160" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="164" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">3</text>
+<rect x="169" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="173" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">4</text>
+<rect x="178" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="182" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">5</text>
+<!-- Era I label -->
+<text x="164" y="14.5" font-size="3" fill="#63b3ed" text-anchor="middle" font-family="Arial">ERA I</text>
+
+<!-- Row 2: rounds 6-10 (Era II) -->
+<rect x="189" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="193" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">6</text>
+<rect x="198" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="202" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">7</text>
+<rect x="207" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="211" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">8</text>
+<rect x="216" y="3" width="8" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="220" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">9</text>
+<rect x="225" y="3" width="9" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="229.5" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">10</text>
+<text x="216" y="14.5" font-size="3" fill="#68d391" text-anchor="middle" font-family="Arial">ERA II</text>
+
+<!-- Rounds 11-15 (Era III) -->
+<rect x="237" y="3" width="9" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="241.5" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">11</text>
+<rect x="247" y="3" width="9" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="251.5" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">12</text>
+<rect x="257" y="3" width="9" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="261.5" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">13</text>
+<rect x="267" y="3" width="9" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="271.5" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">14</text>
+<rect x="277" y="3" width="9" height="10" fill="#4a5568" stroke="#718096" stroke-width="0.3" rx="0.5"/>
+<text x="281.5" y="9.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial">15</text>
+<text x="261" y="14.5" font-size="3" fill="#fc8181" text-anchor="middle" font-family="Arial">ERA III</text>
+
+<!-- ===== MARKET CARD SLOTS (5 slots) ===== -->
+<text x="149" y="23" font-size="6" font-weight="bold" fill="#2d3748" text-anchor="middle" font-family="Arial">MARKET — 5 CARDS (refills immediately on purchase)</text>
+
+<!-- 5 card slots: each 52mm wide, 4mm gap, total = 5*52+4*4=276mm, start x=10 -->
+<!-- Slot 1: x=10-62 -->
+<rect x="10" y="26" width="52" height="70" fill="white" stroke="#a0aec0" stroke-width="0.6" rx="1.5"/>
+<rect x="10" y="26" width="52" height="9" fill="#4a5568" rx="1.5"/>
+<rect x="10" y="32" width="52" height="3" fill="#4a5568"/>
+<text x="36" y="32.5" font-size="5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">CARD 1</text>
+<text x="36" y="89" font-size="3.5" fill="#a0aec0" text-anchor="middle" font-family="Arial">Empire or Action card</text>
+
+<!-- Slot 2: x=66-118 -->
+<rect x="66" y="26" width="52" height="70" fill="white" stroke="#a0aec0" stroke-width="0.6" rx="1.5"/>
+<rect x="66" y="26" width="52" height="9" fill="#4a5568" rx="1.5"/>
+<rect x="66" y="32" width="52" height="3" fill="#4a5568"/>
+<text x="92" y="32.5" font-size="5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">CARD 2</text>
+<text x="92" y="89" font-size="3.5" fill="#a0aec0" text-anchor="middle" font-family="Arial">Empire or Action card</text>
+
+<!-- Slot 3: x=122-174 -->
+<rect x="122" y="26" width="52" height="70" fill="white" stroke="#a0aec0" stroke-width="0.6" rx="1.5"/>
+<rect x="122" y="26" width="52" height="9" fill="#4a5568" rx="1.5"/>
+<rect x="122" y="32" width="52" height="3" fill="#4a5568"/>
+<text x="148" y="32.5" font-size="5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">CARD 3</text>
+<text x="148" y="89" font-size="3.5" fill="#a0aec0" text-anchor="middle" font-family="Arial">Empire or Action card</text>
+
+<!-- Slot 4: x=178-230 -->
+<rect x="178" y="26" width="52" height="70" fill="white" stroke="#a0aec0" stroke-width="0.6" rx="1.5"/>
+<rect x="178" y="26" width="52" height="9" fill="#4a5568" rx="1.5"/>
+<rect x="178" y="32" width="52" height="3" fill="#4a5568"/>
+<text x="204" y="32.5" font-size="5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">CARD 4</text>
+<text x="204" y="89" font-size="3.5" fill="#a0aec0" text-anchor="middle" font-family="Arial">Empire or Action card</text>
+
+<!-- Slot 5: x=234-286 -->
+<rect x="234" y="26" width="52" height="70" fill="white" stroke="#a0aec0" stroke-width="0.6" rx="1.5"/>
+<rect x="234" y="26" width="52" height="9" fill="#4a5568" rx="1.5"/>
+<rect x="234" y="32" width="52" height="3" fill="#4a5568"/>
+<text x="260" y="32.5" font-size="5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">CARD 5</text>
+<text x="260" y="89" font-size="3.5" fill="#a0aec0" text-anchor="middle" font-family="Arial">Empire or Action card</text>
+
+<!-- ===== BOTTOM SECTION: split left (deck/reference) and right (milestones/awards) ===== -->
+
+<!-- LEFT BOTTOM: Modifier piles + Draft/Cull reference (x=10-145, y=99-207) -->
+<rect x="10" y="99" width="135" height="108" fill="#edf2f7" stroke="#cbd5e0" stroke-width="0.4" rx="1"/>
+
+<!-- Modifier Draw Pile -->
+<rect x="13" y="102" width="38" height="7" fill="#4a5568" rx="0.5"/>
+<text x="32" y="107.5" font-size="4.5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">DRAW PILE</text>
+<rect x="13" y="111" width="38" height="30" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<text x="32" y="124" font-size="3.5" fill="#718096" text-anchor="middle" font-family="Arial">Modifier</text>
+<text x="32" y="129" font-size="3.5" fill="#718096" text-anchor="middle" font-family="Arial">Draw Pile</text>
+<text x="32" y="135" font-size="3" fill="#a0aec0" text-anchor="middle" font-family="Arial">(face down)</text>
+<!-- Composition note -->
+<text x="13" y="145" font-size="3" fill="#718096" font-family="Arial">Contents: 2×Fail, 1×−1,</text>
+<text x="13" y="149" font-size="3" fill="#718096" font-family="Arial">2×0, 3×+1, 4×+2, 3×Success</text>
+
+<!-- Trash pile -->
+<rect x="57" y="102" width="38" height="7" fill="#e53e3e" rx="0.5"/>
+<text x="76" y="107.5" font-size="4.5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">TRASH</text>
+<rect x="57" y="111" width="38" height="30" fill="white" stroke="#feb2b2" stroke-width="0.5" rx="1"/>
+<text x="76" y="129" font-size="3.5" fill="#718096" text-anchor="middle" font-family="Arial">Trashed cards</text>
+<text x="76" y="134" font-size="3" fill="#a0aec0" text-anchor="middle" font-family="Arial">(out of game)</text>
+
+<!-- Indep. State Deck -->
+<rect x="100" y="102" width="42" height="7" fill="#718096" rx="0.5"/>
+<text x="121" y="107.5" font-size="4" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">IND. STATE DECK</text>
+<rect x="100" y="111" width="42" height="30" fill="white" stroke="#a0aec0" stroke-width="0.5" rx="1"/>
+<text x="121" y="124" font-size="3.5" fill="#718096" text-anchor="middle" font-family="Arial">Independent</text>
+<text x="121" y="129" font-size="3.5" fill="#718096" text-anchor="middle" font-family="Arial">State Deck</text>
+<text x="100" y="145" font-size="3" fill="#718096" font-family="Arial">No Fail card. Reshuffle</text>
+<text x="100" y="149" font-size="3" fill="#718096" font-family="Arial">fresh for every attack.</text>
+
+<!-- Draft/Cull reference -->
+<rect x="13" y="153" width="132" height="7" fill="#2d3748" rx="0.5"/>
+<text x="79" y="158.5" font-size="4.5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">DECK ACTIONS (cost: 1 market action + 2 gold)</text>
+
+<rect x="13" y="162" width="63" height="40" fill="white" stroke="#a0aec0" stroke-width="0.4" rx="0.5"/>
+<text x="44.5" y="168" font-size="4.5" fill="#2d3748" text-anchor="middle" font-family="Arial" font-weight="bold">DRAFT</text>
+<text x="15" y="175" font-size="3.5" fill="#4a5568" font-family="Arial">Draw 2 from Draw Pile.</text>
+<text x="15" y="180" font-size="3.5" fill="#4a5568" font-family="Arial">Add 1 to your discard.</text>
+<text x="15" y="185" font-size="3.5" fill="#4a5568" font-family="Arial">Return 1 to bottom.</text>
+<text x="15" y="190" font-size="3.5" fill="#718096" font-family="Arial">If both Fail: must add 1.</text>
+<text x="15" y="195" font-size="3.5" fill="#718096" font-family="Arial">Apprenticeship: draw 3.</text>
+<text x="15" y="200" font-size="3.5" fill="#718096" font-family="Arial">Grand Archive: draw 4, keep 2.</text>
+
+<rect x="80" y="162" width="65" height="40" fill="white" stroke="#a0aec0" stroke-width="0.4" rx="0.5"/>
+<text x="112.5" y="168" font-size="4.5" fill="#2d3748" text-anchor="middle" font-family="Arial" font-weight="bold">CULL</text>
+<text x="82" y="175" font-size="3.5" fill="#4a5568" font-family="Arial">Search deck + discard.</text>
+<text x="82" y="180" font-size="3.5" fill="#4a5568" font-family="Arial">Inspect 3 cards. Trash 1</text>
+<text x="82" y="185" font-size="3.5" fill="#4a5568" font-family="Arial">permanently. Return 2.</text>
+<text x="82" y="190" font-size="3.5" fill="#718096" font-family="Arial">Fail/Success: cannot cull.</text>
+<text x="82" y="195" font-size="3.5" fill="#718096" font-family="Arial">Grand Archive: inspect 5,</text>
+<text x="82" y="200" font-size="3.5" fill="#718096" font-family="Arial">remove 2.</text>
+
+<!-- RIGHT BOTTOM: Milestones + Awards (x=148-287, y=99-207) -->
+<rect x="148" y="99" width="139" height="108" fill="#fffff0" stroke="#fefcbf" stroke-width="0.4" rx="1"/>
+
+<!-- Milestones -->
+<rect x="150" y="101" width="135" height="7" fill="#d69e2e" rx="0.5"/>
+<text x="217.5" y="106.5" font-size="4.5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">MILESTONES — 5 VP each (first to claim, permanent)</text>
+
+<rect x="152" y="110" width="65" height="12" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="155" y="115.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Ruins Explorer</text>
+<text x="155" y="120" font-size="3" fill="#718096" font-family="Arial">Conquer an Ancient Ruins region</text>
+
+<rect x="221" y="110" width="64" height="12" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="224" y="115.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Prosperous Empire</text>
+<text x="224" y="120" font-size="3" fill="#718096" font-family="Arial">Reach income rate of 10</text>
+
+<rect x="152" y="124" width="65" height="12" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="155" y="129.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Developed Lands</text>
+<text x="155" y="134" font-size="3" fill="#718096" font-family="Arial">3 same terrain with buildings</text>
+
+<rect x="221" y="124" width="64" height="12" fill="white" stroke="#d69e2e" stroke-width="0.4" rx="0.5"/>
+<text x="224" y="129.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Master of a Class</text>
+<text x="224" y="134" font-size="3" fill="#718096" font-family="Arial">Max out any class track first</text>
+
+<!-- Awards -->
+<rect x="150" y="139" width="135" height="7" fill="#c05621" rx="0.5"/>
+<text x="217.5" y="144.5" font-size="4.5" fill="white" text-anchor="middle" font-family="Arial" font-weight="bold">AWARDS — Fund: 1 mkt action + 3 gold (5 VP / 2 VP)</text>
+
+<rect x="152" y="148" width="63" height="10" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="155" y="152.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Treasure Hoard</text>
+<text x="155" y="156.5" font-size="3" fill="#718096" font-family="Arial">Most gold in treasury</text>
+
+<rect x="219" y="148" width="66" height="10" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="222" y="152.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Prosperous Realm</text>
+<text x="222" y="156.5" font-size="3" fill="#718096" font-family="Arial">Highest income rate</text>
+
+<rect x="152" y="161" width="63" height="10" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="155" y="165.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Renaissance Empire</text>
+<text x="155" y="169.5" font-size="3" fill="#718096" font-family="Arial">Most total track steps</text>
+
+<rect x="219" y="161" width="66" height="10" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="222" y="165.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Grand Architect</text>
+<text x="222" y="169.5" font-size="3" fill="#718096" font-family="Arial">Highest combined card cost</text>
+
+<rect x="152" y="174" width="63" height="10" fill="white" stroke="#c05621" stroke-width="0.4" rx="0.5"/>
+<text x="155" y="178.5" font-size="3.5" fill="#2d3748" font-family="Arial">☐ Industrial Power</text>
+<text x="155" y="182.5" font-size="3" fill="#718096" font-family="Arial">Most commodities/round</text>
+
+<!-- Catch-up deck reminder -->
+<rect x="150" y="187" width="135" height="18" fill="#ebf8ff" stroke="#63b3ed" stroke-width="0.4" rx="0.5"/>
+<text x="152" y="192" font-size="4" fill="#2b6cb0" font-family="Arial" font-weight="bold">CATCH-UP DECK</text>
+<text x="152" y="197" font-size="3.5" fill="#2b6cb0" font-family="Arial">End of each round: last-place player draws top card</text>
+<text x="152" y="201" font-size="3.5" fill="#2b6cb0" font-family="Arial">from Catch-Up Deck → modifier discard pile.</text>
+<text x="152" y="205" font-size="3" fill="#4a5568" font-family="Arial">Last place: fewest regions → lowest income → lowest taxation</text>
+
+</svg>
