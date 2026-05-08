@@ -440,7 +440,6 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
-- **Shared world buildings:** Common buildings pre-placed on the map at game start. Any player controlling the tile gets the basic benefit. A player can claim a common building by buying the matching Empire card on that tile — the building becomes personal and loses its shared status, creating a race to claim them. Builder VP is awarded immediately and permanently. Open questions: how to price the claim discount given the existing gold-OR-resource dual pricing system; exact benefit types; total count per map; interaction with building destruction on conquest.
 - **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
 
 ---
