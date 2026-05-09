@@ -131,8 +131,8 @@
 <text x="60.5" y="101.0" font-size="3" fill="#718096" font-family="Arial" font-weight="bold">Cost: </text>
 <text x="70.5" y="101.0" font-size="3" fill="#2d3748" font-family="Arial">11g OR 2 glass + 1 stone</text>
 <line x1="60.5" y1="105.0" x2="101.5" y2="105.0" stroke="#d69e2e" stroke-width="0.3"/>
-<text x="60.5" y="108.5" font-size="3.0" fill="#2d3748" font-family="Arial">All your regions gain +1 defense</text>
-<text x="60.5" y="112.3" font-size="3.0" fill="#2d3748" font-family="Arial">permanently while on your mat.</text>
+<text x="60.5" y="108.5" font-size="2.7" fill="#2d3748" font-family="Arial">All your regions gain +1 defense while</text>
+<text x="60.5" y="112.3" font-size="3.0" fill="#2d3748" font-family="Arial">this card is on your mat.</text>
 <rect x="60.5" y="138.0" width="17" height="6" fill="#744210" rx="0.8"/>
 <text x="69.0" y="142.5" font-size="3.5" fill="white" text-anchor="middle" font-weight="bold" font-family="Arial">+3 VP</text>
 <rect x="58.5" y="144.0" width="45" height="3" fill="#744210" rx="1"/>
