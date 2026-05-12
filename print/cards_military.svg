@@ -37,7 +37,7 @@
 <text x="60.5" y="33.0" font-size="3" fill="#718096" font-family="Arial" font-weight="bold">Cost: </text>
 <text x="70.5" y="33.0" font-size="3" fill="#2d3748" font-family="Arial">3g OR 1 stone</text>
 <text x="60.5" y="37.0" font-size="3" fill="#718096" font-family="Arial" font-weight="bold">Place: </text>
-<text x="71.5" y="37.0" font-size="3" fill="#2d3748" font-family="Arial">Any region</text>
+<text x="71.5" y="37.0" font-size="3" fill="#2d3748" font-family="Arial">Mountain</text>
 <line x1="60.5" y1="41.0" x2="101.5" y2="41.0" stroke="#e53e3e" stroke-width="0.3"/>
 <text x="60.5" y="44.5" font-size="3.0" fill="#2d3748" font-family="Arial">BUILDING — place: 1 mkt action + gold</text>
 <text x="60.5" y="48.3" font-size="3.0" fill="#2d3748" font-family="Arial">per track level. +1 defense to this</text>

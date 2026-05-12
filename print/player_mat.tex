@@ -190,6 +190,14 @@
   \draw[darkgrey!30, thin] (0,141) -- (297,141);
   \node[font=\scriptsize\bfseries, text=darkgrey, anchor=west] at (1,147) {BUILDING CLASS TRACKS};
 
+  % Standard Build reference box
+  \fill[clmarket!12] (85,141.5) rectangle (296,149.5);
+  \draw[clmarket!40, thin] (85,141.5) rectangle (296,149.5);
+  \node[font=\tiny\bfseries, text=clmarket!80!black, anchor=west] at (87,144)
+    {STANDARD BUILD: 1 action + 3g $\to$ disc token, no track bonus. \quad UPGRADE: 1 action + 1g $\to$ swap disc for cube, track advances.};
+  \node[font=\tiny, text=darkgrey, anchor=west] at (87,148)
+    {Farm (Grassland) $\cdot$ Lumber Mill (Forest) $\cdot$ Quarry (Mountain) $\cdot$ Salt Mine (Desert). \quad Resource empire cards auto-place on purchase.};
+
   \buildtrack{1}{clmilitary}{MILITARY}{+1 atk/r}{+3g}{+2 atk/r}{+5 VP}
   \buildtrack{59}{clmarket}{MARKET}{+1 mkt/r}{+3g}{+2 mkt/r}{+5 VP}
   \buildtrack{117}{clscience}{SCIENCE}{+1 mkt/r}{+3g}{+2 mkt/r}{+5 VP}

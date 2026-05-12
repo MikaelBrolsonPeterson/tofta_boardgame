@@ -164,8 +164,12 @@
 <!-- Divider -->
 <line x1="2" y1="125" x2="295" y2="125" stroke="#2d3748" stroke-width="0.6"/>
 <rect x="2" y="125" width="294" height="6" fill="#2d3748"/>
-<text x="149" y="130" font-size="5" font-weight="bold" fill="white" text-anchor="middle">CLASS BUILDING TRACKS</text>
+<text x="55" y="130" font-size="5" font-weight="bold" fill="white" text-anchor="middle">CLASS BUILDING TRACKS</text>
 <text x="285" y="130" font-size="3.5" fill="#a0aec0" text-anchor="middle">LIMIT</text>
+<!-- Standard Build callout -->
+<rect x="110" y="125.2" width="183" height="5.8" fill="#276749" rx="0.5"/>
+<text x="201.5" y="127.8" font-size="2.8" fill="white" font-weight="bold" text-anchor="middle">STANDARD BUILD: 1 action + 3g → disc token, no track  |  UPGRADE: 1 action + 1g → swap disc for cube, track advances</text>
+<text x="201.5" y="130.2" font-size="2.6" fill="#c6f6d5" text-anchor="middle">Farm (Grassland) · Lumber Mill (Forest) · Quarry (Mountain) · Salt Mine (Desert)  |  Resource emp. cards auto-place on purchase</text>
 
 <!-- Track layout: each row 14mm tall, y=131 to 209 (78mm / 5 rows ~15.6mm each) -->
 <!-- Row structure: color stripe (3mm) | label (50mm) | 4 slots (from x=56 to x=290) | limit badge -->

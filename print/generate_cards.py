@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Generate printable card sheet SVGs for Tofta board game (2-player set).
 
-Empire cards (Military/Market/Science/Wonders/Misc/Action): shared market deck,
-1 copy of each card — no duplication needed.
+Empire cards (Military/Market/Science/Wonders/Misc/Action): shared market deck.
+Basic resource buildings (Farm, Lumber Mill, Quarry, Salt Mine) have 2 copies each
+so multiple players can access them in Era I.
 
 Modifier cards:
   - Personal deck: one full set per player, printed in player colour.
@@ -216,7 +217,7 @@ MILITARY = [
          cost="3g OR 1 stone",   placement="Any region",
          effect="BUILDING — place: 1 mkt action + gold per track level. +1 defense to this region. Limit 1 per region."),
     dict(cls="Military", name="Mountain Fort",   era="I",
-         cost="3g OR 1 stone",   placement="Any region",
+         cost="3g OR 1 stone",   placement="Mountain",
          effect="BUILDING — place: 1 mkt action + gold per track level. +1 defense to this region and all adjacent. Stacks."),
     dict(cls="Military", name="Battering Ram",   era="I",
          cost="3g OR 1 stone",   placement="—",
@@ -254,18 +255,18 @@ MILITARY = [
 ]
 
 MARKET = [
-    dict(cls="Market", name="Quarry",            era="I",
+    dict(cls="Market", name="Quarry",            era="I",   count=2,
          cost="5g OR 1 wood",    placement="Mountain",
-         effect="BUILDING — place: 1 mkt action + gold per track level. Produces 1 Stone per round."),
-    dict(cls="Market", name="Lumber Mill",       era="I",
+         effect="Auto-placed on purchase (no separate placement action). Produces 1 Stone per round."),
+    dict(cls="Market", name="Lumber Mill",       era="I",   count=2,
          cost="5g OR 1 stone",   placement="Forest",
-         effect="BUILDING — place: 1 mkt action + gold per track level. Produces 1 Wood per round."),
-    dict(cls="Market", name="Farm",              era="I",
+         effect="Auto-placed on purchase (no separate placement action). Produces 1 Wood per round."),
+    dict(cls="Market", name="Farm",              era="I",   count=2,
          cost="5g OR 1 wood",    placement="Grassland",
-         effect="BUILDING — place: 1 mkt action + gold per track level. Produces 1 Food per round."),
-    dict(cls="Market", name="Salt Mine",         era="I",
+         effect="Auto-placed on purchase (no separate placement action). Produces 1 Food per round."),
+    dict(cls="Market", name="Salt Mine",         era="I",   count=2,
          cost="5g OR 1 stone",   placement="Desert",
-         effect="BUILDING — place: 1 mkt action + gold per track level. Produces 1 Food per round."),
+         effect="Auto-placed on purchase (no separate placement action). Produces 1 Food per round."),
     dict(cls="Market", name="Fishing Village",   era="I",
          cost="3g OR 1 wood",    placement="—",
          effect="Water tiles adjacent to your regions generate taxation without conquest."),
@@ -513,9 +514,9 @@ OUT = os.path.dirname(__file__)
 
 print("Generating Tofta card sheets (2-player set)…")
 
-# Empire cards — 1 copy each (shared market deck)
-write_sheets(MILITARY, "cards_military",  "TOFTA — Military Cards (Red)")
-write_sheets(MARKET,   "cards_market",    "TOFTA — Market Cards (Green)")
+# Empire cards — shared market deck (resource buildings have 2 copies each)
+write_sheets(MILITARY,        "cards_military",  "TOFTA — Military Cards (Red)")
+write_sheets(expand(MARKET),  "cards_market",    "TOFTA — Market Cards (Green)")
 write_sheets(SCIENCE,  "cards_science",   "TOFTA — Science Cards (Lilac)")
 write_sheets(WONDERS,  "cards_wonders",   "TOFTA — Wonders (Brown)")
 write_sheets(MISC,     "cards_misc",      "TOFTA — Misc Cards (Grey)")
@@ -539,7 +540,7 @@ print("Done.")
 print()
 print("Card counts per deck:")
 print(f"  Military:    {len(MILITARY)} unique cards")
-print(f"  Market:      {len(MARKET)} unique cards")
+print(f"  Market:      {len(expand(MARKET))} cards ({len(MARKET)} unique, resource buildings x2)")
 print(f"  Science:     {len(SCIENCE)} unique cards")
 print(f"  Wonders:     {len(WONDERS)} unique cards")
 print(f"  Misc:        {len(MISC)} unique cards")

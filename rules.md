@@ -254,8 +254,34 @@ Buying a building empire card gives you the ability to build that building type.
 
 When you pay the cost, move one cube from that class's building track onto the eligible region — this is the building token and simultaneously unlocks the track bonus. If you have no eligible tile, you may not place the building.
 
+**Exception — resource buildings:** Farm, Lumber Mill, Quarry, and Salt Mine are placed automatically when their empire card is purchased. No separate placement action or gold cost is required. The cube moves from the Market class track to a chosen eligible region at the moment of card purchase.
+
+Each building card can place **one building only** — once placed, that card cannot be used to place another building. The card stays on your Empire mat and continues giving its effects.
+
+**Card rotation:** Rotate a card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished. Building placement is tracked by the cube on the board, not by rotation.
+
+**Selling a card:** Spend a market action to discard a card and free its slot. If a building was placed from it, the building is destroyed (cube removed). The track bonus remains unlocked.
+
+#### Standard Build
+
+Any player can always build a basic resource structure without an Empire card, as a market action:
+
+| Building | Terrain | Produces |
+|----------|---------|----------|
+| Farm | Grassland | 1 Food/round |
+| Lumber Mill | Forest | 1 Wood/round |
+| Quarry | Mountain | 1 Stone/round |
+| Salt Mine | Desert | 1 Food/round |
+
+**Cost:** 1 market action + 3 gold. Place a **standard token** (flat disc — physically distinct from cube track tokens) on any eligible region you control.
+
+Standard builds do **not** advance the building track — no cube moves, no track bonus.
+
+**Upgrade:** A placed standard token can later be upgraded. Cost: 1 market action + 1 gold. Remove the standard token and place a cube from the Market class track onto that region — the track bonus unlocks immediately. Total cost of standard-then-upgrade: 4 gold + 2 market actions, vs 5 gold + 1 market action for buying the empire card directly. The upgrade path saves 1 gold but costs one extra action.
+
+The empire card versions of these buildings auto-place on purchase (see exception above) and still exist in the market for the direct single-action path.
+
 - The building is attached to that tile. If an opponent conquers the tile, the building is **destroyed** and the conqueror takes any stockpile on that region. The cube is removed from the board but the track bonus remains unlocked.
-- If you discard the building's empire card, the building is also destroyed — the cube is removed from the board. The track bonus remains unlocked.
 - Only one building per tile.
 - A building generates its output each round as long as you control the tile.
 
@@ -285,13 +311,13 @@ Some Empire cards generate resources or commodities based on the position of reg
 
 Conquering a region costs one Attack action. The conquest succeeds if the attacker has more strength than the defender.
 
-- **Success:** Take control of the region and place your indicator there. Conquered regions provide tax but also cost upkeep.
-- **Failure:** The region remains independent, but the player gains half the taxation of the region (rounded up) right away, which can be used to purchase cards.
+- **Success:** Take control of the region and place your indicator there. Conquered regions provide tax and cost upkeep from that round onward.
+- **Failure vs independent:** You still conquer the region, but it revolts. Place your indicator but mark it as revolting — no taxation is collected from it until the revolt is cleared. Upkeep is still owed. The revolt clears at the start of your next turn. While a region is revolting, you cannot place buildings in it or use it as a base to attack from.
 - **Versus another player:** Remove that player's token and place one of your own instead. The attacker takes up to 2 resources or commodities from the conquered region's stockpile; any remainder returns to the general supply. Any building token on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the building is replanted on a new eligible tile. Replanting costs 1 market action and no additional gold — place the building token on any eligible tile you currently control. Any on-loss effects on the losing player's Empire cards trigger immediately.
 
 ### Multiple Attacks to Conquer
 
-Some regions (Swamp: 2, Capitol: 3) require more than one successful attack to conquer. All required attacks must be made consecutively within the same turn, each costing one Attack action and resolved separately. If any attack fails, the entire conquest attempt fails for that turn — no partial progress carries over. The attacker may try again on a future turn.
+Some regions (Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront (X attack actions), but the combat is resolved as a **single attack roll**. If it fails, the revolt mechanic applies as normal. The attacker may try again on a future turn.
 
 ### Strength
 
@@ -458,6 +484,9 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Keep buildings:** Discuss whether buildings should persist on the board when their empire card is discarded. Would allow overbuilding — replacing an existing building with a newer, more advanced one later in the game.
 - **Advantage and disadvantage:** Revisit how advantage/disadvantage works in combat — current mechanic draws two modifier cards and picks best/worst.
+- **FAIL vs independent regions:** Currently treated as conquest with revolt (same as any failure). Determine if FAIL should instead be a true failure — no conquest at all.
+- **Draft and Cull costs:** Consider making Draft cost a market action (buy) and Cull cost an attack action, rather than both costing a market action.
+- **Modifier deck size:** 12 vs 24 cards per player — test both to determine which feels better.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
@@ -475,7 +504,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 |------|-----|------|-----------|--------|
 | Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength while on your mat. |
 | Watchtower | I | 3 gold OR 1 stone | Any controlled region | +1 defense to one region. Limit 1 per region. |
-| Mountain Fort | I | 3 gold OR 1 stone | Any controlled region | +1 defense to this region and all adjacent. Stacks. |
+| Mountain Fort | I | 3 gold OR 1 stone | Mountain | +1 defense to this region and all adjacent. Stacks. |
 | Battering Ram | I | 3 gold OR 1 stone | — | Choose one region when playing this card. That region loses 1 defense while this card is on your mat. |
 | War Camp | I | 5 gold OR 2 food | Any controlled region | +1 attack action per era. |
 | Siege Engine | II | 5 gold OR 1 iron | — | Once per era: target region loses its terrain defense bonus for one attack. |
