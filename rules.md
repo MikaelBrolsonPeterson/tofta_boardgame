@@ -457,6 +457,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Keep buildings:** Discuss whether buildings should persist on the board when their empire card is discarded. Would allow overbuilding — replacing an existing building with a newer, more advanced one later in the game.
+- **Advantage and disadvantage:** Revisit how advantage/disadvantage works in combat — current mechanic draws two modifier cards and picks best/worst.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.

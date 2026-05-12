@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 297" width="210mm" height="297mm">
+<defs>
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; }
+    .hl { font-size: 5.5px; text-anchor: middle; font-weight: bold; }
+    .hs { font-size: 4.5px; text-anchor: middle; }
+    .hn { font-size: 4px;   text-anchor: middle; }
+  </style>
+</defs>
+
+<!-- Background -->
+<rect width="210" height="297" fill="#f0ede8"/>
+<rect x="1.5" y="1.5" width="207" height="294" fill="none" stroke="#2d3748" stroke-width="0.8" rx="2"/>
+
+<!-- HEADER -->
+<rect x="1.5" y="1.5" width="207" height="14" fill="#2d3748" rx="2"/>
+<rect x="1.5" y="8" width="207" height="7.5" fill="#2d3748"/>
+<text x="105" y="11.5" font-size="7" font-weight="bold" fill="white" text-anchor="middle">TOFTA — 2-PLAYER MAP</text>
+<text x="105" y="13.5" font-size="3.5" fill="#a0aec0" text-anchor="middle">Era I: rounds 1–5  |  Era II: 6–10  |  Era III: 11–15</text>
+
+<!--
+  HEX GRID — pointy-top, R=20mm
+  hex_w = √3×20 = 34.64   half_w = 17.32   row_spacing = 30
+  x0 = 27   y0 = 38 (row 0 center-y)
+  even rows:  cx = x0 + col×34.64
+  odd  rows:  cx = x0 + col×34.64 + 17.32
+  polygon: cx,cy-20  cx+17.3,cy-10  cx+17.3,cy+10  cx,cy+20  cx-17.3,cy+10  cx-17.3,cy-10
+-->
+
+<!-- ═══════════════════════════════════ ROW 0 (even, cy=38) ═══════════════════════════════════ -->
+
+<!-- [1,0] Forest -->
+<polygon points="61.6,18 78.9,28 78.9,48 61.6,58 44.3,48 44.3,28" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="61.6" y="32" class="hl" fill="#a8d5a8">Forest</text>
+<text x="61.6" y="39" class="hs" fill="#a8d5a8">T:1  U:2  D+1</text>
+
+<!-- [2,0] Capitol — Player 1 -->
+<polygon points="96.3,18 113.6,28 113.6,48 96.3,58 79.0,48 79.0,28" fill="#e8a000" stroke="#1a1a1a" stroke-width="0.7"/>
+<text x="96.3" y="29" class="hl" fill="white">♛ CAPITOL</text>
+<text x="96.3" y="36" class="hl" fill="white">PLAYER 1</text>
+<text x="96.3" y="43" class="hs" style="fill:rgba(255,255,255,0.85)">T:4  U:1  D+2</text>
+<text x="96.3" y="50" class="hn" style="fill:rgba(255,255,255,0.75)">3 attacks · disadv.</text>
+
+<!-- [3,0] Grassland — Player 1 start -->
+<polygon points="130.9,18 148.2,28 148.2,48 130.9,58 113.6,48 113.6,28" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="130.9" y="32" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="130.9" y="39" class="hs" fill="#1a4a1a">T:3  U:1</text>
+<text x="130.9" y="47" class="hn" fill="#1a4a1a">P1 START</text>
+
+<!-- ═══════════════════════════════════ ROW 1 (odd, cy=68) ════════════════════════════════════ -->
+
+<!-- [0,1] Mountain -->
+<polygon points="44.3,48 61.6,58 61.6,78 44.3,88 27.0,78 27.0,58" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="44.3" y="62" class="hl" fill="white">Mountain</text>
+<text x="44.3" y="69" class="hs" style="fill:rgba(255,255,255,0.9)">T:1  U:3  D+2</text>
+
+<!-- [1,1] Grassland -->
+<polygon points="79.0,48 96.3,58 96.3,78 79.0,88 61.7,78 61.7,58" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="79.0" y="62" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="79.0" y="69" class="hs" fill="#1a4a1a">T:3  U:1</text>
+
+<!-- [2,1] Desert -->
+<polygon points="113.6,48 130.9,58 130.9,78 113.6,88 96.3,78 96.3,58" fill="#d4b862" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="113.6" y="62" class="hl" fill="#4a3800">Desert</text>
+<text x="113.6" y="69" class="hs" fill="#4a3800">T:1  U:0  A+1</text>
+<text x="113.6" y="76" class="hn" fill="#4a3800">atk disadv.</text>
+
+<!-- [3,1] Forest -->
+<polygon points="148.2,48 165.5,58 165.5,78 148.2,88 130.9,78 130.9,58" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="148.2" y="62" class="hl" fill="#a8d5a8">Forest</text>
+<text x="148.2" y="69" class="hs" fill="#a8d5a8">T:1  U:2  D+1</text>
+
+<!-- ═══════════════════════════════════ ROW 2 (even, cy=98) ═══════════════════════════════════ -->
+
+<!-- [0,2] Ocean -->
+<polygon points="27.0,78 44.3,88 44.3,108 27.0,118 9.7,108 9.7,88" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="27.0" y="92" class="hl" fill="#a8d5ff">Ocean</text>
+<text x="27.0" y="99" class="hs" style="fill:rgba(255,255,255,0.85)">T:1  U:0  A+1</text>
+<text x="27.0" y="106" class="hn" style="fill:rgba(200,220,255,0.85)">Navy req.</text>
+
+<!-- [1,2] Swamp -->
+<polygon points="61.6,78 78.9,88 78.9,108 61.6,118 44.3,108 44.3,88" fill="#5d7a3e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="61.6" y="92" class="hl" fill="#d4f0a0">Swamp</text>
+<text x="61.6" y="99" class="hs" style="fill:rgba(255,255,255,0.85)">T:0  U:1  D+1</text>
+<text x="61.6" y="106" class="hn" style="fill:rgba(210,240,160,0.85)">2 attacks</text>
+
+<!-- [2,2] Mountain -->
+<polygon points="96.3,78 113.6,88 113.6,108 96.3,118 79.0,108 79.0,88" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="96.3" y="92" class="hl" fill="white">Mountain</text>
+<text x="96.3" y="99" class="hs" style="fill:rgba(255,255,255,0.9)">T:1  U:3  D+2</text>
+
+<!-- [3,2] Grassland -->
+<polygon points="130.9,78 148.2,88 148.2,108 130.9,118 113.6,108 113.6,88" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="130.9" y="92" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="130.9" y="99" class="hs" fill="#1a4a1a">T:3  U:1</text>
+
+<!-- [4,2] Forest -->
+<polygon points="165.6,78 182.9,88 182.9,108 165.6,118 148.3,108 148.3,88" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="165.6" y="92" class="hl" fill="#a8d5a8">Forest</text>
+<text x="165.6" y="99" class="hs" fill="#a8d5a8">T:1  U:2  D+1</text>
+
+<!-- ═══════════════════════════════════ ROW 3 (odd, cy=128) ═══════════════════════════════════ -->
+
+<!-- [0,3] Ocean -->
+<polygon points="44.3,108 61.6,118 61.6,138 44.3,148 27.0,138 27.0,118" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="44.3" y="122" class="hl" fill="#a8d5ff">Ocean</text>
+<text x="44.3" y="129" class="hs" style="fill:rgba(255,255,255,0.85)">T:1  U:0  A+1</text>
+<text x="44.3" y="136" class="hn" style="fill:rgba(200,220,255,0.85)">Navy req.</text>
+
+<!-- [1,3] Grassland -->
+<polygon points="79.0,108 96.3,118 96.3,138 79.0,148 61.7,138 61.7,118" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="79.0" y="122" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="79.0" y="129" class="hs" fill="#1a4a1a">T:3  U:1</text>
+
+<!-- [2,3] Ancient Ruins (center) -->
+<polygon points="113.6,108 130.9,118 130.9,138 113.6,148 96.3,138 96.3,118" fill="#8B4513" stroke="#ffd700" stroke-width="1.0"/>
+<text x="113.6" y="120" class="hl" fill="#ffd700">★ ANCIENT</text>
+<text x="113.6" y="127" class="hl" fill="#ffd700">RUINS ★</text>
+<text x="113.6" y="135" class="hs" style="fill:rgba(255,220,100,0.9)">T:2  U:2  D−1</text>
+<text x="113.6" y="142" class="hn" style="fill:rgba(255,220,100,0.85)">+1 Wild/round</text>
+
+<!-- [3,3] Mountain -->
+<polygon points="148.2,108 165.5,118 165.5,138 148.2,148 130.9,138 130.9,118" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="148.2" y="122" class="hl" fill="white">Mountain</text>
+<text x="148.2" y="129" class="hs" style="fill:rgba(255,255,255,0.9)">T:1  U:3  D+2</text>
+
+<!-- [4,3] Ocean -->
+<polygon points="182.9,108 200.2,118 200.2,138 182.9,148 165.6,138 165.6,118" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="182.9" y="122" class="hl" fill="#a8d5ff">Ocean</text>
+<text x="182.9" y="129" class="hs" style="fill:rgba(255,255,255,0.85)">T:1  U:0  A+1</text>
+<text x="182.9" y="136" class="hn" style="fill:rgba(200,220,255,0.85)">Navy req.</text>
+
+<!-- ═══════════════════════════════════ ROW 4 (even, cy=158) ══════════════════════════════════ -->
+
+<!-- [0,4] Forest -->
+<polygon points="27.0,138 44.3,148 44.3,168 27.0,178 9.7,168 9.7,148" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="27.0" y="152" class="hl" fill="#a8d5a8">Forest</text>
+<text x="27.0" y="159" class="hs" fill="#a8d5a8">T:1  U:2  D+1</text>
+
+<!-- [1,4] Grassland -->
+<polygon points="61.6,138 78.9,148 78.9,168 61.6,178 44.3,168 44.3,148" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="61.6" y="152" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="61.6" y="159" class="hs" fill="#1a4a1a">T:3  U:1</text>
+
+<!-- [2,4] Mountain -->
+<polygon points="96.3,138 113.6,148 113.6,168 96.3,178 79.0,168 79.0,148" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="96.3" y="152" class="hl" fill="white">Mountain</text>
+<text x="96.3" y="159" class="hs" style="fill:rgba(255,255,255,0.9)">T:1  U:3  D+2</text>
+
+<!-- [3,4] Swamp -->
+<polygon points="130.9,138 148.2,148 148.2,168 130.9,178 113.6,168 113.6,148" fill="#5d7a3e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="130.9" y="152" class="hl" fill="#d4f0a0">Swamp</text>
+<text x="130.9" y="159" class="hs" style="fill:rgba(255,255,255,0.85)">T:0  U:1  D+1</text>
+<text x="130.9" y="166" class="hn" style="fill:rgba(210,240,160,0.85)">2 attacks</text>
+
+<!-- [4,4] Ocean -->
+<polygon points="165.6,138 182.9,148 182.9,168 165.6,178 148.3,168 148.3,148" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="165.6" y="152" class="hl" fill="#a8d5ff">Ocean</text>
+<text x="165.6" y="159" class="hs" style="fill:rgba(255,255,255,0.85)">T:1  U:0  A+1</text>
+<text x="165.6" y="166" class="hn" style="fill:rgba(200,220,255,0.85)">Navy req.</text>
+
+<!-- ═══════════════════════════════════ ROW 5 (odd, cy=188) ═══════════════════════════════════ -->
+
+<!-- [0,5] Forest -->
+<polygon points="44.3,168 61.6,178 61.6,198 44.3,208 27.0,198 27.0,178" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="44.3" y="182" class="hl" fill="#a8d5a8">Forest</text>
+<text x="44.3" y="189" class="hs" fill="#a8d5a8">T:1  U:2  D+1</text>
+
+<!-- [1,5] Desert -->
+<polygon points="79.0,168 96.3,178 96.3,198 79.0,208 61.7,198 61.7,178" fill="#d4b862" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="79.0" y="182" class="hl" fill="#4a3800">Desert</text>
+<text x="79.0" y="189" class="hs" fill="#4a3800">T:1  U:0  A+1</text>
+<text x="79.0" y="196" class="hn" fill="#4a3800">atk disadv.</text>
+
+<!-- [2,5] Grassland -->
+<polygon points="113.6,168 130.9,178 130.9,198 113.6,208 96.3,198 96.3,178" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="113.6" y="182" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="113.6" y="189" class="hs" fill="#1a4a1a">T:3  U:1</text>
+
+<!-- [3,5] Mountain -->
+<polygon points="148.2,168 165.5,178 165.5,198 148.2,208 130.9,198 130.9,178" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="148.2" y="182" class="hl" fill="white">Mountain</text>
+<text x="148.2" y="189" class="hs" style="fill:rgba(255,255,255,0.9)">T:1  U:3  D+2</text>
+
+<!-- ═══════════════════════════════════ ROW 6 (even, cy=218) ══════════════════════════════════ -->
+
+<!-- [1,6] Grassland — Player 2 start -->
+<polygon points="61.6,198 78.9,208 78.9,228 61.6,238 44.3,228 44.3,208" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="61.6" y="212" class="hl" fill="#1a4a1a">Grassland</text>
+<text x="61.6" y="219" class="hs" fill="#1a4a1a">T:3  U:1</text>
+<text x="61.6" y="227" class="hn" fill="#1a4a1a">P2 START</text>
+
+<!-- [2,6] Capitol — Player 2 -->
+<polygon points="96.3,198 113.6,208 113.6,228 96.3,238 79.0,228 79.0,208" fill="#e8a000" stroke="#1a1a1a" stroke-width="0.7"/>
+<text x="96.3" y="209" class="hl" fill="white">♛ CAPITOL</text>
+<text x="96.3" y="216" class="hl" fill="white">PLAYER 2</text>
+<text x="96.3" y="223" class="hs" style="fill:rgba(255,255,255,0.85)">T:4  U:1  D+2</text>
+<text x="96.3" y="230" class="hn" style="fill:rgba(255,255,255,0.75)">3 attacks · disadv.</text>
+
+<!-- [3,6] Forest -->
+<polygon points="130.9,198 148.2,208 148.2,228 130.9,238 113.6,228 113.6,208" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.5"/>
+<text x="130.9" y="212" class="hl" fill="#a8d5a8">Forest</text>
+<text x="130.9" y="219" class="hs" fill="#a8d5a8">T:1  U:2  D+1</text>
+
+<!-- ═══════════════════════════════════════ LEGEND ════════════════════════════════════════════ -->
+<line x1="2" y1="242" x2="208" y2="242" stroke="#2d3748" stroke-width="0.5"/>
+<rect x="2" y="242" width="206" height="7" fill="#2d3748"/>
+<text x="105" y="247.5" font-size="4.5" font-weight="bold" fill="white" text-anchor="middle">LEGEND — T=Taxation  U=Upkeep  D=Defense mod  A=Attack mod</text>
+
+<!-- Legend row 1 -->
+<rect x="5"   y="251" width="6" height="5" fill="#7cb87c" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="13"  y="255.5" font-size="3.8" fill="#2d3748">Grassland  T:3 U:1</text>
+<rect x="65"  y="251" width="6" height="5" fill="#9e9e9e" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="73"  y="255.5" font-size="3.8" fill="#2d3748">Mountain  T:1 U:3 D+2</text>
+<rect x="130" y="251" width="6" height="5" fill="#2d6b2d" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="138" y="255.5" font-size="3.8" fill="#2d3748">Forest  T:1 U:2 D+1</text>
+
+<!-- Legend row 2 -->
+<rect x="5"   y="258" width="6" height="5" fill="#5d7a3e" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="13"  y="262.5" font-size="3.8" fill="#2d3748">Swamp  T:0 U:1 D+1  (2 attacks to conquer)</text>
+<rect x="130" y="258" width="6" height="5" fill="#d4b862" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="138" y="262.5" font-size="3.8" fill="#2d3748">Desert  T:1 U:0 A+1  (atk disadvantage)</text>
+
+<!-- Legend row 3 -->
+<rect x="5"   y="265" width="6" height="5" fill="#1a6eb5" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="13"  y="269.5" font-size="3.8" fill="#2d3748">Ocean  T:1 U:0  (not conquerable without Navy card)</text>
+<rect x="130" y="265" width="6" height="5" fill="#e8a000" stroke="#1a1a1a" stroke-width="0.3"/>
+<text x="138" y="269.5" font-size="3.8" fill="#2d3748">Capitol  T:4 U:1 D+2  (3 attacks, attacker disadvantage)</text>
+
+<!-- Legend row 4 -->
+<rect x="5"   y="272" width="6" height="5" fill="#8B4513" stroke="#ffd700" stroke-width="0.5"/>
+<text x="13"  y="276.5" font-size="3.8" fill="#2d3748">Ancient Ruins  T:2 U:2 D−1  (easier to attack, +1 Wild/round auto)</text>
+
+<!-- Divider -->
+<line x1="5" y1="279" x2="205" y2="279" stroke="#a0aec0" stroke-width="0.3"/>
+
+<!-- Notes row -->
+<text x="5" y="283.5" font-size="3.5" fill="#4a5568">Connectivity: regions must have a path back to your Capitol to generate taxation (no path = upkeep only).</text>
+<text x="5" y="288" font-size="3.5" fill="#4a5568">Upkeep scaling: 6–9 regions +1 to all upkeep · 10+ regions +2 to all upkeep.</text>
+<text x="5" y="292.5" font-size="3.5" fill="#4a5568">Forests: per 3 controlled = +1 attack action/round. ×2 / ×3 after terrain = attacks needed to conquer.</text>
+
+</svg>
