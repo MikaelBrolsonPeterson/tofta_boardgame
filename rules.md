@@ -327,6 +327,10 @@ Strength is the sum of:
 - The number drawn from the modifier deck
 - Any Empire card bonuses
 
+### Ties
+
+If attacker and defender have equal strength, the defender wins — no conquest occurs. However, the contested region goes into revolt against the defending player (no taxation, no building placement, cannot attack from it; clears at the start of the defending player's next turn). The next attack by any player on this region gains +1 to attack strength.
+
 ### Advantage and Disadvantage
 
 | Condition     | Effect |
@@ -488,7 +492,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Draft and Cull costs:** Consider making Draft cost a market action (buy) and Cull cost an attack action, rather than both costing a market action.
 - **Modifier deck size:** 12 vs 24 cards per player — test both to determine which feels better.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
-- **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
+- **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards. Note: adjacency-based defense bonuses (e.g. Mountain Fort affecting adjacent regions) should be reserved for later-era cards — Era I buildings should have simpler, self-contained effects.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
 - **Physical player pieces:** Inventory available physical pieces (meeples, tokens, dice, etc.) and determine how each maps to game components — region control markers, building tokens, VP trackers, resource/commodity storage, etc.
 
