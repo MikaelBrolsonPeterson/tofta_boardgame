@@ -312,7 +312,7 @@ Some Empire cards generate resources or commodities based on the position of reg
 Conquering a region costs one Attack action. The conquest succeeds if the attacker has more strength than the defender.
 
 - **Success:** Take control of the region and place your indicator there. Conquered regions provide tax and cost upkeep from that round onward.
-- **Failure vs independent:** You still conquer the region, but it revolts. Place your indicator but mark it as revolting — no taxation is collected from it until the revolt is cleared. Upkeep is still owed. The revolt clears at the start of your next turn. While a region is revolting, you cannot place buildings in it or use it as a base to attack from.
+- **Failure vs independent:** You still conquer the region, but it revolts. Place your indicator but mark it as revolting — no taxation is collected from it until the revolt is cleared. Upkeep is still owed. The revolt clears at the start of your next turn. While a region is revolting, you cannot place buildings in it or use it as a base to attack from. Any attacker targeting a revolting region gains +1 to their attack strength.
 - **Versus another player:** Remove that player's token and place one of your own instead. The attacker takes up to 2 resources or commodities from the conquered region's stockpile; any remainder returns to the general supply. Any building token on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the building is replanted on a new eligible tile. Replanting costs 1 market action and no additional gold — place the building token on any eligible tile you currently control. Any on-loss effects on the losing player's Empire cards trigger immediately.
 
 ### Multiple Attacks to Conquer
@@ -329,7 +329,7 @@ Strength is the sum of:
 
 ### Ties
 
-If attacker and defender have equal strength, the defender wins — no conquest occurs. However, the contested region goes into revolt against the defending player (no taxation, no building placement, cannot attack from it; clears at the start of the defending player's next turn). The next attack by any player on this region gains +1 to attack strength.
+If attacker and defender have equal strength, the defender wins — no conquest occurs. However, the contested region goes into revolt against the defending player (no taxation, no building placement, cannot attack from it; clears at the start of the defending player's next turn). The +1 attack bonus against revolting regions applies as normal.
 
 ### Advantage and Disadvantage
 
