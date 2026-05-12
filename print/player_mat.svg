@@ -180,25 +180,25 @@
 
 <!-- 4 track slots -->
 <rect x="57" y="132" width="45" height="12" fill="white" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
-<text x="79.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="79.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 atk/rnd</text>
 <text x="79.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 1</text>
 
 <text x="103.5" y="139" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="108" y="132" width="45" height="12" fill="white" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
-<text x="130.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="130.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+3 gold</text>
 <text x="130.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 2</text>
 
 <text x="154.5" y="139" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="159" y="132" width="55" height="12" fill="white" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
-<text x="186.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 atk/era</text>
+<text x="186.5" y="138.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 atk/rnd</text>
 <text x="186.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 3</text>
 
 <text x="215.5" y="139" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="220" y="132" width="45" height="12" fill="#fff5f5" stroke="#e53e3e" stroke-width="0.5" rx="0.5"/>
-<text x="242.5" y="138.5" font-size="4" fill="#c53030" text-anchor="middle">+1 VP</text>
+<text x="242.5" y="138.5" font-size="4" fill="#c53030" text-anchor="middle">+5 VP</text>
 <text x="242.5" y="143" font-size="3" fill="#718096" text-anchor="middle">slot 4</text>
 
 <rect x="270" y="133" width="22" height="10" fill="#e53e3e" rx="1"/>
@@ -212,22 +212,22 @@
 <text x="29" y="157" font-size="3.5" fill="#38a169" text-anchor="middle">Green cards</text>
 
 <rect x="57" y="147" width="45" height="12" fill="white" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
-<text x="79.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="79.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 mkt/rnd</text>
 
 <text x="103.5" y="154" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="108" y="147" width="45" height="12" fill="white" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
-<text x="130.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="130.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+3 gold</text>
 
 <text x="154.5" y="154" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="159" y="147" width="55" height="12" fill="white" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
-<text x="186.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 mkt/era</text>
+<text x="186.5" y="153.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 mkt/rnd</text>
 
 <text x="215.5" y="154" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="220" y="147" width="45" height="12" fill="#f0fff4" stroke="#38a169" stroke-width="0.5" rx="0.5"/>
-<text x="242.5" y="153.5" font-size="4" fill="#276749" text-anchor="middle">+1 VP</text>
+<text x="242.5" y="153.5" font-size="4" fill="#276749" text-anchor="middle">+5 VP</text>
 
 <rect x="270" y="148" width="22" height="10" fill="#38a169" rx="1"/>
 <text x="281" y="154.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
@@ -240,7 +240,7 @@
 <text x="29" y="172" font-size="3.5" fill="#805ad5" text-anchor="middle">Lilac cards</text>
 
 <rect x="57" y="162" width="45" height="12" fill="white" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
-<text x="79.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="79.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 mkt/rnd</text>
 
 <text x="103.5" y="169" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
@@ -250,12 +250,12 @@
 <text x="154.5" y="169" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="159" y="162" width="55" height="12" fill="white" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
-<text x="186.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 mkt/era</text>
+<text x="186.5" y="168.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 mkt/rnd</text>
 
 <text x="215.5" y="169" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="220" y="162" width="45" height="12" fill="#faf5ff" stroke="#805ad5" stroke-width="0.5" rx="0.5"/>
-<text x="242.5" y="168.5" font-size="4" fill="#553c9a" text-anchor="middle">+2 VP</text>
+<text x="242.5" y="168.5" font-size="4" fill="#553c9a" text-anchor="middle">+5 VP</text>
 
 <rect x="270" y="163" width="22" height="10" fill="#805ad5" rx="1"/>
 <text x="281" y="169.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
@@ -268,22 +268,22 @@
 <text x="29" y="187" font-size="3.5" fill="#718096" text-anchor="middle">Grey cards</text>
 
 <rect x="57" y="177" width="45" height="12" fill="white" stroke="#718096" stroke-width="0.5" rx="0.5"/>
-<text x="79.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="79.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 atk/rnd</text>
 
 <text x="103.5" y="184" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="108" y="177" width="45" height="12" fill="white" stroke="#718096" stroke-width="0.5" rx="0.5"/>
-<text x="130.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 gold</text>
+<text x="130.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+3 gold</text>
 
 <text x="154.5" y="184" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="159" y="177" width="55" height="12" fill="white" stroke="#718096" stroke-width="0.5" rx="0.5"/>
-<text x="186.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+1 atk/era</text>
+<text x="186.5" y="183.5" font-size="4" fill="#2d3748" text-anchor="middle">+2 atk/rnd</text>
 
 <text x="215.5" y="184" font-size="5" fill="#a0aec0" text-anchor="middle">→</text>
 
 <rect x="220" y="177" width="45" height="12" fill="#f7fafc" stroke="#718096" stroke-width="0.5" rx="0.5"/>
-<text x="242.5" y="183.5" font-size="4" fill="#4a5568" text-anchor="middle">+1 VP</text>
+<text x="242.5" y="183.5" font-size="4" fill="#4a5568" text-anchor="middle">+5 VP</text>
 
 <rect x="270" y="178" width="22" height="10" fill="#718096" rx="1"/>
 <text x="281" y="184.5" font-size="4" fill="white" text-anchor="middle">MAX 4</text>
@@ -313,6 +313,7 @@
 <text x="281" y="200.5" font-size="4" fill="white" text-anchor="middle">MAX 3</text>
 
 <!-- Bottom note -->
-<text x="149" y="208.5" font-size="3.5" fill="#718096" text-anchor="middle">Track slot benefits are revealed permanently when reached. Discarding a card does not reset the track.</text>
+<text x="149" y="206" font-size="3.5" fill="#718096" text-anchor="middle">Track unlocks when you PLACE a building (costs 1 market action + gold: 3g / 6g / 10g / 15g per class). Wonders track unlocks on card purchase.</text>
+<text x="149" y="209.5" font-size="3.5" fill="#718096" text-anchor="middle">Track bonuses are permanent. Discarding a card destroys its building but does not reset the track.</text>
 
 </svg>

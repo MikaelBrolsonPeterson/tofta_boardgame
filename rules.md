@@ -34,17 +34,19 @@ Each player has their own empire mat with two independent tracking systems:
 
 **Active card slots:** The number of Empire cards you can have simultaneously active on your mat. This expands each era: 3 slots in Era I, 4 in Era II, 5 in Era III. Discarding a card frees a slot.
 
-**Class building tracks:** Each card class has a fixed row of slots on the mat with benefits hidden underneath. Every time you buy a card of a class, you advance that class's track — moving the token from mat to board reveals the benefit. This is permanent: discarding a card later does not restore the track slot. Class limits are hard caps on total purchases across the whole game.
+**Class building tracks:** Each card class has a row of 4 slots on the mat (3 for Wonders), each covered by a cube. When you place a building on the board, you move one cube from that class's track onto the region — this simultaneously places the building token and unlocks the track bonus permanently. Discarding a card does not return a cube to the track. The Wonders track is the exception: it advances when you buy a Wonder card, not when placing a building.
+
+Placing a building costs gold based on how many buildings of that class you have already placed (progressive cost — see Building Placement below).
 
 | Class | Track slots | Benefit pattern |
 |-------|-------------|-----------------|
-| Military | 4 | +2 gold → +2 gold → +1 attack action/era → +1 VP |
-| Market | 4 | +2 gold → +2 gold → +1 market action/era → +1 VP |
-| Science | 4 | +2 gold → +3 gold → +1 market action/era → +2 VP |
-| Misc | 4 | +2 gold → +2 gold → +1 attack action/era → +1 VP |
+| Military | 4 | +1 attack action/round → +3 gold → +2nd attack action/round → +5 VP |
+| Market | 4 | +1 market action/round → +3 gold → +2nd market action/round → +5 VP |
+| Science | 4 | +1 market action/round → +3 gold → +2nd market action/round → +5 VP |
+| Misc | 4 | +1 attack action/round → +3 gold → +2nd attack action/round → +5 VP |
 | Wonders | 3 | +2 VP → +4 VP → +7 VP |
 
-The action and VP benefits at the end of each track are the primary incentives to push deep into a class. The gold benefits in the early slots help recoup the cost of building up that engine.
+Track bonuses are cumulative and permanent for the rest of the game.
 
 ### Market Mat
 
@@ -239,10 +241,21 @@ Resources and commodities are stored on the region that produces them and accumu
 
 ### Buildings
 
-Both resource buildings and commodity buildings follow the same placement rules:
+Buying a building empire card gives you the ability to build that building type. The card goes on your empire mat. Placing the actual building is a separate step.
 
-- When you purchase a building card, you immediately place the building token on an eligible tile you currently control. If you have no eligible tile, you may not purchase the card.
-- The building is attached to that tile. If an opponent conquers the tile, the building is **destroyed** and the conqueror takes any stockpile on that region.
+**Building Placement:** Costs a market action and a gold cost determined by how many buildings of that class you have already placed:
+
+| Buildings of this class already placed | Cost to place next |
+|----------------------------------------|--------------------|
+| 0 | 3 gold |
+| 1 | 6 gold |
+| 2 | 10 gold |
+| 3 | 15 gold |
+
+When you pay the cost, move one cube from that class's building track onto the eligible region — this is the building token and simultaneously unlocks the track bonus. If you have no eligible tile, you may not place the building.
+
+- The building is attached to that tile. If an opponent conquers the tile, the building is **destroyed** and the conqueror takes any stockpile on that region. The cube is removed from the board but the track bonus remains unlocked.
+- If you discard the building's empire card, the building is also destroyed — the cube is removed from the board. The track bonus remains unlocked.
 - Only one building per tile.
 - A building generates its output each round as long as you control the tile.
 
@@ -443,6 +456,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting income rate: 5 gold/round. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
+- **Keep buildings:** Discuss whether buildings should persist on the board when their empire card is discarded. Would allow overbuilding — replacing an existing building with a newer, more advanced one later in the game.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
