@@ -233,41 +233,49 @@ Commodities are a processed tier above raw resources, produced by commodity buil
 
 ### Resource and Commodity Stockpiles
 
-Resources and commodities are stored on the region that produces them and accumulate over time. They do not reset at era transitions.
+Resources accumulate on the region that produces them and persist across era transitions. Commodities do not accumulate — any commodity not spent during the round it is produced is lost at end of round.
 
 - When spending a resource or commodity to buy a card, the player chooses which region to take it from.
 - Stockpiles are public information.
-- When a region is conquered, the conqueror takes up to **2 resources or commodities** from the stockpile. Any remainder is destroyed. This makes well-stocked regions tempting raid targets while limiting chain-raid snowballing.
+- When a region is conquered, the conqueror takes up to **2 resources** from the stockpile. Any remainder is destroyed. Commodities on the region are lost — they cannot be captured.
 
-### Buildings
+### Markers
 
-Buying a building empire card gives you the ability to build that building type. The card goes on your empire mat. Placing the actual building is a separate step.
+Empire cards that place buildings create two types of physical markers on the board.
 
-**Building Placement:** Costs a market action and a gold cost determined by how many buildings of that class you have already placed:
+**Military markers** represent fortifications and tactical installations. They are hexagonal tiles the same size as a region, placed on top of the region. Their orientation encodes directional effects — some markers affect only the region they occupy, others affect adjacent regions depending on which way they face. Military markers are era-based: they are removed at each era transition. When a player conquers a region carrying a military marker, they may rotate it one step (60°) to reorient its directional effect.
 
-| Buildings of this class already placed | Cost to place next |
-|----------------------------------------|--------------------|
+**Production markers** represent resource and commodity infrastructure. They are smaller hexagonal tokens placed on a region. Production markers affect only the region they occupy. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may rearrange their production markers among their controlled regions.
+
+Each region can hold **one military marker and one production marker** by default. Certain Empire cards can allow a region to hold a second production marker.
+
+**Marker Placement:** Costs a market action and a gold cost determined by how many markers of that class you have already placed:
+
+| Markers of this class already placed | Cost to place next |
+|--------------------------------------|--------------------|
 | 0 | 3 gold |
 | 1 | 6 gold |
 | 2 | 10 gold |
 | 3 | 15 gold |
 
-When you pay the cost, move one cube from that class's building track onto the eligible region — this is the building token and simultaneously unlocks the track bonus. If you have no eligible tile, you may not place the building.
+When you pay the cost, move one cube from that class's building track onto the eligible region — this simultaneously places the marker and unlocks the track bonus. If you have no eligible tile, you may not place the marker.
 
-**Exception — resource buildings:** Farm, Lumber Mill, Quarry, and Salt Mine are placed automatically when their empire card is purchased. No separate placement action or gold cost is required. The cube moves from the Market class track to a chosen eligible region at the moment of card purchase.
+**Exception — resource buildings:** Farm, Lumber Mill, Quarry, and Salt Mine place their production marker automatically when their empire card is purchased. No separate placement action or gold cost is required. The cube moves from the Market class track to a chosen eligible region at the moment of card purchase.
 
-Each building card can place **one building only** — once placed, that card cannot be used to place another building. The card stays on your Empire mat and continues giving its effects.
+Each building card can place **one marker only** — once placed, that card cannot be used to place another marker. The card stays on your Empire mat and continues giving its effects.
 
-**Card rotation:** Rotate a card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished. Building placement is tracked by the cube on the board, not by rotation.
+**Card rotation:** Rotate a card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished. Marker placement is tracked by the cube on the board, not by rotation.
 
-**Selling a card:** Spend a market action to discard a card and free its slot. If a building was placed from it, the building is destroyed (cube removed). The track bonus remains unlocked.
+**Selling a card:** Spend a market action to discard a card and free its slot. If a marker was placed from it, the marker is destroyed (cube removed). The track bonus remains unlocked.
+
+**Replanting a production marker:** When a production marker is destroyed by conquest or card discard, the losing player may replant it on another eligible region they control at a cost of 1 market action and no additional gold.
 
 #### Standard Build
 
-Any player can always build a basic resource structure without an Empire card, as a market action:
+Any player can always place a basic production marker without an Empire card:
 
-| Building | Terrain | Produces |
-|----------|---------|----------|
+| Type | Terrain | Produces |
+|------|---------|----------|
 | Farm | Grassland | 1 Food/round |
 | Lumber Mill | Forest | 1 Wood/round |
 | Quarry | Mountain | 1 Stone/round |
@@ -281,13 +289,12 @@ Standard builds do **not** advance the building track — no cube moves, no trac
 
 The empire card versions of these buildings auto-place on purchase (see exception above) and still exist in the market for the direct single-action path.
 
-- The building is attached to that tile. If an opponent conquers the tile, the building is **destroyed** and the conqueror takes any stockpile on that region. The cube is removed from the board but the track bonus remains unlocked.
-- Only one building per tile.
-- A building generates its output each round as long as you control the tile.
+- Only one production marker per region (unless a card grants a second slot).
+- A production marker generates its output each round as long as you control the region.
 
 #### Positional Resource Generation
 
-Some Empire cards generate resources or commodities based on the position of regions rather than buildings. For example, a card might cause all your mountain regions bordering an opponent to produce Stone each round regardless of whether a Quarry is present. These cards are designed to create valuable, contested stockpiles on frontier regions — tempting raid targets that reward both aggression and defense.
+Some Empire cards generate resources or commodities based on the position of regions rather than production markers. For example, a card might cause all your mountain regions bordering an opponent to produce Stone each round regardless of whether a Quarry is present. These cards are designed to create valuable, contested stockpiles on frontier regions — tempting raid targets that reward both aggression and defense.
 
 ### Region Types
 
@@ -313,7 +320,7 @@ Conquering a region costs one Attack action. The conquest succeeds if the attack
 
 - **Success:** Take control of the region and place your indicator there. Conquered regions provide tax and cost upkeep from that round onward.
 - **Failure vs independent:** You still conquer the region, but it revolts. Place your indicator but mark it as revolting — no taxation is collected from it until the revolt is cleared. Upkeep is still owed. The revolt clears at the start of your next turn. While a region is revolting, you cannot place buildings in it or use it as a base to attack from. Any attacker targeting a revolting region gains +1 to their attack strength.
-- **Versus another player:** Remove that player's token and place one of your own instead. The attacker takes up to 2 resources or commodities from the conquered region's stockpile; any remainder returns to the general supply. Any building token on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the building is replanted on a new eligible tile. Replanting costs 1 market action and no additional gold — place the building token on any eligible tile you currently control. Any on-loss effects on the losing player's Empire cards trigger immediately.
+- **Versus another player:** Before the conquest resolves, the defender may rearrange any of their production markers among regions they still control. Then remove that player's region token and place one of your own. The attacker takes up to 2 resources from the conquered region's stockpile; any commodities on the region are lost. Any production marker on the region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the marker is replanted (1 market action, no additional gold) on another eligible region they control. Any military marker on the region stays in place; the conqueror may rotate it one step (60°). Any on-loss effects on the losing player's Empire cards trigger immediately.
 
 ### Multiple Attacks to Conquer
 
@@ -450,6 +457,16 @@ Its composition is designed to raise your average attack strength over the start
 | +2                    | 4       |
 | Successful attack     | 3       |
 
+### Standard VP Purchase
+
+As a market action, any player may convert commodities into victory points. This option is always available regardless of what cards are in the market:
+
+| Cost | Reward |
+|------|--------|
+| 3 of the same commodity + 1 market action | 3 VP |
+
+Wild counts as any commodity for this purpose. Era III Empire cards can improve the rate — see card list.
+
 ### Victory Points
 
 Some cards have victory points marked on them.
@@ -486,17 +503,18 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
 - **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting income rate: 5 gold/round. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
-- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources/commodities on conquest; scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
+- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
-- **Keep buildings:** Discuss whether buildings should persist on the board when their empire card is discarded. Would allow overbuilding — replacing an existing building with a newer, more advanced one later in the game.
-- **Advantage and disadvantage:** Revisit how advantage/disadvantage works in combat — current mechanic draws two modifier cards and picks best/worst.
-- **FAIL vs independent regions:** Currently treated as conquest with revolt (same as any failure). Determine if FAIL should instead be a true failure — no conquest at all.
 - **Draft and Cull costs:** Consider making Draft cost a market action (buy) and Cull cost an attack action, rather than both costing a market action.
 - **Modifier deck size:** 12 vs 24 cards per player — test both to determine which feels better.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
-- **Adjacency requirements on cards (todo for card design):** Some buildings should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards. Note: adjacency-based defense bonuses (e.g. Mountain Fort affecting adjacent regions) should be reserved for later-era cards — Era I buildings should have simpler, self-contained effects.
+- **Adjacency requirements on cards (todo for card design):** Some markers should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards. Note: adjacency-based defense bonuses (e.g. Mountain Fort affecting adjacent regions) should be reserved for later-era cards — Era I markers should have simpler, self-contained effects.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
-- **Physical player pieces:** Inventory available physical pieces (meeples, tokens, dice, etc.) and determine how each maps to game components — region control markers, building tokens, VP trackers, resource/commodity storage, etc.
+- **Physical player pieces:** Inventory available physical pieces (meeples, tokens, dice, etc.) and determine how each maps to game components — region control markers, military/production marker tokens, VP trackers, resource storage, etc.
+- **VP purchase cards (Era III, per commodity type):** One card per commodity type (Iron, Paper, Cloth, Glass) offering a better conversion rate than the standard 3-of-same + 1 market action = 3 VP. A no-action variant (3 commodities = 2 VP) is also planned. Exact Card A rate not yet settled: +1 VP for same cost, or same VP for 1 fewer commodity.
+- **Military marker rotation card:** A Misc card that grants an extra rotation step when conquering a region with a directional military marker.
+- **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
+- **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
 
 ---
 
@@ -508,7 +526,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength while on your mat. |
+| Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength for all regions while on your mat. |
 | Watchtower | I | 3 gold OR 1 stone | Any controlled region | Place on any controlled region (market action + gold). +1 defense to that region. Limit 1 per region. |
 | Mountain Fort | I | 3 gold OR 1 stone | Mountain | Place on a mountain (market action + gold). +1 defense to this region and all adjacent. Stacks. |
 | Battering Ram | I | 3 gold OR 1 stone | — | Choose one region when playing this card. That region loses 1 defense while this card is on your mat. |
