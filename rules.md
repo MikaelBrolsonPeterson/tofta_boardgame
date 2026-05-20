@@ -183,7 +183,7 @@ A region is controlled by the player who last conquered it, unless that player h
 
 ### Independent Regions
 
-At the start of the game the map is filled with independent regions. They do not add region defense bonuses to strength when attacked and are therefore simpler to conquer. The independent state modifier deck also contains no Fail card — but beware of the Fail card in your own deck!
+At the start of the game the map is filled with independent regions. They do not add region defense bonuses to strength when attacked and are therefore simpler to conquer. The independent state modifier deck contains a Fail card but no Success card — conquest is never guaranteed, but a lucky auto-success is not on the table either.
 
 ### Taxation and Upkeep
 
@@ -354,16 +354,16 @@ Whenever a player draws **Fail** or **Success** from their personal modifier dec
 
 ### Independent State Modifier Deck
 
-Independent states draw from a shared deck that is reshuffled fresh for every attack — it does not deplete between attacks. The deck has no Fail card: undefended territory offers no auto-loss, only a straight modifier comparison.
+Independent states draw from a shared deck that is reshuffled fresh for every attack — it does not deplete between attacks. The deck has a Fail card but no Success card: conquest can fail outright, but an auto-success is never possible.
 
 | Modifier              | # Cards |
 |-----------------------|---------|
+| Fail attack (reshuffle) | 1     |
 | -2                    | 1       |
 | -1                    | 2       |
 | 0                     | 4       |
 | +1                    | 2       |
 | +2                    | 1       |
-| Successful attack     | 1       |
 
 ---
 
