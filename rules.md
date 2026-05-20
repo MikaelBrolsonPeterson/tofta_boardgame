@@ -335,8 +335,10 @@ If attacker and defender have equal strength, the defender wins — no conquest 
 
 | Condition     | Effect |
 |---------------|--------|
-| Advantage     | Draw two cards from the modifier deck and pick the best. If Fail is drawn it is ignored (pick the other card), but the deck is still reshuffled. If both cards are Fail, the attack fails and the deck reshuffles. |
-| Disadvantage  | Draw two cards and pick the worst. Success is ignored (pick the other card) but the deck is still reshuffled. If both are Success, the attack succeeds and the deck reshuffles. |
+| Advantage     | Draw two cards from the modifier deck and pick the best. If Fail is drawn, ignore it (pick the other card). If both are Fail, the attack fails. |
+| Disadvantage  | Draw two cards and pick the worst. If Success is drawn, ignore it (pick the other card). If both are Success, the attack succeeds. |
+
+Whenever Fail or Success appears among the drawn cards — in either advantage or disadvantage — reshuffle the deck immediately after resolving the draw.
 
 ### Starting Strength Modifier Deck
 
