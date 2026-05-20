@@ -509,25 +509,25 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength while on your mat. |
-| Watchtower | I | 3 gold OR 1 stone | Any controlled region | +1 defense to one region. Limit 1 per region. |
-| Mountain Fort | I | 3 gold OR 1 stone | Mountain | +1 defense to this region and all adjacent. Stacks. |
+| Watchtower | I | 3 gold OR 1 stone | Any controlled region | Place on any controlled region (market action + gold). +1 defense to that region. Limit 1 per region. |
+| Mountain Fort | I | 3 gold OR 1 stone | Mountain | Place on a mountain (market action + gold). +1 defense to this region and all adjacent. Stacks. |
 | Battering Ram | I | 3 gold OR 1 stone | — | Choose one region when playing this card. That region loses 1 defense while this card is on your mat. |
-| War Camp | I | 5 gold OR 2 food | Any controlled region | +1 attack action per era. |
+| War Camp | I | 5 gold OR 2 food | Any controlled region | Place on any controlled region (market action + gold). +1 attack action per era. |
 | Siege Engine | II | 5 gold OR 1 iron | — | Once per era: target region loses its terrain defense bonus for one attack. |
 | Shield Wall | II | 7 gold OR 1 iron + 1 food | — | All your regions gain +1 defense this round. Once per era. |
-| Castle | II | 6 gold OR 2 stone | Any controlled region | +2 defense to this region and all adjacent. Stacks. |
+| Castle | II | 6 gold OR 2 stone | Any controlled region | Place on any controlled region (market action + gold). +2 defense to this region and all adjacent. Stacks. |
 | Mercenaries | II | 6 gold OR 2 food | — | While on your mat: +2 extra attack actions per era. Each used attack costs 1 additional gold. |
-| Fortress | III | 9 gold OR 3 stone | Any controlled region | +3 defense to this region while this card is on your mat. |
+| Fortress | III | 9 gold OR 3 stone | Any controlled region | Place on any controlled region (market action + gold). +3 defense to this region while this card is on your mat. |
 | Iron Legion | III | 9 gold OR 2 iron + 1 food | — | +2 base attack strength while on your mat. Requires Military Academy on your Empire mat. |
 
 ### Market (Green) — Resource buildings
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Quarry | I | 5 gold OR 1 wood | Mountain | Produces 1 Stone per round. |
-| Lumber Mill | I | 5 gold OR 1 stone | Forest | Produces 1 Wood per round. |
-| Farm | I | 5 gold OR 1 wood | Grassland | Produces 1 Food per round. |
-| Salt Mine | I | 5 gold OR 1 stone | Desert | Produces 1 Food per round. |
+| Quarry | I | 5 gold OR 1 wood | Mountain | Auto-places on a mountain on purchase. Produces 1 Stone per round. |
+| Lumber Mill | I | 5 gold OR 1 stone | Forest | Auto-places on a forest on purchase. Produces 1 Wood per round. |
+| Farm | I | 5 gold OR 1 wood | Grassland | Auto-places on a grassland on purchase. Produces 1 Food per round. |
+| Salt Mine | I | 5 gold OR 1 stone | Desert | Auto-places on a desert on purchase. Produces 1 Food per round. |
 | Fishing Village | I | 3 gold OR 1 wood | — | Water tiles adjacent to your regions generate taxation without conquest. |
 | Trade Route | II | 5 gold OR 1 food | — | Gain 1 gold per shared border with another player per round. Reduces your trading cost to 1 gold per resource and 2 gold per commodity. |
 | Harbor | II | 6 gold OR 2 wood | — | Conquer and tax water and ocean tiles. |
@@ -536,12 +536,12 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Mine | I | 6 gold OR 1 stone | Mountain | Produces 1 Iron per round. |
-| Papyrus Workshop | I | 6 gold OR 1 food | Grassland or Swamp | Produces 1 Paper per round. |
-| Loom | II | 6 gold OR 1 food | Grassland | Produces 1 Cloth per round. |
-| Iron Forge | II | 10 gold OR 2 iron | Mountain | Produces 2 Iron per round. |
-| Glassworks | II | 8 gold OR 2 food | Desert or Ocean | Produces 1 Glass per round. |
-| Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Produces 2 Paper per round. |
+| Mine | I | 6 gold OR 1 stone | Mountain | Place on a mountain (market action + gold). Produces 1 Iron per round. |
+| Papyrus Workshop | I | 6 gold OR 1 food | Grassland or Swamp | Place on a grassland or swamp (market action + gold). Produces 1 Paper per round. |
+| Loom | II | 6 gold OR 1 food | Grassland | Place on a grassland (market action + gold). Produces 1 Cloth per round. |
+| Iron Forge | II | 10 gold OR 2 iron | Mountain | Place on a mountain (market action + gold). Produces 2 Iron per round. |
+| Glassworks | II | 8 gold OR 2 food | Desert or Ocean | Place on a desert or ocean (market action + gold). Produces 1 Glass per round. |
+| Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Place on any controlled region (market action + gold). Produces 2 Paper per round. |
 
 ### Science (Lilac)
 
