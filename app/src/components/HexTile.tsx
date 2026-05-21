@@ -18,10 +18,12 @@ interface Props {
   isAttackMode: boolean
   hasPendingClaim: boolean
   claimColor?: string
+  isRearrangeSource: boolean
+  isRearrangeTarget: boolean
   onClick: () => void
 }
 
-export default function HexTile({ region, selected, isAttackSource, isValidTarget, isAttackMode, hasPendingClaim, claimColor, onClick }: Props) {
+export default function HexTile({ region, selected, isAttackSource, isValidTarget, isAttackMode, hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, onClick }: Props) {
   const { x, y } = hexToPixel(region.q, region.r)
   const cfg = TERRAIN[region.terrain]
   const points = hexCorners(x, y)
@@ -31,9 +33,16 @@ export default function HexTile({ region, selected, isAttackSource, isValidTarge
   let opacity = 1
 
   if (isAttackSource) { stroke = '#facc15'; strokeWidth = 3 }
+  else if (isRearrangeSource) { stroke = '#22d3ee'; strokeWidth = 3 }
+  else if (isRearrangeTarget) { stroke = '#22d3ee'; strokeWidth = 2; opacity = 0.8 }
   else if (selected) { stroke = '#ffffff'; strokeWidth = 2.5 }
   else if (isValidTarget) { stroke = '#f97316'; strokeWidth = 2.5 }
   else if (isAttackMode && !isValidTarget) { opacity = 0.45 }
+
+  const hasOwner = !!region.owner
+  const hasMilitary = !!region.militaryMarker
+  const hasProduction = !!region.productionMarker
+  const labelY = hasOwner ? y + 20 : y + 6
 
   return (
     <g onClick={onClick} style={{ cursor: 'pointer' }} opacity={opacity}>
@@ -53,6 +62,14 @@ export default function HexTile({ region, selected, isAttackSource, isValidTarge
           stroke="#1a1a2e"
           strokeWidth={1}
         />
+      )}
+      {/* Military marker indicator */}
+      {hasMilitary && (
+        <text x={x - 8} y={y - 12} fontSize={10} textAnchor="middle" style={{ pointerEvents: 'none', userSelect: 'none' }}>⚔</text>
+      )}
+      {/* Production marker indicator */}
+      {hasProduction && (
+        <text x={x + 8} y={y - 12} fontSize={10} textAnchor="middle" style={{ pointerEvents: 'none', userSelect: 'none' }}>🏭</text>
       )}
       {/* Revolt: pending claim ring */}
       {hasPendingClaim && (
@@ -78,7 +95,7 @@ export default function HexTile({ region, selected, isAttackSource, isValidTarge
       {/* Terrain label */}
       <text
         x={x}
-        y={region.owner ? y + 20 : y + 6}
+        y={labelY}
         textAnchor="middle"
         fontSize={9}
         fill={cfg.textColor}

@@ -2,7 +2,7 @@ import { useGameStore } from '../store/gameStore'
 import { hexKey } from '../utils/hex'
 
 export default function ActionPanel() {
-  const { players, currentPlayerIndex, phase, selectedHex, regions, initiateAttack, cancelAttack, abandonSelected, endTurn } = useGameStore()
+  const { players, currentPlayerIndex, phase, selectedHex, regions, initiateAttack, cancelAttack, abandonSelected, endTurn, pendingConquest, rearrangeSourceKey, confirmRearrange } = useGameStore()
   const player = players[currentPlayerIndex]
   const selectedRegion = selectedHex ? regions[hexKey(selectedHex.q, selectedHex.r)] : null
   const ownSelected = selectedRegion?.owner === player.id
@@ -15,6 +15,23 @@ export default function ActionPanel() {
         </span>
         <button onClick={cancelAttack} className="px-4 py-2 rounded bg-slate-600 hover:bg-slate-500 text-white text-sm">
           Cancel
+        </button>
+      </div>
+    )
+  }
+
+  if (phase === 'defender-rearrange' && pendingConquest) {
+    const defender = players.find(p => p.id === pendingConquest.defenderPlayerId)
+    const instruction = rearrangeSourceKey
+      ? 'Click a destination region to move the marker, or click the source again to deselect.'
+      : 'Click one of your production markers to move it, or confirm to proceed.'
+    return (
+      <div className="flex items-center gap-3 p-3 bg-cyan-900 border-t border-cyan-600">
+        <span className="text-cyan-200 text-sm font-semibold flex-1">
+          🔄 {defender?.name ?? 'Defender'}: Rearrange production markers before conquest. {instruction}
+        </span>
+        <button onClick={confirmRearrange} className="px-4 py-2 rounded text-sm font-semibold bg-cyan-600 hover:bg-cyan-500 text-white">
+          Confirm
         </button>
       </div>
     )

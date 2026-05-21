@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { GameState, Player, PlayerId, CombatResult, EmpireCard, CardClass } from '../types/game'
+import type { GameState, Player, PlayerId, CombatResult, EmpireCard, CardClass, CommodityType, PendingConquest } from '../types/game'
 import { buildInitialMap } from '../data/initialMap'
 import { BASE_DECK, INDEPENDENT_DECK, shuffle, drawOne, modifierToNumber } from '../data/modifierDeck'
 import { TERRAIN } from '../data/terrainConfig'
@@ -64,6 +64,8 @@ interface Actions {
   endTurn: () => void
   buyCard: (cardId: string, payWithGold: boolean) => void
   replenishMarket: () => void
+  purchaseVP: (commodity: CommodityType) => void
+  confirmRearrange: () => void
 }
 
 // Initialise market: deal 4 Era 1 cards face-up, rest go to deck
@@ -90,11 +92,41 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
   marketCards: _initialMarketCards,
   marketDeck: _initialMarketDeck,
   pendingClaims: {},
+  pendingConquest: null,
+  rearrangeSourceKey: null,
 
   selectHex: (q, r) => {
-    const { phase } = get()
+    const { phase, pendingConquest, rearrangeSourceKey, regions } = get()
     if (phase === 'select-attack-target') {
       get().executeAttack(q, r)
+      return
+    }
+    if (phase === 'defender-rearrange' && pendingConquest) {
+      const key = hexKey(q, r)
+      const region = regions[key]
+      const defenderId = pendingConquest.defenderPlayerId
+      if (rearrangeSourceKey === null) {
+        // Select a marker to move
+        if (region?.owner === defenderId && region.productionMarker) {
+          set({ rearrangeSourceKey: key })
+        }
+      } else if (rearrangeSourceKey === key) {
+        // Deselect
+        set({ rearrangeSourceKey: null })
+      } else {
+        // Move marker to destination
+        const src = regions[rearrangeSourceKey]
+        if (region?.owner === defenderId && !region.productionMarker && src?.productionMarker) {
+          set(s => ({
+            regions: {
+              ...s.regions,
+              [rearrangeSourceKey]: { ...s.regions[rearrangeSourceKey], productionMarker: null },
+              [key]: { ...s.regions[key], productionMarker: src.productionMarker },
+            },
+            rearrangeSourceKey: null,
+          }))
+        }
+      }
       return
     }
     set(s => ({
@@ -185,20 +217,52 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     const progress = (conquestProgress[key] ?? 0) + (success ? 1 : 0)
     const conquered = success && progress >= required
 
+    const progressNote = !conquered && success ? ` (${progress}/${required})` : ''
+    const revoltNote = !success && !target.owner ? ' [Revolt pending]' : ''
+    const logEntry = `${attacker.name} → ${cfg.label} (${toQ},${toR}): ${combatResult.message}${progressNote}${revoltNote}`
+
+    // Conquering a player-owned region: pause for defender to rearrange production markers
+    if (conquered && target.owner && target.owner !== attacker.id) {
+      const pending: PendingConquest = {
+        fromQ: attackSourceHex.q, fromR: attackSourceHex.r,
+        toQ, toR,
+        attackerIndex: currentPlayerIndex,
+        defenderPlayerId: target.owner,
+        combatResult,
+        logEntry,
+      }
+      set(s => {
+        const newPlayers = s.players.map(p => {
+          if (p.id === attacker.id) return { ...p, attackActionsRemaining: p.attackActionsRemaining - 1, modifierDeck: finalAtkDeck, modifierDiscard: finalAtkDiscard }
+          if (defenderPlayer && p.id === defenderPlayer.id) return { ...p, modifierDeck: finalDefDeck, modifierDiscard: finalDefDiscard }
+          return p
+        })
+        return {
+          players: newPlayers,
+          phase: 'defender-rearrange',
+          attackSourceHex: null,
+          pendingConquest: pending,
+          rearrangeSourceKey: null,
+          lastCombat: combatResult,
+        }
+      })
+      return
+    }
+
     set(s => {
       const newRegions = { ...s.regions }
       const newProgress = { ...s.conquestProgress }
       const newPendingClaims = { ...s.pendingClaims }
 
       if (conquered) {
-        newRegions[key] = { ...target, owner: attacker.id }
+        // Conquering independent region: destroy any production marker
+        newRegions[key] = { ...target, owner: attacker.id, productionMarker: null }
         delete newProgress[key]
         delete newPendingClaims[key]
       } else if (success) {
         newProgress[key] = progress
       } else {
         delete newProgress[key]
-        // Revolt: failed attack on neutral territory creates a pending claim
         if (!target.owner) {
           newPendingClaims[key] = attacker.id
         }
@@ -222,10 +286,6 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const finalPlayers = newPlayers.map(p => ({
         ...p, incomeRate: calcIncomeRate(newRegions, p.id),
       }))
-
-      const progressNote = !conquered && success ? ` (${progress}/${required})` : ''
-      const revoltNote = !success && !target.owner ? ' [Revolt pending]' : ''
-      const logEntry = `${attacker.name} → ${cfg.label} (${toQ},${toR}): ${combatResult.message}${progressNote}${revoltNote}`
 
       return {
         regions: newRegions,
@@ -252,7 +312,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     set(s => {
       const newRegions = {
         ...s.regions,
-        [hexKey(selectedHex.q, selectedHex.r)]: { ...region, owner: null, building: null },
+        [hexKey(selectedHex.q, selectedHex.r)]: { ...region, owner: null, militaryMarker: null, productionMarker: null },
       }
       const newPlayers = s.players.map(p => ({
         ...p, incomeRate: calcIncomeRate(newRegions, p.id),
@@ -269,10 +329,11 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
   buyCard: (cardId, payWithGold) => {
     set(s => {
       const player = s.players[s.currentPlayerIndex]
-      const cardIndex = s.marketCards.findIndex(c => c.id === cardId)
+      const cardIndex = s.marketCards.findIndex(c => c?.id === cardId)
       if (cardIndex === -1) return s
 
       const card = s.marketCards[cardIndex]
+      if (!card) return s
 
       // Check market action available
       if (player.marketActionsRemaining <= 0) return s
@@ -420,6 +481,58 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
     })
   },
 
+  purchaseVP: (commodity) => {
+    set(s => {
+      const player = s.players[s.currentPlayerIndex]
+      if (player.marketActionsRemaining <= 0) return s
+      if (player.commodities[commodity] < 3) return s
+      const newPlayers = s.players.map((p, i) => i !== s.currentPlayerIndex ? p : {
+        ...p,
+        commodities: { ...p.commodities, [commodity]: p.commodities[commodity] - 3 },
+        victoryPoints: p.victoryPoints + 3,
+        marketActionsRemaining: p.marketActionsRemaining - 1,
+      })
+      return {
+        players: newPlayers,
+        log: [...s.log, `${player.name} converted 3 ${commodity} → 3 VP.`],
+      }
+    })
+  },
+
+  confirmRearrange: () => {
+    set(s => {
+      const pc = s.pendingConquest
+      if (!pc) return s
+      const key = hexKey(pc.toQ, pc.toR)
+      const target = s.regions[key]
+      const attacker = s.players[pc.attackerIndex]
+      // Execute conquest: transfer ownership, destroy any remaining production marker
+      const newRegions = {
+        ...s.regions,
+        [key]: { ...target, owner: attacker.id, productionMarker: null },
+      }
+      const newProgress = { ...s.conquestProgress }
+      const newPendingClaims = { ...s.pendingClaims }
+      delete newProgress[key]
+      delete newPendingClaims[key]
+      const newPlayers = s.players.map(p => ({
+        ...p, incomeRate: calcIncomeRate(newRegions, p.id),
+      }))
+      return {
+        regions: newRegions,
+        players: newPlayers,
+        conquestProgress: newProgress,
+        pendingClaims: newPendingClaims,
+        phase: 'action',
+        selectedHex: { q: pc.toQ, r: pc.toR },
+        pendingConquest: null,
+        rearrangeSourceKey: null,
+        log: [...s.log, pc.logEntry],
+        lastCombat: pc.combatResult,
+      }
+    })
+  },
+
   endTurn: () => {
     set(s => {
       const player = s.players[s.currentPlayerIndex]
@@ -435,8 +548,9 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
           ...p,
           attackActionsRemaining: p.attackActionsPerTurn,
           marketActionsRemaining: p.marketActionsPerTurn,
+          // Clear commodities at the start of each new round
+          ...(isNewRound ? { commodities: { iron: 0, paper: 0, cloth: 0, glass: 0, wild: 0 } } : {}),
         }
-        // Collect income at end of own turn
         if (i === s.currentPlayerIndex) return { ...refreshed, gold: p.gold + income }
         return refreshed
       })
@@ -454,6 +568,12 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       let newPendingClaims = s.pendingClaims
       if (eraChanged) {
         newRegions = { ...s.regions }
+        // Remove all military markers at era transition
+        for (const key of Object.keys(newRegions)) {
+          if (newRegions[key].militaryMarker) {
+            newRegions[key] = { ...newRegions[key], militaryMarker: null }
+          }
+        }
         // Transfer any revolted neutral tiles to claimants
         for (const [claimKey, claimantId] of Object.entries(s.pendingClaims)) {
           const tile = newRegions[claimKey]
@@ -501,6 +621,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         attackSourceHex: null,
         conquestProgress: {},
         pendingClaims: newPendingClaims,
+        pendingConquest: null,
+        rearrangeSourceKey: null,
         lastCombat: null,
         log: [...s.log, ...logs],
         marketCards: newMarketCards,

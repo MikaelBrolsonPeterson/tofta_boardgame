@@ -1,6 +1,8 @@
 import { useGameStore } from '../store/gameStore'
 import type { EmpireCard, CardClass, ResourceType, CommodityType } from '../types/game'
 
+const COMMODITY_TYPES: CommodityType[] = ['iron', 'paper', 'cloth', 'glass', 'wild']
+
 const EMOJI: Record<ResourceType | CommodityType, string> = {
   stone: '🪨',
   wood: '🪵',
@@ -112,12 +114,13 @@ function CardTile({ card, canBuyGold, canBuyAlt, onBuyGold, onBuyAlt }: CardTile
 }
 
 export default function MarketPanel() {
-  const { marketCards, players, currentPlayerIndex, buyCard, replenishMarket } = useGameStore()
+  const { marketCards, players, currentPlayerIndex, buyCard, replenishMarket, purchaseVP } = useGameStore()
   const player = players[currentPlayerIndex]
   const actionsLeft = player.marketActionsRemaining
   const emptySlots = marketCards.filter(c => c === null).length
   const replenishCost = 2 + emptySlots
   const canReplenish = actionsLeft > 0 && emptySlots > 0 && player.gold >= replenishCost
+  const vpCommodities = COMMODITY_TYPES.filter(c => player.commodities[c] >= 3)
 
   return (
     <div className="flex flex-col gap-2 p-3 rounded-lg border border-slate-600 bg-slate-800 overflow-y-auto flex-1 min-h-0">
@@ -127,6 +130,25 @@ export default function MarketPanel() {
           {actionsLeft} action{actionsLeft !== 1 ? 's' : ''} left
         </span>
       </div>
+
+      {/* Standard VP purchase */}
+      {vpCommodities.length > 0 && (
+        <div className="flex flex-col gap-1 p-2 rounded border border-yellow-700 bg-yellow-900/30">
+          <span className="text-xs font-semibold text-yellow-300">Convert 3 commodities → 3 VP</span>
+          <div className="flex gap-1 flex-wrap">
+            {vpCommodities.map(c => (
+              <button
+                key={c}
+                onClick={() => purchaseVP(c)}
+                disabled={actionsLeft <= 0}
+                className="px-2 py-0.5 rounded text-xs font-semibold bg-yellow-700 text-yellow-100 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-yellow-600"
+              >
+                {EMOJI[c]}×3
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {emptySlots > 0 && (
         <button

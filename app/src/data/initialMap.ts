@@ -51,7 +51,7 @@ const MAP: Entry[] = [
 export function buildInitialMap(): Record<string, HexRegion> {
   const regions: Record<string, HexRegion> = {}
   for (const [q, r, terrain, owner] of MAP) {
-    regions[hexKey(q, r)] = { q, r, terrain, owner, building: null }
+    regions[hexKey(q, r)] = { q, r, terrain, owner, militaryMarker: null, productionMarker: null }
   }
   return regions
 }

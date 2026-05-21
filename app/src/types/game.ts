@@ -30,10 +30,16 @@ export interface HexCoord {
   r: number
 }
 
+export interface Marker {
+  label: string
+  placedInEra: number
+}
+
 export interface HexRegion extends HexCoord {
   terrain: TerrainType
   owner: PlayerId | null
-  building: string | null
+  militaryMarker: Marker | null
+  productionMarker: Marker | null
 }
 
 export interface Player {
@@ -64,7 +70,18 @@ export interface CombatResult {
   message: string
 }
 
-export type GamePhase = 'action' | 'select-attack-target'
+export type GamePhase = 'action' | 'select-attack-target' | 'defender-rearrange' | 'select-rearrange-destination'
+
+export interface PendingConquest {
+  fromQ: number
+  fromR: number
+  toQ: number
+  toR: number
+  attackerIndex: number
+  defenderPlayerId: PlayerId
+  combatResult: CombatResult
+  logEntry: string
+}
 
 export interface GameState {
   regions: Record<string, HexRegion>
@@ -81,4 +98,6 @@ export interface GameState {
   marketCards: (EmpireCard | null)[]
   marketDeck: EmpireCard[]
   pendingClaims: Record<string, PlayerId>
+  pendingConquest: PendingConquest | null
+  rearrangeSourceKey: string | null
 }
