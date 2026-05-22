@@ -1,5 +1,6 @@
 import { useGameStore } from '../store/gameStore'
 import { hexKey } from '../utils/hex'
+import { IconAttackAction } from './GameIcons'
 
 export default function ActionPanel() {
   const { players, currentPlayerIndex, phase, selectedHex, regions, initiateAttack, cancelAttack, abandonSelected, endTurn, pendingConquest, rearrangeSourceKey, confirmRearrange } = useGameStore()
@@ -50,9 +51,10 @@ export default function ActionPanel() {
       <button
         onClick={initiateAttack}
         disabled={!ownSelected || player.attackActionsRemaining <= 0}
-        className="px-4 py-2 rounded text-sm font-semibold bg-red-700 hover:bg-red-600 disabled:opacity-30 disabled:cursor-not-allowed text-white"
+        className="flex items-center gap-1.5 px-4 py-2 rounded text-sm font-semibold bg-red-700 hover:bg-red-600 disabled:opacity-30 disabled:cursor-not-allowed text-white"
       >
-        ⚔️ Attack ({player.attackActionsRemaining})
+        <IconAttackAction size={16} />
+        Attack ({player.attackActionsRemaining})
       </button>
 
       <button

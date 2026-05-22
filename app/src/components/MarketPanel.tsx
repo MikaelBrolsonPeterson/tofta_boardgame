@@ -1,5 +1,6 @@
 import { useGameStore } from '../store/gameStore'
 import type { EmpireCard, CardClass, ResourceType, CommodityType } from '../types/game'
+import { IconGold, IconVP, IconMarketAction } from './GameIcons'
 
 const COMMODITY_TYPES: CommodityType[] = ['iron', 'paper', 'cloth', 'glass', 'wild']
 
@@ -72,10 +73,11 @@ function CardTile({ card, canBuyGold, canBuyAlt, onBuyGold, onBuyAlt }: CardTile
         <span className={`px-1 rounded border capitalize text-xs ${classStyle}`}>{card.class}</span>
       </div>
 
-      <div className="text-slate-300">
-        <span className="font-semibold">{card.goldCost}g</span>
+      <div className="flex items-center gap-1 text-slate-300">
+        <IconGold size={14} />
+        <span className="font-semibold">{card.goldCost}</span>
         {card.altCost.length > 0 && (
-          <span className="text-slate-400"> OR {altCostLabel(card)}</span>
+          <span className="text-slate-400 text-xs"> OR {altCostLabel(card)}</span>
         )}
       </div>
 
@@ -88,7 +90,10 @@ function CardTile({ card, canBuyGold, canBuyAlt, onBuyGold, onBuyAlt }: CardTile
       )}
 
       {card.vp > 0 && (
-        <div className="text-yellow-300 font-semibold">+{card.vp} VP</div>
+        <div className="flex items-center gap-1 text-violet-300 font-semibold">
+          <span>+{card.vp}</span>
+          <IconVP size={14} />
+        </div>
       )}
 
       <div className="flex gap-1 mt-1">
@@ -126,9 +131,12 @@ export default function MarketPanel() {
     <div className="flex flex-col gap-2 p-3 rounded-lg border border-slate-600 bg-slate-800 overflow-y-auto flex-1 min-h-0">
       <div className="flex items-center justify-between flex-shrink-0">
         <span className="font-semibold text-slate-300 text-sm">Market</span>
-        <span className="text-xs text-slate-400">
-          {actionsLeft} action{actionsLeft !== 1 ? 's' : ''} left
-        </span>
+        <div className="flex items-center gap-1 text-xs text-slate-400">
+          {Array.from({ length: actionsLeft }).map((_, i) => (
+            <IconMarketAction key={i} size={14} />
+          ))}
+          <span>{actionsLeft}</span>
+        </div>
       </div>
 
       {/* Standard VP purchase */}

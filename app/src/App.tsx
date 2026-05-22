@@ -5,6 +5,7 @@ import InfoPanel from './components/InfoPanel'
 import ActionPanel from './components/ActionPanel'
 import GameLog from './components/GameLog'
 import MarketPanel from './components/MarketPanel'
+import IconLegend from './components/IconLegend'
 
 export default function App() {
   const { players, currentPlayerIndex, round, era, regions } = useGameStore()
@@ -20,9 +21,12 @@ export default function App() {
           <span>Round <span className="text-white font-semibold">{round}</span>/12</span>
           <span>Era <span className="text-white font-semibold">{era}</span></span>
         </div>
-        <div className="ml-auto flex items-center gap-2 text-sm">
-          <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: currentPlayer.color }} />
-          <span className="text-white font-semibold">{currentPlayer.name}'s turn</span>
+        <div className="ml-auto flex items-center gap-3 text-sm">
+          <IconLegend />
+          <div className="flex items-center gap-2">
+            <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: currentPlayer.color }} />
+            <span className="text-white font-semibold">{currentPlayer.name}'s turn</span>
+          </div>
         </div>
       </div>
 
