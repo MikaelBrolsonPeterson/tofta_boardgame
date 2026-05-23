@@ -10,6 +10,12 @@ const PLAYER_COLORS: Record<PlayerId, string> = {
   player5: '#a855f7',
 }
 
+// Short terrain labels that fit inside a hex
+const TERRAIN_SYMBOL: Record<string, string> = {
+  ocean: '~', water: '≈', grassland: '⊹', mountain: '▲',
+  swamp: '⊗', desert: '◇', forest: '♣', capitol: '★', ruins: '⌂',
+}
+
 interface Props {
   region: HexRegion
   selected: boolean
@@ -23,55 +29,73 @@ interface Props {
   onClick: () => void
 }
 
-export default function HexTile({ region, selected, isAttackSource, isValidTarget, isAttackMode, hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, onClick }: Props) {
+export default function HexTile({
+  region, selected, isAttackSource, isValidTarget, isAttackMode,
+  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, onClick,
+}: Props) {
   const { x, y } = hexToPixel(region.q, region.r)
   const cfg = TERRAIN[region.terrain]
   const points = hexCorners(x, y)
 
-  let stroke = '#1a1a2e'
-  let strokeWidth = 1
+  // Stroke state
+  let stroke = '#0d1117'
+  let strokeWidth = 1.2
   let opacity = 1
 
-  if (isAttackSource) { stroke = '#facc15'; strokeWidth = 3 }
+  if (isAttackSource)       { stroke = '#facc15'; strokeWidth = 3 }
   else if (isRearrangeSource) { stroke = '#22d3ee'; strokeWidth = 3 }
-  else if (isRearrangeTarget) { stroke = '#22d3ee'; strokeWidth = 2; opacity = 0.8 }
-  else if (selected) { stroke = '#ffffff'; strokeWidth = 2.5 }
-  else if (isValidTarget) { stroke = '#f97316'; strokeWidth = 2.5 }
-  else if (isAttackMode && !isValidTarget) { opacity = 0.45 }
+  else if (isRearrangeTarget) { stroke = '#22d3ee'; strokeWidth = 2; opacity = 0.85 }
+  else if (selected)          { stroke = '#ffffff'; strokeWidth = 2.5 }
+  else if (isValidTarget)     { stroke = '#f97316'; strokeWidth = 2.5 }
+  else if (isAttackMode && !isValidTarget) { opacity = 0.38 }
 
-  const hasOwner = !!region.owner
   const hasMilitary = !!region.militaryMarker
   const hasProduction = !!region.productionMarker
-  const labelY = hasOwner ? y + 20 : y + 6
+  const ownerColor = region.owner ? PLAYER_COLORS[region.owner] : null
+
+  // Label: terrain symbol + label on two lines (if room)
+  const symbol = TERRAIN_SYMBOL[region.terrain] ?? ''
 
   return (
     <g onClick={onClick} style={{ cursor: 'pointer' }} opacity={opacity}>
+      {/* Base terrain fill using shared gradient */}
       <polygon
         points={points}
-        fill={cfg.color}
+        fill={`url(#hx-${region.terrain})`}
         stroke={stroke}
         strokeWidth={strokeWidth}
       />
-      {/* Owner meeple dot */}
-      {region.owner && (
-        <circle
-          cx={x}
-          cy={y}
-          r={10}
-          fill={PLAYER_COLORS[region.owner]}
-          stroke="#1a1a2e"
-          strokeWidth={1}
-        />
+
+      {/* Shine overlay (top brightening) */}
+      <polygon points={points} fill="url(#hx-shine)" style={{ pointerEvents: 'none' }} />
+
+      {/* Shadow overlay (bottom darkening) */}
+      <polygon points={points} fill="url(#hx-shadow)" style={{ pointerEvents: 'none' }} />
+
+      {/* Owner ring — filled disc with player color */}
+      {ownerColor && (
+        <circle cx={x} cy={y} r={10} fill={ownerColor} stroke="#0d1117" strokeWidth={1.5} />
       )}
-      {/* Military marker indicator */}
+
+      {/* Military marker badge — top-left */}
       {hasMilitary && (
-        <text x={x - 8} y={y - 12} fontSize={10} textAnchor="middle" style={{ pointerEvents: 'none', userSelect: 'none' }}>⚔</text>
+        <g>
+          <circle cx={x - 10} cy={y - 13} r={6} fill="#7f1d1d" stroke="#ef4444" strokeWidth={0.8} />
+          <text x={x - 10} y={y - 10} fontSize={7} textAnchor="middle" fill="#fca5a5"
+            style={{ pointerEvents: 'none', userSelect: 'none' }}>⚔</text>
+        </g>
       )}
-      {/* Production marker indicator */}
+
+      {/* Production marker badge — top-right */}
       {hasProduction && (
-        <text x={x + 8} y={y - 12} fontSize={10} textAnchor="middle" style={{ pointerEvents: 'none', userSelect: 'none' }}>🏭</text>
+        <g>
+          <circle cx={x + 10} cy={y - 13} r={6} fill="#14532d" stroke="#22c55e" strokeWidth={0.8} />
+          <text x={x + 10} y={y - 10} fontSize={7} textAnchor="middle" fill="#86efac"
+            style={{ pointerEvents: 'none', userSelect: 'none' }}>⛏</text>
+        </g>
       )}
-      {/* Revolt: pending claim ring */}
+
+      {/* Revolt / pending claim dashed ring */}
       {hasPendingClaim && (
         <polygon
           points={points}
@@ -79,26 +103,44 @@ export default function HexTile({ region, selected, isAttackSource, isValidTarge
           stroke={claimColor ?? '#f59e0b'}
           strokeWidth={2.5}
           strokeDasharray="4 3"
-          opacity={0.85}
+          opacity={0.9}
+          style={{ pointerEvents: 'none' }}
         />
       )}
-      {/* Valid attack target pulse ring */}
+
+      {/* Valid target pulse ring */}
       {isValidTarget && (
         <polygon
           points={points}
           fill="none"
           stroke="#f97316"
-          strokeWidth={2}
-          opacity={0.6}
+          strokeWidth={1.8}
+          opacity={0.5}
+          style={{ pointerEvents: 'none' }}
         />
       )}
+
+      {/* Terrain symbol */}
+      <text
+        x={x}
+        y={ownerColor ? y + 20 : y + 3}
+        textAnchor="middle"
+        fontSize={8}
+        fill={cfg.textColor}
+        opacity={0.7}
+        style={{ pointerEvents: 'none', userSelect: 'none' }}
+      >
+        {symbol}
+      </text>
+
       {/* Terrain label */}
       <text
         x={x}
-        y={labelY}
+        y={ownerColor ? y + 29 : y + 13}
         textAnchor="middle"
-        fontSize={9}
+        fontSize={7}
         fill={cfg.textColor}
+        opacity={0.65}
         style={{ pointerEvents: 'none', userSelect: 'none' }}
       >
         {cfg.label}

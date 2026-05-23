@@ -2,6 +2,10 @@ import { useGameStore } from '../store/gameStore'
 import HexTile from './HexTile'
 import { hexKey, isAdjacent, SVG_VIEWBOX } from '../utils/hex'
 import { TERRAIN } from '../data/terrainConfig'
+import type { TerrainType } from '../types/game'
+
+// Terrain gradient IDs are stable across the lifetime of this SVG.
+const TERRAIN_TYPES: TerrainType[] = ['ocean','water','grassland','mountain','swamp','desert','forest','capitol','ruins']
 
 export default function HexMap() {
   const { regions, players, currentPlayerIndex, phase, selectedHex, attackSourceHex, selectHex, pendingClaims, pendingConquest, rearrangeSourceKey } = useGameStore()
@@ -17,7 +21,6 @@ export default function HexMap() {
     })
   }
 
-  // Rearrange phase: defender can move production markers to any of their other regions
   const rearrangeTargets = new Set<string>()
   if (phase === 'defender-rearrange' && rearrangeSourceKey && pendingConquest) {
     Object.values(regions).forEach(r => {
@@ -34,6 +37,26 @@ export default function HexMap() {
       className="w-full h-full"
       style={{ maxHeight: '100%' }}
     >
+      <defs>
+        {/* One linear gradient per terrain type — shared by all hexes of that type */}
+        {TERRAIN_TYPES.map(t => (
+          <linearGradient key={t} id={`hx-${t}`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor={TERRAIN[t].highlight} />
+            <stop offset="100%" stopColor={TERRAIN[t].color} />
+          </linearGradient>
+        ))}
+        {/* Inner hex highlight overlay — subtle top-edge brightening */}
+        <linearGradient id="hx-shine" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="white" stopOpacity="0.08" />
+          <stop offset="40%" stopColor="white" stopOpacity="0" />
+        </linearGradient>
+        {/* Edge shadow overlay */}
+        <linearGradient id="hx-shadow" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="60%" stopColor="black" stopOpacity="0" />
+          <stop offset="100%" stopColor="black" stopOpacity="0.25" />
+        </linearGradient>
+      </defs>
+
       {Object.values(regions).map(region => {
         const key = hexKey(region.q, region.r)
         return (

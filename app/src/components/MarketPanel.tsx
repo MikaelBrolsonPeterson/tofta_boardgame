@@ -1,33 +1,16 @@
 import { useGameStore } from '../store/gameStore'
-import type { EmpireCard, CardClass, ResourceType, CommodityType } from '../types/game'
+import type { EmpireCard, ResourceType, CommodityType } from '../types/game'
 import { IconGold, IconVP, IconMarketAction } from './GameIcons'
+import GameCard from './GameCard'
 
 const COMMODITY_TYPES: CommodityType[] = ['iron', 'paper', 'cloth', 'glass', 'wild']
 
 const EMOJI: Record<ResourceType | CommodityType, string> = {
-  stone: '🪨',
-  wood: '🪵',
-  food: '🌾',
-  iron: '⚙️',
-  paper: '📜',
-  cloth: '🧵',
-  glass: '🫙',
-  wild: '⭐',
+  stone: '🪨', wood: '🪵', food: '🌾',
+  iron: '⚙️', paper: '📜', cloth: '🧵', glass: '🫙', wild: '⭐',
 }
 
-const CLASS_STYLE: Record<CardClass, string> = {
-  military: 'bg-red-900 text-red-300 border-red-700',
-  market: 'bg-green-900 text-green-300 border-green-700',
-  science: 'bg-purple-900 text-purple-300 border-purple-700',
-  wonders: 'bg-amber-900 text-amber-300 border-amber-700',
-  misc: 'bg-slate-700 text-slate-300 border-slate-600',
-}
-
-function altCostLabel(card: EmpireCard): string {
-  return card.altCost.map(item => `${EMOJI[item.type]}×${item.amount}`).join(' + ')
-}
-
-function canAffordGold(card: EmpireCard, gold: number): boolean {
+function canAffordGold(card: EmpireCard, gold: number) {
   return gold >= card.goldCost
 }
 
@@ -35,7 +18,7 @@ function canAffordAlt(
   card: EmpireCard,
   resources: { stone: number; wood: number; food: number },
   commodities: { iron: number; paper: number; cloth: number; glass: number; wild: number }
-): boolean {
+) {
   if (card.altCost.length === 0) return false
   for (const item of card.altCost) {
     const resKeys = ['stone', 'wood', 'food'] as const
@@ -48,76 +31,6 @@ function canAffordAlt(
   return true
 }
 
-interface CardTileProps {
-  card: EmpireCard
-  canBuyGold: boolean
-  canBuyAlt: boolean
-  onBuyGold: () => void
-  onBuyAlt: () => void
-}
-
-function CardTile({ card, canBuyGold, canBuyAlt, onBuyGold, onBuyAlt }: CardTileProps) {
-  const classStyle = CLASS_STYLE[card.class]
-  const truncEffect = card.effect.length > 70 ? card.effect.slice(0, 67) + '…' : card.effect
-
-  return (
-    <div className={`flex flex-col gap-1 p-2 rounded border ${classStyle} text-xs`}>
-      <div className="flex items-start justify-between gap-1">
-        <span className="font-bold text-white leading-tight">{card.name}</span>
-        <span className={`shrink-0 px-1 rounded text-xs font-semibold border ${classStyle}`}>
-          Era {card.era}
-        </span>
-      </div>
-
-      <div className="flex gap-1 flex-wrap">
-        <span className={`px-1 rounded border capitalize text-xs ${classStyle}`}>{card.class}</span>
-      </div>
-
-      <div className="flex items-center gap-1 text-slate-300">
-        <IconGold size={14} />
-        <span className="font-semibold">{card.goldCost}</span>
-        {card.altCost.length > 0 && (
-          <span className="text-slate-400 text-xs"> OR {altCostLabel(card)}</span>
-        )}
-      </div>
-
-      {card.placement !== '—' && (
-        <div className="text-slate-400 italic">Place: {card.placement}</div>
-      )}
-
-      {card.effect !== '—' && (
-        <div className="text-slate-300 leading-snug">{truncEffect}</div>
-      )}
-
-      {card.vp > 0 && (
-        <div className="flex items-center gap-1 text-violet-300 font-semibold">
-          <span>+{card.vp}</span>
-          <IconVP size={14} />
-        </div>
-      )}
-
-      <div className="flex gap-1 mt-1">
-        <button
-          onClick={onBuyGold}
-          disabled={!canBuyGold}
-          className="flex-1 px-1 py-0.5 rounded text-xs font-semibold bg-yellow-700 text-yellow-100 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-yellow-600 transition-colors"
-        >
-          Buy ({card.goldCost}g)
-        </button>
-        {card.altCost.length > 0 && (
-          <button
-            onClick={onBuyAlt}
-            disabled={!canBuyAlt}
-            className="flex-1 px-1 py-0.5 rounded text-xs font-semibold bg-slate-600 text-slate-100 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-500 transition-colors"
-          >
-            Buy (alt)
-          </button>
-        )}
-      </div>
-    </div>
-  )
-}
-
 export default function MarketPanel() {
   const { marketCards, players, currentPlayerIndex, buyCard, replenishMarket, purchaseVP } = useGameStore()
   const player = players[currentPlayerIndex]
@@ -128,28 +41,45 @@ export default function MarketPanel() {
   const vpCommodities = COMMODITY_TYPES.filter(c => player.commodities[c] >= 3)
 
   return (
-    <div className="flex flex-col gap-2 p-3 rounded-lg border border-slate-600 bg-slate-800 overflow-y-auto flex-1 min-h-0">
-      <div className="flex items-center justify-between flex-shrink-0">
-        <span className="font-semibold text-slate-300 text-sm">Market</span>
-        <div className="flex items-center gap-1 text-xs text-slate-400">
-          {Array.from({ length: actionsLeft }).map((_, i) => (
+    <div className="flex flex-col gap-2 p-2">
+
+      {/* Market header */}
+      <div className="flex items-center justify-between px-1 pt-1">
+        <span className="font-semibold text-slate-200 text-sm tracking-wide">Market</span>
+        <div className="flex items-center gap-1">
+          {Array.from({ length: Math.min(actionsLeft, 5) }).map((_, i) => (
             <IconMarketAction key={i} size={14} />
           ))}
-          <span>{actionsLeft}</span>
+          <span className="text-xs text-slate-500 ml-0.5">{actionsLeft}</span>
         </div>
       </div>
 
-      {/* Standard VP purchase */}
+      {/* Replenish */}
+      {emptySlots > 0 && (
+        <button
+          onClick={replenishMarket}
+          disabled={!canReplenish}
+          className="flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-200 border border-slate-600 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 transition-colors"
+        >
+          <IconGold size={12} />
+          Replenish {emptySlots} slot{emptySlots !== 1 ? 's' : ''} — {replenishCost}g
+        </button>
+      )}
+
+      {/* VP purchase (card-gated in redesign; kept here for app compatibility) */}
       {vpCommodities.length > 0 && (
-        <div className="flex flex-col gap-1 p-2 rounded border border-yellow-700 bg-yellow-900/30">
-          <span className="text-xs font-semibold text-yellow-300">Convert 3 commodities → 3 VP</span>
+        <div className="flex flex-col gap-1 p-2 rounded-lg border border-violet-800 bg-violet-950/40">
+          <div className="flex items-center gap-1">
+            <IconVP size={13} />
+            <span className="text-xs font-semibold text-violet-300">3 commodities → 3 VP</span>
+          </div>
           <div className="flex gap-1 flex-wrap">
             {vpCommodities.map(c => (
               <button
                 key={c}
                 onClick={() => purchaseVP(c)}
                 disabled={actionsLeft <= 0}
-                className="px-2 py-0.5 rounded text-xs font-semibold bg-yellow-700 text-yellow-100 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-yellow-600"
+                className="px-2 py-0.5 rounded text-xs font-semibold bg-violet-800 text-violet-100 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-violet-700"
               >
                 {EMOJI[c]}×3
               </button>
@@ -158,26 +88,17 @@ export default function MarketPanel() {
         </div>
       )}
 
-      {emptySlots > 0 && (
-        <button
-          onClick={replenishMarket}
-          disabled={!canReplenish}
-          className="w-full px-2 py-1 rounded text-xs font-semibold bg-slate-700 text-slate-200 border border-slate-500 disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-600 transition-colors"
-        >
-          Replenish ({emptySlots} empty slot{emptySlots !== 1 ? 's' : ''}) — {replenishCost}g
-        </button>
-      )}
-
-      <div className="flex flex-col gap-2">
+      {/* Card list */}
+      <div className="flex flex-col gap-3">
         {marketCards.every(c => c === null) && (
-          <div className="text-xs text-slate-500 italic">Market is empty.</div>
+          <div className="text-xs text-slate-600 italic text-center py-4">Market is empty</div>
         )}
         {marketCards.map((card, idx) => {
           if (!card) {
             return (
               <div
                 key={`empty-${idx}`}
-                className="flex items-center justify-center p-4 rounded border border-dashed border-slate-600 text-xs text-slate-600 italic"
+                className="flex items-center justify-center py-6 rounded-xl border border-dashed border-slate-700 text-xs text-slate-700 italic"
               >
                 Empty slot
               </div>
@@ -187,7 +108,7 @@ export default function MarketPanel() {
           const goldOk = hasAction && canAffordGold(card, player.gold)
           const altOk = hasAction && canAffordAlt(card, player.resources, player.commodities)
           return (
-            <CardTile
+            <GameCard
               key={card.id}
               card={card}
               canBuyGold={goldOk}
