@@ -46,36 +46,51 @@ export default function GameCard({
       className="rounded-xl overflow-hidden flex flex-col"
       style={{ border: `2px solid ${theme.border}` }}
     >
-      {/* Art section */}
-      <div className="relative" style={{ height: '7rem' }}>
-        <div className="absolute inset-0">
-          <CardArt cardClass={card.class} />
-        </div>
-
-        {/* Class badge — top-left */}
-        <div
-          className="absolute top-2 left-2 rounded-full px-2 py-0.5 text-white capitalize"
-          style={{ backgroundColor: theme.badgeBg, fontSize: '10px', fontWeight: 600 }}
-        >
-          {card.class}
-        </div>
-
-        {/* Bottom overlay: name + era badge */}
-        <div
-          className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-2 pb-1.5 pt-4"
-          style={{ background: `linear-gradient(to bottom, transparent, ${theme.bodyBg})` }}
-        >
-          <span className="text-white font-bold leading-tight" style={{ fontSize: '13px' }}>
-            {card.name}
-          </span>
-          <span
-            className="rounded text-white shrink-0 ml-1 px-1.5 py-0.5"
+      {/* Art section — hidden in compact mode */}
+      {!compact ? (
+        <div className="relative" style={{ height: '7rem' }}>
+          <div className="absolute inset-0">
+            <CardArt cardClass={card.class} />
+          </div>
+          <div
+            className="absolute top-2 left-2 rounded-full px-2 py-0.5 text-white capitalize"
             style={{ backgroundColor: theme.badgeBg, fontSize: '10px', fontWeight: 600 }}
           >
-            Era {card.era}
-          </span>
+            {card.class}
+          </div>
+          <div
+            className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-2 pb-1.5 pt-4"
+            style={{ background: `linear-gradient(to bottom, transparent, ${theme.bodyBg})` }}
+          >
+            <span className="text-white font-bold leading-tight" style={{ fontSize: '13px' }}>
+              {card.name}
+            </span>
+            <span
+              className="rounded text-white shrink-0 ml-1 px-1.5 py-0.5"
+              style={{ backgroundColor: theme.badgeBg, fontSize: '10px', fontWeight: 600 }}
+            >
+              Era {card.era}
+            </span>
+          </div>
         </div>
-      </div>
+      ) : (
+        /* Compact header strip — replaces art */
+        <div
+          className="flex items-center justify-between px-2.5 py-2"
+          style={{ backgroundColor: theme.headerBg, borderBottom: `1px solid ${theme.border}` }}
+        >
+          <div className="flex items-center gap-1.5">
+            <span
+              className="rounded-full px-1.5 py-0.5 text-white capitalize"
+              style={{ backgroundColor: theme.badgeBg, fontSize: '9px', fontWeight: 700 }}
+            >
+              {card.class}
+            </span>
+            <span className="text-white font-bold" style={{ fontSize: '12px' }}>{card.name}</span>
+          </div>
+          <span className="text-white/60 shrink-0" style={{ fontSize: '10px' }}>Era {card.era}</span>
+        </div>
+      )}
 
       {/* Body section */}
       <div

@@ -8,34 +8,40 @@ const CLASS_COLOR: Record<CardClass, string> = {
   wonders:  '#92400e',
   misc:     '#374151',
 }
-
 const CLASS_LABEL: Record<CardClass, string> = {
-  military: 'Mil', market: 'Mkt', science: 'Sci', wonders: 'Wnd', misc: 'Msc',
+  military: 'M', market: 'K', science: 'S', wonders: 'W', misc: 'C',
+}
+const CLASS_MAX: Record<CardClass, number> = {
+  military: 4, market: 4, science: 4, wonders: 3, misc: 4,
 }
 
 function ActionPips({ remaining, total, color }: { remaining: number; total: number; color: string }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5 items-center">
       {Array.from({ length: total }).map((_, i) => (
-        <div
-          key={i}
-          className="w-2 h-2 rounded-full"
-          style={{ background: i < remaining ? color : '#334155' }}
-        />
+        <div key={i} className="w-1.5 h-1.5 rounded-full" style={{ background: i < remaining ? color : '#334155' }} />
       ))}
     </div>
   )
 }
 
-function TrackBar({ value, max, color }: { value: number; max: number; color: string }) {
+/** Compact dot-cluster building tracks — one row, all classes */
+function MiniTracks({ track }: { track: Record<CardClass, number> }) {
   return (
-    <div className="flex gap-px">
-      {Array.from({ length: max }).map((_, i) => (
-        <div
-          key={i}
-          className="h-1.5 w-3 rounded-sm"
-          style={{ background: i < value ? color : '#1e293b' }}
-        />
+    <div className="flex gap-2">
+      {(Object.entries(track) as [CardClass, number][]).map(([cls, val]) => (
+        <div key={cls} className="flex items-center gap-0.5">
+          <span className="text-slate-600" style={{ fontSize: 8 }}>{CLASS_LABEL[cls]}</span>
+          <div className="flex gap-px">
+            {Array.from({ length: CLASS_MAX[cls] }).map((_, i) => (
+              <div
+                key={i}
+                className="w-1.5 h-1.5 rounded-sm"
+                style={{ background: i < val ? CLASS_COLOR[cls] : '#1e293b' }}
+              />
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   )
@@ -47,30 +53,81 @@ interface Props {
   ownedRegions: number
 }
 
-export default function PlayerCard({ player, isActive, ownedRegions }: Props) {
+/** Condensed card for inactive players */
+function InactivePlayerCard({ player, ownedRegions }: { player: Player; ownedRegions: number }) {
+  return (
+    <div
+      className="flex flex-col gap-1.5 p-2 rounded-xl flex-shrink-0"
+      style={{
+        minWidth: 148,
+        background: '#0b1220',
+        border: '1px solid #1e293b',
+      }}
+    >
+      {/* Name */}
+      <div className="flex items-center gap-1.5">
+        <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ background: player.color }} />
+        <span className="text-xs font-semibold text-slate-300 truncate">{player.name}</span>
+      </div>
+
+      {/* Gold + VP */}
+      <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1">
+          <IconGold size={12} />
+          <span className="text-xs font-bold text-amber-300">{player.gold}</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <IconVP size={12} />
+          <span className="text-xs font-bold text-violet-300">{player.victoryPoints}</span>
+        </div>
+      </div>
+
+      {/* Action pips */}
+      <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
+          <IconAttackAction size={11} />
+          <ActionPips remaining={player.attackActionsRemaining} total={player.attackActionsPerTurn} color="#ef4444" />
+        </div>
+        <div className="flex items-center gap-1">
+          <IconMarketAction size={11} />
+          <ActionPips remaining={player.marketActionsRemaining} total={player.marketActionsPerTurn} color="#22c55e" />
+        </div>
+      </div>
+
+      {/* Regions + mini tracks */}
+      <div className="text-xs text-slate-600">{ownedRegions} region{ownedRegions !== 1 ? 's' : ''}</div>
+      <MiniTracks track={player.buildingTrack} />
+    </div>
+  )
+}
+
+/** Expanded card for the active player */
+function ActivePlayerCard({ player, ownedRegions }: { player: Player; ownedRegions: number }) {
   const hasAnyCommodity = Object.values(player.commodities).some(v => v > 0)
 
   return (
     <div
-      className="flex flex-col gap-1.5 p-2.5 rounded-xl min-w-[200px] flex-1 transition-all"
+      className="flex flex-col gap-1.5 p-2.5 rounded-xl flex-shrink-0"
       style={{
-        background: isActive ? '#1e293b' : '#0f172a',
-        border: `2px solid ${isActive ? player.color : '#1e293b'}`,
-        boxShadow: isActive ? `0 0 12px ${player.color}40` : 'none',
+        minWidth: 280,
+        background: '#111827',
+        border: `2px solid ${player.color}`,
+        boxShadow: `0 0 16px ${player.color}30`,
       }}
     >
-      {/* Header */}
+      {/* Name + active badge */}
       <div className="flex items-center gap-2">
         <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: player.color }} />
-        <span className="font-bold text-sm text-white truncate flex-1">{player.name}</span>
-        {isActive && (
-          <span className="text-xs font-semibold px-1.5 py-0.5 rounded" style={{ background: player.color + '33', color: player.color }}>
-            ACTIVE
-          </span>
-        )}
+        <span className="font-bold text-sm text-white flex-1 truncate">{player.name}</span>
+        <span
+          className="text-xs font-bold px-1.5 py-0.5 rounded"
+          style={{ background: player.color + '33', color: player.color }}
+        >
+          ACTIVE
+        </span>
       </div>
 
-      {/* Gold + VP + Income */}
+      {/* Gold + VP + income */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-1">
           <IconGold size={14} />
@@ -80,47 +137,30 @@ export default function PlayerCard({ player, isActive, ownedRegions }: Props) {
           <IconVP size={14} />
           <span className="text-xs font-bold text-violet-300">{player.victoryPoints}</span>
         </div>
-        <div className="ml-auto text-xs text-slate-400">
-          <span className={player.incomeRate >= 0 ? 'text-green-400' : 'text-red-400'}>
-            {player.incomeRate >= 0 ? '+' : ''}{player.incomeRate}
-          </span>
-          <span className="text-slate-600">/rd</span>
-        </div>
+        <span className={`text-xs font-semibold ml-auto ${player.incomeRate >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+          {player.incomeRate >= 0 ? '+' : ''}{player.incomeRate}<span className="text-slate-600 font-normal">/rd</span>
+        </span>
       </div>
 
       {/* Action pips */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4">
         <div className="flex items-center gap-1.5">
           <IconAttackAction size={13} />
-          <ActionPips
-            remaining={player.attackActionsRemaining}
-            total={player.attackActionsPerTurn}
-            color="#ef4444"
-          />
+          <ActionPips remaining={player.attackActionsRemaining} total={player.attackActionsPerTurn} color="#ef4444" />
           <span className="text-xs text-slate-500">{player.attackActionsRemaining}/{player.attackActionsPerTurn}</span>
         </div>
         <div className="flex items-center gap-1.5">
           <IconMarketAction size={13} />
-          <ActionPips
-            remaining={player.marketActionsRemaining}
-            total={player.marketActionsPerTurn}
-            color="#22c55e"
-          />
+          <ActionPips remaining={player.marketActionsRemaining} total={player.marketActionsPerTurn} color="#22c55e" />
           <span className="text-xs text-slate-500">{player.marketActionsRemaining}/{player.marketActionsPerTurn}</span>
         </div>
       </div>
 
-      {/* Resources */}
+      {/* Resources + commodities */}
       <div className="flex items-center gap-2 flex-wrap">
-        <span className="text-xs text-slate-400 flex items-center gap-1">
-          <span>🪨</span><span className="font-semibold text-slate-200">{player.resources.stone}</span>
-        </span>
-        <span className="text-xs text-slate-400 flex items-center gap-1">
-          <span>🪵</span><span className="font-semibold text-slate-200">{player.resources.wood}</span>
-        </span>
-        <span className="text-xs text-slate-400 flex items-center gap-1">
-          <span>🌾</span><span className="font-semibold text-slate-200">{player.resources.food}</span>
-        </span>
+        <span className="text-xs flex items-center gap-0.5"><span>🪨</span><span className="font-semibold text-slate-200">{player.resources.stone}</span></span>
+        <span className="text-xs flex items-center gap-0.5"><span>🪵</span><span className="font-semibold text-slate-200">{player.resources.wood}</span></span>
+        <span className="text-xs flex items-center gap-0.5"><span>🌾</span><span className="font-semibold text-slate-200">{player.resources.food}</span></span>
         {hasAnyCommodity && (
           <>
             <span className="text-slate-600 text-xs">│</span>
@@ -133,28 +173,19 @@ export default function PlayerCard({ player, isActive, ownedRegions }: Props) {
         )}
       </div>
 
-      {/* Building tracks */}
-      <div className="flex flex-col gap-0.5">
-        {(Object.entries(player.buildingTrack) as [CardClass, number][]).map(([cls, val]) => (
-          <div key={cls} className="flex items-center gap-1.5">
-            <span
-              className="text-xs w-6 flex-shrink-0 font-semibold"
-              style={{ color: CLASS_COLOR[cls] }}
-            >
-              {CLASS_LABEL[cls]}
-            </span>
-            <TrackBar value={val} max={cls === 'wonders' ? 3 : 4} color={CLASS_COLOR[cls]} />
-            <span className="text-xs text-slate-600">{val}</span>
-          </div>
-        ))}
-      </div>
+      {/* Condensed building tracks — single row */}
+      <MiniTracks track={player.buildingTrack} />
 
-      {/* Active cards count */}
-      {player.activeCards.length > 0 && (
-        <div className="text-xs text-slate-500 border-t border-slate-700 pt-1">
-          {player.activeCards.length} card{player.activeCards.length !== 1 ? 's' : ''} active · {ownedRegions} region{ownedRegions !== 1 ? 's' : ''}
-        </div>
-      )}
+      {/* Footer */}
+      <div className="text-xs text-slate-600 border-t border-slate-700 pt-1">
+        {player.activeCards.length} card{player.activeCards.length !== 1 ? 's' : ''} · {ownedRegions} region{ownedRegions !== 1 ? 's' : ''}
+      </div>
     </div>
   )
+}
+
+export default function PlayerCard({ player, isActive, ownedRegions }: Props) {
+  return isActive
+    ? <ActivePlayerCard player={player} ownedRegions={ownedRegions} />
+    : <InactivePlayerCard player={player} ownedRegions={ownedRegions} />
 }
