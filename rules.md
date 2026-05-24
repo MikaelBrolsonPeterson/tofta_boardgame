@@ -22,9 +22,9 @@ The game consists of 15 rounds where each player has one turn each. Each player'
 
 Each player begins with:
 - **5 gold**
-- **1 Capitol** (taxation 4, upkeep 1)
-- **1 adjacent grassland** (taxation 3, upkeep 1)
-- Starting income rate: **5 gold per round**
+- **1 Capitol** (income +3)
+- **1 adjacent grassland** (income +2)
+- Starting income rate: **+5 gold per round**
 
 The first conquest decision — grassland for income, mountain for stone, forest for wood — sets the strategic tone for Era I.
 
@@ -36,15 +36,15 @@ Each player has their own empire mat with two independent tracking systems:
 
 **Class building tracks:** Each class has a building track on the mat. The track advances each time you place an infrastructure token of that class (via build action — 1 market action + token gold cost). Empire cards of the same class are **not** required to place tokens. Each track tier unlocks a predetermined bonus permanently — track bonuses are never lost, even if tokens are later removed.
 
-| Class | Track tiers | Benefit pattern |
-|-------|-------------|-----------------|
-| Military | 4 | +1 attack action/round → +3 gold → +2nd attack action/round → +5 VP |
-| Market | 4 | +1 market action/round → +3 gold → +2nd market action/round → +5 VP |
-| Science | 4 | +1 market action/round → +3 gold → +2nd market action/round → +5 VP |
-| Misc | 4 | +1 attack action/round → +3 gold → +2nd attack action/round → +5 VP |
-| Wonders | 3 | +2 VP → +4 VP → +7 VP |
+| Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+|-------|--------|--------|--------|--------|
+| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
+| Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
+| Science | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
+| Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
+| Wonders | +2 VP | +4 VP | +7 VP | — |
 
-*(Exact bonus values subject to playtesting — see Infrastructure Tokens and Building Track section.)*
+*(Exact bonus values subject to playtesting.)*
 
 ### Market Mat
 
@@ -92,7 +92,7 @@ Lower spots (later in turn order) grant increasingly valuable rewards. Only posi
 
 **Incentives for going last:** full information, and the ability to attack a high-value region right before the round resets — leaving an opponent to start their next turn with crippled income and no immediate recourse (the "king hit").
 
-**Income Rate** is displayed on the player mat as: `Taxation – Upkeep = Income Rate`. It is recalculated at each era transition.
+**Income Rate** is displayed on the player mat as a single running total. It updates immediately whenever a region changes ownership.
 
 ---
 
@@ -104,15 +104,15 @@ A player performs their actions in any order.
 
 | Name | Description |
 |------|-------------|
-| Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); bank conversion (4 identical resources → 1 resource of any type); fund an Award (3 gold). Trading, Draft, Cull, and VP purchase require specific Empire cards. |
+| Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); fund an Award (3 gold). Draft, Cull, and VP purchase require specific Empire cards. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
-| Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). Any building on the region is destroyed. Income rate is recalculated immediately — abandoning a region in the middle of your empire may isolate other tiles, cutting their taxation. |
+| Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). Any building on the region is destroyed. Income rate is recalculated immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their income contribution to 0. |
 | Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
 
 ### End of Round
 
 When the round ends each player:
-- Collects money from the bank. The amount equals the difference between total region taxation and upkeep.
+- Collects gold from the bank equal to their current income rate (minimum 0).
 - Performs any actions stated on Empire cards.
 
 ### Change of Era
@@ -183,25 +183,35 @@ A region is controlled by the player who last conquered it, unless that player h
 
 At the start of the game the map is filled with independent regions. They do not add region defense bonuses to strength when attacked and are therefore simpler to conquer. The independent state modifier deck contains a Fail card but no Success card — conquest is never guaranteed, but a lucky auto-success is not on the table either.
 
-### Taxation and Upkeep
+### Income
 
-Taxation is the primary way players make money. Some of it is spent on upkeep to maintain control of territories.
+Each region has a fixed income modifier. Your income rate is the sum of all your regions' modifiers, adjusted for connectivity and empire size. At the end of each round you collect gold equal to your current income rate.
 
-**Connectivity:** A region must have a continuous path of player-controlled regions back to the Capitol to generate taxation. Regions that lack this path produce no tax — only upkeep.
+| Region | Income modifier |
+|--------|----------------|
+| Capitol | +3 |
+| Grassland | +2 |
+| Mountain | −2 |
+| Swamp | −1 |
+| Desert | +1 |
+| Forest | −1 |
+| Ocean | +1 |
+| Water | +3 |
+| Ancient Ruins | 0 |
 
-**Exception:** The player start region is the Capitol.
+**Connectivity:** A region must have a continuous path of player-controlled regions back to the Capitol to contribute its income modifier. Disconnected regions contribute 0.
 
-**Scaling upkeep:** Large empires become progressively more expensive to maintain. Once your empire exceeds a size threshold, all regions cost additional upkeep:
+**Large empire penalty:** Once your empire exceeds a size threshold, all regions' income modifiers are reduced:
 
-| Empire size | Upkeep modifier |
-|-------------|----------------|
-| 1–5 regions | Base upkeep |
-| 6–9 regions | +1 to all regions |
-| 10+ regions | +2 to all regions |
+| Empire size | Income modifier adjustment |
+|-------------|--------------------------|
+| 1–5 regions | No adjustment |
+| 6–9 regions | −1 to all regions |
+| 10+ regions | −2 to all regions |
 
 *(Thresholds subject to playtesting.)*
 
-**If you cannot pay upkeep:** You must abandon regions of your choice until your upkeep is affordable. Forced abandonment can cascade — dropping a region may break connectivity, cutting taxation and making it even harder to cover remaining upkeep.
+**Negative income:** If your income rate is negative at the start of your turn, you must abandon regions of your choice until it reaches 0 or higher. Forced abandonment can cascade — dropping a region may break connectivity, reducing other regions to 0 and making recovery harder.
 
 ### Resources
 
@@ -246,9 +256,23 @@ There are two types of physical markers on the board.
 - **Standard military markers** are removed when the region is conquered.
 - **Permanent military markers** (indicated by a symbol on the token) survive conquest. The new owner inherits the marker's effect and may rotate it one step (60°). Permanent markers can be upgraded via era cards; anyone may upgrade anyone's permanent marker.
 
-**Production markers** represent resource and commodity infrastructure. They are smaller hexagonal tokens placed on a region. Production markers affect only the region they occupy. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
+**Production markers** represent resource and commodity infrastructure. They are smaller square tokens placed on a region. Production markers affect only the region they occupy. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
+
+**Advantage and disadvantage markers** are small round tokens placed on a region by certain Empire cards (e.g. Standing Guard, Staging Ground). They are removed when the region is conquered or when the card that placed them is discarded. A region can hold one advantage marker and one disadvantage marker simultaneously.
 
 Each region can hold **one military marker and one production marker** by default. Certain Empire cards can allow a region to hold a second production marker.
+
+#### Marker Reference
+
+| Marker | Shape | Placed by | Effect | Removed when |
+|--------|-------|-----------|--------|--------------|
+| Military (standard) | Hexagonal | Conquest / military cards | Varies by card | Region is conquered |
+| Military (permanent) | Hexagonal (marked symbol) | Specific military cards | Varies; survives conquest | Card discarded (if applicable) |
+| Production | Square | Market cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
+| Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
+| Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
+| Siege | Round | Siege Tactics | This region has no terrain defense bonus | Placing card is discarded |
+| Discipline | Round | Iron Discipline, Bulwark | Iron Discipline: this region and all adjacent controlled regions gain +1 defense. Bulwark: this region gains +2 defense. | Placing card is discarded |
 
 ### Infrastructure Tokens and the Building Track
 
@@ -261,18 +285,28 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 | 1    | 2 gold    |
 | 2    | 4 gold    |
 | 3    | 6 gold    |
+| 4    | 8 gold    |
 
 **Building track:** Each time you place a token of a given class, that class's building track on your player mat advances one step. When the track reaches a tier threshold, that tier's predetermined bonus unlocks permanently for you — even if the token is later removed, the track bonus persists.
 
-| Class    | Track bonuses (per tier, left to right) |
-|----------|------------------------------------------|
-| Military | +1 attack action → +2 gold/round → +3 VP |
-| Market   | +1 market action → +3 gold/round → +2 market action/round |
-| Science  | +1 market action → +3 gold/round → +2 market action/round |
-| Wonders  | +1 gold/round → +2 VP → +5 VP |
-| Misc     | +1 gold/round → +2 gold/round → +3 VP |
+| Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+|-------|--------|--------|--------|--------|
+| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
+| Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
+| Science | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
+| Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
+| Wonders | +2 VP | +4 VP | +7 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
+
+**Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
+
+| Tier | Placement | Transaction |
+|------|-----------|-------------|
+| 1    | Anywhere  | 3 identical resources → 1 resource of any type |
+| 2    | Anywhere  | 2 identical resources → 1 resource of any type |
+| 3    | Border region | 2 resources of any type → 1 commodity of any type |
+| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type |
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished.
 
@@ -289,17 +323,17 @@ Some Empire cards generate resources or commodities based on the position of reg
 
 ### Region Types
 
-| Type           | Upkeep | Taxation | Defense mod | Attack mod | Attacks to conquer | Special |
-|----------------|--------|----------|-------------|------------|--------------------|---------|
-| Ocean          | 0      | 1        | 0           | +1         | 1                  | Not conquerable without Navy card |
-| Grassland      | 1      | 3        | 0           | 0          | 1                  | Eligible for: Farm, Papyrus Workshop, Loom |
-| Mountain       | 3      | 1        | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
-| Swamp          | 1      | 0        | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
-| Desert         | 0      | 1        | 0           | +1         | 1                  | Attacker suffers disadvantage. Eligible for: Glassworks, Salt Mine |
-| Forest         | 2      | 1        | +1          | 0          | 1                  | Per 3 forests controlled: +1 attack action per era. Eligible for: Lumber Mill |
-| Capitol        | 1      | 4        | +2          | +2         | 3                  | Attacker has disadvantage |
-| Water          | 0      | 3        | —           | —          | —                  | Cannot be attacked; only via fishing village/harbor/fleet. Eligible for: Glassworks |
-| Ancient Ruins  | 2      | 2        | -1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
+| Type           | Income | Defense mod | Attack mod | Attacks to conquer | Special |
+|----------------|--------|-------------|------------|--------------------|---------|
+| Ocean          | +1     | 0           | +1         | 1                  | Not conquerable without Navy card |
+| Grassland      | +2     | 0           | 0          | 1                  | Eligible for: Farm, Papyrus Workshop, Loom |
+| Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
+| Swamp          | −1     | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
+| Desert         | +1     | 0           | +1         | 1                  | Attacker suffers disadvantage. Eligible for: Glassworks, Salt Mine |
+| Forest         | −1     | +1          | 0          | 1                  | Per 3 forests controlled: +1 attack action per era. Eligible for: Lumber Mill |
+| Capitol        | +3     | +2          | +2         | 3                  | Attacker has disadvantage |
+| Water          | +3     | —           | —          | —                  | Cannot be attacked; only via fishing village/harbor/fleet. Eligible for: Glassworks |
+| Ancient Ruins  | 0      | −1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
 
 ---
 
@@ -309,7 +343,7 @@ Some Empire cards generate resources or commodities based on the position of reg
 
 Conquering a region costs one Attack action. The conquest succeeds if the attacker has more strength than the defender.
 
-- **Success:** Take control of the region and place your indicator there. Conquered regions provide tax and cost upkeep from that round onward.
+- **Success:** Take control of the region and place your indicator there. Both players' income rates update immediately to reflect the ownership change.
 - **Failure vs independent:** You still conquer the region, but it revolts. Place your indicator but mark it as revolting — no taxation is collected from it until the revolt is cleared. Upkeep is still owed. The revolt clears at the start of your next turn. While a region is revolting, you cannot place buildings in it or use it as a base to attack from. Any attacker targeting a revolting region gains +1 to their attack strength.
 - **Versus another player:** Before the conquest resolves, the defender may move one production marker from any of their regions to another region they control. Then remove that player's region token and place one of your own. The attacker takes up to 2 resources from the conquered region's stockpile; any commodities on the region are lost. Any production marker on the conquered region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the marker is replanted (1 market action, no additional gold) on another eligible region they control. Standard military markers on the region are removed. Permanent military markers survive — the conqueror inherits them and may rotate one step (60°). Any on-loss effects on the losing player's Empire cards trigger immediately.
 
@@ -367,30 +401,14 @@ Independent states draw from a shared deck that is reshuffled fresh for every at
 
 ---
 
-## Trading
-
-### Player Trading
-
-Trading with other players is **card-gated** — it requires an Empire card that grants trading ability (e.g. Trade Route). Without such a card, a player cannot trade.
-
-When trading is available: spend a market action to trade with any player whose empire shares at least one border with yours. You pay them gold; they grant you access to one unit of a resource or commodity their buildings currently produce. The trading partner does not lose the resource — you are purchasing production access for this round. They keep the gold.
-
-| Purchase | Standard rate | With Trade Route card |
-|----------|--------------|----------------------|
-| 1 resource (Stone, Wood, Food) | 2 gold | 1 gold |
-| 1 commodity (Iron, Paper, Cloth, Glass, Wild) | 3 gold | 2 gold |
-
-The reduced rate applies to the **buyer** — you need the Trade Route card on your Empire mat to trade at reduced cost, regardless of whether your neighbor has it.
-
-You may trade multiple times per turn as long as you have market actions and gold, and may trade with multiple neighbors in the same turn.
-
-### Bank Conversion
+## Bank Conversion
 
 Any player may always convert their own stockpile via the bank at a baseline rate. This costs a market action and does not require a card:
 
 - 4 identical resources → 1 resource of any type
+- 3 identical commodities → 1 commodity of any type
 
-Enrichment cards (Era II Market class) provide better conversion paths — specifically, converting resources into commodities.
+Empire cards with transaction effects offer better-than-bank rates — enrichment cards convert 2 resources into 1 commodity, Raid and positional resource cards generate resources directly. These cards replace the need for any player-to-player trading system.
 
 ---
 
@@ -517,20 +535,30 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength for all regions while on your mat. |
-| Watchtower | I | 3 gold OR 1 stone | Any controlled region | Place on any controlled region (market action + gold). +1 defense to that region. Limit 1 per region. |
-| Mountain Fort | I | 3 gold OR 1 stone | Mountain | Place on a mountain (market action + gold). +1 defense to this region and all adjacent. Stacks. |
-| Battering Ram | I | 3 gold OR 1 stone | — | Choose one region when playing this card. That region loses 1 defense while this card is on your mat. |
-| War Camp | I | 5 gold OR 2 food | Any controlled region | Place on any controlled region (market action + gold). +1 attack action per era. |
-| Siege Engine | II | 5 gold OR 1 iron | — | Once per era: target region loses its terrain defense bonus for one attack. |
-| Shield Wall | II | 7 gold OR 1 iron + 1 food | — | All your regions gain +1 defense this round. Once per era. |
-| Castle | II | 6 gold OR 2 stone | Any controlled region | Place on any controlled region (market action + gold). +2 defense to this region and all adjacent. Stacks. |
-| Mercenaries | II | 6 gold OR 2 food | — | While on your mat: +2 extra attack actions per era. Each used attack costs 1 additional gold. |
-| Fortress | III | 9 gold OR 3 stone | Any controlled region | Place on any controlled region (market action + gold). +3 defense to this region while this card is on your mat. |
-| Iron Legion | III | 9 gold OR 2 iron + 1 food | — | +2 base attack strength while on your mat. Requires Military Academy on your Empire mat. |
-| Raid | II | 5 gold OR 1 iron | — | **Dual-action.** Market action: gain 1 resource from a region bordering your territory. Attack action: gain 2 resources from a region bordering your territory. Target must border a region you control. |
+| Standing Guard | I | 3 gold OR 1 stone | — | When played, choose a region you control. Place a round disadvantage marker on it — attackers targeting that region draw with disadvantage. Remove the marker if the region is conquered or this card is discarded. |
+| Staging Ground | I | 3 gold OR 1 stone | — | When played, choose a region you control. Place a round advantage marker on it — when you attack from that region, draw with advantage. Remove the marker if the region is conquered or this card is discarded. |
+| Mobilization | I | 5 gold OR 2 food | — | While on your mat: +1 attack action per era. |
+| Spy Infiltration | II | 5 gold OR 1 iron | — | When played, choose one enemy region adjacent to any region you control. That region loses 1 defense while this card is on your mat. All players benefit from the reduced defense when attacking that region. |
+| Siege Tactics | II | 6 gold OR 1 iron | — | When played, choose one enemy region adjacent to any region you control. Place a siege marker on it — that region has no terrain defense bonus while this card is on your mat. Remove the marker if you discard this card. |
+| Shield Wall | II | 7 gold OR 1 iron + 1 food | — | Once per era: all your regions gain +1 defense this round. |
+| Iron Discipline | II | 6 gold OR 2 stone | — | When played, choose a region you control. Place a discipline marker on it — that region and all adjacent regions you control gain +1 defense while this card is on your mat. Remove the marker if you discard this card. |
+| Mercenaries | II | 6 gold OR 2 food | — | Place 2 cubes on this card when first played and at the start of each era. Spend 1 cube to gain 1 extra attack action; that attack costs 1 additional gold. Unspent cubes are removed at each era transition. |
+| Vanguard's Edge | II | 6 gold OR 1 iron + 1 food | — | While on your mat: when combat results in a tie, you win as the attacker — the conquest succeeds. |
+| Scouting Report | II | 5 gold OR 1 iron | — | When played, choose an enemy region adjacent to a region you control. Place an advantage marker on it — when you attack that region, draw with advantage. Remove the marker when you conquer the region or discard this card. |
+| Fortified Perimeter | II | 7 gold OR 1 iron + 1 food | — | When played, choose two regions you control. Place a disadvantage marker on each — attackers targeting these regions draw with disadvantage. Remove markers if the regions are conquered or this card is discarded. |
+| High Ground | II | 5 gold OR 1 iron | — | While on your mat: you draw with advantage when attacking mountain regions. |
+| Guerrilla Tactics | II | 5 gold OR 1 food | — | While on your mat: attackers targeting your forest regions draw with disadvantage. |
+| Bulwark | III | 9 gold OR 3 stone | — | When played, choose a region you control. Place a discipline marker on it — that region gains +2 defense while this card is on your mat. Remove the marker if you discard this card. |
+| Iron Legion | III | 8 gold OR 2 iron | — | +2 base attack strength while on your mat. Requires 2 or more Military Empire cards on your mat when purchasing. |
+| Raid | II | 5 gold OR 1 iron | — | Spend 1 market action: take 1 resource from any region adjacent to a region you control. OR spend 1 attack action instead: take 2 resources from any region adjacent to a region you control. Each use requires its own action. |
 | Field Engineer | I–II | 4 gold OR 1 food | — | **Dual-action.** Market action: place a Military infrastructure token as normal. Attack action: place a Military infrastructure token (uses your attack action instead of a market action). |
-| Ambush | III | 8 gold OR 1 iron + 1 cloth | — | When an opponent draws Fail from their modifier deck during combat against you this era, gain +2 gold. |
+| Scorched Earth | III | 8 gold OR 1 iron + 1 cloth | — | Whenever any Fail card is drawn from any modifier deck while this card is on your mat, gain 4 gold. |
 | War Banner | III | 9 gold OR 2 iron | — | When an opponent draws Fail from their modifier deck during combat against any player this era, gain +1 attack strength on your next attack. |
+| Supreme Vanguard | III | 10 gold OR 2 iron + 1 cloth | — | When played, choose up to two regions you control. Place an advantage marker on each — when attacking from these regions, draw with advantage. Remove markers if regions are conquered or this card is discarded. |
+| War of Attrition | III | 9 gold OR 2 iron | — | When played, choose up to two enemy regions adjacent to your territory. Place an advantage marker on each — when you attack those regions, draw with advantage. Remove markers if this card is discarded or the regions change ownership. |
+| Conqueror's Gambit | III | 11 gold OR 2 iron + 1 cloth | — | Once per era: declare a chain assault on up to 5 consecutive regions, each adjacent to the previously conquered region in the chain or a region you already control. All attacks draw with advantage. If any attack fails, all regions taken during this chain immediately revert — you gain none of them. If all attacks succeed, keep all conquered regions. |
+| Mobile Doctrine | III | 8 gold OR 1 iron + 1 cloth | — | While on your mat: when a region containing one of your markers is conquered, you may immediately move that marker to any adjacent region you control instead of removing it. |
+| Master Tactician | III | 9 gold OR 2 iron + 1 food | — | Choose one terrain type when playing this card. While on your mat: you draw with advantage when attacking regions of that type, and attackers targeting your regions of that type draw with disadvantage. |
 
 ### Market (Green) — Resource buildings
 
@@ -540,9 +568,8 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Lumber Mill | I | 5 gold OR 1 stone | Forest | Auto-places on a forest on purchase. Produces 1 Wood per round. |
 | Farm | I | 5 gold OR 1 wood | Grassland | Auto-places on a grassland on purchase. Produces 1 Food per round. |
 | Salt Mine | I | 5 gold OR 1 stone | Desert | Auto-places on a desert on purchase. Produces 1 Food per round. |
-| Fishing Village | I | 3 gold OR 1 wood | — | Water tiles adjacent to your regions generate taxation without conquest. |
-| Trade Route | II | 5 gold OR 1 food | — | Gain 1 gold per shared border with another player per round. Reduces your trading cost to 1 gold per resource and 2 gold per commodity. |
-| Harbor | II | 6 gold OR 2 wood | — | Conquer and tax water and ocean tiles. |
+| Fishing Village | I | 3 gold OR 1 wood | — | Water tiles adjacent to your regions contribute their income modifier (+3 each) without conquest. |
+| Harbors | II | 6 gold OR 2 wood | — | You may conquer water and ocean tiles. Conquered water and ocean regions contribute their income modifiers as normal. |
 
 ### Market (Green) — Commodity buildings
 
@@ -554,10 +581,6 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Iron Forge | II | 10 gold OR 2 iron | Mountain | Place on a mountain (market action + gold). Produces 2 Iron per round. |
 | Glassworks | II | 8 gold OR 2 food | Desert or Ocean | Place on a desert or ocean (market action + gold). Produces 1 Glass per round. |
 | Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Place on any controlled region (market action + gold). Produces 2 Paper per round. |
-| Smelter | II | 7 gold OR 1 iron + 1 stone | — | **Enrichment.** Spend 1 market action + 2 Stone → gain 1 Iron. |
-| Weaver's Guild | II | 7 gold OR 1 cloth + 1 food | — | **Enrichment.** Spend 1 market action + 2 Food → gain 1 Cloth. |
-| Alchemist's Bench | II | 7 gold OR 1 glass + 1 stone | — | **Enrichment.** Spend 1 market action + 2 Stone → gain 1 Glass. |
-| Press | II | 7 gold OR 1 paper + 1 wood | — | **Enrichment.** Spend 1 market action + 2 Wood → gain 1 Paper. |
 
 ### Market (Green) — VP Conversion
 
@@ -578,7 +601,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Dispatch | I | 3 gold OR 1 food | — | +1 market action per era. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2. |
 | Logistics | II | 6 gold OR 1 paper + 1 food | — | +1 attack action per era. Once per era: move one of your building tokens to another eligible region you control. |
-| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: reduce all your region upkeep by 1 (minimum 0). |
+| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: all your regions gain +1 to their income modifier. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
 | Guild | II | 7 gold OR 1 paper + 1 food | — | +2 market actions per era. |
 | War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
@@ -602,7 +625,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | Border Quarries | II | 6 gold OR 1 iron | — | All your mountain regions bordering another player produce 1 Stone per round, regardless of buildings. |
-| Border Lumber | III | 8 gold OR 1 iron + 1 wood | — | All your forest regions bordering another player produce 1 Wood per round, regardless of buildings. |
+| Border Lumber | II | 7 gold OR 1 iron + 1 wood | — | All your forest regions bordering another player produce 1 Wood per round, regardless of buildings. |
 
 ### Misc (Grey)
 
@@ -616,7 +639,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource or commodity from a player you share a border with (they lose it). |
 | Recruiting Officer | II | 6 gold OR 1 food + 1 cloth | — | Once per era: perform a Draft action at no market action or gold cost. |
 | Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon up to 3 regions, then immediately claim 2 adjacent independent regions without attack actions. |
-| Supply Lines | II | 7 gold OR 1 food + 1 cloth | — | Isolated regions generate half taxation instead of none. |
+| Supply Lines | II | 7 gold OR 1 food + 1 cloth | — | Your disconnected regions contribute half their income modifier (rounded down, minimum 0) instead of 0. |
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |
 | Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid an opponent's region adjacent to water or ocean — steal gold equal to that region's taxation value. |
 | Navy | III | 10 gold OR 2 wood + 1 iron | — | Full ocean access. +1 attack action usable only on ocean and water tiles. |
