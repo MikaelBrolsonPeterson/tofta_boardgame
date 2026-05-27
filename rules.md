@@ -251,7 +251,7 @@ Resources accumulate on the region that produces them and persist across era tra
 
 There are three categories of physical tokens on the board.
 
-**Infrastructure tokens** represent buildings, installations, and economic development. All infrastructure tokens are hexagonal, smaller than the region tiles, and come in five class types — Military, Market, Science, Wonders, and Misc — distinguished by colour or symbol. A region can hold one infrastructure token per class.
+**Infrastructure tokens** represent buildings, installations, and economic development. All infrastructure tokens are hexagonal and the same size as a region tile — they are placed on top of the region, fully covering it. Tokens come in five class types — Military, Market, Science, Wonders, and Misc — distinguished by colour or symbol. Each region can hold **one infrastructure token** at a time, regardless of class. Some token types have terrain requirements for placement (e.g. a tier 3 Military token may require a mountain region) — the requirement is printed on the token.
 
 **Military infrastructure tokens** are placed via build action and represent fortifications and tactical installations. Their orientation encodes directional effects — some affect only the region they occupy, others affect adjacent regions depending on which way they face.
 
@@ -264,18 +264,18 @@ All non-military infrastructure tokens (Market, Science, Wonders, Misc) are dest
 
 **Round tokens** are small round markers placed on regions by certain Empire cards. They represent tactical and strategic conditions affecting combat. A region can hold one of each round token type simultaneously.
 
-Each region can hold **one infrastructure token per class** and **one production marker** by default. Certain Empire cards can allow a region to hold a second production marker.
+Each region can hold **one infrastructure token** (any class) and **one production marker** by default. Certain Empire cards can allow a region to hold a second production marker.
 
 #### Token and Marker Reference
 
 | Token / Marker | Shape | Placed by | Effect | Removed when |
 |----------------|-------|-----------|--------|--------------|
-| Military infrastructure (standard) | Hexagonal (small) | Build action | Varies by token tier | Region is conquered |
-| Military infrastructure (permanent) | Hexagonal (small, marked) | Build action | Varies; survives conquest | Never (permanent) |
-| Market infrastructure | Hexagonal (small) | Build action | Enables transaction at tier rate (spend 1 market action) | Region is conquered |
-| Science infrastructure | Hexagonal (small) | Build action | TBD | Region is conquered |
-| Wonders infrastructure | Hexagonal (small) | Build action | TBD | Region is conquered |
-| Misc infrastructure | Hexagonal (small) | Build action | TBD | Region is conquered |
+| Military infrastructure (standard) | Hexagonal (region-sized) | Build action | Varies by token tier | Region is conquered |
+| Military infrastructure (permanent) | Hexagonal (region-sized, marked symbol) | Build action | Varies; survives conquest | Never (permanent) |
+| Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action) | Region is conquered |
+| Science infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
+| Wonders infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
+| Misc infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
 | Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
