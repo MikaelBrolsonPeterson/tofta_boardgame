@@ -609,7 +609,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 |------|-----|------|-----------|--------|
 | Cartography | I | 3 gold OR 1 food | — | Once per era: claim any one independent region on the map regardless of adjacency. |
 | Foresight | I | 4 gold OR 1 food | — | **Held-and-triggered.** Hold on your mat. Spend 1 market action to activate: look at the top 3 cards of the current era deck, immediately purchase one at half its gold cost (round up), and return the others in any order. Discard Foresight after activating. |
-| Dispatch | I | 3 gold OR 1 food | — | +1 market action per era. |
+| Dispatch | I | 3 gold OR 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2. |
 | Logistics | II | 6 gold OR 1 paper + 1 food | — | +1 attack action per era. Once per era: move one of your building tokens to another eligible region you control. |
 | Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: all your regions gain +1 to their income modifier. |
