@@ -104,7 +104,7 @@ A player performs their actions in any order.
 
 | Name | Description |
 |------|-------------|
-| Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); fund an Award (3 gold). Draft, Cull, and VP purchase require specific Empire cards. |
+| Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (2 gold, draw 2 modifier cards keep 1); Cull (2 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
 | Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). Any building on the region is destroyed. Income rate is recalculated immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their income contribution to 0. |
 | Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
@@ -457,9 +457,7 @@ Action card effects that draw from the Modifier Draw Pile follow the same reshuf
 
 ### Modifier Deck Upgrades
 
-Draft and Cull are **card-gated** — they require an Empire card that grants the ability (e.g. Apprenticeship for improved Draft, War College for Cull-adjacent effects). Without such a card, a player cannot Draft or Cull.
-
-When available via card:
+Draft and Cull are always available to all players — no card required. Empire cards improve the rate, just as Market building tokens improve on the bank conversion rate.
 
 **Draft** (1 market action + 2 gold): Draw 2 cards from the shared Modifier Draw Pile. Look at both privately, add one to your modifier discard pile, and return the other to the bottom of the Modifier Draw Pile. If both drawn cards are Fail, you must add one — there is no opt-out. The added card enters circulation the next time your deck reshuffles.
 
@@ -521,7 +519,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 
 - **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting income rate: 5 gold/round. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
-- **Draft and Cull card design:** Now card-gated. Which cards in the card tables actually grant Draft/Cull access needs auditing — many cards were designed for the old baseline system and need revision.
+- **Draft and Cull:** Settled. Always available at base rate (draw 2 keep 1 / remove 1 of 3, each costs 1 market action + 2 gold). Empire cards improve the rate — Apprenticeship draws 3, Traveling Scholar reduces cost, Grand Archive draws 4 keep 2 / chooses from 5 remove 2.
 - **Modifier deck size:** 12 vs 24 cards per player — test both to determine which feels better.
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Adjacency requirements on cards (todo for card design):** Some markers should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards. Note: adjacency-based defense bonuses (e.g. Mountain Fort affecting adjacent regions) should be reserved for later-era cards — Era I markers should have simpler, self-contained effects.
@@ -610,7 +608,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Cartography | I | 3 gold OR 1 food | — | Once per era: claim any one independent region on the map regardless of adjacency. |
 | Foresight | I | 4 gold OR 1 food | — | **Held-and-triggered.** Hold on your mat. Spend 1 market action to activate: look at the top 3 cards of the current era deck, immediately purchase one at half its gold cost (round up), and return the others in any order. Discard Foresight after activating. |
 | Dispatch | I | 3 gold OR 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
-| Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2. |
+| Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2, keeping 1 and returning the others. |
 | Logistics | II | 6 gold OR 1 paper + 1 food | — | +1 attack action per era. Once per era: move one of your building tokens to another eligible region you control. |
 | Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: all your regions gain +1 to their income modifier. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
