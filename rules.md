@@ -249,26 +249,34 @@ Resources accumulate on the region that produces them and persist across era tra
 
 ### Markers
 
-There are two types of physical markers on the board.
+There are three categories of physical tokens on the board.
 
-**Military markers** represent fortifications and tactical installations. They are hexagonal tiles the same size as a region, placed on top of the region. Their orientation encodes directional effects — some markers affect only the region they occupy, others affect adjacent regions depending on which way they face.
+**Infrastructure tokens** represent buildings, installations, and economic development. All infrastructure tokens are hexagonal, smaller than the region tiles, and come in five class types — Military, Market, Science, Wonders, and Misc — distinguished by colour or symbol. A region can hold one infrastructure token per class.
 
-- **Standard military markers** are removed when the region is conquered.
-- **Permanent military markers** (indicated by a symbol on the token) survive conquest. The new owner inherits the marker's effect and may rotate it one step (60°). Permanent markers can be upgraded via era cards; anyone may upgrade anyone's permanent marker.
+**Military infrastructure tokens** are placed via build action and represent fortifications and tactical installations. Their orientation encodes directional effects — some affect only the region they occupy, others affect adjacent regions depending on which way they face.
 
-**Production markers** represent resource and commodity infrastructure. They are smaller square tokens placed on a region. Production markers affect only the region they occupy. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
+- **Standard military infrastructure tokens** are removed when the region is conquered.
+- **Permanent military infrastructure tokens** (indicated by a symbol on the token) survive conquest. The new owner inherits the token's effect and may rotate it one step (60°). Permanent tokens can be upgraded via era cards; anyone may upgrade anyone's permanent token.
 
-**Advantage and disadvantage markers** are small round tokens placed on a region by certain Empire cards (e.g. Standing Guard, Staging Ground). They are removed when the region is conquered or when the card that placed them is discarded. A region can hold one advantage marker and one disadvantage marker simultaneously.
+All non-military infrastructure tokens (Market, Science, Wonders, Misc) are destroyed when the region is conquered — they do not transfer to the new owner.
 
-Each region can hold **one military marker and one production marker** by default. Certain Empire cards can allow a region to hold a second production marker.
+**Production markers** represent resource and commodity output from specific empire cards (Quarry, Mine, Farm, etc.). They are smaller square tokens placed on a region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
 
-#### Marker Reference
+**Round tokens** are small round markers placed on regions by certain Empire cards. They represent tactical and strategic conditions affecting combat. A region can hold one of each round token type simultaneously.
 
-| Marker | Shape | Placed by | Effect | Removed when |
-|--------|-------|-----------|--------|--------------|
-| Military (standard) | Hexagonal | Conquest / military cards | Varies by card | Region is conquered |
-| Military (permanent) | Hexagonal (marked symbol) | Specific military cards | Varies; survives conquest | Card discarded (if applicable) |
-| Production | Square | Market cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
+Each region can hold **one infrastructure token per class** and **one production marker** by default. Certain Empire cards can allow a region to hold a second production marker.
+
+#### Token and Marker Reference
+
+| Token / Marker | Shape | Placed by | Effect | Removed when |
+|----------------|-------|-----------|--------|--------------|
+| Military infrastructure (standard) | Hexagonal (small) | Build action | Varies by token tier | Region is conquered |
+| Military infrastructure (permanent) | Hexagonal (small, marked) | Build action | Varies; survives conquest | Never (permanent) |
+| Market infrastructure | Hexagonal (small) | Build action | Enables transaction at tier rate (spend 1 market action) | Region is conquered |
+| Science infrastructure | Hexagonal (small) | Build action | TBD | Region is conquered |
+| Wonders infrastructure | Hexagonal (small) | Build action | TBD | Region is conquered |
+| Misc infrastructure | Hexagonal (small) | Build action | TBD | Region is conquered |
+| Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
 | Siege | Round | Siege Tactics | This region has no terrain defense bonus | Placing card is discarded |
