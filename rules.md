@@ -162,7 +162,7 @@ Awards are funded by any player during the game at a cost of 1 market action + 3
 
 At the end of Era 3, full scoring takes place:
 - Regions controlled (1 VP each)
-- Empire cards with printed VP (Wonders and select others)
+- VP from Empire cards — count printed VP on all cards in your active mat and your discard pile combined
 - Gold remaining in treasury (via Grand Market card)
 - Milestone VP
 - Award VP
@@ -408,7 +408,7 @@ Any player may always convert their own stockpile via the bank at a baseline rat
 - 4 identical resources → 1 resource of any type
 - 3 identical commodities → 1 commodity of any type
 
-Empire cards with transaction effects offer better-than-bank rates — enrichment cards convert 2 resources into 1 commodity, Raid and positional resource cards generate resources directly. These cards replace the need for any player-to-player trading system.
+Empire cards with transaction effects offer better-than-bank rates — Market building tokens (tiers 3–4), Raid, and positional resource cards all provide better conversion paths than the bank baseline.
 
 ---
 
@@ -416,7 +416,8 @@ Empire cards with transaction effects offer better-than-bank rates — enrichmen
 
 At any given time, 5 cards are available for purchase — a mix of Empire cards and Action cards drawn from the current era deck. When a card is purchased, the slot refills immediately from the era deck. When buying a card a player pays the cost indicated on the card to the bank.
 
-- **Empire cards** are executed right away or placed on the Empire mat.
+- **Empire cards** are placed on the Empire mat. Most have ongoing passive effects; some have triggered effects that fire at a chosen moment.
+- **Held-and-triggered Empire cards** are placed on the Empire mat like any Empire card but have a single activatable effect. The player chooses when to activate by spending the stated action cost. The card is discarded immediately after the effect resolves — it does not linger.
 - **Action cards** are executed immediately on purchase, then trashed.
 
 ### Empire Cards
@@ -477,7 +478,7 @@ VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per c
 
 ### Victory Points
 
-Some cards have victory points marked on them.
+Some cards have victory points marked on them. VP printed on Empire cards is scored at end game regardless of whether the card is currently active on your mat or has been discarded — once purchased, the VP is permanently banked. Count VP from both your active mat and your full discard pile.
 
 ---
 
@@ -488,7 +489,7 @@ At the end of each round, the player in last place draws the top card from the *
 **Last place** is determined by:
 1. Fewest regions controlled
 2. Tiebreak: lowest income rate
-3. Tiebreak: lowest taxation
+3. Tiebreak: fewest total building track steps across all classes
 
 The Catch-Up Deck consists of 12 cards with colored faces (distinct from all other modifier cards) but identical backs. Cards are shuffled face-down and drawn from the top.
 
@@ -511,7 +512,6 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
 - **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting income rate: 5 gold/round. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
-- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); scaling upkeep by empire size; forced abandonment when upkeep can't be paid; catch-up modifier deck drawn by last-place player each round.
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Draft and Cull card design:** Now card-gated. Which cards in the card tables actually grant Draft/Cull access needs auditing — many cards were designed for the old baseline system and need revision.
 - **Modifier deck size:** 12 vs 24 cards per player — test both to determine which feels better.
@@ -523,6 +523,8 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Card table audit:** All existing cards are remnants of the old placement system. Each card needs review against the new action-cost-explicit format and the card-gated economy. Many will need revision or retirement.
 - **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
 - **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
+- **VP scoring from discard pile (Option B — to discuss):** Alternative to current Option A (VP counted from active mat + discard pile combined): VP counted *only* from the discard pile, not active mat. Players must actively spend a market action to discard VP-bearing cards to bank their points — creating an end-game race to cycle cards off the mat before round 15. Also under consideration: storing VP as physical cubes on cards (loaded by spending commodities via a market action), with cubes transferring to the player's VP track when the card is discarded. Would interact interestingly with the held-and-triggered card type.
+- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); scaling income penalty by empire size; forced abandonment when income rate goes negative; catch-up modifier deck drawn by last-place player each round.
 
 ---
 
@@ -597,7 +599,8 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Cartography | I | 3 gold OR 1 food | — | Once per era: look at the top 3 cards of the current era deck, then return them in any order. |
+| Cartography | I | 3 gold OR 1 food | — | Once per era: claim any one independent region on the map regardless of adjacency. |
+| Foresight | I | 4 gold OR 1 food | — | **Held-and-triggered.** Hold on your mat. Spend 1 market action to activate: look at the top 3 cards of the current era deck, immediately purchase one at half its gold cost (round up), and return the others in any order. Discard Foresight after activating. |
 | Dispatch | I | 3 gold OR 1 food | — | +1 market action per era. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2. |
 | Logistics | II | 6 gold OR 1 paper + 1 food | — | +1 attack action per era. Once per era: move one of your building tokens to another eligible region you control. |
