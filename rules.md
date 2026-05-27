@@ -545,7 +545,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength for all regions while on your mat. |
 | Standing Guard | I | 3 gold OR 1 stone | — | When played, choose a region you control. Place a round disadvantage marker on it — attackers targeting that region draw with disadvantage. Remove the marker if the region is conquered or this card is discarded. |
 | Staging Ground | I | 3 gold OR 1 stone | — | When played, choose a region you control. Place a round advantage marker on it — when you attack from that region, draw with advantage. Remove the marker if the region is conquered or this card is discarded. |
-| Mobilization | I | 5 gold OR 2 food | — | While on your mat: +1 attack action per era. |
+| Mobilization | I | 5 gold OR 2 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Unspent cubes are removed at each era transition. |
 | Spy Infiltration | II | 5 gold OR 1 iron | — | When played, choose one enemy region adjacent to any region you control. That region loses 1 defense while this card is on your mat. All players benefit from the reduced defense when attacking that region. |
 | Siege Tactics | II | 6 gold OR 1 iron | — | When played, choose one enemy region adjacent to any region you control. Place a siege marker on it — that region has no terrain defense bonus while this card is on your mat. Remove the marker if you discard this card. |
 | Shield Wall | II | 7 gold OR 1 iron + 1 food | — | Once per era: all your regions gain +1 defense this round. |
@@ -609,12 +609,12 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Foresight | I | 4 gold OR 1 food | — | **Held-and-triggered.** Hold on your mat. Spend 1 market action to activate: look at the top 3 cards of the current era deck, immediately purchase one at half its gold cost (round up), and return the others in any order. Discard Foresight after activating. |
 | Dispatch | I | 3 gold OR 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2, keeping 1 and returning the others. |
-| Logistics | II | 6 gold OR 1 paper + 1 food | — | +1 attack action per era. Once per era: move one of your building tokens to another eligible region you control. |
-| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: all your regions gain +1 to their income modifier. |
+| Logistics | II | 6 gold OR 1 paper + 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Once per era: move one of your building tokens to another eligible region you control. Unspent cubes are removed at each era transition. |
+| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: your income rate increases by 2. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
-| Guild | II | 7 gold OR 1 paper + 1 food | — | +2 market actions per era. |
+| Guild | II | 7 gold OR 1 paper + 1 food | — | Place 2 cubes on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
-| Innovation | III | 9 gold OR 2 paper | — | +1 market action per era. Once per round: your next market purchase this round costs 2 less gold (minimum 1 gold). |
+| Innovation | III | 9 gold OR 2 paper | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Once per round: your next market purchase this round costs 2 less gold (minimum 1 gold). Unspent cubes are removed at each era transition. |
 | Alchemy | III | 6 gold OR 1 wild | — | Once per round, convert any 2 commodities into 1 wild. |
 | Grand Archive | III | 10 gold OR 2 paper + 1 wild | — | Your Draft actions draw 4 cards and keep 2; your Cull actions choose from 5 cards and remove 2. |
 
