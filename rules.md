@@ -614,7 +614,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
 | Guild | II | 7 gold OR 1 paper + 1 food | — | Place 2 cubes on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
-| Innovation | III | 9 gold OR 2 paper | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Once per round: your next market purchase this round costs 2 less gold (minimum 1 gold). Unspent cubes are removed at each era transition. |
+| Innovation | III | 9 gold OR 2 paper | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Once per round: the next Empire card you purchase from the market this round costs 2 less gold (minimum 1 gold). Unspent cubes are removed at each era transition. |
 | Alchemy | III | 6 gold OR 1 wild | — | Once per round, convert any 2 commodities into 1 wild. |
 | Grand Archive | III | 10 gold OR 2 paper + 1 wild | — | Your Draft actions draw 4 cards and keep 2; your Cull actions choose from 5 cards and remove 2. |
 
