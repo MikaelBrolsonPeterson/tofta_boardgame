@@ -173,7 +173,7 @@ At the end of Era 3, full scoring takes place:
 
 ### Regions
 
-A hexagonal region adjacent to 6 other regions. The entire map consists of hexagons with different terrains that affect the flow of the game. For example, ocean acts as a barrier and mountains create military strongpoints that are expensive to maintain.
+A hexagonal region adjacent to 6 other regions. The entire map consists of hexagons with different terrains that affect the flow of the game. For example, sea tiles act as barriers and mountains create military strongpoints that are expensive to maintain.
 
 ### Region Control
 
@@ -195,8 +195,7 @@ Each region has a fixed income modifier. Your income rate is the sum of all your
 | Swamp | −1 |
 | Desert | +1 |
 | Forest | −1 |
-| Ocean | +1 |
-| Water | +3 |
+| Sea | — (not ownable; income via adjacent Market tokens) |
 | Ancient Ruins | 0 |
 
 **Connectivity:** A region must have a continuous path of player-controlled regions back to the Capitol to contribute its income modifier. Disconnected regions contribute 0.
@@ -234,7 +233,7 @@ Commodities are a processed tier above raw resources, produced by commodity buil
 | Iron | Mine (1/round), Iron Forge (2/round) | Mountain |
 | Paper | Papyrus Workshop (1/round), Scriptorium (2/round) | Grassland, Swamp / Anywhere |
 | Cloth | Loom | Grassland |
-| Glass | Glassworks | Desert, Ocean |
+| Glass | Glassworks | Desert, sea-adjacent land |
 | Wild | Ancient Ruins (automatic, no building needed) | — |
 
 **Wild** counts as any commodity but **cannot substitute for resources**. It is generated automatically by controlling an Ancient Ruins region — no building required.
@@ -257,6 +256,8 @@ There are three categories of physical tokens on the board.
 
 - **Standard military infrastructure tokens** are removed when the region is conquered.
 - **Permanent military infrastructure tokens** (indicated by a symbol on the token) survive conquest. The new owner inherits the token's effect and may rotate it one step (60°). Permanent tokens can be upgraded via era cards; anyone may upgrade anyone's permanent token.
+
+**Naval Bastion (tier 3, permanent):** Must be placed on a land region adjacent to a sea tile. When placed, the player chooses one active side — the hex side facing the sea tile it connects to. The owner may attack any land region adjacent to that sea tile as if it were adjacent to their region. One Naval Bastion connects to one sea tile only. Because it is permanent, a conquering player inherits the Naval Bastion and may rotate it one step (60°) to redirect which sea side it faces.
 
 All non-military infrastructure tokens (Market, Science, Wonders, Misc) are destroyed when the region is conquered — they do not transfer to the new owner.
 
@@ -309,12 +310,14 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 
 **Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
 
-| Tier | Placement | Transaction |
-|------|-----------|-------------|
-| 1    | Anywhere  | 3 identical resources → 1 resource of any type |
-| 2    | Anywhere  | 2 identical resources → 1 resource of any type |
-| 3    | Border region | 2 resources of any type → 1 commodity of any type |
-| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type |
+| Tier | Placement | Transaction | Sea-adjacent bonus |
+|------|-----------|-------------|-------------------|
+| 1    | Anywhere  | 3 identical resources → 1 resource of any type | +2 income (Fishing Village) |
+| 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 income (Fishing Port) |
+| 3    | Border region | 2 resources of any type → 1 commodity of any type | — |
+| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type | — |
+
+**Sea-adjacent bonus:** If a tier 1 or 2 Market token is placed on a land region adjacent to a sea tile, it additionally grants the listed income bonus per round. Multiple players may independently build tokens on different land regions bordering the same sea and both receive the bonus.
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished.
 
@@ -333,14 +336,13 @@ Some Empire cards generate resources or commodities based on the position of reg
 
 | Type           | Income | Defense mod | Attack mod | Attacks to conquer | Special |
 |----------------|--------|-------------|------------|--------------------|---------|
-| Ocean          | +1     | 0           | +1         | 1                  | Not conquerable without Navy card |
+| Sea            | —      | —           | —          | —                  | Not ownable or conquerable. Sea-adjacent land regions gain income bonuses from Market tokens (see below). Naval Bastion (Military tier 3) enables attacks across a sea tile. |
 | Grassland      | +2     | 0           | 0          | 1                  | Eligible for: Farm, Papyrus Workshop, Loom |
 | Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
 | Swamp          | −1     | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
 | Desert         | +1     | 0           | +1         | 1                  | Attacker suffers disadvantage. Eligible for: Glassworks, Salt Mine |
 | Forest         | −1     | +1          | 0          | 1                  | Per 3 forests controlled: +1 attack action per era. Eligible for: Lumber Mill |
 | Capitol        | +3     | +2          | +2         | 3                  | Attacker has disadvantage |
-| Water          | +3     | —           | —          | —                  | Cannot be attacked; only via fishing village/harbor/fleet. Eligible for: Glassworks |
 | Ancient Ruins  | 0      | −1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
 
 ---
@@ -445,7 +447,7 @@ Empire cards are used to enact decrees in your empire.
 | Market   | Green  | Increase taxation in specified region types; decrease upkeep in specified region types |
 | Science  | Lilac  | Give more market actions; give more attack actions; allow taking cards from market without paying; allow conquering regions without attacking (must be adjacent to a controlled region) |
 | Wonders  | Brown  | VP for end-game scoring |
-| Misc     | Grey   | Fishing (access water tiles); Cavalry (attack non-adjacent territory); gain taxation from isolated controlled regions |
+| Misc     | Grey   | Flexible positioning (water access, non-adjacent attacks, repositioning); income from disconnected regions; converting attack actions to market actions and vice versa |
 
 ### Action Cards
 
@@ -576,8 +578,6 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Lumber Mill | I | 5 gold OR 1 stone | Forest | Auto-places on a forest on purchase. Produces 1 Wood per round. |
 | Farm | I | 5 gold OR 1 wood | Grassland | Auto-places on a grassland on purchase. Produces 1 Food per round. |
 | Salt Mine | I | 5 gold OR 1 stone | Desert | Auto-places on a desert on purchase. Produces 1 Food per round. |
-| Fishing Village | I | 3 gold OR 1 wood | — | Water tiles adjacent to your regions contribute their income modifier (+3 each) without conquest. |
-| Harbors | II | 6 gold OR 2 wood | — | You may conquer water and ocean tiles. Conquered water and ocean regions contribute their income modifiers as normal. |
 
 ### Market (Green) — Commodity buildings
 
@@ -587,7 +587,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Papyrus Workshop | I | 6 gold OR 1 food | Grassland or Swamp | Place on a grassland or swamp (market action + gold). Produces 1 Paper per round. |
 | Loom | II | 6 gold OR 1 food | Grassland | Place on a grassland (market action + gold). Produces 1 Cloth per round. |
 | Iron Forge | II | 10 gold OR 2 iron | Mountain | Place on a mountain (market action + gold). Produces 2 Iron per round. |
-| Glassworks | II | 8 gold OR 2 food | Desert or Ocean | Place on a desert or ocean (market action + gold). Produces 1 Glass per round. |
+| Glassworks | II | 8 gold OR 2 food | Desert or sea-adjacent land | Place on a desert or sea-adjacent land region (market action + gold). Produces 1 Glass per round. |
 | Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Place on any controlled region (market action + gold). Produces 2 Paper per round. |
 
 ### Market (Green) — VP Conversion
@@ -624,7 +624,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 |------|-----|------|-----------|--------|
 | The Oracle | I | 4 gold OR 1 stone | — | +1 VP. Once per era, after a failed attack, gain 3 gold. |
 | The Mausoleum | II | 7 gold OR 1 stone + 1 cloth | — | +2 VP. |
-| The Pharos | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks against water and ocean regions. |
+| The Pharos | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks launched via your Naval Bastions. |
 | The Dragon's Spine | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
 | The Hanging Gardens | III | 9 gold OR 1 cloth + 1 paper | — | +1 VP per 5 gold in treasury at end of game. |
 | The Aegis Eternal | III | 11 gold OR 2 glass + 1 stone | — | +3 VP. All your regions gain +1 defense while on your mat. |
@@ -640,20 +640,21 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Fishing Fleet | I | 3 gold OR 1 wood | — | Conquer water tiles. Ocean tiles require Harbor or Navy. |
-| Pillage | I | 3 gold OR 1 food | — | When you successfully conquer a region this era, gain gold equal to its taxation value. |
+| Pillage | I | 3 gold OR 1 food | — | When you successfully conquer a region this era, gain gold equal to that region's base income modifier (minimum 0). |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
-| Cavalry | II | 6 gold OR 2 food | — | Once per era, attack a territory not adjacent to your empire. |
+| Cavalry | II | 6 gold OR 2 food | — | Once per era, attack a region not adjacent to any region you control. |
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource or commodity from a player you share a border with (they lose it). |
 | Recruiting Officer | II | 6 gold OR 1 food + 1 cloth | — | Once per era: perform a Draft action at no market action or gold cost. |
 | Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon up to 3 regions, then immediately claim 2 adjacent independent regions without attack actions. |
 | Supply Lines | II | 7 gold OR 1 food + 1 cloth | — | Your disconnected regions contribute half their income modifier (rounded down, minimum 0) instead of 0. |
+| Quartermaster | II | 6 gold OR 1 cloth + 1 food | — | Once per turn, you may spend 1 attack action as a market action. |
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |
-| Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid an opponent's region adjacent to water or ocean — steal gold equal to that region's taxation value. |
-| Navy | III | 10 gold OR 2 wood + 1 iron | — | Full ocean access. +1 attack action usable only on ocean and water tiles. |
+| Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid any opponent's region accessible via one of your Naval Bastions — steal gold equal to that region's base income modifier (minimum 0). |
+| Navy | III | 13 gold OR 3 iron + 1 cloth | — | Attacks launched from regions where you have a Naval Bastion have advantage. |
 | Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions this era, gain +1 VP. |
 | Inquisition | III | 8 gold OR 1 iron + 1 paper | — | Once per era: remove any 1 card from the market (that slot refills immediately). Gain gold equal to half that card's gold cost, rounded down. |
+| Condottieri | III | 9 gold OR 1 iron + 1 paper | — | Once per turn, you may spend 1 market action as an attack action. |
 
 ### Action Cards (execute on purchase, then trash)
 
