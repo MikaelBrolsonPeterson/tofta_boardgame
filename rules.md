@@ -273,7 +273,9 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 |----------------|-------|-----------|--------|--------------|
 | Military infrastructure (standard) | Hexagonal (region-sized) | Build action | Varies by token tier | Region is conquered |
 | Military infrastructure (permanent) | Hexagonal (region-sized, marked symbol) | Build action | Varies; survives conquest | Never (permanent) |
-| Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action) | Region is conquered |
+| Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action); sea-adjacent tier 1–2 grant income bonus; sea-adjacent tier 4 grants gold per sea network | Region is conquered |
+| Canal (Bent) — tier 2 Market | Hexagonal (region-sized), 2 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
+| Canal (Cross) — tier 3 Market | Hexagonal (region-sized), 4 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Science infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
 | Wonders infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
 | Misc infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
@@ -310,18 +312,23 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 
 **Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
 
-| Tier | Placement | Transaction | Sea-adjacent bonus |
-|------|-----------|-------------|-------------------|
-| 1    | Anywhere  | 3 identical resources → 1 resource of any type | +2 income (Fishing Village) |
-| 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 income (Fishing Port) |
-| 3    | Border region | 2 resources of any type → 1 commodity of any type | — |
-| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type | +2 gold/round per sea tile in connected sea network (Maritime Exchange) |
+| Tier | Placement | Transaction | Sea-adjacent bonus | Canal alternative |
+|------|-----------|-------------|-------------------|-------------------|
+| 1    | Anywhere  | 3 identical resources → 1 resource of any type | +2 income (Fishing Village) | — |
+| 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 income (Fishing Port) | Canal (Bent) — 2 active sides, non-opposite angle |
+| 3    | Border region | 2 resources of any type → 1 commodity of any type | — | Canal (Cross) — 4 active sides |
+| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type | +2 gold/round per sea tile in connected sea network (Maritime Exchange) | — |
 
 **Sea-adjacent bonus:** If a tier 1 or 2 Market token is placed on a land region adjacent to a sea tile, it additionally grants the listed income bonus per round. Multiple players may independently build tokens on different land regions bordering the same sea and both receive the bonus.
 
 **Maritime Exchange (tier 4 sea-adjacent):** If the tier 4 token is placed on a sea-adjacent land region, it generates +2 gold per round for each sea tile (including Canal regions) in the connected sea network touching that region. Each sea tile is counted once regardless of how many Maritime Exchange tokens border it.
 
-**Canal (tier 2 special placement):** Instead of the standard tier 2 transaction token, a player may place a Canal token on a land region adjacent to at least one sea tile. The Canal region gains sea status in addition to its original terrain type — it counts as sea for connectivity purposes, joining sea bodies on either side into one connected network. The region retains its original terrain type, income modifier, and building eligibility. Only one token (Canal or otherwise) may occupy a region at a time.
+**Canals:** At tier 2 and tier 3, a player may place a Canal token instead of the standard transaction token. A Canal must be placed on a land region adjacent to at least one sea tile. The region gains sea status in addition to its original terrain type and retains its original income modifier and building eligibility. Canal tokens have printed active sides — only active sides count for connectivity. Sea bodies (and other Canal regions) touching an active side are joined into one connected network.
+
+- **Canal (Bent) — tier 2:** 2 active sides at a non-opposite angle (60° or 120° bend). Cheap but inflexible — requires careful orientation to bridge two sea bodies. Player chooses rotation at placement.
+- **Canal (Cross) — tier 3:** 4 active sides. Expensive but highly flexible — almost any rotation usefully connects sea bodies on multiple sides. Player chooses rotation at placement.
+
+A sea body touching a Canal's *inactive* side is not connected through it.
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished.
 
