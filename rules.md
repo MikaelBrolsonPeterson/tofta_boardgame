@@ -163,7 +163,7 @@ Awards are funded by any player during the game at a cost of 1 market action + 3
 At the end of Era 3, full scoring takes place:
 - Regions controlled (1 VP each)
 - VP from Empire cards — count printed VP on all cards in your active mat and your discard pile combined
-- Gold remaining in treasury (via Grand Market card)
+- Gold remaining in treasury (via The Hanging Gardens card)
 - Milestone VP
 - Award VP
 
@@ -622,12 +622,12 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Shrine | I | 4 gold OR 1 stone | — | +1 VP. Once per era, after a failed attack, gain 3 gold. |
-| Monument | II | 7 gold OR 1 stone + 1 cloth | — | +2 VP. |
-| Lighthouse | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks against water and ocean regions. |
-| Great Wall | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
-| Grand Market | III | 9 gold OR 1 cloth + 1 paper | — | +1 VP per 5 gold in treasury at end of game. |
-| Cathedral | III | 11 gold OR 2 glass + 1 stone | — | +3 VP. All your regions gain +1 defense permanently. |
+| The Oracle | I | 4 gold OR 1 stone | — | +1 VP. Once per era, after a failed attack, gain 3 gold. |
+| The Mausoleum | II | 7 gold OR 1 stone + 1 cloth | — | +2 VP. |
+| The Pharos | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks against water and ocean regions. |
+| The Dragon's Spine | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
+| The Hanging Gardens | III | 9 gold OR 1 cloth + 1 paper | — | +1 VP per 5 gold in treasury at end of game. |
+| The Aegis Eternal | III | 11 gold OR 2 glass + 1 stone | — | +3 VP. All your regions gain +1 defense while on your mat. |
 
 ### Military (Red) — Positional Resource Cards
 
