@@ -315,9 +315,13 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 | 1    | Anywhere  | 3 identical resources → 1 resource of any type | +2 income (Fishing Village) |
 | 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 income (Fishing Port) |
 | 3    | Border region | 2 resources of any type → 1 commodity of any type | — |
-| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type | — |
+| 4    | Border region | 2 resources → 1 commodity of any type, or 2 commodities → 1 commodity of any type | +2 gold/round per sea tile in connected sea network (Maritime Exchange) |
 
 **Sea-adjacent bonus:** If a tier 1 or 2 Market token is placed on a land region adjacent to a sea tile, it additionally grants the listed income bonus per round. Multiple players may independently build tokens on different land regions bordering the same sea and both receive the bonus.
+
+**Maritime Exchange (tier 4 sea-adjacent):** If the tier 4 token is placed on a sea-adjacent land region, it generates +2 gold per round for each sea tile (including Canal regions) in the connected sea network touching that region. Each sea tile is counted once regardless of how many Maritime Exchange tokens border it.
+
+**Canal (tier 2 special placement):** Instead of the standard tier 2 transaction token, a player may place a Canal token on a land region adjacent to at least one sea tile. The Canal region gains sea status in addition to its original terrain type — it counts as sea for connectivity purposes, joining sea bodies on either side into one connected network. The region retains its original terrain type, income modifier, and building eligibility. Only one token (Canal or otherwise) may occupy a region at a time.
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished.
 
