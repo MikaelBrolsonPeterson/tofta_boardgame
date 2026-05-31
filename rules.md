@@ -634,7 +634,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Dispatch | I | 3 gold OR 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2, keeping 1 and returning the others. |
 | Logistics | II | 6 gold OR 1 paper + 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Once per era: move one of your building tokens to another eligible region you control. Unspent cubes are removed at each era transition. |
-| Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: your income rate increases by 2. |
+| Taxation Reform | I | 5 gold OR 1 paper + 1 food | — | While on your mat: your income rate increases by 2. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
 | Guild | II | 7 gold OR 1 paper + 1 food | — | Each time an opponent conquers one of your regions while this card is on your mat, immediately gain 1 market action. |
 | War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
@@ -647,7 +647,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | The Oracle | I | 4 gold OR 1 stone | — | +1 VP. Once per era, after a failed attack, gain 3 gold. |
-| The Mausoleum | II | 7 gold OR 1 stone + 1 cloth | — | +2 VP. |
+| The Mausoleum | III | 9 gold OR 1 stone + 1 cloth | — | +2 VP. |
 | The Pharos | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks launched via your Naval Bastions. |
 | The Dragon's Spine | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
 | The Hanging Gardens | III | 9 gold OR 1 cloth + 1 paper | — | +1 VP per 5 gold in treasury at end of game. |
