@@ -509,12 +509,19 @@ Some cards have victory points marked on them. VP printed on Empire cards is sco
 
 ## Comeback Mechanic
 
-At the end of each round, the player in last place draws the top card from the **Catch-Up Deck** and adds it to their modifier discard pile. It enters circulation the next time their deck reshuffles.
+At the end of each round, the weakest players draw from the **Catch-Up Deck**. Cards drawn enter the player's modifier discard pile and enter circulation the next time their deck reshuffles.
 
-**Last place** is determined by:
+**Standing** is determined by:
 1. Fewest regions controlled
 2. Tiebreak: lowest income rate
 3. Tiebreak: fewest total building track steps across all classes
+
+**In a 4+ player game:**
+- **Last place:** Draw 2 cards from the top of the Catch-Up Deck. Keep 1 and return the other to the bottom of the deck.
+- **Second-to-last place:** Draw 1 card from the top of the Catch-Up Deck.
+
+**In a 2–3 player game:**
+- **Last place:** Draw 1 card from the top of the Catch-Up Deck.
 
 The Catch-Up Deck consists of 12 cards with colored faces (distinct from all other modifier cards) but identical backs. Cards are shuffled face-down and drawn from the top.
 
@@ -549,7 +556,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
 - **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
 - **VP scoring from discard pile (Option B — to discuss):** Alternative to current Option A (VP counted from active mat + discard pile combined): VP counted *only* from the discard pile, not active mat. Players must actively spend a market action to discard VP-bearing cards to bank their points — creating an end-game race to cycle cards off the mat before round 15. Also under consideration: storing VP as physical cubes on cards (loaded by spending commodities via a market action), with cubes transferring to the player's VP track when the card is discarded. Would interact interestingly with the held-and-triggered card type.
-- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); scaling income penalty by empire size; forced abandonment when income rate goes negative; catch-up modifier deck drawn by last-place player each round.
+- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); scaling income penalty by empire size; forced abandonment when income rate goes negative; 4+ player: last draws 2 keep 1, second-to-last draws 1; 2–3 player: last draws 1.
 
 ---
 
