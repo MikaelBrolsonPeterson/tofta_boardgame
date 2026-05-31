@@ -464,7 +464,7 @@ Empire cards are used to enact decrees in your empire.
 | Market   | Green  | Increase taxation in specified region types; decrease upkeep in specified region types |
 | Science  | Lilac  | Give more market actions; give more attack actions; allow taking cards from market without paying; allow conquering regions without attacking (must be adjacent to a controlled region) |
 | Wonders  | Brown  | VP for end-game scoring |
-| Misc     | Grey   | Flexible positioning (water access, non-adjacent attacks, repositioning); income from disconnected regions; converting attack actions to market actions and vice versa |
+| Misc     | Grey   | Flexible positioning (non-adjacent attacks, repositioning); positional resource and gold generation from border regions; converting attack actions to market actions and vice versa |
 
 ### Action Cards
 
@@ -660,12 +660,14 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Pillage ⌛ | I | 3 gold OR 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier (minimum 0). Discarded at end of Era I. |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
+| Border Farms | I | 3 gold OR 1 food | — | All your grassland regions bordering another player produce 1 Food per round. |
 | Plunder ⌛ | II | 6 gold OR 1 iron + 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier +1 (minimum 1). Discarded at end of Era II. |
 | Cavalry | II | 6 gold OR 2 food | — | Once per era, attack a region not adjacent to any region you control. |
-| Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource or commodity from a player you share a border with (they lose it). |
-| Recruiting Officer | II | 6 gold OR 1 food + 1 cloth | — | Once per era: perform a Draft action at no market action or gold cost. |
-| Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon up to 3 regions, then immediately claim 2 adjacent independent regions without attack actions. |
-| Supply Lines | II | 7 gold OR 1 food + 1 cloth | — | Your disconnected regions contribute half their income modifier (rounded down, minimum 0) instead of 0. |
+| Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource from a player you share a border with (they lose it). |
+| Recruiting Officer | II | 4 gold OR 1 food | — | Once per era: perform a Draft action at no market action or gold cost. |
+| Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon 2 regions, then immediately claim 2 adjacent independent regions without attack actions. |
+| Frontier Bounty | II | 6 gold OR 1 cloth + 1 food | — | All your regions bordering another player produce 1 Food per round, regardless of terrain. |
+| Border Toll | II | 7 gold OR 1 paper + 1 food | — | Gain +1 gold per round for each region you control that borders at least one enemy region. |
 | Quartermaster | II | 6 gold OR 1 cloth + 1 food | — | Once per turn, you may spend 1 attack action as a market action. |
 | Tribute | III | 9 gold OR 2 iron + 1 food | — | Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier +2 (minimum 2). |
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |
