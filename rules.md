@@ -64,6 +64,12 @@ The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, 
 | 2   | 4                 | 5               |
 | 3   | 5                 | 5               |
 
+**Era transition:** At the end of rounds 5 and 10, the era advances. During era transition:
+- Flip all rotated Empire cards back upright — era effects are replenished.
+- Any Empire card marked with the **era expiry icon** is immediately discarded from the player's mat. Its ongoing effects end; any VP printed on it still counts (it moves to the discard pile). A freed slot does not need to be filled immediately.
+
+**Era-limited cards** are designed to be powerful within their era but not carried forward. They are always cheaper than permanent equivalents of similar power.
+
 ### Player Order
 
 At the start of the game, a first player is chosen randomly and given the first player marker. After each round, the marker passes clockwise. Player turns within a round proceed in the opposite direction — counterclockwise — so the player just before the marker holder in clockwise order goes second, and so on. This ensures turn order rotates fairly across all players over time.
@@ -330,7 +336,7 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 
 A sea body touching a Canal's *inactive* side is not connected through it.
 
-**Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, flip all rotated cards back upright — era effects are replenished.
+**Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, rotated cards are flipped back upright and era-limited cards are discarded (see Era Transition rules).
 
 **Selling a card:** Spend a market action to discard a card and free its slot. Ongoing effects end immediately; one-time effects already fired persist. Track bonuses already unlocked are not revoked.
 
@@ -651,15 +657,17 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Pillage | I | 3 gold OR 1 food | — | When you successfully conquer a region this era, gain gold equal to that region's base income modifier (minimum 0). |
+| Pillage ⌛ | I | 3 gold OR 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier (minimum 0). Discarded at end of Era I. |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
+| Plunder ⌛ | II | 6 gold OR 1 iron + 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier +1 (minimum 1). Discarded at end of Era II. |
 | Cavalry | II | 6 gold OR 2 food | — | Once per era, attack a region not adjacent to any region you control. |
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource or commodity from a player you share a border with (they lose it). |
 | Recruiting Officer | II | 6 gold OR 1 food + 1 cloth | — | Once per era: perform a Draft action at no market action or gold cost. |
 | Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon up to 3 regions, then immediately claim 2 adjacent independent regions without attack actions. |
 | Supply Lines | II | 7 gold OR 1 food + 1 cloth | — | Your disconnected regions contribute half their income modifier (rounded down, minimum 0) instead of 0. |
 | Quartermaster | II | 6 gold OR 1 cloth + 1 food | — | Once per turn, you may spend 1 attack action as a market action. |
+| Tribute | III | 9 gold OR 2 iron + 1 food | — | Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier +2 (minimum 2). |
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |
 | Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid any opponent's region accessible via one of your Naval Bastions — steal gold equal to that region's base income modifier (minimum 0). |
 | Navy | III | 13 gold OR 3 iron + 1 cloth | — | Attacks launched from regions where you have a Naval Bastion have advantage. |
