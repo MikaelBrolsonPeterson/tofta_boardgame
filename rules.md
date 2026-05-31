@@ -636,7 +636,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Logistics | II | 6 gold OR 1 paper + 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Once per era: move one of your building tokens to another eligible region you control. Unspent cubes are removed at each era transition. |
 | Taxation Reform | II | 7 gold OR 1 paper + 1 food | — | While on your mat: your income rate increases by 2. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
-| Guild | II | 7 gold OR 1 paper + 1 food | — | Place 2 cubes on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
+| Guild | II | 7 gold OR 1 paper + 1 food | — | Each time an opponent conquers one of your regions while this card is on your mat, immediately gain 1 market action. |
 | War College | II | 7 gold OR 1 paper + 1 food | — | Once per round: after a failed attack, you may trash 1 card from the top 2 cards of your modifier discard pile at no action or gold cost. If the discard pile has fewer than 2 cards, choose from what is available. Fail and Success cannot be trashed this way. |
 | Innovation | III | 9 gold OR 2 paper | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Once per round: the next Empire card you purchase from the market this round costs 2 less gold (minimum 1 gold). Unspent cubes are removed at each era transition. |
 | Alchemy | III | 6 gold OR 1 wild | — | Once per round, convert any 2 commodities into 1 wild. |
