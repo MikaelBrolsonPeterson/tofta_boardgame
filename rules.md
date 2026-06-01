@@ -368,15 +368,29 @@ Some Empire cards generate resources or commodities based on the position of reg
 
 ### General
 
-Conquering a region costs one Attack action. The conquest succeeds if the attacker has more strength than the defender.
+Conquering a region costs one Attack action. Both the attacker and the defender (or independent state) draw from their respective modifier decks. Strength is compared after drawing.
 
-- **Success:** Take control of the region and place your indicator there. Both players' income rates update immediately to reflect the ownership change.
-- **Failure vs independent:** You still conquer the region, but it revolts. Place your indicator but mark it as revolting — no taxation is collected from it until the revolt is cleared. Upkeep is still owed. The revolt clears at the start of your next turn. While a region is revolting, you cannot place buildings in it or use it as a base to attack from. Any attacker targeting a revolting region gains +1 to their attack strength.
-- **Versus another player:** Before the conquest resolves, the defender may move one production marker from any of their regions to another region they control. Then remove that player's region token and place one of your own. The attacker takes up to 2 resources from the conquered region's stockpile; any commodities on the region are lost. Any production marker on the conquered region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the marker is replanted (1 market action, no additional gold) on another eligible region they control. Standard military markers on the region are removed. Permanent military markers survive — the conqueror inherits them and may rotate one step (60°). Any on-loss effects on the losing player's Empire cards trigger immediately.
+#### Conquest vs Independent Region
+
+| Attacker draws | Independent draws | Result |
+|---|---|---|
+| Fail | Any | Region stays independent — no conquest |
+| Any | Fail | Clean conquest |
+| Both | Fail | Conquer, region revolts |
+| Higher strength | — | Clean conquest |
+| Tied or lower strength | — | Conquer, region revolts |
+
+**Clean conquest:** Place your meeple upright on the region. Income rate updates immediately.
+
+**Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its income modifier does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region gains +1 attack strength. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's income modifier from that point. If the modifier is negative and pushes your income rate negative, forced abandonment is evaluated at that moment.
+
+#### Conquest vs Player Region
+
+Before the conquest resolves, the defender may move one production marker from any of their regions to another region they control. Then remove that player's region token and place one of your own. The attacker takes up to 2 resources from the conquered region's stockpile; any commodities on the region are lost. Any production marker on the conquered region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the marker is replanted (1 market action, no additional gold) on another eligible region they control. Standard military markers on the region are removed. Permanent military markers survive — the conqueror inherits them and may rotate one step (60°). Any on-loss effects on the losing player's Empire cards trigger immediately. Both players' income rates update immediately.
 
 ### Multiple Attacks to Conquer
 
-Some regions (Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront (X attack actions), but the combat is resolved as a **single attack roll**. If it fails, the revolt mechanic applies as normal. The attacker may try again on a future turn.
+Some regions (Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. Against an independent, if the result would be revolt, the revolt rule applies. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
 
 ### Strength
 
@@ -386,9 +400,9 @@ Strength is the sum of:
 - The number drawn from the modifier deck
 - Any Empire card bonuses
 
-### Ties
+### Ties (Player vs Player)
 
-If attacker and defender have equal strength, the defender wins — no conquest occurs. However, the contested region goes into revolt against the defending player (no taxation, no building placement, cannot attack from it; clears at the start of the defending player's next turn). The +1 attack bonus against revolting regions applies as normal.
+If attacker and defender have equal strength, the defender wins — no conquest occurs. The contested region goes into revolt against the defending player: their meeple is laid flat, the region's income modifier does not apply, they cannot build in it or attack from it, and attackers gain +1 against it. Revolt clears at the start of the defending player's next turn.
 
 ### Advantage and Disadvantage
 
