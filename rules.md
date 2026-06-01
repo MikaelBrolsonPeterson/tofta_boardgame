@@ -677,7 +677,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Border Toll | II | 7 gold OR 1 paper + 1 food | — | Gain +1 gold per round for each region you control that borders at least one enemy region. |
 | Quartermaster | II | 6 gold OR 1 cloth + 1 food | — | Once per turn, you may spend 1 attack action as a market action. |
 | Tribute | III | 9 gold OR 2 iron + 1 food | — | Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base income modifier +2 (minimum 2). |
-| Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon any number of regions, then claim up to half that number (rounded down) of independent regions anywhere on the map without attack actions. |
+| Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon up to 4 regions, then claim up to 2 independent regions anywhere on the map without attack actions. Regions abandoned during this action cannot be among those claimed. |
 | Corsairs | III | 8 gold OR 1 iron + 1 wood | — | Once per era: raid any opponent's region accessible via one of your Naval Bastions — steal gold equal to that region's base income modifier (minimum 0). |
 | Navy | III | 13 gold OR 3 iron + 1 cloth | — | Attacks launched from regions where you have a Naval Bastion have advantage. |
 | Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions this era, gain +1 VP. |
