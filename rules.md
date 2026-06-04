@@ -265,6 +265,8 @@ There are three categories of physical tokens on the board.
 
 **Naval Bastion (tier 3, permanent):** Must be placed on a land region adjacent to a sea tile. When placed, the player chooses one active side — the hex side facing the sea tile it connects to. The owner may attack any land region adjacent to that sea tile as if it were adjacent to their region. One Naval Bastion connects to one sea tile only. Because it is permanent, a conquering player inherits the Naval Bastion and may rotate it one step (60°) to redirect which sea side it faces.
 
+**Fortress (tier 4, permanent):** May be placed on any land region. All regions adjacent to the Fortress region require 1 additional attack action to attack, and attackers targeting those adjacent regions draw with disadvantage. Because it is permanent, a conquering player inherits the Fortress and may rotate it one step (60°).
+
 All non-military infrastructure tokens (Market, Science, Wonders, Misc) are destroyed when the region is conquered — they do not transfer to the new owner.
 
 **Production markers** represent resource and commodity output from specific empire cards (Quarry, Mine, Farm, etc.). They are smaller square tokens placed on a region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
@@ -282,7 +284,7 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 | Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action); sea-adjacent tier 1–2 grant income bonus; sea-adjacent tier 4 grants gold per sea network | Region is conquered |
 | Canal (Bent) — tier 2 Market | Hexagonal (region-sized), 2 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Canal (Cross) — tier 3 Market | Hexagonal (region-sized), 4 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
-| Science infrastructure | Hexagonal (region-sized) | Build action | One-time activation: gain resources or commodities based on adjacent terrain (see Science token table) | Region is conquered |
+| Science infrastructure | Hexagonal (region-sized) | Build action | Tier 1 and 3: +1 market action/turn. Tier 2 and 4: choice of free/discounted card acquisition or other market bonus (see Science token table) | Region is conquered |
 | Wonders infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
 | Misc infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
 | Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
@@ -338,14 +340,16 @@ A sea body touching a Canal's *inactive* side is not connected through it.
 
 **Grand Bazaar (tier 3 border alternative):** Placed on a border region instead of the standard tier 3 transaction token. One-time activation: spend 1 market action, count the unique terrain types among adjacent regions controlled by other players, and gain 2 gold per unique type. Rotate the token 90° after activation to show it is exhausted — it remains on the region for building track purposes but cannot be activated again. If Privateers targets this region before activation, the raiding player activates it instead, gaining the gold.
 
-**Science class tokens** are all one-time activation (spend 1 market action). After activation, rotate the token 90° — it remains for building track purposes but cannot be activated again.
+**Science class tokens** enhance market access through action bonuses and discounted or free card acquisitions. Tiers 1 and 3 provide permanent action bonuses while placed. Tiers 2 and 4 each offer two alternative tokens — choose one when building that tier. All tier 2 and tier 4 Science token effects are always-on passives.
 
-| Tier | Token | Placement | One-time activation effect |
-|------|-------|-----------|---------------------------|
-| 1 | Surveyor's Post | Anywhere | Gain 1 Stone for each adjacent mountain region (any player, max 3). |
-| 2 | Field Station | Anywhere | Gain 1 Food for each adjacent grassland or swamp region (any player, max 3). |
-| 3 | Research Annex | Border region | Count unique terrain types among adjacent regions controlled by other players. Gain 1 resource of your choice per unique type. |
-| 4 | Imperial Academy | Border region | Count unique terrain types among adjacent regions controlled by other players. Gain 1 commodity of your choice per unique type. |
+| Tier | Token | Placement | Effect |
+|------|-------|-----------|--------|
+| 1 | Counting House | Anywhere | +1 market action per turn (permanent while placed). |
+| 2A | Library | Anywhere | Once per round: spend 1 market action to take a market card costing ≤4g for free; if it costs more, pay only the excess above 4g. |
+| 2B | Guild Hall | Anywhere | All your card purchases cost 2g less (minimum 0g). |
+| 3 | Academy | Anywhere | +1 market action per turn (permanent while placed). |
+| 4A | University | Anywhere | Once per round: spend 1 market action to take any market card for free (no gold cost, regardless of price). |
+| 4B | Imperial Archive | Anywhere | Once in the game: spend 1 market action to draw 4 empire cards. You may replace up to 3 cards currently on your mat with drawn cards; replaced cards and unchosen drawn cards are discarded. |
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, rotated cards are flipped back upright and era-limited cards are discarded (see Era Transition rules).
 
@@ -393,7 +397,7 @@ Conquering a region costs one Attack action. Both the attacker and the defender 
 
 **Clean conquest:** Place your meeple upright on the region. Income updates immediately.
 
-**Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its gold production does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region gains +1 attack strength. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's gold production from that point. If the modifier is negative and pushes your income negative, forced abandonment is evaluated at that moment.
+**Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its gold production does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region draws with advantage. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's gold production from that point. If the modifier is negative and pushes your income negative, forced abandonment is evaluated at that moment.
 
 #### Conquest vs Player Region
 
@@ -413,7 +417,7 @@ Strength is the sum of:
 
 ### Ties (Player vs Player)
 
-If attacker and defender have equal strength, the defender wins — no conquest occurs. The contested region goes into revolt against the defending player: their meeple is laid flat, the region's gold production does not apply, they cannot build in it or attack from it, and attackers gain +1 against it. Revolt clears at the start of the defending player's next turn.
+If attacker and defender have equal strength, the defender wins — no conquest occurs. The contested region goes into revolt against the defending player: their meeple is laid flat, the region's gold production does not apply, they cannot build in it or attack from it, and attackers draw with advantage against it. Revolt clears at the start of the defending player's next turn.
 
 ### Advantage and Disadvantage
 
