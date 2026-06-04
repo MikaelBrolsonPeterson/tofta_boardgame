@@ -40,7 +40,7 @@ Each player has their own empire mat with two independent tracking systems:
 |-------|--------|--------|--------|--------|
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | Empire cards cost 2g less (min 1g) | +1 Empire card slot | +5 VP |
+| Science | +1 Empire card slot | −2g on Empire cards OR −2g on token placements (choose one) | +1 Empire card slot | +5 VP |
 | Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Wonders | +2 VP | +4 VP | +7 VP | — |
 
@@ -61,10 +61,10 @@ The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, 
 | Era | Active card slots (base) | Cards in market |
 |-----|--------------------------|-----------------|
 | 1   | 3                        | 5               |
-| 2   | 4                        | 5               |
-| 3   | 5                        | 5               |
+| 2   | 3                        | 5               |
+| 3   | 3                        | 5               |
 
-Science building track tiers 1 and 3 each add +1 bonus slot permanently on top of the era base.
+The base is always 3 slots. Slots 4 and 5 are unlocked **only** through the Science building track — tier 1 unlocks slot 4, tier 3 unlocks slot 5.
 
 **Era transition:** At the end of rounds 5 and 10, the era advances. During era transition:
 - Flip all rotated Empire cards back upright — era effects are replenished.
@@ -151,7 +151,7 @@ Milestones are claimed permanently by the first player to meet the condition. Ea
 |-----------|-----------|
 | Ruins Explorer | Conquer an Ancient Ruins region |
 | Prosperous Empire | Reach an income of 10 |
-| Developed Lands | Have 3 regions of the same terrain type with buildings |
+| Developed Lands | Have 5 regions with infrastructure tokens |
 | Master of a Class | First to max out any single class track |
 
 #### Awards
@@ -314,11 +314,13 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 |-------|--------|--------|--------|--------|
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | Empire cards cost 2g less (min 1g) | +1 Empire card slot | +5 VP |
+| Science | +1 Empire card slot | −2g on Empire cards OR −2g on token placements (choose one) | +1 Empire card slot | +5 VP |
 | Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Wonders | +2 VP | +4 VP | +7 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
+
+**Science track tier 2 choice:** When your Science track reaches tier 2, permanently choose one: all your Empire card purchases cost 2g less (minimum 1g), or all your infrastructure token placements cost 2g less (minimum 1g). The choice is made once and cannot be changed.
 
 **Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
 
@@ -660,7 +662,6 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Cartography | I | 3 gold OR 1 food | — | Once per era: claim any one independent region on the map regardless of adjacency. |
 | Foresight | I | 4 gold OR 1 food | — | **Held-and-triggered.** Hold on your mat. Spend 1 market action to activate: look at the top 3 cards of the current era deck, immediately purchase one at half its gold cost (round up), and return the others in any order. Discard Foresight after activating. |
 | Dispatch | I | 3 gold OR 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2, keeping 1 and returning the others. |
