@@ -40,7 +40,7 @@ Each player has their own empire mat with two independent tracking systems:
 |-------|--------|--------|--------|--------|
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | +1 Empire card slot | Empire cards cost 2g less (min 1g) | +5 VP |
+| Science | +1 Empire card slot | Empire cards cost 2g less (min 1g) | +1 Empire card slot | +5 VP |
 | Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Wonders | +2 VP | +4 VP | +7 VP | — |
 
@@ -312,7 +312,7 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 |-------|--------|--------|--------|--------|
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | +1 Empire card slot | Empire cards cost 2g less (min 1g) | +5 VP |
+| Science | +1 Empire card slot | Empire cards cost 2g less (min 1g) | +1 Empire card slot | +5 VP |
 | Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Wonders | +2 VP | +4 VP | +7 VP | — |
 
