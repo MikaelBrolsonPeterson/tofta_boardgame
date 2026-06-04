@@ -58,11 +58,13 @@ When purchased, Empire cards are placed on the player's Empire mat. Action cards
 
 The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
 
-| Era | Active card slots | Cards in market |
-|-----|-------------------|-----------------|
-| 1   | 3                 | 5               |
-| 2   | 4                 | 5               |
-| 3   | 5                 | 5               |
+| Era | Active card slots (base) | Cards in market |
+|-----|--------------------------|-----------------|
+| 1   | 3                        | 5               |
+| 2   | 4                        | 5               |
+| 3   | 5                        | 5               |
+
+Science building track tiers 1 and 3 each add +1 bonus slot permanently on top of the era base.
 
 **Era transition:** At the end of rounds 5 and 10, the era advances. During era transition:
 - Flip all rotated Empire cards back upright — era effects are replenished.
@@ -125,7 +127,7 @@ When the round ends each player:
 
 | Era | Ends at round | What happens |
 |-----|---------------|--------------|
-| 1   | 5             | Remove unpurchased Era cards; populate market with next era cards; recalculate Income; players select Initiative Track positions |
+| 1   | 5             | Remove unpurchased Era cards; populate market with next era cards; recalculate income; players select Initiative Track positions |
 | 2   | 10            | Same as above |
 | 3   | 15            | Full scoring |
 
@@ -491,7 +493,7 @@ Empire cards are used to enact decrees in your empire.
 |----------|--------|-----------------|
 | Military | Red    | Add to strength when attacking or defending; reduce an opponent's strength; give advantage on attacks against certain region types; make opponent attack with disadvantage |
 | Market   | Green  | Produce resources and commodities from terrain; convert resources to commodities; convert commodities to VP |
-| Science  | Lilac  | Give more market actions; give more attack actions; allow taking cards from market without paying; allow conquering regions without attacking (must be adjacent to a controlled region) |
+| Science  | Lilac  | Expand Empire card capacity; discount card purchases; improve modifier deck through enhanced Draft and Cull; give bonus market and attack actions |
 | Wonders  | Brown  | VP for end-game scoring |
 | Misc     | Grey   | Flexible positioning (non-adjacent attacks, repositioning); positional resource and gold generation from border regions; converting attack actions to market actions and vice versa |
 
