@@ -258,7 +258,7 @@ Resources accumulate on the region that produces them and persist across era tra
 
 There are three categories of physical tokens on the board.
 
-**Infrastructure tokens** represent buildings, installations, and economic development. All infrastructure tokens are hexagonal and the same size as a region tile — they are placed on top of the region, fully covering it. Tokens come in five class types — Military, Market, Science, Wonders, and Misc — distinguished by colour or symbol. Each region can hold **one infrastructure token** at a time, regardless of class. Some token types have terrain requirements for placement (e.g. a tier 3 Military token may require a mountain region) — the requirement is printed on the token.
+**Infrastructure tokens** represent buildings, installations, and economic development. All infrastructure tokens are hexagonal and the same size as a region tile — they are placed on top of the region, fully covering it. Tokens come in four class types — Military, Market, Science, and Wonders — distinguished by colour or symbol. (Misc is a card-only class; it has no infrastructure tokens or building track.) Each region can hold **one infrastructure token** at a time, regardless of class. Some token types have terrain requirements for placement (e.g. a tier 3 Military token may require a mountain region) — the requirement is printed on the token.
 
 **Military infrastructure tokens** are placed via build action and represent fortifications and tactical installations. Their orientation encodes directional effects — some affect only the region they occupy, others affect adjacent regions depending on which way they face.
 
@@ -269,7 +269,7 @@ There are three categories of physical tokens on the board.
 
 **Fortress (tier 4, permanent):** May be placed on any land region. All regions adjacent to the Fortress region require 1 additional attack action to attack, and attackers targeting those adjacent regions draw with disadvantage. Because it is permanent, a conquering player inherits the Fortress and may rotate it one step (60°).
 
-All non-military infrastructure tokens (Market, Science, Wonders, Misc) are destroyed when the region is conquered — they do not transfer to the new owner.
+All non-military infrastructure tokens (Market, Science, Wonders) are destroyed when the region is conquered — they do not transfer to the new owner.
 
 **Production markers** represent resource and commodity output from specific empire cards (Quarry, Mine, Farm, etc.). They are smaller square tokens placed on a region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
 
@@ -287,8 +287,7 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 | Canal (Bent) — tier 2 Market | Hexagonal (region-sized), 2 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Canal (Cross) — tier 3 Market | Hexagonal (region-sized), 4 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Science infrastructure | Hexagonal (region-sized) | Build action | Tier 1 and 3: +1 market action/turn. Tier 2 and 4: choice of free/discounted card acquisition or other market bonus (see Science token table) | Region is conquered |
-| Wonders infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
-| Misc infrastructure | Hexagonal (region-sized) | Build action | TBD | Region is conquered |
+| Wonders infrastructure | Hexagonal (region-sized) | Build action (Wonder construction — see below) | Carries the Wonder card's on-map effect; advances Wonders building track | Region is conquered |
 | Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
@@ -297,7 +296,9 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 
 ### Infrastructure Tokens and the Building Track
 
-Infrastructure tokens are placed via a build action (1 market action + token gold cost). Tokens are chosen from a class pool — Military, Market, Science, Wonders, or Misc. Higher-tier tokens cost more gold. Empire cards are **not** required to unlock placement rights; any player may place any class of token.
+Infrastructure tokens are placed via a build action (1 market action + token gold cost). Tokens are chosen from a class pool — Military, Market, or Science. Higher-tier tokens cost more gold. Empire cards are **not** required to unlock placement rights; any player may place any class of token.
+
+**Wonder construction** follows a different two-phase process — see the Wonder Construction section below.
 
 **Token costs by tier:**
 
@@ -315,7 +316,6 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
 | Science | +1 Empire card slot | −2g on Empire cards OR −2g on token placements (choose one) | +1 Empire card slot | +5 VP |
-| Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Wonders | +2 VP | +4 VP | +7 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
@@ -354,6 +354,16 @@ A sea body touching a Canal's *inactive* side is not connected through it.
 | 3 | Academy | Anywhere | +1 market action per turn (permanent while placed). |
 | 4A | University | Anywhere | Once per round: spend 1 market action to take any market card for free (no gold cost, regardless of price). |
 | 4B | Imperial Archive | Anywhere | Once in the game: spend 1 market action to draw 4 empire cards. You may replace up to 3 cards currently on your mat with drawn cards; replaced cards and unchosen drawn cards are discarded. |
+
+#### Wonder Construction
+
+Wonders are built in two phases:
+
+**Phase 1 — Acquire:** Buy the Wonder card from the market at its listed cost. The card occupies one Empire mat slot. Its VP is immediately banked and its effect is active while the card is on the mat.
+
+**Phase 2 — Construct:** At any point on your turn, spend 1 market action to physically construct the Wonder. Remove the card from your mat (it moves to your discard pile — its VP remains banked) and place the corresponding Wonder token on any region you control. The token carries the Wonder's on-map effect for as long as it remains on the map. Placing the token advances your Wonders building track.
+
+Wonder tokens are destroyed if the region is conquered. The VP banked when the card was purchased is never lost.
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, rotated cards are flipped back upright and era-limited cards are discarded (see Era Transition rules).
 
@@ -486,7 +496,7 @@ Empire cards are used to enact decrees in your empire.
 
 **Properties:**
 - **Cost:** Each card has two prices — a gold cost and a resource or commodity cost. Pay one or the other. Example: `3 gold OR 1 stone`. Your empire's tile composition and buildings determine which currency is easier to spend.
-- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc) and at most 3 Wonder cards over the entire game. Each purchase advances that class's building track on your player mat and reveals the next benefit.
+- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc) and at most 3 Wonder cards over the entire game. Each purchase advances that class's building track on your player mat and reveals the next benefit. Misc cards have no building track — purchasing them gives no track advancement.
 - **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., have four mountain regions). Unfulfilled requirements at the end of the game may affect scoring.
 
 ### Empire Card Classes
