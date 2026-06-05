@@ -127,11 +127,11 @@ When the round ends each player:
 
 | Era | Ends when | What happens |
 |-----|-----------|--------------|
-| I   | First player reaches 4 VP | Remove unpurchased Era I cards; populate market with Era II cards; recalculate income; players select Initiative Track positions |
-| II  | First player reaches 8 VP | Remove unpurchased Era II cards; populate market with Era III cards; recalculate income; players select Initiative Track positions |
+| I   | First player reaches 5 VP | Remove unpurchased Era I cards; populate market with Era II cards; recalculate income; players select Initiative Track positions |
+| II  | First player reaches 9 VP | Remove unpurchased Era II cards; populate market with Era III cards; recalculate income; players select Initiative Track positions |
 | III | First player reaches 12 VP | Game ends; full scoring |
 
-*(VP thresholds subject to playtesting — range under consideration: Era I 4–5 VP, Era II 8–9 VP, win 12 VP.)*
+*(VP thresholds subject to playtesting.)*
 
 Resources and commodities accumulate on their producing regions and persist across era transitions.
 
@@ -595,9 +595,9 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 
 ## Mechanics Under Consideration
 
-- **Game length and era structure:** VP-driven eras (thresholds 4/8/12 VP, subject to playtesting). Game length is now dynamic — faster in aggressive games, slower in defensive ones. Questions to revisit after playtesting: Do the VP thresholds need to scale with player count? Target play time (60 min? 90 min?) should inform threshold tuning.
+- **Game length and era structure:** VP-driven eras (thresholds 5/9/12 VP, subject to playtesting). Game length is now dynamic — faster in aggressive games, slower in defensive ones. Era III is expected to be short and tense by design. Questions to revisit after playtesting: Do the VP thresholds need to scale with player count? Target play time (60 min? 90 min?) should inform threshold tuning.
 
-- **Win and end conditions:** Settled. First to 12 VP wins (game ends at close of that round). Capitol capture also ends the game at close of that round (+3 VP for capturer); recapture before round end cancels the trigger. No player elimination.
+- **Win and end conditions:** Settled. First to 12 VP wins (game ends at close of that round). Era thresholds: 5 VP (Era I→II), 9 VP (Era II→III). Capitol capture also ends the game at close of that round (+3 VP for capturer); recapture before round end cancels the trigger. No player elimination.
 
 - **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
@@ -739,8 +739,10 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 
 | Card | Era | Cost | Effect |
 |------|-----|------|--------|
+| Proclamation | I | 4 gold OR 1 food | Gain 1 VP. |
 | Scout | I | 3 gold | Draw 3 from the Modifier Draw Pile, add 1 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Purge | I | 3 gold | Perform two Cull actions at no cost. |
+| Royal Decree | II | 6 gold OR 1 iron | Gain 1 VP. |
 | Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Reformation | II | 5 gold OR 1 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. |
 | Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
