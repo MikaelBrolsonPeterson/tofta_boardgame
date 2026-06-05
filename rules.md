@@ -147,7 +147,7 @@ If the Capitol is recaptured before the round ends, the game continues normally.
 
 #### Milestones
 
-Milestones are claimed permanently by the first player to meet the condition. Each milestone awards **1 VP** to the claimer only. Once claimed, no other player can claim it.
+Milestones are claimed permanently by the first player to meet the condition. Each milestone awards **2 VP** to the claimer only. Once claimed, no other player can claim it.
 
 | Milestone | Condition |
 |-----------|-----------|
@@ -747,6 +747,7 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 | Royal Decree | II | 6 gold OR 1 iron | Gain 1 VP. |
 | Edict | II | 5 gold OR 1 food | Gain 1 VP. |
 | Commission | II | 6 gold OR 1 cloth | Gain 1 VP. |
+| Mandate | II | 5 gold OR 1 paper | Gain 1 VP. |
 | Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Reformation | II | 5 gold OR 1 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. |
 | Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
