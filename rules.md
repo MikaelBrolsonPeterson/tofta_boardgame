@@ -740,9 +740,13 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 | Card | Era | Cost | Effect |
 |------|-----|------|--------|
 | Proclamation | I | 4 gold OR 1 food | Gain 1 VP. |
+| Rally | I | 3 gold | Gain 1 VP. |
+| Charter | I | 4 gold OR 1 stone | Gain 1 VP. |
 | Scout | I | 3 gold | Draw 3 from the Modifier Draw Pile, add 1 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Purge | I | 3 gold | Perform two Cull actions at no cost. |
 | Royal Decree | II | 6 gold OR 1 iron | Gain 1 VP. |
+| Edict | II | 5 gold OR 1 food | Gain 1 VP. |
+| Commission | II | 6 gold OR 1 cloth | Gain 1 VP. |
 | Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Reformation | II | 5 gold OR 1 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. |
 | Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
