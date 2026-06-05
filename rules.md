@@ -40,9 +40,9 @@ Each player has their own empire mat with two independent tracking systems:
 |-------|--------|--------|--------|--------|
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | −2g on Empire cards OR −2g on token placements (choose one) | +1 Empire card slot | +5 VP |
+| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +5 VP |
 | Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
-| Wonders | +2 VP | +4 VP | +7 VP | — |
+| Wonders | +1 VP | +2 VP | +3 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
 
@@ -287,7 +287,7 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 | Canal (Bent) — tier 2 Market | Hexagonal (region-sized), 2 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Canal (Cross) — tier 3 Market | Hexagonal (region-sized), 4 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Science infrastructure | Hexagonal (region-sized) | Build action | Tier 1 and 3: +1 market action/turn. Tier 2 and 4: choice of free/discounted card acquisition or other market bonus (see Science token table) | Region is conquered |
-| Wonders infrastructure | Hexagonal (region-sized) | Build action (Wonder construction — see below) | Carries the Wonder card's on-map effect; advances Wonders building track | Region is conquered |
+| Wonders infrastructure | Hexagonal (region-sized) | 1 market action + gold cost (see Wonder Construction) | Immediately grants tier VP; permanently lost if region is conquered | Region is conquered |
 | Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
@@ -315,12 +315,12 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 |-------|--------|--------|--------|--------|
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | −2g on Empire cards OR −2g on token placements (choose one) | +1 Empire card slot | +5 VP |
-| Wonders | +2 VP | +4 VP | +7 VP | — |
+| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +5 VP |
+| Wonders | +1 VP | +2 VP | +3 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
 
-**Science track tier 2 choice:** When your Science track reaches tier 2, permanently choose one: all your Empire card purchases cost 2g less (minimum 1g), or all your infrastructure token placements cost 2g less (minimum 1g). The choice is made once and cannot be changed.
+**Science track tier 2 choice:** When your Science track reaches tier 2, permanently choose one: all your Military/Market/Science token placements cost 2g less (minimum 1g), or all your Wonder constructions cost 3g less (minimum 1g). The choice is made once and cannot be changed.
 
 **Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
 
@@ -357,13 +357,21 @@ A sea body touching a Canal's *inactive* side is not connected through it.
 
 #### Wonder Construction
 
-Wonders are built in two phases:
+Wonders exist entirely as tokens — there are no Wonder Empire cards. Each player has a personal Wonders building track with 3 tiers. Wonders must be built in order: tier 1 before tier 2 before tier 3.
 
-**Phase 1 — Acquire:** Buy the Wonder card from the market at its listed cost. The card occupies one Empire mat slot. Its VP is immediately banked and its effect is active while the card is on the mat.
+To build a Wonder, spend 1 market action and the listed gold cost, then place the token on any region you control. You immediately gain the VP for that tier. A region may only hold one infrastructure token — a Wonder occupies that slot.
 
-**Phase 2 — Construct:** At any point on your turn, spend 1 market action to physically construct the Wonder. Remove the card from your mat (it moves to your discard pile — its VP remains banked) and place the corresponding Wonder token on any region you control. The token carries the Wonder's on-map effect for as long as it remains on the map. Placing the token advances your Wonders building track.
+| Tier | Gold cost | VP gained |
+|------|-----------|-----------|
+| 1    | 4 gold    | +1 VP     |
+| 2    | 8 gold    | +2 VP     |
+| 3    | 14 gold   | +3 VP     |
 
-Wonder tokens are destroyed if the region is conquered. The VP banked when the card was purchased is never lost.
+*(Costs subject to playtesting.)*
+
+**Wonders and conquest:** When a region containing a Wonder token is conquered:
+- The **defending player** immediately loses VP equal to that Wonder's tier and that tier is **permanently closed** — they cannot build a Wonder of that tier again.
+- The **attacking player** immediately advances their own Wonder track one step and gains the VP for the tier just unlocked. If the attacker's track is already at tier 3, they gain +1 VP instead.
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, rotated cards are flipped back upright and era-limited cards are discarded (see Era Transition rules).
 
@@ -496,7 +504,7 @@ Empire cards are used to enact decrees in your empire.
 
 **Properties:**
 - **Cost:** Each card has two prices — a gold cost and a resource or commodity cost. Pay one or the other. Example: `3 gold OR 1 stone`. Your empire's tile composition and buildings determine which currency is easier to spend.
-- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc) and at most 3 Wonder cards over the entire game. Each purchase advances that class's building track on your player mat and reveals the next benefit. Misc cards have no building track — purchasing them gives no track advancement.
+- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc). Each purchase advances that class's building track on your player mat and reveals the next benefit. Misc cards have no building track — purchasing them gives no track advancement. Wonders have no Empire cards — they are built directly as tokens (see Wonder Construction).
 - **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., have four mountain regions). Unfulfilled requirements at the end of the game may affect scoring.
 
 ### Empire Card Classes
@@ -506,7 +514,7 @@ Empire cards are used to enact decrees in your empire.
 | Military | Red    | Add to strength when attacking or defending; reduce an opponent's strength; give advantage on attacks against certain region types; make opponent attack with disadvantage |
 | Market   | Green  | Produce resources and commodities from terrain; convert resources to commodities; convert commodities to VP |
 | Science  | Lilac  | Expand Empire card capacity; discount card purchases; improve modifier deck through enhanced Draft and Cull; give bonus market and attack actions |
-| Wonders  | Brown  | VP for end-game scoring |
+| Wonders  | Brown  | Built directly as tokens on the map; grant immediate VP; conquerable (see Wonder Construction) |
 | Misc     | Grey   | Flexible positioning (non-adjacent attacks, repositioning); positional resource and gold generation from border regions; converting attack actions to market actions and vice versa |
 
 ### Action Cards
@@ -686,14 +694,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 ### Wonders (Brown)
 
-| Card | Era | Cost | Placement | Effect |
-|------|-----|------|-----------|--------|
-| The Oracle | I | 4 gold OR 1 stone | — | +1 VP. Once per era, after a failed attack, gain 3 gold. |
-| The Mausoleum | III | 9 gold OR 1 stone + 1 cloth | — | +5 VP. |
-| The Pharos | II | 7 gold OR 1 glass + 1 wood | — | +2 VP. +1 strength on all attacks launched via your Naval Bastions. |
-| The Dragon's Spine | III | 11 gold OR 2 iron + 1 stone | — | +1 VP per mountain region at end of game. |
-| The Hanging Gardens | III | 9 gold OR 1 cloth + 1 paper | — | +1 VP per 5 gold in treasury at end of game. |
-| The Aegis Eternal | III | 11 gold OR 2 glass + 1 stone | — | +3 VP. All your regions gain +1 defense while on your mat. |
+Wonders have no Empire cards. They are built directly as tokens — see Wonder Construction.
 
 ### Military (Red) — Positional Resource Cards
 
@@ -725,6 +726,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions while this card is on your mat, gain +1 VP. |
 | Inquisition | III | 8 gold OR 1 iron + 1 paper | — | Once per era: remove any 1 card from the market (that slot refills immediately). Gain gold equal to half that card's gold cost, rounded down. |
 | Condottieri | III | 9 gold OR 1 iron + 1 paper | — | Once per turn, you may spend 1 market action as an attack action. |
+| Frontier Monuments | III | 8 gold OR 1 iron + 1 paper | — | At end of game: gain +1 VP for each Wonder region you control that borders at least one region controlled by another player. |
 
 ### Action Cards (execute on purchase, then trash)
 
