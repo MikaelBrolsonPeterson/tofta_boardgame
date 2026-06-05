@@ -320,9 +320,9 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
-| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
-| Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +5 VP |
+| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
+| Market | +1 market action/round | +3 gold/round | +1 market action/round | +2 VP |
+| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
 | Wonders | +1 VP | +2 VP | +3 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
@@ -557,7 +557,7 @@ Its composition is designed to raise your average attack strength over the start
 
 ### VP Purchase
 
-VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per commodity type: Iron, Paper, Cloth, Glass) allows the holder to spend a market action and 3 of the matching commodity to gain VP. Wild counts as any commodity. Without the relevant card, commodities cannot be converted to VP.
+VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per commodity type: Iron, Paper, Cloth, Glass) allows the holder to spend a market action and 2 of the matching commodity to gain 1 VP, once per turn per card. Wild counts as any commodity. Without the relevant card, commodities cannot be converted to VP.
 
 ### Victory Points
 
@@ -609,7 +609,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Adjacency requirements on cards (todo for card design):** Some markers should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards. Note: adjacency-based defense bonuses (e.g. Mountain Fort affecting adjacent regions) should be reserved for later-era cards — Era I markers should have simpler, self-contained effects.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
 - **Physical player pieces:** Inventory available physical pieces (meeples, tokens, dice, etc.) and determine how each maps to game components — region control markers, military/production marker tokens, VP trackers, resource storage, etc.
-- **VP purchase cards (Era III):** Settled. One card per commodity type (Iron, Paper, Cloth, Glass). Holding the card gates the commodity → VP conversion. Exact conversion rate (3 commodities → X VP) TBD during card design.
+- **VP purchase cards (Era III):** Settled. One card per commodity type (Iron, Paper, Cloth, Glass). Holding the card gates the commodity → VP conversion. Rate: 2 commodities → 1 VP per activation (1 market action), once per turn per card.
 - **Card table audit:** All existing cards are remnants of the old placement system. Each card needs review against the new action-cost-explicit format and the card-gated economy. Many will need revision or retirement.
 - **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
 - **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
@@ -676,10 +676,10 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Iron Exchange | III | 9 gold OR 2 iron | — | Spend 1 market action + 3 Iron → gain 4 VP. |
-| Paper Exchange | III | 9 gold OR 2 paper | — | Spend 1 market action + 3 Paper → gain 4 VP. |
-| Cloth Exchange | III | 9 gold OR 2 cloth | — | Spend 1 market action + 3 Cloth → gain 4 VP. |
-| Glass Exchange | III | 9 gold OR 2 glass | — | Spend 1 market action + 3 Glass → gain 4 VP. |
+| Iron Exchange | III | 6 gold OR 1 iron | — | Once per turn: spend 1 market action + 2 Iron → gain 1 VP. |
+| Paper Exchange | III | 6 gold OR 1 paper | — | Once per turn: spend 1 market action + 2 Paper → gain 1 VP. |
+| Cloth Exchange | III | 6 gold OR 1 cloth | — | Once per turn: spend 1 market action + 2 Cloth → gain 1 VP. |
+| Glass Exchange | III | 6 gold OR 1 glass | — | Once per turn: spend 1 market action + 2 Glass → gain 1 VP. |
 
 *(Exact VP values subject to playtesting.)*
 
