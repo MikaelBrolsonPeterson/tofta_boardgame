@@ -16,7 +16,7 @@ You are two competing beehives in a park called Bulltofta. You race for claiming
 
 ### General
 
-The game consists of 15 rounds where each player has one turn each. Each player's base actions scale with the current era — in Era 1 players have 1 attack and 1 market action, in Era 2 they have 2 of each, and in Era 3 they have 3 of each. Additional actions of both types can be acquired by purchasing and assigning Empire cards to your Empire.
+The game is played across 3 Eras. Each era ends when the first player reaches a VP threshold — the era advances at the close of the round in which the threshold is crossed. Each player's base actions scale with the current era — in Era I players have 1 attack and 1 market action, in Era II they have 2 of each, and in Era III they have 3 of each. Additional actions of both types can be acquired by purchasing and assigning Empire cards to your Empire.
 
 ### Starting State
 
@@ -38,10 +38,10 @@ Each player has their own empire mat with two independent tracking systems:
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
-| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
-| Market | +1 market action/round | +3 gold/round | +1 market action/round | +5 VP |
-| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +5 VP |
-| Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +5 VP |
+| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
+| Market | +1 market action/round | +3 gold/round | +1 market action/round | +2 VP |
+| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
+| Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
 | Wonders | +1 VP | +2 VP | +3 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
@@ -56,7 +56,7 @@ When purchased, Empire cards are placed on the player's Empire mat. Action cards
 
 ### Eras
 
-The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, and certain Empire cards give different bonuses depending on the current era.
+The game is divided into 3 Eras. Each era has its own Empire card pool, and certain cards give different bonuses depending on the current era. Eras advance when the first player crosses a VP threshold (see Change of Era).
 
 | Era | Active card slots (base) | Cards in market |
 |-----|--------------------------|-----------------|
@@ -66,7 +66,7 @@ The 15 rounds are divided into 3 Eras. Different eras have unique Empire cards, 
 
 The base is always 3 slots. Slots 4 and 5 are unlocked **only** through the Science building track — tier 1 unlocks slot 4, tier 3 unlocks slot 5.
 
-**Era transition:** At the end of rounds 5 and 10, the era advances. During era transition:
+**Era transition:** When the first player reaches the VP threshold for the current era, the era advances at the close of that round. During era transition:
 - Flip all rotated Empire cards back upright — era effects are replenished.
 - Any Empire card marked with the **era expiry icon** is immediately discarded from the player's mat. Its ongoing effects end; any VP printed on it still counts (it moves to the discard pile). A freed slot does not need to be filled immediately.
 
@@ -125,17 +125,19 @@ When the round ends each player:
 
 ### Change of Era
 
-| Era | Ends at round | What happens |
-|-----|---------------|--------------|
-| 1   | 5             | Remove unpurchased Era cards; populate market with next era cards; recalculate income; players select Initiative Track positions |
-| 2   | 10            | Same as above |
-| 3   | 15            | Full scoring |
+| Era | Ends when | What happens |
+|-----|-----------|--------------|
+| I   | First player reaches 4 VP | Remove unpurchased Era I cards; populate market with Era II cards; recalculate income; players select Initiative Track positions |
+| II  | First player reaches 8 VP | Remove unpurchased Era II cards; populate market with Era III cards; recalculate income; players select Initiative Track positions |
+| III | First player reaches 12 VP | Game ends; full scoring |
+
+*(VP thresholds subject to playtesting — range under consideration: Era I 4–5 VP, Era II 8–9 VP, win 12 VP.)*
 
 Resources and commodities accumulate on their producing regions and persist across era transitions.
 
 ### End Conditions
 
-The primary end condition is completing all 15 rounds. The game can also end early via Capitol capture.
+The primary end condition is a player reaching 12 VP — the game ends at the close of that round. The game can also end mid-era via Capitol capture.
 
 **Capitol Capture:** When a player captures an opponent's Capitol, the current round plays out to its end as normal — all remaining players still take their turns. Any player whose turn comes after the capture may attempt to recapture the Capitol. If the Capitol is still captured when the round ends, the game ends immediately and full scoring begins. The player who captured the Capitol gains **+3 VP**.
 
@@ -172,7 +174,7 @@ Ties: the current holder retains the token on a tie — the challenger must stri
 
 #### Final Scoring
 
-At the end of Era 3, full scoring takes place:
+When the game ends (12 VP threshold or Capitol capture), full scoring takes place:
 - VP from Empire cards — count printed VP on all cards in your active mat and your discard pile combined
 - Frontier Monuments bonus VP (if held)
 - Milestone VP
@@ -593,9 +595,9 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 
 ## Mechanics Under Consideration
 
-- **Game length and era structure:** Currently 15 rounds across 3 eras of 5 rounds each (playtesting with 1v1). Questions to revisit after playtesting: Does 15 rounds feel right for 2 players vs 5 players — should game length scale with player count? Target play time (60 min? 90 min?) should drive this decision.
+- **Game length and era structure:** VP-driven eras (thresholds 4/8/12 VP, subject to playtesting). Game length is now dynamic — faster in aggressive games, slower in defensive ones. Questions to revisit after playtesting: Do the VP thresholds need to scale with player count? Target play time (60 min? 90 min?) should inform threshold tuning.
 
-- **Win and end conditions:** Settled. Game runs 15 rounds; highest VP wins. Capitol capture ends the game at close of that round (+3 VP for capturer); recapture before round end cancels the trigger. No player elimination.
+- **Win and end conditions:** Settled. First to 12 VP wins (game ends at close of that round). Capitol capture also ends the game at close of that round (+3 VP for capturer); recapture before round end cancels the trigger. No player elimination.
 
 - **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
