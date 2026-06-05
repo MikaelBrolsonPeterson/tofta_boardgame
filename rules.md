@@ -137,7 +137,7 @@ Resources and commodities accumulate on their producing regions and persist acro
 
 The primary end condition is completing all 15 rounds. The game can also end early via Capitol capture.
 
-**Capitol Capture:** When a player captures an opponent's Capitol, the current round plays out to its end as normal — all remaining players still take their turns. Any player whose turn comes after the capture may attempt to recapture the Capitol. If the Capitol is still captured when the round ends, the game ends immediately and full scoring begins. The player who captured the Capitol gains **+5 VP**.
+**Capitol Capture:** When a player captures an opponent's Capitol, the current round plays out to its end as normal — all remaining players still take their turns. Any player whose turn comes after the capture may attempt to recapture the Capitol. If the Capitol is still captured when the round ends, the game ends immediately and full scoring begins. The player who captured the Capitol gains **+3 VP**.
 
 If the Capitol is recaptured before the round ends, the game continues normally.
 
@@ -145,7 +145,7 @@ If the Capitol is recaptured before the round ends, the game continues normally.
 
 #### Milestones
 
-Milestones are claimed permanently by the first player to meet the condition. Each milestone awards **5 VP** to the claimer only. Once claimed, no other player can claim it.
+Milestones are claimed permanently by the first player to meet the condition. Each milestone awards **1 VP** to the claimer only. Once claimed, no other player can claim it.
 
 | Milestone | Condition |
 |-----------|-----------|
@@ -156,24 +156,29 @@ Milestones are claimed permanently by the first player to meet the condition. Ea
 
 #### Awards
 
-Awards are funded by any player during the game at a cost of 1 market action + 3 gold. At final scoring, the player leading each funded award category scores **5 VP**; the runner-up scores **2 VP**. Unfunded awards are not scored.
+Awards are funded by any player at a cost of 1 market action + 3 gold. Each funded Award has **1 VP token** attached to it. The player currently leading that Award's category holds the VP token — it counts toward their VP total immediately and moves to a new leader the moment another player surpasses them. The token is visible to all players on the Award track.
 
-| Award | Scored by |
-|-------|-----------|
+Unfunded Awards have no VP token and are ignored.
+
+Ties: the current holder retains the token on a tie — the challenger must strictly surpass to take it.
+
+| Award | Leads by |
+|-------|----------|
 | Treasure Hoard | Most gold in treasury |
 | Prosperous Realm | Highest income |
 | Renaissance Empire | Most total building track steps across all classes |
-| Grand Architect | Empire cards with highest combined cost |
+| Grand Architect | Empire cards with highest combined gold cost |
 | Industrial Power | Most commodities produced per round |
 
 #### Final Scoring
 
 At the end of Era 3, full scoring takes place:
-- Regions controlled (1 VP each)
 - VP from Empire cards — count printed VP on all cards in your active mat and your discard pile combined
-- Gold remaining in treasury (via The Hanging Gardens card)
+- Frontier Monuments bonus VP (if held)
 - Milestone VP
 - Award VP
+
+Regions do not score VP. Wonder VP is tracked live on the VP track as tokens are built and conquered.
 
 ---
 
@@ -590,7 +595,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 
 - **Game length and era structure:** Currently 15 rounds across 3 eras of 5 rounds each (playtesting with 1v1). Questions to revisit after playtesting: Does 15 rounds feel right for 2 players vs 5 players — should game length scale with player count? Target play time (60 min? 90 min?) should drive this decision.
 
-- **Win and end conditions:** Settled. Game runs 15 rounds; highest VP wins. Capitol capture ends the game at close of that round (+5 VP for capturer); recapture before round end cancels the trigger. No player elimination.
+- **Win and end conditions:** Settled. Game runs 15 rounds; highest VP wins. Capitol capture ends the game at close of that round (+3 VP for capturer); recapture before round end cancels the trigger. No player elimination.
 
 - **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
