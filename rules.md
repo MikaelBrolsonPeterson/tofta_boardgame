@@ -119,7 +119,7 @@ A player performs their actions in any order.
 ### End of Round
 
 When the round ends each player:
-- Collects gold from the bank equal to their current income (minimum 0).
+- Applies income: add your income to your gold (this can reduce gold if income is negative). If applying income would take your gold below 0, you must first abandon regions of your choice until the shortfall is covered. Gold cannot go below 0.
 - Performs any actions stated on Empire cards.
 
 ### Change of Era
@@ -224,7 +224,7 @@ Each region has a fixed gold production. Your income is the sum of all your regi
 
 *(Thresholds subject to playtesting.)*
 
-**Negative income:** If your income is negative at the start of your turn, you must abandon regions of your choice until it reaches 0 or higher. Forced abandonment can cascade — dropping a region may break connectivity, reducing other regions to 0 and making recovery harder.
+**Negative income:** Negative income drains your gold savings at end of round. You can sustain a deficit as long as your gold covers it. Forced abandonment only triggers when applying income would take your gold below 0 — at that point you must abandon regions until the shortfall is covered. Forced abandonment can cascade — dropping a region may break connectivity, reducing other regions to 0 and making recovery harder.
 
 ### Resources
 
