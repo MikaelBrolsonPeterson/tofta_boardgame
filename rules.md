@@ -391,7 +391,7 @@ Some Empire cards generate resources or commodities based on the position of reg
 | Grassland      | +2     | 0           | 0          | 1                  | Eligible for: Farm, Papyrus Workshop, Loom |
 | Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
 | Swamp          | −1     | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
-| Desert         | +1     | 0           | +1         | 1                  | Attacker suffers disadvantage. Eligible for: Glassworks, Salt Mine |
+| Desert         | +1     | 0           | 0          | 2                  | Eligible for: Glassworks, Salt Mine |
 | Forest         | −1     | +1          | 0          | 1                  | Eligible for: Lumber Mill |
 | Capitol        | +3     | +2          | +2         | 3                  | Attacker has disadvantage |
 | Ancient Ruins  | 0      | −1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
