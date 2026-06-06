@@ -358,6 +358,8 @@ Empire cards are **not** required to unlock placement rights; any player may bui
 
 A sea body touching a Canal's *inactive* side is not connected through it.
 
+**Canal connectivity is shared.** Once a Canal is built, it becomes part of the geographic sea network and any player may use that connectivity — for Naval Bastion attacks, Maritime Exchange bonuses, or sea-adjacent token bonuses. Controlling the land region with the Canal token is not required; only owning the relevant Naval Bastion or Market token matters.
+
 **Grand Bazaar (tier 3 border alternative):** Placed on a border region instead of the standard tier 3 transaction token. One-time activation: spend 1 market action, count the unique terrain types among adjacent regions controlled by other players, and gain 2 gold per unique type. Rotate the token 90° after activation to show it is exhausted — it remains on the region for building track purposes but cannot be activated again. If Privateers targets this region before activation, the raiding player activates it instead, gaining the gold.
 
 **Science class tokens** enhance market access through action bonuses and discounted or free card acquisitions. Tiers 1 and 3 provide permanent action bonuses while placed. Tiers 2 and 4 each offer two alternative tokens — choose one when building that tier. All tier 2 and tier 4 Science token effects are always-on passives.

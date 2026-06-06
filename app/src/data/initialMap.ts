@@ -152,7 +152,51 @@ const MAP_STRAITS: Entry[] = [
   [ 3,  2, 'forest',   null],
 ]
 
-export type MapId = 'two-kingdoms' | 'mountain-pass' | 'straits'
+// ── Map 4: The Fens ──────────────────────────────────────────────────────────
+// Four isolated 2-tile ocean pockets. Three land tiles act as natural canal
+// bridges: [0,0] is adjacent to both center pockets (Canal Cross → instant
+// 4-tile network), [2,-1] extends to the upper-right pocket, [-2,1] extends
+// to the lower-left pocket. A fully canalized Fens map yields an 8-tile sea
+// network — Maritime Exchange at the hub generates +16 gp/round.
+const MAP_FENS: Entry[] = [
+  // Capitols
+  [-3,  0, 'capitol', 'player1'],
+  [ 3,  0, 'capitol', 'player2'],
+  // Ocean body A (lower-center): [-1,1] adj [0,1]
+  [-1,  1, 'ocean',    null],
+  [ 0,  1, 'ocean',    null],
+  // Ocean body B (upper-center): [0,-1] adj [1,-1]
+  [ 0, -1, 'ocean',    null],
+  [ 1, -1, 'ocean',    null],
+  // Ocean body C (upper-right flank): [2,-2] adj [3,-2]
+  [ 2, -2, 'ocean',    null],
+  [ 3, -2, 'ocean',    null],
+  // Ocean body D (lower-left flank): [-3,2] adj [-2,2]
+  [-3,  2, 'ocean',    null],
+  [-2,  2, 'ocean',    null],
+  // ── Canal bridge tiles (neighbours to two separate bodies) ──
+  [ 0,  0, 'grassland',null],  // Canal Cross: adj to all 4 tiles of A+B → merges into 4-tile sea
+  [ 2, -1, 'desert',   null],  // Canal Bent:  adj to body B + body C → extends to 6 tiles
+  [-2,  1, 'forest',   null],  // Canal Bent:  adj to body A + body D → extends to 8 tiles
+  // ── Inner terrain ───────────────────────────────────────────
+  [-2,  0, 'grassland',null],
+  [-1, -1, 'ruins',    null],
+  [-1,  0, 'desert',   null],
+  [-1,  2, 'swamp',    null],
+  [ 0, -2, 'mountain', null],
+  [ 0,  2, 'forest',   null],
+  [ 1,  0, 'grassland',null],
+  [ 1,  1, 'swamp',    null],
+  [ 1, -2, 'mountain', null],
+  [ 2,  0, 'grassland',null],
+  // ── Outer terrain ────────────────────────────────────────────
+  [-3,  1, 'mountain', null],
+  [ 2,  1, 'forest',   null],
+  [ 3, -1, 'grassland',null],
+  [ 3,  1, 'mountain', null],
+]
+
+export type MapId = 'two-kingdoms' | 'mountain-pass' | 'straits' | 'fens'
 
 export const MAP_CONFIGS: Record<MapId, { name: string; description: string; entries: Entry[] }> = {
   'two-kingdoms': {
@@ -169,6 +213,11 @@ export const MAP_CONFIGS: Record<MapId, { name: string; description: string; ent
     name: 'The Straits',
     description: '6-tile ocean channel divides two landmasses. Naval Bastion required to project power.',
     entries: MAP_STRAITS,
+  },
+  'fens': {
+    name: 'The Fens',
+    description: 'Four isolated ocean pockets. Canal bridges unlock a massive 8-tile sea network.',
+    entries: MAP_FENS,
   },
 }
 
