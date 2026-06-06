@@ -16,7 +16,8 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a
 }
 
-const PLAYER_COLORS = ['#3b82f6', '#ef4444', '#22c55e', '#f97316', '#a855f7']
+// Colorblind-safe: avoids red+green pairing; distinct in hue and lightness
+const PLAYER_COLORS = ['#2563EB', '#EA580C', '#9333EA', '#0891B2', '#DB2777']
 
 function makePlayer(index: number): Player {
   return {
@@ -30,7 +31,7 @@ function makePlayer(index: number): Player {
     marketActionsPerTurn: 1,
     resources: { stone: 0, wood: 0, food: 0 },
     commodities: { iron: 0, paper: 0, cloth: 0, glass: 0, wild: 0 },
-    incomeRate: 0,
+    goldProduction: 0,
     modifierDeck: shuffle([...BASE_DECK]),
     modifierDiscard: [],
     activeCards: [],
@@ -39,20 +40,19 @@ function makePlayer(index: number): Player {
   }
 }
 
-function calcIncomeRate(regions: GameState['regions'], playerId: PlayerId): number {
-  let tax = 0, upkeep = 0
+function calcGoldProduction(regions: GameState['regions'], playerId: PlayerId): number {
+  let total = 0
   const mine = Object.values(regions).filter(r => r.owner === playerId)
   for (const region of mine) {
     const cfg = TERRAIN[region.terrain]
-    upkeep += cfg.upkeep
-    if (region.terrain === 'capitol') { tax += cfg.taxation; continue }
+    if (region.terrain === 'capitol') { total += cfg.goldProduction; continue }
     const connected = getNeighbors(region.q, region.r).some(n => {
       const nb = regions[hexKey(n.q, n.r)]
       return nb?.owner === playerId
     })
-    if (connected) tax += cfg.taxation
+    if (connected) total += cfg.goldProduction
   }
-  return tax - upkeep
+  return total
 }
 
 interface Actions {
@@ -284,7 +284,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       })
 
       const finalPlayers = newPlayers.map(p => ({
-        ...p, incomeRate: calcIncomeRate(newRegions, p.id),
+        ...p, goldProduction: calcGoldProduction(newRegions, p.id),
       }))
 
       return {
@@ -315,7 +315,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         [hexKey(selectedHex.q, selectedHex.r)]: { ...region, owner: null, militaryMarker: null, productionMarker: null },
       }
       const newPlayers = s.players.map(p => ({
-        ...p, incomeRate: calcIncomeRate(newRegions, p.id),
+        ...p, goldProduction: calcGoldProduction(newRegions, p.id),
       }))
       return {
         regions: newRegions,
@@ -434,7 +434,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       newMarketCards[cardIndex] = null
       const newPlayers = s.players.map((p, i) =>
         i === s.currentPlayerIndex
-          ? { ...updatedPlayer, incomeRate: calcIncomeRate(s.regions, p.id) }
+          ? { ...updatedPlayer, goldProduction: calcGoldProduction(s.regions, p.id) }
           : p
       )
       return {
@@ -516,7 +516,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       delete newProgress[key]
       delete newPendingClaims[key]
       const newPlayers = s.players.map(p => ({
-        ...p, incomeRate: calcIncomeRate(newRegions, p.id),
+        ...p, goldProduction: calcGoldProduction(newRegions, p.id),
       }))
       return {
         regions: newRegions,
@@ -536,7 +536,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
   endTurn: () => {
     set(s => {
       const player = s.players[s.currentPlayerIndex]
-      const income = Math.max(0, player.incomeRate)
+      const income = player.goldProduction
       const nextIndex = (s.currentPlayerIndex + 1) % s.players.length
       const isNewRound = nextIndex === 0
       const newRound = isNewRound ? s.round + 1 : s.round
@@ -551,12 +551,12 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
           // Clear commodities at the start of each new round
           ...(isNewRound ? { commodities: { iron: 0, paper: 0, cloth: 0, glass: 0, wild: 0 } } : {}),
         }
-        if (i === s.currentPlayerIndex) return { ...refreshed, gold: p.gold + income }
+        if (i === s.currentPlayerIndex) return { ...refreshed, gold: Math.max(0, p.gold + income) }
         return refreshed
       })
 
       const logs: string[] = [
-        `${player.name} ended turn. (+${income} gold)`,
+        `${player.name} ended turn. (${income >= 0 ? '+' : ''}${income} gold production)`,
         ...(isNewRound ? [`── Round ${newRound} ──`] : []),
         ...(eraChanged ? [`══ Era ${newEra} begins! ══`] : []),
       ]
@@ -607,7 +607,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
 
       // Recalculate income after any region changes
       const finalPlayers = newPlayers.map(p => ({
-        ...p, incomeRate: calcIncomeRate(newRegions, p.id),
+        ...p, goldProduction: calcGoldProduction(newRegions, p.id),
       }))
 
       return {

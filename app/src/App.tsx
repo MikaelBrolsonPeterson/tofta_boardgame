@@ -6,6 +6,7 @@ import MarketDrawer from './components/MarketDrawer'
 import PlayerCard from './components/PlayerCard'
 import IconLegend from './components/IconLegend'
 import LogBar from './components/LogBar'
+import VPTrack from './components/VPTrack'
 
 export default function App() {
   const { players, currentPlayerIndex, round, era, regions } = useGameStore()
@@ -43,6 +44,9 @@ export default function App() {
           </div>
         </div>
       </div>
+
+      {/* ── VP track ────────────────────────────────────────────── */}
+      <VPTrack />
 
       {/* ── Map zone (flex-1, relative — market drawer overlays this) ── */}
       <div className="flex-1 min-h-0 relative">

@@ -26,7 +26,7 @@ export default function PlayerPanel({ player, isActive, ownedRegions }: Props) {
 
       <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
         <Stat label="Gold" value={`${player.gold}g`} highlight />
-        <Stat label="Income" value={`${player.incomeRate >= 0 ? '+' : ''}${player.incomeRate}`} highlight={player.incomeRate >= 0} warn={player.incomeRate < 0} />
+        <Stat label="Gold prod" value={`${player.goldProduction >= 0 ? '+' : ''}${player.goldProduction}`} highlight={player.goldProduction >= 0} warn={player.goldProduction < 0} />
         <Stat label="Attacks" value={`${player.attackActionsRemaining}/${player.attackActionsPerTurn}`} />
         <Stat label="Market" value={`${player.marketActionsRemaining}/${player.marketActionsPerTurn}`} />
         <Stat label="VP" value={String(player.victoryPoints)} highlight />

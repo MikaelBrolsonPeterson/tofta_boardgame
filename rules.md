@@ -4,7 +4,7 @@
 
 ## Synopsis
 
-You are the Queen of a small, small empire. Your empire may lack in size but certainly not in hunger for more power! The object of the game is to expand your empire by conquest, develop an economy, and hinder your opponent. Points are scored by fulfilling objectives and expanding your empire.
+You are the Queen of a small, small empire. Your empire may lack in size but certainly not in hunger for more power! The object of the game is to expand your empire by conquest, develop an economy, and hinder your opponent. Points are scored through Wonders, Awards, Milestones, building track milestones, action cards, and capturing opponents' Capitols.
 
 ### Alternate Synopsis
 
@@ -16,7 +16,7 @@ You are two competing beehives in a park called Bulltofta. You race for claiming
 
 ### General
 
-The game is played across 3 Eras. Each era ends when the first player reaches a VP threshold — the era advances at the close of the round in which the threshold is crossed. Each player's base actions scale with the current era — in Era I players have 1 attack and 1 market action, in Era II they have 2 of each, and in Era III they have 3 of each. Additional actions of both types can be acquired by purchasing and assigning Empire cards to your Empire.
+The game is played across 3 Eras. Each era ends when the first player reaches a VP threshold — the era advances at the close of the round in which the threshold is crossed. Each player's base actions scale with the current era — in Era I players have 1 attack and 1 market action, in Era II they have 2 of each, and in Era III they have 3 of each. Additional actions of both types can be acquired through the Military and Market building tracks (tier 1 and tier 3 each grant +1 action/round) or by purchasing and assigning Empire cards to your Empire.
 
 ### Starting State
 
@@ -99,7 +99,7 @@ Lower spots (later in turn order) grant increasingly valuable rewards. Only posi
 
 **Incentives for going last:** full information, and the ability to attack a high-value region right before the round resets — leaving an opponent to start their next turn with crippled gold production and no immediate recourse (the "king hit").
 
-**Income** is displayed on the player mat as a single running total. It updates immediately whenever a region changes ownership.
+**Gold production** is displayed on the player mat as a single running total. It updates immediately whenever a region changes ownership.
 
 ---
 
@@ -280,13 +280,26 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 
 | Token / Marker | Shape | Placed by | Effect | Removed when |
 |----------------|-------|-----------|--------|--------------|
-| Military infrastructure (standard) | Hexagonal (region-sized) | Build action | Varies by token tier | Region is conquered |
-| Military infrastructure (permanent) | Hexagonal (region-sized, marked symbol) | Build action | Varies; survives conquest | Never (permanent) |
-| Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action); sea-adjacent tier 1–2 grant gold production bonus; sea-adjacent tier 4 grants gold per sea network | Region is conquered |
-| Canal (Bent) — tier 2 Market | Hexagonal (region-sized), 2 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
-| Canal (Cross) — tier 3 Market | Hexagonal (region-sized), 4 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
-| Science infrastructure | Hexagonal (region-sized) | Build action | Tier 1 and 3: +1 market action/turn. Tier 2 and 4: choice of free/discounted card acquisition or other market bonus (see Science token table) | Region is conquered |
-| Wonders infrastructure | Hexagonal (region-sized) | 1 market action + gold cost (see Wonder Construction) | Immediately grants tier VP; permanently lost if region is conquered | Region is conquered |
+| Watchtower (Military tier 1) | Hexagonal (region-sized), red | Build action | Advances Military building track | Region is conquered |
+| Rampart (Military tier 2) | Hexagonal (region-sized), red | Build action | Advances Military building track | Region is conquered |
+| Naval Bastion (Military tier 3) ♾ | Hexagonal (region-sized), red + permanent symbol | Build action | Owner may attack across one chosen sea tile as if adjacent; conqueror inherits and may rotate 60° | Never (permanent) |
+| Fortress (Military tier 4) ♾ | Hexagonal (region-sized), red + permanent symbol | Build action | All adjacent regions cost +1 attack action to attack; attackers draw with disadvantage; conqueror inherits and may rotate 60° | Never (permanent) |
+| Trading Post (Market tier 1) | Hexagonal (region-sized), green | Build action | Transaction: 3 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +2 gold production | Region is conquered |
+| Trading House (Market tier 2) | Hexagonal (region-sized), green | Build action | Transaction: 2 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +3 gold production | Region is conquered |
+| Canal — Bent (Market tier 2 alt) | Hexagonal (region-sized), green, 2 active sides | Build action | Region gains sea status; joins sea bodies touching the two active sides | Region is conquered |
+| Merchant Exchange (Market tier 3) | Hexagonal (region-sized), green | Build action | Transaction: 2 resources of any type → 1 commodity of any type (1 MA, once/round). Border region only. | Region is conquered |
+| Grand Bazaar (Market tier 3 alt) | Hexagonal (region-sized), green | Build action | One-time: 2 gold per unique adjacent enemy terrain type (1 MA); rotate to exhaust. Border region only. | Region is conquered |
+| Canal — Cross (Market tier 3 alt) | Hexagonal (region-sized), green, 4 active sides | Build action | Region gains sea status; joins sea bodies touching the four active sides | Region is conquered |
+| Trade Emporium (Market tier 4) | Hexagonal (region-sized), green | Build action | Transaction: 2 resources → 1 commodity, or 2 commodities → 1 commodity (1 MA, once/round). Sea-adjacent: +2 gold production per connected sea tile | Region is conquered |
+| Counting House (Science tier 1) | Hexagonal (region-sized), lilac | Build action | +1 market action per turn while placed | Region is conquered |
+| Library (Science tier 2A) | Hexagonal (region-sized), lilac | Build action | Once per round: spend 1 MA to take a market card costing ≤4g for free (pay only the excess above 4g) | Region is conquered |
+| Guild Hall (Science tier 2B) | Hexagonal (region-sized), lilac | Build action | All your card purchases cost 2g less (minimum 0g) | Region is conquered |
+| Academy (Science tier 3) | Hexagonal (region-sized), lilac | Build action | +1 market action per turn while placed | Region is conquered |
+| University (Science tier 4A) | Hexagonal (region-sized), lilac | Build action | Once per round: spend 1 MA to take any market card for free | Region is conquered |
+| Imperial Archive (Science tier 4B) | Hexagonal (region-sized), lilac | Build action | Once in the game: spend 1 MA to draw 4 empire cards; replace up to 3 cards on your mat | Region is conquered |
+| Shrine (Wonders tier 1) | Hexagonal (region-sized), brown | 1 MA + 4g | +1 VP immediately; conqueror takes VP and closes your tier 1 slot permanently | Region is conquered |
+| Temple (Wonders tier 2) | Hexagonal (region-sized), brown | 1 MA + 8g | +2 VP immediately; conqueror takes VP and closes your tier 2 slot permanently | Region is conquered |
+| Palace (Wonders tier 3) | Hexagonal (region-sized), brown | 1 MA + 14g | +3 VP immediately; conqueror takes VP and closes your tier 3 slot permanently | Region is conquered |
 | Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
@@ -550,6 +563,192 @@ VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per c
 
 ---
 
+## Physical Components
+
+### Iconography
+
+All game components use a consistent icon set. Icons appear on cards, tokens, and player mats. The same icons are used in digital implementations.
+
+| Icon | Symbol | Used for |
+|------|--------|----------|
+| Gold | Amber coin with "g" | Gold cost, gold held, gold production values |
+| Gold production | Amber coin with ↑↓ arrow | Gold production rate on player mat |
+| VP | Purple 5-pointed star | Victory points |
+| Attack action | Red hexagon with sword | Attack action cost/count |
+| Market action | Green hexagon with coin ring | Market action cost/count |
+| Either action | Split red/green hexagon | Action that can be paid with either type |
+| Attack strength | Red upward sword | Offensive combat value |
+| Defense strength | Blue shield | Defensive combat value |
+| Stone | Layered grey hexagon | Resource: Stone |
+| Wood | Brown log cross-section | Resource: Wood |
+| Food | Golden grain heads | Resource: Food |
+| Iron | Dark steel ingot | Commodity: Iron |
+| Paper | Cream scroll | Commodity: Paper |
+| Cloth | Purple thread spool | Commodity: Cloth |
+| Glass | Teal prism with refraction | Commodity: Glass |
+| Wild | Gold radiant star | Commodity: Wild (any commodity) |
+| Permanent | Hex with ring + dot | Token survives conquest |
+| Era expiry ⌛ | Hourglass | Card is discarded at era transition |
+| Revolt | Flat meeple outline | Region in revolt |
+
+**Player colors (colorblind-safe):**
+
+The five player colors avoid red/green pairing (the most common colorblind confusion) and vary in both hue and lightness so they remain distinct under deuteranopia, protanopia, and tritanopia.
+
+| Player | Color | Hex | Meeple |
+|--------|-------|-----|--------|
+| 1 | Blue | #2563EB | Blue |
+| 2 | Orange | #EA580C | Orange |
+| 3 | Purple | #9333EA | Purple |
+| 4 | Teal | #0891B2 | Teal |
+| 5 | Pink | #DB2777 | Pink/Magenta |
+
+**Color coding by class:**
+
+| Class | Color | Hex code |
+|-------|-------|----------|
+| Military | Red | #b91c1c |
+| Market | Green | #15803d |
+| Science | Lilac | #7c3aed |
+| Wonders | Brown/amber | #92400e |
+| Misc | Dark grey | #374151 |
+
+*(Class colors are used on tokens and card borders — not on player pieces — so the red/green class pair does not conflict with player identification.)*
+
+---
+
+### Component List
+
+#### Boards and Mats
+
+| Component | Qty | Notes |
+|-----------|-----|-------|
+| Game board | 1 | Hex tile map; terrain printed or assembled from tiles |
+| Player mat | 5 | Tracks: gold production dial, building tracks (5 classes), empire card slots (3 base + 2 unlockable), resources/commodities |
+| Market mat | 1 | Shared; 5 card slots, Award track (5 funded/unfunded), Milestone track (4) |
+| VP track | 1 | Linear 0–12; era markers at 5 and 9; shared by all players |
+
+#### Cards
+
+| Component | Qty | Notes |
+|-----------|-----|-------|
+| Empire cards (Era I) | ~20 | Shuffled separately; populate market at game start |
+| Empire cards (Era II) | ~25 | Shuffled separately; replaces Era I deck at era transition |
+| Empire cards (Era III) | ~25 | Shuffled separately; replaces Era II deck at era transition |
+| Action cards (all eras) | ~15 | Mixed into era decks (Era I: Locust Swarm, Harsh Winter, Scout, Purge, Proclamation, Rally, Charter; Era II: Uprising, Plague, Royal Decree, Edict, Commission, Mandate, Forced Conscription, Reformation, Battle Hymn; Era III: Divine Judgment, Deluge, Grand Purge, Propaganda, Overhaul) |
+| Personal modifier deck | 12 per player | Fail, −2, −1×2, 0×4, +1×2, +2, Success. One deck per player, kept separate. |
+| Independent modifier deck | 1 shared | Fail, −2, −1×2, 0×4, +1×2, +2. No Success card. Reshuffled fresh for every attack. |
+| Shared modifier draw pile | ~15 | Fail×2, −1, 0×2, +1×3, +2×4, Success×3. Set up once at game start. |
+
+#### Meeples (Region Control)
+
+| Component | Qty | Notes |
+|-----------|-----|-------|
+| Player meeples | 20 per player (5 colors) | Standing upright = region controlled normally. Lying flat (on its back) = region in revolt. One meeple per owned region. |
+
+#### Infrastructure Tokens (Hexagonal, Region-Sized)
+
+All infrastructure tokens are hex-shaped and cover a region tile when placed. Each token shows its class color, tier number, name, and any terrain requirements. Permanent tokens additionally show the permanent icon (ring + dot).
+
+**Military** — controls territory, disrupts attackers, enables coastal warfare.
+
+| Token | Name rationale | Tier | Qty | Permanent? |
+|-------|---------------|------|-----|------------|
+| Watchtower | Observation post — light presence, marks control | 1 | 10 | No |
+| Rampart | Earthwork wall — strengthens the region against assault | 2 | 8 | No |
+| Naval Bastion | Coastal artillery — projects force across a sea tile | 3 | 6 | Yes |
+| Fortress | Major fortification — slows all enemy movement nearby | 4 | 4 | Yes |
+
+**Market** — resources, commodities, trade routes, sea networks.
+
+| Token | Name rationale | Tier | Qty | Permanent? |
+|-------|---------------|------|-----|------------|
+| Trading Post | Entry-level exchange — basic resource conversion | 1 | 10 | No |
+| Trading House | Improved exchange — better rates, sea income bonus | 2 | 8 | No |
+| Canal (Bent) | Curved waterway — connects two sea bodies at an angle | 2 alt | 4 | No |
+| Merchant Exchange | Commodity hub — converts resources into commodities | 3 | 6 | No |
+| Grand Bazaar | Border market — one-time gold windfall from adjacent enemy terrain variety | 3 alt | 4 | No |
+| Canal (Cross) | Four-way waterway — joins sea bodies on four sides | 3 alt | 4 | No |
+| Trade Emporium | Premier trade center — full commodity conversion, sea network gold | 4 | 4 | No |
+
+**Science** — market efficiency, card access, empire card slots.
+
+| Token | Name rationale | Tier | Qty | Permanent? |
+|-------|---------------|------|-----|------------|
+| Counting House | Bureaucratic base — generates one extra market action each turn | 1 | 8 | No |
+| Library | Curated access — lets you cherry-pick cheap cards for free once per round | 2A | 4 | No |
+| Guild Hall | Bulk discount — cuts the gold cost of every card you buy | 2B | 4 | No |
+| Academy | Higher learning — generates one extra market action each turn | 3 | 6 | No |
+| University | Open catalogue — take any market card for free once per round | 4A | 3 | No |
+| Imperial Archive | Institutional memory — one-time full mat overhaul | 4B | 3 | No |
+
+**Wonders** — prestige monuments that score VP and can be looted by conquerors.
+
+| Token | Name rationale | Tier | VP | Qty | Permanent? |
+|-------|---------------|------|-----|-----|------------|
+| Shrine | Modest monument — earliest Wonder, modest VP | 1 | +1 | 5 | No |
+| Temple | Major religious edifice — significant investment, significant VP | 2 | +2 | 5 | No |
+| Palace | Grand seat of power — pinnacle Wonder, highest VP | 3 | +3 | 5 | No |
+
+#### Production Markers (Square, Smaller)
+
+One marker per building card in play. Each marker shows the resource or commodity icon it produces and the production rate.
+
+| Marker | Produces | Qty |
+|--------|----------|-----|
+| Quarry | Stone (1/round) | 8 |
+| Lumber Mill | Wood (1/round) | 8 |
+| Farm | Food (1/round) | 8 |
+| Salt Mine | Food (1/round) | 6 |
+| Mine | Iron (1/round) | 8 |
+| Iron Forge | Iron (2/round) | 4 |
+| Papyrus Workshop | Paper (1/round) | 8 |
+| Scriptorium | Paper (2/round) | 4 |
+| Loom | Cloth (1/round) | 6 |
+| Glassworks | Glass (1/round) | 6 |
+
+#### Round Tokens (Circular, Small)
+
+Placed on regions by Empire cards. Each shows its icon and effect summary.
+
+| Token | Icon | Color | Effect summary |
+|-------|------|-------|----------------|
+| Advantage | Double arrow up | Green | Draw 2, pick best when attacking from/into this region |
+| Disadvantage | Double arrow down | Red | Attackers draw 2, pick worst |
+| Siege | Broken wall | Orange | Region loses terrain defense bonus |
+| Discipline | Shield + value | Blue | Region (and adjacents) gain +1 or +2 defense |
+
+#### Tracking Tokens
+
+| Component | Qty | Notes |
+|-----------|-----|-------|
+| VP marker | 1 per player (5 colors) | Placed on shared VP track 0–12 |
+| Gold production dial/slider | 1 per player | On player mat; tracks running total including card modifiers |
+| Award VP token (2 VP) | 5 | One per Award; held by current category leader |
+| Milestone tile | 4 | Claimed permanently by first qualifier; flip to show claimed |
+| First player marker | 1 | Passes clockwise each round |
+| Conquest progress cube | 10 | Neutral color; placed on partially-conquered regions (Desert, Swamp, Capitol) |
+
+#### Resource and Commodity Tokens
+
+Kept in a shared bank. Players draw from and return to the bank.
+
+| Token | Icon | Color | Qty |
+|-------|------|-------|-----|
+| Gold (1g) | Small amber coin | Amber | 40 |
+| Gold (3g) | Medium amber coin | Amber | 25 |
+| Gold (5g) | Large amber coin | Amber | 20 |
+| Stone | Layered grey hex | Grey | 20 |
+| Wood | Brown log | Brown | 20 |
+| Food | Gold grain | Yellow | 20 |
+| Iron | Dark ingot | Dark grey | 15 |
+| Paper | Cream scroll | Cream | 15 |
+| Cloth | Purple spool | Purple | 15 |
+| Glass | Teal prism | Teal | 15 |
+| Wild | Gold star | Gold | 10 |
+
+---
+
 ## Mechanics Under Consideration
 
 - **Game length and era structure:** VP-driven eras (thresholds 5/9/12 VP, subject to playtesting). Game length is now dynamic — faster in aggressive games, slower in defensive ones. Era III is expected to be short and tense by design. Questions to revisit after playtesting: Do the VP thresholds need to scale with player count? Target play time (60 min? 90 min?) should inform threshold tuning.
@@ -565,12 +764,12 @@ VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per c
 - **Sell Empire card for gold:** A future Empire card ability that lets players recoup gold when discarding cards, rather than just freeing a slot.
 - **Adjacency requirements on cards (todo for card design):** Some markers should require placement on tiles adjacent to specific terrain or borders (e.g. Harbor adjacent to ocean, Watchtower adjacent to another player's border). Extend existing terrain eligibility rules when designing new cards. Note: adjacency-based defense bonuses (e.g. Mountain Fort affecting adjacent regions) should be reserved for later-era cards — Era I markers should have simpler, self-contained effects.
 - **Printable boards and mats:** Design printable versions of the main board, market mat, and player mat for physical playtesting.
-- **Physical player pieces:** Inventory available physical pieces (meeples, tokens, dice, etc.) and determine how each maps to game components — region control markers, military/production marker tokens, VP trackers, resource storage, etc.
+- **Physical player pieces:** Settled — see Physical Components section.
 - **VP purchase cards (Era III):** Settled. One card per commodity type (Iron, Paper, Cloth, Glass). Holding the card gates the commodity → VP conversion. Rate: 2 commodities → 1 VP per activation (1 market action), once per turn per card.
 - **Card table audit:** All existing cards are remnants of the old placement system. Each card needs review against the new action-cost-explicit format and the card-gated economy. Many will need revision or retirement.
 - **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
 - **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
-- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); forced abandonment when gold production goes negative and gold hits 0; equalizer action cards (Locust Swarm, Harsh Winter, Uprising, Plague, Divine Judgment, Deluge) replace explicit catch-up deck.
+- **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); forced abandonment when applying gold production at round end would take gold below 0; equalizer action cards (Locust Swarm, Harsh Winter, Uprising, Plague, Divine Judgment, Deluge) replace explicit catch-up deck.
 
 ---
 
@@ -599,7 +798,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Bulwark | III | 9 gold OR 3 stone | — | When played, choose a region you control. Place a discipline marker on it — that region gains +2 defense while this card is on your mat. Remove the marker if you discard this card. |
 | Iron Legion | III | 8 gold OR 2 iron | — | +2 base attack strength while on your mat. Requires 2 or more Military Empire cards on your mat when purchasing. |
 | Raid | II | 5 gold OR 1 iron | — | Spend 1 market action: take 1 resource from any region adjacent to a region you control. OR spend 1 attack action instead: take 2 resources from any region adjacent to a region you control. Each use requires its own action. |
-| Field Engineer | I–II | 4 gold OR 1 food | — | **Dual-action.** Market action: place a Military infrastructure token as normal. Attack action: place a Military infrastructure token (uses your attack action instead of a market action). |
+| Field Engineer | II | 4 gold OR 1 food | — | **Dual-action.** Market action: place a Military infrastructure token as normal. Attack action: place a Military infrastructure token (uses your attack action instead of a market action). |
 | Scorched Earth | III | 8 gold OR 1 iron + 1 cloth | — | Whenever any Fail card is drawn from any modifier deck while this card is on your mat, gain 4 gold. |
 | War Banner | III | 9 gold OR 2 iron | — | When an opponent draws Fail from their modifier deck during combat against any player this era, gain +1 attack strength on your next attack. |
 | Supreme Vanguard | III | 10 gold OR 2 iron + 1 cloth | — | When played, choose up to two regions you control. Place an advantage marker on each — when attacking from these regions, draw with advantage. Remove markers if regions are conquered or this card is discarded. |

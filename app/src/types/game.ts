@@ -53,7 +53,7 @@ export interface Player {
   marketActionsPerTurn: number
   resources: { stone: number; wood: number; food: number }
   commodities: { iron: number; paper: number; cloth: number; glass: number; wild: number }
-  incomeRate: number
+  goldProduction: number
   modifierDeck: ModifierValue[]
   modifierDiscard: ModifierValue[]
   activeCards: EmpireCard[]

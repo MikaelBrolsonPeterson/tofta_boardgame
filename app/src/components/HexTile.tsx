@@ -3,11 +3,11 @@ import { TERRAIN } from '../data/terrainConfig'
 import type { HexRegion, PlayerId } from '../types/game'
 
 const PLAYER_COLORS: Record<PlayerId, string> = {
-  player1: '#3b82f6',
-  player2: '#ef4444',
-  player3: '#22c55e',
-  player4: '#f97316',
-  player5: '#a855f7',
+  player1: '#2563EB', // blue
+  player2: '#EA580C', // orange
+  player3: '#9333EA', // purple
+  player4: '#0891B2', // teal
+  player5: '#DB2777', // pink
 }
 
 // Short terrain labels that fit inside a hex

@@ -30,8 +30,7 @@ export default function InfoPanel() {
 
       <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
         <Row label="Owner" value={owner ? <span style={{ color: owner.color }}>{owner.name}</span> : <span className="text-slate-400">Independent</span>} />
-        <Row label="Upkeep" value={`${cfg.upkeep}g`} />
-        <Row label="Taxation" value={`${cfg.taxation}g`} />
+        <Row label="Gold prod" value={cfg.goldProduction >= 0 ? `+${cfg.goldProduction}` : `${cfg.goldProduction}`} />
         <Row label="Defense" value={cfg.defenseBonus >= 0 ? `+${cfg.defenseBonus}` : `${cfg.defenseBonus}`} />
         <Row label="To conquer" value={cfg.conquerable ? `${cfg.attacksToConquer} attack${cfg.attacksToConquer > 1 ? 's' : ''}` : 'N/A'} />
         {progress !== undefined && (

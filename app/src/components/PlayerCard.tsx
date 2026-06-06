@@ -137,8 +137,8 @@ function ActivePlayerCard({ player, ownedRegions }: { player: Player; ownedRegio
           <IconVP size={14} />
           <span className="text-xs font-bold text-violet-300">{player.victoryPoints}</span>
         </div>
-        <span className={`text-xs font-semibold ml-auto ${player.incomeRate >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-          {player.incomeRate >= 0 ? '+' : ''}{player.incomeRate}<span className="text-slate-600 font-normal">/rd</span>
+        <span className={`text-xs font-semibold ml-auto ${player.goldProduction >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+          {player.goldProduction >= 0 ? '+' : ''}{player.goldProduction}<span className="text-slate-600 font-normal">/rd</span>
         </span>
       </div>
 
