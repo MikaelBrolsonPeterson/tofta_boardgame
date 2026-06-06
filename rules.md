@@ -424,7 +424,7 @@ Conquering a region costs one Attack action. Both the attacker and the defender 
 
 **Clean conquest:** Place your meeple upright on the region. Income updates immediately.
 
-**Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its gold production does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region draws with advantage. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's gold production from that point. If the modifier is negative and pushes your income negative, forced abandonment is evaluated at that moment.
+**Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its gold production does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region draws with advantage. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's gold production from that point.
 
 #### Conquest vs Player Region
 
@@ -432,7 +432,7 @@ Before the conquest resolves, the defender may move one production marker from a
 
 ### Multiple Attacks to Conquer
 
-Some regions (Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. Against an independent, if the result would be revolt, the revolt rule applies. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
+Some regions (Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
 
 ### Strength
 
@@ -556,10 +556,6 @@ Its composition is designed to raise your average attack strength over the start
 ### VP Purchase
 
 VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per commodity type: Iron, Paper, Cloth, Glass) allows the holder to spend a market action and 2 of the matching commodity to gain 1 VP, once per turn per card. Wild counts as any commodity. Without the relevant card, commodities cannot be converted to VP.
-
-### Victory Points
-
-Some cards have victory points marked on them. VP printed on Empire cards is scored at end game regardless of whether the card is currently active on your mat or has been discarded — once purchased, the VP is permanently banked. Count VP from both your active mat and your full discard pile.
 
 ---
 
