@@ -284,10 +284,10 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 | Fortress (Military tier 4) ♾ | Hexagonal (region-sized), red + permanent symbol | Build action | All adjacent regions cost +1 attack action to attack; attackers draw with disadvantage; conqueror inherits and may rotate 60° | Never (permanent) |
 | Trading Post (Market tier 1) | Hexagonal (region-sized), green | Build action | Transaction: 3 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +2 gold production | Region is conquered |
 | Trading House (Market tier 2) | Hexagonal (region-sized), green | Build action | Transaction: 2 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +3 gold production | Region is conquered |
-| Canal — Bent (Market tier 2 alt) | Hexagonal (region-sized), green, 2 active sides | Build action | Region gains sea status; joins sea bodies touching the two active sides | Region is conquered |
+| Canal — Bent (Market tier 2 alt) | Hexagonal (region-sized), green, 2 active sides | Build action | Region gains sea status; joins sea bodies touching the two active sides; earns +1 gp per connected sea tile | Region is conquered |
 | Merchant Exchange (Market tier 3) | Hexagonal (region-sized), green | Build action | Transaction: 2 resources of any type → 1 commodity of any type (1 MA, once/round). Border region only. | Region is conquered |
 | Grand Bazaar (Market tier 3 alt) | Hexagonal (region-sized), green | Build action | One-time: 2 gold per unique adjacent enemy terrain type (1 MA); rotate to exhaust. Border region only. | Region is conquered |
-| Canal — Cross (Market tier 3 alt) | Hexagonal (region-sized), green, 4 active sides | Build action | Region gains sea status; joins sea bodies touching the four active sides | Region is conquered |
+| Canal — Cross (Market tier 3 alt) | Hexagonal (region-sized), green, 4 active sides | Build action | Region gains sea status; joins sea bodies touching the four active sides; earns +1 gp per connected sea tile | Region is conquered |
 | Trade Emporium (Market tier 4) | Hexagonal (region-sized), green | Build action | Transaction: 2 resources → 1 commodity, or 2 commodities → 1 commodity (1 MA, once/round). Sea-adjacent: +2 gold production per connected sea tile | Region is conquered |
 | Counting House (Science tier 1) | Hexagonal (region-sized), lilac | Build action | +1 market action per turn while placed | Region is conquered |
 | Library (Science tier 2A) | Hexagonal (region-sized), lilac | Build action | Once per round: spend 1 MA to take a market card costing ≤4g for free (pay only the excess above 4g) | Region is conquered |
@@ -309,6 +309,8 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 Each player's mat has a **building track** for each class (Military, Market, Science, Wonders). Each tier slot on the track comes pre-loaded with the physical infrastructure token for that tier. Tokens sit in their slots at the start of the game; the class bonus for each tier is printed on the mat below the slot.
 
 **To build:** Spend 1 market action and the listed gold cost, then physically remove the token from its slot on your mat and place it on any region you control that meets the token's terrain requirement. The slot on your mat now sits empty, and the tier bonus beneath it is permanently unlocked for you — even if the token is later destroyed. You cannot build the same tier of a class twice, because each tier slot contains exactly one physical token. **You must build tiers in order** — a tier 2 slot is locked until the tier 1 slot has been vacated.
+
+All tokens already on the board remain active simultaneously. Building tier 2 does not remove or deactivate tier 1 — each tier goes on a separate region and both function independently from that point on.
 
 Empire cards are **not** required to unlock placement rights; any player may build any class of token. Only one infrastructure token may occupy a region at a time. If a production marker is already on the region, leave it on top of the newly placed token — it continues functioning normally.
 
@@ -343,8 +345,8 @@ Empire cards are **not** required to unlock placement rights; any player may bui
 | Tier | Placement | Transaction | Sea-adjacent bonus | Canal alternative | Border alternative |
 |------|-----------|-------------|-------------------|-------------------|-------------------|
 | 1    | Anywhere  | 3 identical resources → 1 resource of any type | +2 gold production (Fishing Village) | — | — |
-| 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 gold production (Fishing Port) | Canal (Bent) — 2 active sides | — |
-| 3    | Border region | 2 resources of any type → 1 commodity of any type | — | Canal (Cross) — 4 active sides | Grand Bazaar — one-time: 2 gold per unique adjacent enemy terrain type |
+| 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 gold production (Fishing Port) | Canal (Bent) — 2 active sides; +1 gp per connected sea tile | — |
+| 3    | Border region | 2 resources of any type → 1 commodity of any type | — | Canal (Cross) — 4 active sides; +1 gp per connected sea tile | Grand Bazaar — one-time: 2 gold per unique adjacent enemy terrain type |
 | 4    | Border region | 2 resources → 1 commodity, or 2 commodities → 1 commodity | +2 gold production per sea tile in connected network (Maritime Exchange) | — | — |
 
 **Sea-adjacent bonus:** If a tier 1 or 2 Market token is placed on a land region adjacent to a sea tile, it additionally grants the listed gold production bonus. Multiple players may independently build tokens on different land regions bordering the same sea and both receive the bonus.
@@ -353,12 +355,14 @@ Empire cards are **not** required to unlock placement rights; any player may bui
 
 **Canals:** At tier 2 and tier 3, a player may place a Canal token instead of the standard transaction token. A Canal must be placed on a land region adjacent to at least one sea tile. The region gains sea status in addition to its original terrain type and retains its original gold production and building eligibility. Canal tokens have printed active sides — only active sides count for connectivity. Sea bodies (and other Canal regions) touching an active side are joined into one connected network.
 
-- **Canal (Bent) — tier 2:** 2 active sides at a non-opposite angle (60° or 120° bend). Cheap but inflexible — requires careful orientation to bridge two sea bodies. Player chooses rotation at placement.
-- **Canal (Cross) — tier 3:** 4 active sides. Expensive but highly flexible — almost any rotation usefully connects sea bodies on multiple sides. Player chooses rotation at placement.
+- **Canal (Bent) — tier 2:** 2 active sides at a non-opposite angle (60° or 120° bend). Player chooses rotation at placement.
+- **Canal (Cross) — tier 3:** 4 active sides. Player chooses rotation at placement.
 
 A sea body touching a Canal's *inactive* side is not connected through it.
 
-**Canal connectivity is shared.** Once a Canal is built, it becomes part of the geographic sea network and any player may use that connectivity — for Naval Bastion attacks, Maritime Exchange bonuses, or sea-adjacent token bonuses. Controlling the land region with the Canal token is not required; only owning the relevant Naval Bastion or Market token matters.
+**Canal gold production:** A canal region earns **+1 gold production per sea tile in its connected sea network** (not counting the canal region itself). This updates automatically whenever the network grows — if an opponent later builds a canal that joins your network, your gold production increases immediately. A Canal Bent connecting two isolated 2-tile ocean pockets earns +4 gp; a Canal Cross that merges four such pockets earns +8 gp.
+
+**Canal connectivity is shared.** Once a Canal is built, it becomes part of the geographic sea network and any player may use that connectivity — for Naval Bastion attacks, Maritime Exchange bonuses, sea-adjacent token bonuses, and the canal's own gold production. This means an opponent's canal can be worth expanding into: if you build a canal that connects to theirs, both canals gain gold production from the enlarged network.
 
 **Grand Bazaar (tier 3 border alternative):** Placed on a border region instead of the standard tier 3 transaction token. One-time activation: spend 1 market action, count the unique terrain types among adjacent regions controlled by other players, and gain 2 gold per unique type. Rotate the token 90° after activation to show it is exhausted — it remains on the region for building track purposes but cannot be activated again. If Privateers targets this region before activation, the raiding player activates it instead, gaining the gold.
 
