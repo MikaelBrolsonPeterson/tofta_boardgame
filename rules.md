@@ -173,13 +173,11 @@ Ties: the current holder retains the token on a tie — the challenger must stri
 
 #### Final Scoring
 
-When the game ends (12 VP threshold or Capitol capture), full scoring takes place:
-- VP from Empire cards — count printed VP on all cards in your active mat and your discard pile combined
-- Frontier Monuments bonus VP (if held)
-- Milestone VP
-- Award VP
+All VP is tracked live on each player's VP track throughout the game — Wonders, Awards, Milestones, building track tier 4, action cards, and Martyrdom are all applied immediately when earned. When the game ends (12 VP threshold or Capitol capture), only one additional scoring step occurs:
 
-Regions do not score VP. Wonder VP is tracked live on the VP track as tokens are built and conquered.
+- **Frontier Monuments** bonus VP (if the card is held): +1 VP per Wonder region you control bordering another player.
+
+Regions do not score VP.
 
 ---
 
