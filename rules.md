@@ -113,7 +113,7 @@ A player performs their actions in any order.
 |------|-------------|
 | Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (3 gold, draw 2 modifier cards keep 1); Cull (3 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
-| Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). Any building on the region is destroyed. Income is recalculated immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their gold production contribution to 0. |
+| Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). All infrastructure tokens except permanent military tokens are destroyed. Permanent military tokens (Naval Bastion, Fortress) remain on the region — the next player to conquer it inherits them. Income updates immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their gold production contribution to 0. |
 | Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
 
 ### End of Round
@@ -401,7 +401,7 @@ Some Empire cards generate resources or commodities based on the position of reg
 | Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
 | Swamp          | −1     | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
 | Desert         | +1     | 0           | +1         | 1                  | Attacker suffers disadvantage. Eligible for: Glassworks, Salt Mine |
-| Forest         | −1     | +1          | 0          | 1                  | Per 3 forests controlled: +1 attack action per era. Eligible for: Lumber Mill |
+| Forest         | −1     | +1          | 0          | 1                  | Eligible for: Lumber Mill |
 | Capitol        | +3     | +2          | +2         | 3                  | Attacker has disadvantage |
 | Ancient Ruins  | 0      | −1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
 
