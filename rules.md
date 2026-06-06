@@ -32,7 +32,7 @@ The first conquest decision — grassland for gold production, mountain for ston
 
 Each player has their own empire mat with two independent tracking systems:
 
-**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. This expands each era: 3 slots in Era I, 4 in Era II, 5 in Era III. Discarding a card frees a slot.
+**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. The base is 3 slots for all eras. Slots 4 and 5 are unlocked **only** through the Science building track (tier 1 and tier 3 respectively) — they do not open automatically at era transitions. Discarding a card frees a slot.
 
 **Class building tracks:** Each class has a building track on the mat. The track advances each time you place an infrastructure token of that class (via build action — 1 market action + token gold cost). Empire cards of the same class are **not** required to place tokens. Each track tier unlocks a predetermined bonus permanently — track bonuses are never lost, even if tokens are later removed.
 
@@ -41,7 +41,6 @@ Each player has their own empire mat with two independent tracking systems:
 | Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
 | Market | +1 market action/round | +3 gold/round | +1 market action/round | +2 VP |
 | Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
-| Misc | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
 | Wonders | +1 VP | +2 VP | +3 VP | — |
 
 *(Exact bonus values subject to playtesting.)*
@@ -158,7 +157,7 @@ Milestones are claimed permanently by the first player to meet the condition. Ea
 
 #### Awards
 
-Awards are funded by any player at a cost of 1 market action + 3 gold. Each funded Award has **1 VP token** attached to it. The player currently leading that Award's category holds the VP token — it counts toward their VP total immediately and moves to a new leader the moment another player surpasses them. The token is visible to all players on the Award track.
+Awards are funded by any player at a cost of 1 market action + 3 gold. Each funded Award has a **2 VP token** attached to it. The player currently leading that Award's category holds the VP token — it counts toward their VP total immediately and moves to a new leader the moment another player surpasses them. The token is visible to all players on the Award track.
 
 Unfunded Awards have no VP token and are ignored.
 
@@ -397,7 +396,7 @@ Some Empire cards generate resources or commodities based on the position of reg
 
 | Type           | Gold production | Defense mod | Attack mod | Attacks to conquer | Special |
 |----------------|--------|-------------|------------|--------------------|---------|
-| Sea            | —      | —           | —          | —                  | Not ownable or conquerable. Sea-adjacent land regions gain income bonuses from Market tokens (see below). Naval Bastion (Military tier 3) enables attacks across a sea tile. |
+| Sea            | —      | —           | —          | —                  | Not ownable or conquerable. Sea-adjacent land regions gain gold production bonuses from Market tokens (see below). Naval Bastion (Military tier 3) enables attacks across a sea tile. |
 | Grassland      | +2     | 0           | 0          | 1                  | Eligible for: Farm, Papyrus Workshop, Loom |
 | Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
 | Swamp          | −1     | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
@@ -419,10 +418,9 @@ Conquering a region costs one Attack action. Both the attacker and the defender 
 | Attacker draws | Independent draws | Result |
 |---|---|---|
 | Fail | Any | Region stays independent — no conquest |
-| Any | Fail | Clean conquest |
-| Both | Fail | Conquer, region revolts |
+| Any (not Fail) | Fail | Clean conquest |
 | Higher strength | — | Clean conquest |
-| Tied or lower strength | — | Conquer, region revolts |
+| Tied or lower strength | — | Clean conquest |
 
 **Clean conquest:** Place your meeple upright on the region. Income updates immediately.
 
