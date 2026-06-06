@@ -67,7 +67,7 @@ The base is always 3 slots. Slots 4 and 5 are unlocked **only** through the Scie
 
 **Era transition:** When the first player reaches the VP threshold for the current era, the era advances at the close of that round. During era transition:
 - Flip all rotated Empire cards back upright — era effects are replenished.
-- Any Empire card marked with the **era expiry icon** is immediately discarded from the player's mat. Its ongoing effects end; any VP printed on it still counts (it moves to the discard pile). A freed slot does not need to be filled immediately.
+- Any Empire card marked with the **era expiry icon** is immediately discarded from the player's mat. Its ongoing effects end. A freed slot does not need to be filled immediately.
 
 **Era-limited cards** are designed to be powerful within their era but not carried forward. They are always cheaper than permanent equivalents of similar power.
 
@@ -373,8 +373,6 @@ To build a Wonder, spend 1 market action and the listed gold cost, then place th
 - The **attacking player** immediately advances their own Wonder track one step and gains the VP for the tier just unlocked. If the attacker's track is already at tier 3, they gain +1 VP instead.
 
 **Card rotation:** Rotate an Empire card upside down to indicate its era effect has been used. At each era transition, rotated cards are flipped back upright and era-limited cards are discarded (see Era Transition rules).
-
-**Selling a card:** Spend a market action to discard a card and free its slot. Ongoing effects end immediately; one-time effects already fired persist. Track bonuses already unlocked are not revoked.
 
 **Replanting a production marker:** When a production marker is destroyed by conquest, the losing player may replant it on another eligible region they control at a cost of 1 market action and no additional gold.
 
