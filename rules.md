@@ -99,8 +99,6 @@ Lower spots (later in turn order) grant increasingly valuable rewards. Only posi
 
 **Incentives for going last:** full information, and the ability to attack a high-value region right before the round resets — leaving an opponent to start their next turn with crippled gold production and no immediate recourse (the "king hit").
 
-**Gold production** is displayed on the player mat as a single running total. It updates immediately whenever a region changes ownership.
-
 ---
 
 ## Turn
@@ -132,7 +130,7 @@ When the round ends each player:
 
 *(VP thresholds subject to playtesting.)*
 
-Resources and commodities accumulate on their producing regions and persist across era transitions.
+Resources accumulate on their producing regions and persist across era transitions. Commodities do not persist — any unspent commodity is lost at end of round regardless of era.
 
 ### End Conditions
 
@@ -872,14 +870,14 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | Pillage ⌛ | I | 3 gold OR 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value (minimum 0). Discarded at end of Era I. |
-| Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
+| Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 independent region adjacent to a region you still control, without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
 | Border Farms | I | 3 gold OR 1 food | — | All your grassland regions bordering another player produce 1 Food per round. |
 | Plunder ⌛ | II | 6 gold OR 1 iron + 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value +1 (minimum 1). Discarded at end of Era II. |
 | Cavalry | II | 6 gold OR 2 food | — | Once per era: attack any region on the map as if it were adjacent to a region you control. Normal attack action costs apply (Desert and Swamp cost 2, Capitol costs 3). |
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource from a player you share a border with (they lose it). |
 | Recruiting Officer | II | 4 gold OR 1 food | — | Once per era: perform a Draft action at no market action or gold cost. |
-| Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon 2 regions, then immediately claim 2 adjacent independent regions without attack actions. |
+| Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon 2 regions, then immediately claim up to 2 independent regions each adjacent to a region you still control, without attack actions. |
 | Frontier Bounty | II | 6 gold OR 1 cloth + 1 food | — | All your regions bordering another player produce 1 Food per round, regardless of terrain. |
 | Border Toll | II | 7 gold OR 1 paper + 1 food | — | +1 gold production for each region you control that borders at least one enemy region (recalculated whenever borders change). |
 | Quartermaster | II | 6 gold OR 1 cloth + 1 food | — | Once per turn, you may spend 1 attack action as a market action. |
