@@ -552,32 +552,6 @@ VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per c
 
 ---
 
-## Comeback Mechanic
-
-At the end of each round, the weakest players draw from the **Catch-Up Deck**. Cards drawn enter the player's modifier discard pile and enter circulation the next time their deck reshuffles.
-
-**Standing** is determined by:
-1. Fewest regions controlled
-2. Tiebreak: lowest gold production
-3. Tiebreak: fewest total building track steps across all classes
-
-**In a 4+ player game:**
-- **Last place:** Draw 2 cards from the top of the Catch-Up Deck. Keep 1 and return the other to the bottom of the deck.
-- **Second-to-last place:** Draw 1 card from the top of the Catch-Up Deck.
-
-**In a 2–3 player game:**
-- **Last place:** Draw 1 card from the top of the Catch-Up Deck.
-
-The Catch-Up Deck consists of 12 cards with colored faces (distinct from all other modifier cards) but identical backs. Cards are shuffled face-down and drawn from the top.
-
-| Modifier | # Cards |
-|----------|---------|
-| +2 | 6 |
-| +3 | 5 |
-| Successful attack (reshuffle) | 1 |
-
-When the deck runs out, reshuffle all 12 cards back in. The colored face ensures catch-up cards can always be identified and separated after the game.
-
 ---
 
 ## Mechanics Under Consideration
@@ -721,16 +695,21 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 | Inquisition | III | 8 gold OR 1 iron + 1 paper | — | Once per era: remove any 1 card from the market (that slot refills immediately). Gain gold equal to half that card's gold cost, rounded down. |
 | Condottieri | III | 9 gold OR 1 iron + 1 paper | — | Once per turn, you may spend 1 market action as an attack action. |
 | Frontier Monuments | III | 8 gold OR 1 iron + 1 paper | — | At end of game: gain +1 VP for each Wonder region you control that borders at least one region controlled by another player. |
+| Spymaster | II | 7 gold OR 1 paper + 1 iron | — | Once per round: choose one opponent. Look at the top 3 cards of their modifier deck and rearrange them in any order. |
 
 ### Action Cards (execute on purchase, then trash)
 
 | Card | Era | Cost | Effect |
 |------|-----|------|--------|
+| Locust Swarm | I | 4 gold | The player with the most regions loses 2 gold and reduces their gold production by 1. On a tie, all tied players are affected. |
+| Harsh Winter | I | 3 gold | All players lose 1 gold per region they control above 3 (minimum 0 per player). |
 | Proclamation | I | 4 gold OR 1 food | Gain 1 VP. |
 | Rally | I | 3 gold | Gain 1 VP. |
 | Charter | I | 4 gold OR 1 stone | Gain 1 VP. |
 | Scout | I | 3 gold | Draw 3 from the Modifier Draw Pile, add 1 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Purge | I | 3 gold | Perform two Cull actions at no cost. |
+| Uprising | II | 6 gold | The player with the most regions must put 2 of their border regions into revolt immediately. If they control fewer than 2 border regions, the remaining selections are taken from their regions closest to an opponent's region. On a tie for most regions, all tied players are affected. |
+| Plague | II | 6 gold | The player with the most VP reduces their gold production by 2. On a tie, all tied players are affected. |
 | Royal Decree | II | 6 gold OR 1 iron | Gain 1 VP. |
 | Edict | II | 5 gold OR 1 food | Gain 1 VP. |
 | Commission | II | 6 gold OR 1 cloth | Gain 1 VP. |
@@ -738,6 +717,8 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 | Forced Conscription | II | 5 gold OR 1 food | Draw 4 from the Modifier Draw Pile, add 2 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Reformation | II | 5 gold OR 1 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. |
 | Battle Hymn | II | 4 gold OR 1 cloth | Draw 3 from the Modifier Draw Pile and add all 3 to your discard pile. |
+| Divine Judgment | III | 7 gold | All players lose gold equal to their VP above 6 (minimum 0 per player). |
+| Deluge | III | 8 gold | The player with the most VP loses 4 gold and reduces their gold production by 2. On a tie, all tied players are affected. |
 | Grand Purge | III | 7 gold OR 1 iron | Perform three Cull actions at no cost. |
 | Propaganda | III | 6 gold OR 1 wild + 1 paper | Draw 5 from the Modifier Draw Pile, add 3 to your discard pile, return the rest to the bottom of the Modifier Draw Pile. |
 | Overhaul | III | 8 gold OR 2 paper | Draw 3 from the top of your modifier deck, trash 1 (Fail and Success cannot be trashed), discard the rest. Then draw 3 from the Modifier Draw Pile, add 2 to your discard pile, return 1 to the bottom of the Modifier Draw Pile. |
