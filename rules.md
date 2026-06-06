@@ -168,7 +168,7 @@ Ties: the current holder retains the token on a tie — the challenger must stri
 | Treasure Hoard | Most gold in treasury |
 | Prosperous Realm | Highest gold production |
 | Renaissance Empire | Most total building track steps across all classes |
-| Grand Architect | Empire cards with highest combined gold cost |
+| Grand Architect | Empire cards currently on your mat with highest combined gold cost |
 | Industrial Power | Most commodities produced per round |
 
 #### Final Scoring
@@ -805,7 +805,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | War Banner | III | 9 gold OR 2 iron | — | When an opponent draws Fail from their modifier deck during combat against any player this era, gain +1 attack strength on your next attack. |
 | Supreme Vanguard | III | 10 gold OR 2 iron + 1 cloth | — | When played, choose up to two regions you control. Place an advantage marker on each — when attacking from these regions, draw with advantage. Remove markers if regions are conquered or this card is discarded. |
 | War of Attrition | III | 9 gold OR 2 iron | — | When played, choose up to two enemy regions adjacent to your territory. Place an advantage marker on each — when you attack those regions, draw with advantage. Remove markers if this card is discarded or the regions change ownership. |
-| Conqueror's Gambit | III | 11 gold OR 2 iron + 1 cloth | — | Once per era: declare a chain assault on up to 5 consecutive regions, each adjacent to the previously conquered region in the chain or a region you already control. All attacks draw with advantage. If any attack fails, all regions taken during this chain immediately revert — you gain none of them. If all attacks succeed, keep all conquered regions. |
+| Conqueror's Gambit | III | 11 gold OR 2 iron + 1 cloth | — | Once per era: declare a chain assault on up to 5 consecutive regions, each adjacent to the previously conquered region in the chain or a region you already control. Each region costs its normal attack action amount (Desert and Swamp 2, Capitol 3, others 1) — pay all attack actions upfront before rolling. All attacks draw with advantage. If any attack fails, all regions taken during this chain immediately revert — you gain none of them. If all attacks succeed, keep all conquered regions. |
 | Mobile Doctrine | III | 8 gold OR 1 iron + 1 cloth | — | While on your mat: when a region containing one of your markers is conquered, you may immediately move that marker to any adjacent region you control instead of removing it. |
 | Master Tactician | III | 9 gold OR 2 iron + 1 food | — | Choose one terrain type when playing this card. While on your mat: you draw with advantage when attacking regions of that type, and attackers targeting your regions of that type draw with disadvantage. |
 
@@ -847,7 +847,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Foresight | I | 4 gold OR 1 food | — | **Held-and-triggered.** Hold on your mat. Spend 1 market action to activate: look at the top 3 cards of the current era deck, immediately purchase one at half its gold cost (round up), and return the others in any order. Discard Foresight after activating. |
 | Dispatch | I | 3 gold OR 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra market action. Unspent cubes are removed at each era transition. |
 | Apprenticeship | I | 4 gold OR 1 food | — | Your Draft actions draw 3 modifier cards instead of 2, keeping 1 and returning the others. |
-| Logistics | II | 6 gold OR 1 paper + 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Once per era: move one of your building tokens to another eligible region you control. Unspent cubes are removed at each era transition. |
+| Logistics | II | 6 gold OR 1 paper + 1 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Once per era: move one of your infrastructure tokens to another eligible region you control (does not advance the building track). Unspent cubes are removed at each era transition. |
 | Taxation Reform | I | 5 gold OR 1 paper + 1 food | — | While on your mat: your gold production increases by 2. |
 | Military Academy | II | 7 gold OR 1 iron + 1 food | — | +1 base attack strength permanently. |
 | Guild | II | 7 gold OR 1 paper + 1 food | — | Each time an opponent conquers one of your regions while this card is on your mat, immediately gain 1 market action. |
@@ -871,21 +871,21 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Pillage ⌛ | I | 3 gold OR 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base gold production (minimum 0). Discarded at end of Era I. |
+| Pillage ⌛ | I | 3 gold OR 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value (minimum 0). Discarded at end of Era I. |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 adjacent independent region without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
 | Border Farms | I | 3 gold OR 1 food | — | All your grassland regions bordering another player produce 1 Food per round. |
-| Plunder ⌛ | II | 6 gold OR 1 iron + 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base gold production +1 (minimum 1). Discarded at end of Era II. |
-| Cavalry | II | 6 gold OR 2 food | — | Once per era, attack a region not adjacent to any region you control. |
+| Plunder ⌛ | II | 6 gold OR 1 iron + 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value +1 (minimum 1). Discarded at end of Era II. |
+| Cavalry | II | 6 gold OR 2 food | — | Once per era: attack any region on the map as if it were adjacent to a region you control. Normal attack action costs apply (Desert and Swamp cost 2, Capitol costs 3). |
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource from a player you share a border with (they lose it). |
 | Recruiting Officer | II | 4 gold OR 1 food | — | Once per era: perform a Draft action at no market action or gold cost. |
 | Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon 2 regions, then immediately claim 2 adjacent independent regions without attack actions. |
 | Frontier Bounty | II | 6 gold OR 1 cloth + 1 food | — | All your regions bordering another player produce 1 Food per round, regardless of terrain. |
 | Border Toll | II | 7 gold OR 1 paper + 1 food | — | +1 gold production for each region you control that borders at least one enemy region (recalculated whenever borders change). |
 | Quartermaster | II | 6 gold OR 1 cloth + 1 food | — | Once per turn, you may spend 1 attack action as a market action. |
-| Tribute | III | 9 gold OR 2 iron + 1 food | — | Whenever you conquer a region while this card is on your mat, gain gold equal to that region's base gold production +2 (minimum 2). |
+| Tribute | III | 9 gold OR 2 iron + 1 food | — | Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value +2 (minimum 2). |
 | Grand Migration | III | 11 gold OR 2 paper + 1 food | — | Once per era: abandon up to 4 regions, then claim up to 2 independent regions anywhere on the map without attack actions. Regions abandoned during this action cannot be among those claimed. |
-| Privateers | III | 8 gold OR 1 iron + 1 wood | — | **Held-and-triggered.** Hold on your mat. Spend 1 attack action to activate: choose an opponent's region accessible via one of your Naval Bastions. Gain gold equal to that region's total gold production (base gold production + any building bonuses). If the targeted region has an unactivated Grand Bazaar, you may activate it as part of this raid, gaining its gold as well. Discard Privateers after activating. |
+| Privateers | III | 8 gold OR 1 iron + 1 wood | — | **Held-and-triggered.** Hold on your mat. Spend 1 attack action to activate: choose an opponent's region accessible via one of your Naval Bastions. Gain gold equal to that region's terrain gold production value plus any gold production bonuses from Market tokens on it. If the targeted region has an unactivated Grand Bazaar, you may activate it as part of this raid, gaining its gold as well. Discard Privateers after activating. |
 | Navy | III | 13 gold OR 3 iron + 1 cloth | — | Attacks launched from regions where you have a Naval Bastion have advantage. |
 | Martyrdom | III | 8 gold OR 1 cloth + 1 paper | — | Each time an opponent conquers one of your regions while this card is on your mat, gain +1 VP. |
 | Inquisition | III | 8 gold OR 1 iron + 1 paper | — | Once per era: remove any 1 card from the market (that slot refills immediately). Gain gold equal to half that card's gold cost, rounded down. |
