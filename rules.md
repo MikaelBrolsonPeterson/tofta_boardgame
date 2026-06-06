@@ -424,15 +424,17 @@ Conquering a region costs one Attack action. Both the attacker and the defender 
 | Fail | Any | Region stays independent — no conquest |
 | Any (not Fail) | Fail | Clean conquest |
 | Higher strength | — | Clean conquest |
-| Tied or lower strength | — | Clean conquest |
+| Tied or lower strength | — | Revolt conquest |
 
 **Clean conquest:** Place your meeple upright on the region. Gold production updates immediately.
+
+**Revolt conquest:** Place your meeple flat on the region. Treated identically to revolt — gold production does not apply, you cannot build or attack from it, attackers draw with advantage. Revolt clears at the start of your next turn, at which point you stand the meeple upright and gold production updates.
 
 **Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its gold production does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region draws with advantage. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's gold production from that point.
 
 #### Conquest vs Player Region
 
-Before the conquest resolves, the defender may move one production marker from any of their regions to another region they control. Then remove that player's region token and place one of your own. The attacker takes up to 2 resources from the conquered region's stockpile; any commodities on the region are lost. Any production marker on the conquered region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the marker is replanted (1 market action, no additional gold) on another eligible region they control. Standard military markers on the region are removed. Permanent military markers survive — the conqueror inherits them and may rotate one step (60°). Any on-loss effects on the losing player's Empire cards trigger immediately. Both players' gold production updates immediately.
+Before the conquest resolves, the defender may move one production marker from any of their regions to another region they control. Then remove that player's meeple and place one of your own upright. The attacker takes up to 2 resources from the conquered region's stockpile; any commodities on the region are lost. Any production marker on the conquered region is destroyed — the losing player retains the Empire card on their mat and its effect continues, but production stops until the marker is replanted (1 market action, no additional gold) on another eligible region they control. Standard military markers on the region are removed. Permanent military markers survive — the conqueror inherits them and may rotate one step (60°). Any on-loss effects on the losing player's Empire cards trigger immediately. Both players' gold production updates immediately.
 
 ### Multiple Attacks to Conquer
 
@@ -799,7 +801,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Iron Legion | III | 8 gold OR 2 iron | — | +2 base attack strength while on your mat. Requires 2 or more Military Empire cards on your mat when purchasing. |
 | Raid | II | 5 gold OR 1 iron | — | Spend 1 market action: take 1 resource from any region adjacent to a region you control. OR spend 1 attack action instead: take 2 resources from any region adjacent to a region you control. Each use requires its own action. |
 | Field Engineer | II | 4 gold OR 1 food | — | **Dual-action.** Market action: place a Military infrastructure token as normal. Attack action: place a Military infrastructure token (uses your attack action instead of a market action). |
-| Scorched Earth | III | 8 gold OR 1 iron + 1 cloth | — | Whenever any Fail card is drawn from any modifier deck while this card is on your mat, gain 4 gold. |
+| Scorched Earth | III | 8 gold OR 1 iron + 1 cloth | — | Whenever a Fail card is drawn in combat involving you (as attacker or defender) while this card is on your mat, gain 4 gold. |
 | War Banner | III | 9 gold OR 2 iron | — | When an opponent draws Fail from their modifier deck during combat against any player this era, gain +1 attack strength on your next attack. |
 | Supreme Vanguard | III | 10 gold OR 2 iron + 1 cloth | — | When played, choose up to two regions you control. Place an advantage marker on each — when attacking from these regions, draw with advantage. Remove markers if regions are conquered or this card is discarded. |
 | War of Attrition | III | 9 gold OR 2 iron | — | When played, choose up to two enemy regions adjacent to your territory. Place an advantage marker on each — when you attack those regions, draw with advantage. Remove markers if this card is discarded or the regions change ownership. |
@@ -820,12 +822,12 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
-| Mine | I | 6 gold OR 1 stone | Mountain | Place on a mountain (market action + gold). Produces 1 Iron per round. |
-| Papyrus Workshop | I | 6 gold OR 1 food | Grassland or Swamp | Place on a grassland or swamp (market action + gold). Produces 1 Paper per round. |
-| Loom | II | 6 gold OR 1 food | Grassland | Place on a grassland (market action + gold). Produces 1 Cloth per round. |
-| Iron Forge | II | 10 gold OR 2 iron | Mountain | Place on a mountain (market action + gold). Produces 2 Iron per round. |
-| Glassworks | II | 8 gold OR 2 food | Desert or sea-adjacent land | Place on a desert or sea-adjacent land region (market action + gold). Produces 1 Glass per round. |
-| Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Place on any controlled region (market action + gold). Produces 2 Paper per round. |
+| Mine | I | 6 gold OR 1 stone | Mountain | Auto-places on a mountain on purchase. Produces 1 Iron per round. |
+| Papyrus Workshop | I | 6 gold OR 1 food | Grassland or Swamp | Auto-places on a grassland or swamp on purchase. Produces 1 Paper per round. |
+| Loom | II | 6 gold OR 1 food | Grassland | Auto-places on a grassland on purchase. Produces 1 Cloth per round. |
+| Iron Forge | II | 10 gold OR 2 iron | Mountain | Auto-places on a mountain on purchase. Produces 2 Iron per round. |
+| Glassworks | II | 8 gold OR 2 food | Desert or sea-adjacent land | Auto-places on a desert or sea-adjacent land region on purchase. Produces 1 Glass per round. |
+| Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Auto-places on any controlled region on purchase. Produces 2 Paper per round. |
 
 ### Market (Green) — VP Conversion
 
