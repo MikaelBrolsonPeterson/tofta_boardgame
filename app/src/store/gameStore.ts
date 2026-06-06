@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { GameState, Player, PlayerId, CombatResult, EmpireCard, CardClass, CommodityType, PendingConquest } from '../types/game'
-import { buildInitialMap } from '../data/initialMap'
+import { buildMap, type MapId } from '../data/initialMap'
 import { BASE_DECK, INDEPENDENT_DECK, shuffle, drawOne, modifierToNumber } from '../data/modifierDeck'
 import { TERRAIN } from '../data/terrainConfig'
 import { getNeighbors, hexKey, isAdjacent } from '../utils/hex'
@@ -66,6 +66,7 @@ interface Actions {
   replenishMarket: () => void
   purchaseVP: (commodity: CommodityType) => void
   confirmRearrange: () => void
+  switchMap: (mapId: MapId) => void
 }
 
 // Initialise market: deal 4 Era 1 cards face-up, rest go to deck
@@ -78,7 +79,7 @@ const _initialMarketDeck: EmpireCard[] = [
 ]
 
 export const useGameStore = create<GameState & Actions>((set, get) => ({
-  regions: buildInitialMap(),
+  regions: buildMap('two-kingdoms'),
   players: [makePlayer(0), makePlayer(1)],
   currentPlayerIndex: 0,
   round: 1,
@@ -628,6 +629,32 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         marketCards: newMarketCards,
         marketDeck: newMarketDeck,
       }
+    })
+  },
+
+  switchMap: (mapId) => {
+    const era1Shuffled = shuffleArray(EMPIRE_CARDS.filter(c => c.era === 1))
+    set({
+      regions: buildMap(mapId),
+      players: [makePlayer(0), makePlayer(1)],
+      currentPlayerIndex: 0,
+      round: 1,
+      era: 1,
+      phase: 'action',
+      selectedHex: null,
+      attackSourceHex: null,
+      conquestProgress: {},
+      pendingClaims: {},
+      pendingConquest: null,
+      rearrangeSourceKey: null,
+      lastCombat: null,
+      log: [`Switched to map. Game restarted.`],
+      marketCards: era1Shuffled.slice(0, 4),
+      marketDeck: [
+        ...era1Shuffled.slice(4),
+        ...shuffleArray(EMPIRE_CARDS.filter(c => c.era === 2)),
+        ...shuffleArray(EMPIRE_CARDS.filter(c => c.era === 3)),
+      ],
     })
   },
 }))

@@ -306,7 +306,11 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 
 ### Infrastructure Tokens and the Building Track
 
-Infrastructure tokens are placed via a build action (1 market action + token gold cost). Tokens are chosen from a class pool — Military, Market, or Science. Higher-tier tokens cost more gold. Empire cards are **not** required to unlock placement rights; any player may place any class of token.
+Each player's mat has a **building track** for each class (Military, Market, Science, Wonders). Each tier slot on the track comes pre-loaded with the physical infrastructure token for that tier. Tokens sit in their slots at the start of the game; the class bonus for each tier is printed on the mat below the slot.
+
+**To build:** Spend 1 market action and the listed gold cost, then physically remove the token from its slot on your mat and place it on any region you control that meets the token's terrain requirement. The slot on your mat now sits empty, and the tier bonus beneath it is permanently unlocked for you — even if the token is later destroyed. You cannot build the same tier of a class twice, because each tier slot contains exactly one physical token. **You must build tiers in order** — a tier 2 slot is locked until the tier 1 slot has been vacated.
+
+Empire cards are **not** required to unlock placement rights; any player may build any class of token. Only one infrastructure token may occupy a region at a time. If a production marker is already on the region, leave it on top of the newly placed token — it continues functioning normally.
 
 **Wonder construction** follows a different process — see the Wonder Construction section below.
 
@@ -319,7 +323,9 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 | 3    | 6 gold    |
 | 4    | 8 gold    |
 
-**Building track:** Each time you place a token of a given class, that class's building track on your player mat advances one step. When the track reaches a tier threshold, that tier's predetermined bonus unlocks permanently for you — even if the token is later removed, the track bonus persists.
+**Building track bonuses unlock permanently** when the token leaves its slot — the bonus is never lost even if the token is conquered or destroyed.
+
+**Token visual design:** Tokens that require a specific terrain type display that terrain's background art with building iconography layered on top. Tokens that may be placed on multiple terrain types display a pie-chart of the eligible terrain icons in their centre — the number of equal wedges corresponds to the number of valid terrain types.
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|

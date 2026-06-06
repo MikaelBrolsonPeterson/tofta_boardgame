@@ -7,12 +7,16 @@ import PlayerCard from './components/PlayerCard'
 import IconLegend from './components/IconLegend'
 import LogBar from './components/LogBar'
 import VPTrack from './components/VPTrack'
+import { MAP_CONFIGS, type MapId } from './data/initialMap'
+
+const MAP_IDS = Object.keys(MAP_CONFIGS) as MapId[]
 
 export default function App() {
-  const { players, currentPlayerIndex, round, era, regions } = useGameStore()
+  const { players, currentPlayerIndex, round, era, regions, switchMap } = useGameStore()
   const regionList = Object.values(regions)
   const currentPlayer = players[currentPlayerIndex]
   const [marketOpen, setMarketOpen] = useState(false)
+  const [activeMap, setActiveMap] = useState<MapId>('two-kingdoms')
 
   return (
     <div className="flex flex-col h-screen bg-slate-950 text-white overflow-hidden">
@@ -36,6 +40,25 @@ export default function App() {
         </span>
 
         <div className="ml-auto flex items-center gap-3">
+          {/* Map selector */}
+          <div className="flex items-center gap-1">
+            {MAP_IDS.map(id => (
+              <button
+                key={id}
+                onClick={() => { setActiveMap(id); switchMap(id) }}
+                title={MAP_CONFIGS[id].description}
+                className="px-2 py-0.5 rounded text-xs transition-colors"
+                style={{
+                  background: activeMap === id ? '#1e3a5f' : 'transparent',
+                  color: activeMap === id ? '#93c5fd' : '#475569',
+                  border: `1px solid ${activeMap === id ? '#2563eb' : '#1e293b'}`,
+                }}
+              >
+                {MAP_CONFIGS[id].name}
+              </button>
+            ))}
+          </div>
+          <div className="h-4 w-px bg-slate-700" />
           <IconLegend />
           <div className="h-4 w-px bg-slate-700" />
           <div className="flex items-center gap-1.5">
@@ -45,13 +68,13 @@ export default function App() {
         </div>
       </div>
 
-      {/* ── VP track ────────────────────────────────────────────── */}
-      <VPTrack />
-
-      {/* ── Map zone (flex-1, relative — market drawer overlays this) ── */}
-      <div className="flex-1 min-h-0 relative">
-        <HexMap />
-        <MarketDrawer open={marketOpen} onClose={() => setMarketOpen(false)} />
+      {/* ── Map zone + VP track side panel ─────────────────────── */}
+      <div className="flex-1 min-h-0 flex">
+        <div className="flex-1 relative min-w-0">
+          <HexMap />
+          <MarketDrawer open={marketOpen} onClose={() => setMarketOpen(false)} />
+        </div>
+        <VPTrack />
       </div>
 
       {/* ── Collapsible log bar ──────────────────────────────────── */}
