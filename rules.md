@@ -413,7 +413,7 @@ Conquering a region costs one Attack action. Both the attacker and the defender 
 | Higher strength | — | Clean conquest |
 | Tied or lower strength | — | Clean conquest |
 
-**Clean conquest:** Place your meeple upright on the region. Income updates immediately.
+**Clean conquest:** Place your meeple upright on the region. Gold production updates immediately.
 
 **Revolt:** Place your meeple flat on the region. The region is yours but unsettled — its gold production does not apply until the revolt clears. You cannot build in it or use it as a base to attack from. Any attacker targeting a revolting region draws with advantage. Revolt clears at the start of your next turn — stand the meeple upright and apply the region's gold production from that point.
 
@@ -423,7 +423,7 @@ Before the conquest resolves, the defender may move one production marker from a
 
 ### Multiple Attacks to Conquer
 
-Some regions (Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
+Some regions (Desert: 2, Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
 
 ### Strength
 
@@ -501,7 +501,7 @@ Empire cards are used to enact decrees in your empire.
 **Properties:**
 - **Cost:** Each card has two prices — a gold cost and a resource or commodity cost. Pay one or the other. Example: `3 gold OR 1 stone`. Your empire's tile composition and buildings determine which currency is easier to spend.
 - **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc). Purchasing a card does **not** advance the building track — only placing infrastructure tokens does. Misc cards have no building track. Wonders have no Empire cards — they are built directly as tokens (see Wonder Construction).
-- **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., have four mountain regions). Unfulfilled requirements at the end of the game may affect scoring.
+- **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., Iron Legion requires 2 or more Military Empire cards on your mat).
 
 ### Empire Card Classes
 
@@ -517,7 +517,7 @@ Empire cards are used to enact decrees in your empire.
 
 Action cards appear in the market alongside Empire cards, occupying the same slots. They are era-specific. When purchased with a market action, the effect resolves immediately and the card is trashed — it never goes on the Empire mat and occupies no card slot.
 
-Action cards are more powerful deck manipulation than the standard Draft and Cull actions.
+Action cards have immediate one-shot effects — deck manipulation, VP gain, or political effects that target other players.
 
 Action card effects that draw from the Modifier Draw Pile follow the same reshuffle rule as combat: if a Fail or Success card is drawn, reshuffle the Draw Pile after all cards have been added to your discard pile. Action card effects that draw from your modifier deck always draw from the top — never search the deck. Untrashed cards drawn from your modifier deck go to your discard pile, not back to the top.
 
@@ -550,8 +550,6 @@ VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per c
 
 ---
 
----
-
 ## Mechanics Under Consideration
 
 - **Game length and era structure:** VP-driven eras (thresholds 5/9/12 VP, subject to playtesting). Game length is now dynamic — faster in aggressive games, slower in defensive ones. Era III is expected to be short and tense by design. Questions to revisit after playtesting: Do the VP thresholds need to scale with player count? Target play time (60 min? 90 min?) should inform threshold tuning.
@@ -572,7 +570,6 @@ VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per c
 - **Card table audit:** All existing cards are remnants of the old placement system. Each card needs review against the new action-cost-explicit format and the card-gated economy. Many will need revision or retirement.
 - **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
 - **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
-- **VP scoring from discard pile (Option B — to discuss):** Alternative to current Option A (VP counted from active mat + discard pile combined): VP counted *only* from the discard pile, not active mat. Players must actively spend a market action to discard VP-bearing cards to bank their points — creating an end-game race to cycle cards off the mat before the game ends. Also under consideration: storing VP as physical cubes on cards (loaded by spending commodities via a market action), with cubes transferring to the player's VP track when the card is discarded. Would interact interestingly with the held-and-triggered card type.
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); forced abandonment when gold production goes negative and gold hits 0; equalizer action cards (Locust Swarm, Harsh Winter, Uprising, Plague, Divine Judgment, Deluge) replace explicit catch-up deck.
 
 ---
