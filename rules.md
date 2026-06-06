@@ -38,8 +38,8 @@ Each player has their own empire mat with two independent tracking systems:
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
-| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
-| Market | +1 market action/round | +3 gold/round | +1 market action/round | +2 VP |
+| Military | +1 attack action/round | +3 gold production | +1 attack action/round | +2 VP |
+| Market | +1 market action/round | +3 gold production | +1 market action/round | +2 VP |
 | Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
 | Wonders | +1 VP | +2 VP | +3 VP | — |
 
@@ -113,7 +113,7 @@ A player performs their actions in any order.
 |------|-------------|
 | Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (3 gold, draw 2 modifier cards keep 1); Cull (3 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
-| Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). All infrastructure tokens except permanent military tokens are destroyed. Permanent military tokens (Naval Bastion, Fortress) remain on the region — the next player to conquer it inherits them. Income updates immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their gold production contribution to 0. |
+| Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). All infrastructure tokens except permanent military tokens are destroyed. Permanent military tokens (Naval Bastion, Fortress) remain on the region — the next player to conquer it inherits them. Gold production updates immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their gold production contribution to 0. |
 | Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
 
 ### End of Round
@@ -297,7 +297,7 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 
 Infrastructure tokens are placed via a build action (1 market action + token gold cost). Tokens are chosen from a class pool — Military, Market, or Science. Higher-tier tokens cost more gold. Empire cards are **not** required to unlock placement rights; any player may place any class of token.
 
-**Wonder construction** follows a different two-phase process — see the Wonder Construction section below.
+**Wonder construction** follows a different process — see the Wonder Construction section below.
 
 **Token costs by tier:**
 
@@ -312,8 +312,8 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
-| Military | +1 attack action/round | +3 gold/round | +1 attack action/round | +2 VP |
-| Market | +1 market action/round | +3 gold/round | +1 market action/round | +2 VP |
+| Military | +1 attack action/round | +3 gold production | +1 attack action/round | +2 VP |
+| Market | +1 market action/round | +3 gold production | +1 market action/round | +2 VP |
 | Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
 | Wonders | +1 VP | +2 VP | +3 VP | — |
 
@@ -328,7 +328,7 @@ Infrastructure tokens are placed via a build action (1 market action + token gol
 | 1    | Anywhere  | 3 identical resources → 1 resource of any type | +2 gold production (Fishing Village) | — | — |
 | 2    | Anywhere  | 2 identical resources → 1 resource of any type | +3 gold production (Fishing Port) | Canal (Bent) — 2 active sides | — |
 | 3    | Border region | 2 resources of any type → 1 commodity of any type | — | Canal (Cross) — 4 active sides | Grand Bazaar — one-time: 2 gold per unique adjacent enemy terrain type |
-| 4    | Border region | 2 resources → 1 commodity, or 2 commodities → 1 commodity | +2 gold/round per sea tile in connected network (Maritime Exchange) | — | — |
+| 4    | Border region | 2 resources → 1 commodity, or 2 commodities → 1 commodity | +2 gold production per sea tile in connected network (Maritime Exchange) | — | — |
 
 **Sea-adjacent bonus:** If a tier 1 or 2 Market token is placed on a land region adjacent to a sea tile, it additionally grants the listed gold production bonus. Multiple players may independently build tokens on different land regions bordering the same sea and both receive the bonus.
 
