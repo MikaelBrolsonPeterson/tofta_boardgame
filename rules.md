@@ -289,7 +289,7 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 |----------------|-------|-----------|--------|--------------|
 | Military infrastructure (standard) | Hexagonal (region-sized) | Build action | Varies by token tier | Region is conquered |
 | Military infrastructure (permanent) | Hexagonal (region-sized, marked symbol) | Build action | Varies; survives conquest | Never (permanent) |
-| Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action); sea-adjacent tier 1–2 grant income bonus; sea-adjacent tier 4 grants gold per sea network | Region is conquered |
+| Market infrastructure | Hexagonal (region-sized) | Build action | Enables transaction at tier rate (spend 1 market action); sea-adjacent tier 1–2 grant gold production bonus; sea-adjacent tier 4 grants gold per sea network | Region is conquered |
 | Canal (Bent) — tier 2 Market | Hexagonal (region-sized), 2 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Canal (Cross) — tier 3 Market | Hexagonal (region-sized), 4 active sides | Build action | Region gains sea status; joins sea bodies touching active sides | Region is conquered |
 | Science infrastructure | Hexagonal (region-sized) | Build action | Tier 1 and 3: +1 market action/turn. Tier 2 and 4: choice of free/discounted card acquisition or other market bonus (see Science token table) | Region is conquered |
@@ -509,7 +509,7 @@ Empire cards are used to enact decrees in your empire.
 
 **Properties:**
 - **Cost:** Each card has two prices — a gold cost and a resource or commodity cost. Pay one or the other. Example: `3 gold OR 1 stone`. Your empire's tile composition and buildings determine which currency is easier to spend.
-- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc). Each purchase advances that class's building track on your player mat and reveals the next benefit. Misc cards have no building track — purchasing them gives no track advancement. Wonders have no Empire cards — they are built directly as tokens (see Wonder Construction).
+- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc). Purchasing a card does **not** advance the building track — only placing infrastructure tokens does. Misc cards have no building track. Wonders have no Empire cards — they are built directly as tokens (see Wonder Construction).
 - **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., have four mountain regions). Unfulfilled requirements at the end of the game may affect scoring.
 
 ### Empire Card Classes
@@ -611,7 +611,7 @@ When the deck runs out, reshuffle all 12 cards back in. The colored face ensures
 - **Card table audit:** All existing cards are remnants of the old placement system. Each card needs review against the new action-cost-explicit format and the card-gated economy. Many will need revision or retirement.
 - **Production marker preservation on conquest:** A mid-to-late era Misc card for the conqueror that preserves rather than destroys production markers when taking a region.
 - **Second production marker slot:** Certain Empire cards can allow a region to hold a second production marker. Card design pending.
-- **VP scoring from discard pile (Option B — to discuss):** Alternative to current Option A (VP counted from active mat + discard pile combined): VP counted *only* from the discard pile, not active mat. Players must actively spend a market action to discard VP-bearing cards to bank their points — creating an end-game race to cycle cards off the mat before round 15. Also under consideration: storing VP as physical cubes on cards (loaded by spending commodities via a market action), with cubes transferring to the player's VP track when the card is discarded. Would interact interestingly with the held-and-triggered card type.
+- **VP scoring from discard pile (Option B — to discuss):** Alternative to current Option A (VP counted from active mat + discard pile combined): VP counted *only* from the discard pile, not active mat. Players must actively spend a market action to discard VP-bearing cards to bank their points — creating an end-game race to cycle cards off the mat before the game ends. Also under consideration: storing VP as physical cubes on cards (loaded by spending commodities via a market action), with cubes transferring to the player's VP track when the card is discarded. Would interact interestingly with the held-and-triggered card type.
 - **Snowballing and comeback mechanics:** Settled. Raid cap of 2 resources on conquest (commodities lost); scaling income penalty by empire size; forced abandonment when income goes negative; 4+ player: last draws 2 keep 1, second-to-last draws 1; 2–3 player: last draws 1.
 
 ---
