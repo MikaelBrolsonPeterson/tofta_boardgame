@@ -4,7 +4,7 @@ export type PlayerId = 'player1' | 'player2' | 'player3' | 'player4' | 'player5'
 
 export type ModifierValue = 'fail' | 'success' | -2 | -1 | 0 | 1 | 2
 
-export type CardClass = 'military' | 'market' | 'science' | 'wonders' | 'misc'
+export type CardClass = 'military' | 'market' | 'science' | 'wonders' | 'misc' | 'action'
 export type ResourceType = 'stone' | 'wood' | 'food'
 export type CommodityType = 'iron' | 'paper' | 'cloth' | 'glass' | 'wild'
 

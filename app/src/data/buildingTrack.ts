@@ -6,6 +6,7 @@ export const CLASS_LIMIT: Record<CardClass, number> = {
   science: 4,
   misc: 4,
   wonders: 3,
+  action: 99, // action cards execute immediately; no holding limit
 }
 
 export type TrackBenefit =
@@ -44,4 +45,5 @@ export const TRACK_BENEFITS: Record<CardClass, TrackBenefit[]> = {
     { type: 'vp', amount: 4 },
     { type: 'vp', amount: 7 },
   ],
+  action: [], // no building track
 }

@@ -35,7 +35,7 @@ function makePlayer(index: number): Player {
     modifierDeck: shuffle([...BASE_DECK]),
     modifierDiscard: [],
     activeCards: [],
-    buildingTrack: { military: 0, market: 0, science: 0, wonders: 0, misc: 0 },
+    buildingTrack: { military: 0, market: 0, science: 0, wonders: 0, misc: 0, action: 0 },
     victoryPoints: 0,
   }
 }
@@ -343,9 +343,9 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const cls = card.class as CardClass
       if (player.buildingTrack[cls] >= CLASS_LIMIT[cls]) return s
 
-      // One building per owned region
+      // One building per owned region (action cards execute immediately, no slot needed)
       const ownedRegions = Object.values(s.regions).filter(r => r.owner === player.id).length
-      if (player.activeCards.length >= ownedRegions) return s
+      if (cls !== 'action' && player.activeCards.length >= ownedRegions) return s
 
       // Check affordability
       if (payWithGold) {
@@ -421,8 +421,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         gold: newGold,
         resources: newResources,
         commodities: newCommodities,
-        activeCards: [...player.activeCards, card],
-        buildingTrack: { ...player.buildingTrack, [cls]: trackPos + 1 },
+        activeCards: cls !== 'action' ? [...player.activeCards, card] : player.activeCards,
+        buildingTrack: cls !== 'action' ? { ...player.buildingTrack, [cls]: trackPos + 1 } : player.buildingTrack,
         attackActionsPerTurn: newAttackActionsPerTurn,
         attackActionsRemaining: newAttackActionsRemaining,
         marketActionsPerTurn: newMarketActionsPerTurn,
