@@ -224,7 +224,7 @@ export const MAP_CONFIGS: Record<MapId, { name: string; description: string; ent
 export function buildMap(mapId: MapId = 'two-kingdoms'): Record<string, HexRegion> {
   const regions: Record<string, HexRegion> = {}
   for (const [q, r, terrain, owner] of MAP_CONFIGS[mapId].entries) {
-    regions[hexKey(q, r)] = { q, r, terrain, owner, militaryMarker: null, productionMarker: null }
+    regions[hexKey(q, r)] = { q, r, terrain, owner, inRevolt: false, militaryMarker: null, productionMarker: null }
   }
   return regions
 }

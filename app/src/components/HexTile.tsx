@@ -26,12 +26,13 @@ interface Props {
   claimColor?: string
   isRearrangeSource: boolean
   isRearrangeTarget: boolean
+  ownerColor?: string
   onClick: () => void
 }
 
 export default function HexTile({
   region, selected, isAttackSource, isValidTarget, isAttackMode,
-  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, onClick,
+  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, ownerColor, onClick,
 }: Props) {
   const { x, y } = hexToPixel(region.q, region.r)
   const cfg = TERRAIN[region.terrain]
@@ -95,12 +96,12 @@ export default function HexTile({
         </g>
       )}
 
-      {/* Revolt / pending claim dashed ring */}
-      {hasPendingClaim && (
+      {/* Revolt dashed ring — shown when region is in revolt or has a pending claim */}
+      {(region.inRevolt || hasPendingClaim) && (
         <polygon
           points={points}
           fill="none"
-          stroke={claimColor ?? '#f59e0b'}
+          stroke={region.inRevolt ? (ownerColor ?? '#f59e0b') : (claimColor ?? '#f59e0b')}
           strokeWidth={2.5}
           strokeDasharray="4 3"
           opacity={0.9}

@@ -69,6 +69,7 @@ export default function HexMap() {
             isAttackMode={phase === 'select-attack-target'}
             hasPendingClaim={key in pendingClaims}
             claimColor={pendingClaims[key] ? players.find(p => p.id === pendingClaims[key])?.color : undefined}
+            ownerColor={region.owner ? players.find(p => p.id === region.owner)?.color : undefined}
             isRearrangeSource={rearrangeSourceKey === key}
             isRearrangeTarget={rearrangeTargets.has(key)}
             onClick={() => selectHex(region.q, region.r)}

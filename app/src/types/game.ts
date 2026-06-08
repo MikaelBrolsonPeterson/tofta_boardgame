@@ -38,6 +38,7 @@ export interface Marker {
 export interface HexRegion extends HexCoord {
   terrain: TerrainType
   owner: PlayerId | null
+  inRevolt: boolean
   militaryMarker: Marker | null
   productionMarker: Marker | null
 }

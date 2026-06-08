@@ -42,13 +42,13 @@ function makePlayer(index: number): Player {
 
 function calcGoldProduction(regions: GameState['regions'], playerId: PlayerId): number {
   let total = 0
-  const mine = Object.values(regions).filter(r => r.owner === playerId)
+  const mine = Object.values(regions).filter(r => r.owner === playerId && !r.inRevolt)
   for (const region of mine) {
     const cfg = TERRAIN[region.terrain]
     if (region.terrain === 'capitol') { total += cfg.goldProduction; continue }
     const connected = getNeighbors(region.q, region.r).some(n => {
       const nb = regions[hexKey(n.q, n.r)]
-      return nb?.owner === playerId
+      return nb?.owner === playerId && !nb.inRevolt
     })
     if (connected) total += cfg.goldProduction
   }
@@ -257,8 +257,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const newPendingClaims = { ...s.pendingClaims }
 
       if (conquered) {
-        // Conquering independent region: destroy any production marker
-        newRegions[key] = { ...target, owner: attacker.id, productionMarker: null }
+        // Conquering independent region: clean conquest (upright meeple, immediate production)
+        newRegions[key] = { ...target, owner: attacker.id, inRevolt: false, productionMarker: null }
         delete newProgress[key]
         delete newPendingClaims[key]
       } else if (success) {
@@ -266,7 +266,10 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       } else {
         delete newProgress[key]
         if (!target.owner) {
-          newPendingClaims[key] = attacker.id
+          // Revolt conquest: attacker gets the region immediately but in revolt state.
+          // Revolt clears at the start of the attacker's next turn.
+          newRegions[key] = { ...target, owner: attacker.id, inRevolt: true }
+          delete newPendingClaims[key]
         }
       }
 
@@ -433,9 +436,17 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         victoryPoints: newVP,
       }
 
-      // Leave slot empty until replenished
+      // Immediately replenish the purchased slot from the current-era deck
       const newMarketCards = [...s.marketCards] as (EmpireCard | null)[]
-      newMarketCards[cardIndex] = null
+      const eraRefill = s.marketDeck.filter(c => c.era === s.era)
+      const otherRefill = s.marketDeck.filter(c => c.era !== s.era)
+      let newMarketDeck = s.marketDeck
+      if (eraRefill.length > 0) {
+        newMarketCards[cardIndex] = eraRefill[0]
+        newMarketDeck = [...eraRefill.slice(1), ...otherRefill]
+      } else {
+        newMarketCards[cardIndex] = null
+      }
       const newPlayers = s.players.map((p, i) =>
         i === s.currentPlayerIndex
           ? { ...updatedPlayer, goldProduction: calcGoldProduction(s.regions, p.id) }
@@ -444,6 +455,7 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       return {
         players: newPlayers,
         marketCards: newMarketCards,
+        marketDeck: newMarketDeck,
         log: [...s.log, `${player.name} bought ${card.name}.`],
       }
     })
@@ -588,26 +600,27 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         ...(eraChanged ? [`══ Era ${newEra} begins! ══`] : []),
       ]
 
-      // Resolve Revolt claims and refresh market when era changes; fill empty slots each round
-      let newRegions = s.regions
+      // Clear revolts for the next player's regions, refresh market on era change / round end
+      let newRegions = { ...s.regions }
       let newMarketCards = s.marketCards
       let newMarketDeck = s.marketDeck
       let newPendingClaims = s.pendingClaims
+      const nextPlayerId = s.players[nextIndex].id
+
+      // Revolts owned by the next player clear at the start of their turn
+      for (const key of Object.keys(newRegions)) {
+        const r = newRegions[key]
+        if (r.owner === nextPlayerId && r.inRevolt) {
+          newRegions[key] = { ...r, inRevolt: false }
+          logs.push(`Revolt cleared: ${TERRAIN[r.terrain].label} (${r.q},${r.r}) now produces for ${s.players[nextIndex].name}.`)
+        }
+      }
+
       if (eraChanged) {
-        newRegions = { ...s.regions }
         // Remove all military markers at era transition
         for (const key of Object.keys(newRegions)) {
           if (newRegions[key].militaryMarker) {
             newRegions[key] = { ...newRegions[key], militaryMarker: null }
-          }
-        }
-        // Transfer any revolted neutral tiles to claimants
-        for (const [claimKey, claimantId] of Object.entries(s.pendingClaims)) {
-          const tile = newRegions[claimKey]
-          if (tile && tile.owner === null) {
-            newRegions[claimKey] = { ...tile, owner: claimantId }
-            const claimantName = s.players.find(p => p.id === claimantId)?.name ?? claimantId
-            logs.push(`${claimantName} received ${TERRAIN[tile.terrain].label} (${tile.q},${tile.r}) via Revolt.`)
           }
         }
         newPendingClaims = {}
