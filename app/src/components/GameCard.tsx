@@ -40,7 +40,7 @@ export default function GameCard({
   compact = false,
 }: GameCardProps) {
   const theme = CLASS_THEME[card.class]
-  const showButtons = !compact && (onBuyGold !== undefined || onBuyAlt !== undefined)
+  const showButtons = onBuyGold !== undefined || onBuyAlt !== undefined
 
   return (
     <div
