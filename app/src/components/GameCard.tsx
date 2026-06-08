@@ -19,6 +19,7 @@ const CLASS_THEME: Record<CardClass, {
   science:  { border: '#5b21b6', headerBg: '#4c1d95', bodyBg: '#050213', badgeBg: '#7c3aed', textColor: '#c4b5fd' },
   wonders:  { border: '#92400e', headerBg: '#78350f', bodyBg: '#0d0702', badgeBg: '#b45309', textColor: '#fcd34d' },
   misc:     { border: '#374151', headerBg: '#1e293b', bodyBg: '#060b12', badgeBg: '#475569', textColor: '#cbd5e1' },
+  action:   { border: '#0369a1', headerBg: '#075985', bodyBg: '#020a14', badgeBg: '#0284c7', textColor: '#7dd3fc' },
 }
 
 interface GameCardProps {
@@ -117,6 +118,13 @@ export default function GameCard({
             </span>
           )}
         </div>
+
+        {/* Action card badge */}
+        {card.class === 'action' && (
+          <div className="text-xs font-semibold px-1.5 py-0.5 rounded self-start" style={{ background: '#0284c722', color: '#38bdf8', border: '1px solid #0369a1' }}>
+            ⚡ Executes immediately · no slot needed
+          </div>
+        )}
 
         {/* Placement row */}
         {card.placement !== '—' && (

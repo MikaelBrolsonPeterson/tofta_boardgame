@@ -1,4 +1,5 @@
 import type { Player, CardClass } from '../types/game'
+import { useGameStore } from '../store/gameStore'
 import { IconGold, IconVP, IconAttackAction, IconMarketAction } from './GameIcons'
 
 const CLASS_COLOR: Record<CardClass, string> = {
@@ -7,13 +8,16 @@ const CLASS_COLOR: Record<CardClass, string> = {
   science:  '#5b21b6',
   wonders:  '#92400e',
   misc:     '#374151',
+  action:   '#0369a1',
 }
 const CLASS_LABEL: Record<CardClass, string> = {
-  military: 'M', market: 'K', science: 'S', wonders: 'W', misc: 'C',
+  military: 'M', market: 'K', science: 'S', wonders: 'W', misc: 'C', action: 'A',
 }
 const CLASS_MAX: Record<CardClass, number> = {
-  military: 4, market: 4, science: 4, wonders: 3, misc: 4,
+  military: 4, market: 4, science: 4, wonders: 3, misc: 4, action: 0,
 }
+
+const TRACK_CLASSES: CardClass[] = ['military', 'market', 'science', 'wonders', 'misc']
 
 function ActionPips({ remaining, total, color }: { remaining: number; total: number; color: string }) {
   return (
@@ -25,11 +29,11 @@ function ActionPips({ remaining, total, color }: { remaining: number; total: num
   )
 }
 
-/** Compact dot-cluster building tracks — one row, all classes */
+/** Compact dot-cluster building tracks — one row, excludes action class */
 function MiniTracks({ track }: { track: Record<CardClass, number> }) {
   return (
     <div className="flex gap-2">
-      {(Object.entries(track) as [CardClass, number][]).map(([cls, val]) => (
+      {TRACK_CLASSES.map(cls => (
         <div key={cls} className="flex items-center gap-0.5">
           <span className="text-slate-600" style={{ fontSize: 8 }}>{CLASS_LABEL[cls]}</span>
           <div className="flex gap-px">
@@ -37,7 +41,7 @@ function MiniTracks({ track }: { track: Record<CardClass, number> }) {
               <div
                 key={i}
                 className="w-1.5 h-1.5 rounded-sm"
-                style={{ background: i < val ? CLASS_COLOR[cls] : '#1e293b' }}
+                style={{ background: i < track[cls] ? CLASS_COLOR[cls] : '#1e293b' }}
               />
             ))}
           </div>
@@ -103,7 +107,12 @@ function InactivePlayerCard({ player, ownedRegions }: { player: Player; ownedReg
 
 /** Expanded card for the active player */
 function ActivePlayerCard({ player, ownedRegions }: { player: Player; ownedRegions: number }) {
+  const { discardCard } = useGameStore()
   const hasAnyCommodity = Object.values(player.commodities).some(v => v > 0)
+  const empireCardSlots = 3
+    + (player.buildingTrack.science >= 1 ? 1 : 0)
+    + (player.buildingTrack.science >= 3 ? 1 : 0)
+  const slotsFull = player.activeCards.length >= empireCardSlots
 
   return (
     <div
@@ -176,9 +185,34 @@ function ActivePlayerCard({ player, ownedRegions }: { player: Player; ownedRegio
       {/* Condensed building tracks — single row */}
       <MiniTracks track={player.buildingTrack} />
 
-      {/* Footer */}
-      <div className="text-xs text-slate-600 border-t border-slate-700 pt-1">
-        {player.activeCards.length} card{player.activeCards.length !== 1 ? 's' : ''} · {ownedRegions} region{ownedRegions !== 1 ? 's' : ''}
+      {/* Active empire cards */}
+      {player.activeCards.length > 0 && (
+        <div className="border-t border-slate-700 pt-1.5 flex flex-col gap-0.5">
+          {player.activeCards.map(card => (
+            <div key={card.id} className="flex items-center gap-1.5 rounded px-1 py-0.5" style={{ background: '#0b1525' }}>
+              <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: CLASS_COLOR[card.class] }} />
+              <span className="text-xs text-slate-300 flex-1 truncate">{card.name}</span>
+              <span className="text-slate-600" style={{ fontSize: 10 }}>E{card.era}</span>
+              <button
+                onClick={() => discardCard(card.id)}
+                disabled={player.marketActionsRemaining <= 0}
+                className="text-slate-600 hover:text-red-400 disabled:opacity-30 leading-none px-0.5"
+                style={{ fontSize: 11 }}
+                title="Discard (costs 1 market action)"
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Footer: slots + regions */}
+      <div className="text-xs border-t border-slate-700 pt-1 flex items-center justify-between">
+        <span className={slotsFull ? 'text-red-500 font-semibold' : 'text-slate-600'}>
+          {player.activeCards.length}/{empireCardSlots} slots{slotsFull ? ' · FULL' : ''}
+        </span>
+        <span className="text-slate-600">{ownedRegions} region{ownedRegions !== 1 ? 's' : ''}</span>
       </div>
     </div>
   )

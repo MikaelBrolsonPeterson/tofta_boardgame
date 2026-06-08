@@ -42,6 +42,10 @@ export default function MarketDrawer({ open, onClose }: Props) {
   const replenishCost = 2 + emptySlots
   const canReplenish = actionsLeft > 0 && emptySlots > 0 && player.gold >= replenishCost
   const vpCommodities = COMMODITY_TYPES.filter(c => player.commodities[c] >= 3)
+  const empireCardSlots = 3
+    + (player.buildingTrack.science >= 1 ? 1 : 0)
+    + (player.buildingTrack.science >= 3 ? 1 : 0)
+  const slotsFull = player.activeCards.length >= empireCardSlots
 
   return (
     <div
@@ -75,6 +79,17 @@ export default function MarketDrawer({ open, onClose }: Props) {
         >
           ✕
         </button>
+      </div>
+
+      {/* Slot status */}
+      <div
+        className="flex-shrink-0 flex items-center justify-between px-3 py-1.5 text-xs"
+        style={{ borderBottom: '1px solid #1e293b', background: '#060f1c' }}
+      >
+        <span className="text-slate-500">Empire card slots</span>
+        <span className={slotsFull ? 'text-red-400 font-bold' : 'text-slate-400'}>
+          {player.activeCards.length}/{empireCardSlots}{slotsFull ? ' — FULL' : ''}
+        </span>
       </div>
 
       {/* Utility actions */}
@@ -130,8 +145,9 @@ export default function MarketDrawer({ open, onClose }: Props) {
               )
             }
             const hasAction = actionsLeft > 0
-            const goldOk = hasAction && canAffordGold(card, player.gold)
-            const altOk = hasAction && canAffordAlt(card, player.resources, player.commodities)
+            const slotAvail = card.class === 'action' || !slotsFull
+            const goldOk = hasAction && slotAvail && canAffordGold(card, player.gold)
+            const altOk = hasAction && slotAvail && canAffordAlt(card, player.resources, player.commodities)
             return (
               <GameCard
                 key={card.id}
