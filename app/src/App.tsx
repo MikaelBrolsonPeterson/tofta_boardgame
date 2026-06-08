@@ -19,7 +19,7 @@ export default function App() {
   const [activeMap, setActiveMap] = useState<MapId>('two-kingdoms')
 
   return (
-    <div className="flex flex-col h-screen bg-slate-950 text-white overflow-hidden">
+    <div className="flex flex-col h-full bg-slate-950 text-white overflow-hidden">
 
       {/* ── Top bar ─────────────────────────────────────────────── */}
       <div
@@ -70,7 +70,7 @@ export default function App() {
 
       {/* ── Map zone + VP track side panel ─────────────────────── */}
       <div className="flex-1 min-h-0 flex">
-        <div className="flex-1 relative min-w-0">
+        <div className="flex-1 relative min-w-0 overflow-hidden">
           <HexMap />
           <MarketDrawer open={marketOpen} onClose={() => setMarketOpen(false)} />
         </div>
