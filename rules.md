@@ -32,7 +32,9 @@ The first conquest decision — grassland for gold production, mountain for ston
 
 Each player has their own empire mat with two independent tracking systems:
 
-**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. The base is 3 slots for all eras. Slots 4 and 5 are unlocked **only** through the Science building track (tier 1 and tier 3 respectively) — they do not open automatically at era transitions. Discarding a card frees a slot.
+**Active card slots:** The number of Empire cards you can have simultaneously active on your mat. The base is 3 slots for all eras. Slots 4 and 5 are unlocked **only** through the Science building track (tier 1 and tier 3 respectively) — they do not open automatically at era transitions.
+
+You may not purchase an Empire card unless you already have a free slot on your mat. To make room, spend 1 market action to discard a card first, then spend a second market action to buy the new one. A freed slot does not need to be filled immediately.
 
 **Class building tracks:** Each class has a building track on the mat. The track advances each time you place an infrastructure token of that class (via build action — 1 market action + token gold cost). Empire cards of the same class are **not** required to place tokens. Each track tier unlocks a predetermined bonus permanently — track bonuses are never lost, even if tokens are later removed.
 
@@ -109,10 +111,10 @@ A player performs their actions in any order.
 
 | Name | Description |
 |------|-------------|
-| Market action | Costs a Market action. Uses: buy any card from the market (pay its cost; Empire cards require a free slot — discard first if needed, then buy; Action cards execute immediately and are trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (3 gold, draw 2 modifier cards keep 1); Cull (3 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
+| Market action | Costs a Market action. Uses: buy any Empire card from the market (pay its cost; you must already have a free slot — see Active card slots); discard an Empire card from your mat (frees a slot; auto-discards from card effects or era expiry do not cost a market action); buy an Action card from the market (executes immediately and is trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (3 gold, draw 2 modifier cards keep 1); Cull (3 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
 | Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). All infrastructure tokens except permanent military tokens are destroyed. Permanent military tokens (Naval Bastion, Fortress) remain on the region — the next player to conquer it inherits them. Gold production updates immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their gold production contribution to 0. |
-| Discard Empire card | Can be performed whenever the player wants, except during an Attack action. Discard an Empire card to free a slot on your Empire mat. Any associated building is destroyed and ongoing effects end immediately. One-time effects already fired persist. To replace a card, you must discard first and then buy — you cannot benefit from a card's effect and then discard it in the same action. |
+| Discard Empire card | Costs 1 market action. Discard an Empire card from your mat to free a slot. Any associated buildings and ongoing effects end immediately; one-time effects already fired persist. Auto-discards (era-expiry icons, held-and-triggered cards firing) do not cost a market action. |
 
 ### End of Round
 

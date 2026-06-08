@@ -63,6 +63,7 @@ interface Actions {
   abandonSelected: () => void
   endTurn: () => void
   buyCard: (cardId: string, payWithGold: boolean) => void
+  discardCard: (cardId: string) => void
   replenishMarket: () => void
   purchaseVP: (commodity: CommodityType) => void
   confirmRearrange: () => void
@@ -343,9 +344,11 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       const cls = card.class as CardClass
       if (player.buildingTrack[cls] >= CLASS_LIMIT[cls]) return s
 
-      // One building per owned region (action cards execute immediately, no slot needed)
-      const ownedRegions = Object.values(s.regions).filter(r => r.owner === player.id).length
-      if (cls !== 'action' && player.activeCards.length >= ownedRegions) return s
+      // Must have a free empire card slot (action cards execute immediately, no slot needed)
+      const empireCardSlots = 3
+        + (player.buildingTrack.science >= 1 ? 1 : 0)
+        + (player.buildingTrack.science >= 3 ? 1 : 0)
+      if (cls !== 'action' && player.activeCards.length >= empireCardSlots) return s
 
       // Check affordability
       if (payWithGold) {
@@ -442,6 +445,29 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         players: newPlayers,
         marketCards: newMarketCards,
         log: [...s.log, `${player.name} bought ${card.name}.`],
+      }
+    })
+  },
+
+  discardCard: (cardId) => {
+    set(s => {
+      const player = s.players[s.currentPlayerIndex]
+      if (player.marketActionsRemaining <= 0) return s
+      const cardIndex = player.activeCards.findIndex(c => c.id === cardId)
+      if (cardIndex === -1) return s
+      const card = player.activeCards[cardIndex]
+      const newPlayers = s.players.map((p, i) =>
+        i === s.currentPlayerIndex
+          ? {
+              ...p,
+              activeCards: p.activeCards.filter((_, j) => j !== cardIndex),
+              marketActionsRemaining: p.marketActionsRemaining - 1,
+            }
+          : p
+      )
+      return {
+        players: newPlayers,
+        log: [...s.log, `${player.name} discarded ${card.name}.`],
       }
     })
   },
