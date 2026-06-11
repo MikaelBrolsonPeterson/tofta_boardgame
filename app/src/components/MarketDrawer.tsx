@@ -2,6 +2,7 @@ import { useGameStore } from '../store/gameStore'
 import type { EmpireCard, ResourceType, CommodityType } from '../types/game'
 import { IconGold, IconVP, IconMarketAction } from './GameIcons'
 import GameCard from './GameCard'
+import BuildingTrack from './BuildingTrack'
 
 const COMMODITY_TYPES: CommodityType[] = ['iron', 'paper', 'cloth', 'glass', 'wild']
 const EMOJI: Record<ResourceType | CommodityType, string> = {
@@ -90,6 +91,12 @@ export default function MarketDrawer({ open, onClose }: Props) {
         <span className={slotsFull ? 'text-red-400 font-bold' : 'text-slate-400'}>
           {player.activeCards.length}/{empireCardSlots}{slotsFull ? ' — FULL' : ''}
         </span>
+      </div>
+
+      {/* Building tracks */}
+      <div className="flex-shrink-0 px-3 py-2" style={{ borderBottom: '1px solid #1e293b' }}>
+        <div className="text-xs text-slate-600 mb-1.5 font-medium tracking-wide uppercase" style={{ fontSize: 10 }}>Building Tracks</div>
+        <BuildingTrack buildingTrack={player.buildingTrack} />
       </div>
 
       {/* Utility actions */}

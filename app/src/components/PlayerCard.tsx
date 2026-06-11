@@ -1,6 +1,7 @@
 import type { Player, CardClass } from '../types/game'
 import { useGameStore } from '../store/gameStore'
 import { IconGold, IconVP, IconAttackAction, IconMarketAction } from './GameIcons'
+import BuildingTrack from './BuildingTrack'
 
 const CLASS_COLOR: Record<CardClass, string> = {
   military: '#991b1b',
@@ -182,8 +183,8 @@ function ActivePlayerCard({ player, ownedRegions }: { player: Player; ownedRegio
         )}
       </div>
 
-      {/* Condensed building tracks — single row */}
-      <MiniTracks track={player.buildingTrack} />
+      {/* Building tracks */}
+      <BuildingTrack buildingTrack={player.buildingTrack} />
 
       {/* Active empire cards */}
       {player.activeCards.length > 0 && (

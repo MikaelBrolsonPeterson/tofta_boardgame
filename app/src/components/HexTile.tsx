@@ -26,13 +26,13 @@ interface Props {
   claimColor?: string
   isRearrangeSource: boolean
   isRearrangeTarget: boolean
-  ownerColor?: string
+  revoltColor?: string
   onClick: () => void
 }
 
 export default function HexTile({
   region, selected, isAttackSource, isValidTarget, isAttackMode,
-  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, ownerColor, onClick,
+  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, revoltColor, onClick,
 }: Props) {
   const { x, y } = hexToPixel(region.q, region.r)
   const cfg = TERRAIN[region.terrain]
@@ -101,7 +101,7 @@ export default function HexTile({
         <polygon
           points={points}
           fill="none"
-          stroke={region.inRevolt ? (ownerColor ?? '#f59e0b') : (claimColor ?? '#f59e0b')}
+          stroke={region.inRevolt ? (revoltColor ?? '#f59e0b') : (claimColor ?? '#f59e0b')}
           strokeWidth={2.5}
           strokeDasharray="4 3"
           opacity={0.9}
