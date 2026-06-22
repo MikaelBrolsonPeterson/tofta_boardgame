@@ -49,7 +49,31 @@ export const EMPIRE_CARDS: EmpireCard[] = [
     vp: 0,
   },
 
+  {
+    id: 'blitz',
+    name: 'Blitz',
+    class: 'military',
+    era: 1,
+    goldCost: 4,
+    altCost: [{ type: 'food', amount: 1 }],
+    placement: '—',
+    effect: 'Held-and-triggered. After a successful attack, you may immediately perform one additional attack originating from the just-conquered region. Discard Blitz after triggering.',
+    vp: 0,
+  },
+
   // ── MILITARY ERA II ───────────────────────────────────────────────────────
+
+  {
+    id: 'blitz_ii',
+    name: 'Blitz',
+    class: 'military',
+    era: 2,
+    goldCost: 5,
+    altCost: [{ type: 'iron', amount: 1 }],
+    placement: '—',
+    effect: 'Held-and-triggered. After a successful attack, you may immediately perform one additional attack originating from the just-conquered region. Discard Blitz after triggering.',
+    vp: 0,
+  },
 
   {
     id: 'spy_infiltration',
@@ -209,6 +233,17 @@ export const EMPIRE_CARDS: EmpireCard[] = [
   // ── MILITARY ERA III ──────────────────────────────────────────────────────
 
   {
+    id: 'blitz_iii',
+    name: 'Blitz',
+    class: 'military',
+    era: 3,
+    goldCost: 6,
+    altCost: [{ type: 'iron', amount: 1 }],
+    placement: '—',
+    effect: 'Held-and-triggered. After a successful attack, you may immediately perform one additional attack originating from the just-conquered region. Discard Blitz after triggering.',
+    vp: 0,
+  },
+  {
     id: 'bulwark',
     name: 'Bulwark',
     class: 'military',
@@ -308,125 +343,17 @@ export const EMPIRE_CARDS: EmpireCard[] = [
     vp: 0,
   },
 
-  // ── MARKET ERA I — Resource Buildings ────────────────────────────────────
+  // ── MARKET ERA II — VP Conversion ────────────────────────────────────────
 
   {
-    id: 'quarry',
-    name: 'Quarry',
-    class: 'market',
-    era: 1,
-    goldCost: 5,
-    altCost: [{ type: 'wood', amount: 1 }],
-    placement: 'Mountain',
-    effect: 'Auto-places on a mountain on purchase. Produces 1 Stone per round.',
-    vp: 0,
-  },
-  {
-    id: 'lumber_mill',
-    name: 'Lumber Mill',
-    class: 'market',
-    era: 1,
-    goldCost: 5,
-    altCost: [{ type: 'stone', amount: 1 }],
-    placement: 'Forest',
-    effect: 'Auto-places on a forest on purchase. Produces 1 Wood per round.',
-    vp: 0,
-  },
-  {
-    id: 'farm',
-    name: 'Farm',
-    class: 'market',
-    era: 1,
-    goldCost: 5,
-    altCost: [{ type: 'wood', amount: 1 }],
-    placement: 'Grassland',
-    effect: 'Auto-places on a grassland on purchase. Produces 1 Food per round.',
-    vp: 0,
-  },
-  {
-    id: 'salt_mine',
-    name: 'Salt Mine',
-    class: 'market',
-    era: 1,
-    goldCost: 5,
-    altCost: [{ type: 'stone', amount: 1 }],
-    placement: 'Desert',
-    effect: 'Auto-places on a desert on purchase. Produces 1 Food per round.',
-    vp: 0,
-  },
-
-  // ── MARKET ERA I — Commodity Buildings ───────────────────────────────────
-
-  {
-    id: 'mine',
-    name: 'Mine',
-    class: 'market',
-    era: 1,
-    goldCost: 6,
-    altCost: [{ type: 'stone', amount: 1 }],
-    placement: 'Mountain',
-    effect: 'Auto-places on a mountain on purchase. Produces 1 Iron per round.',
-    vp: 0,
-  },
-  {
-    id: 'papyrus_workshop',
-    name: 'Papyrus Workshop',
-    class: 'market',
-    era: 1,
-    goldCost: 6,
-    altCost: [{ type: 'food', amount: 1 }],
-    placement: 'Grassland or Swamp',
-    effect: 'Auto-places on a grassland or swamp on purchase. Produces 1 Paper per round.',
-    vp: 0,
-  },
-
-  // ── MARKET ERA II — Commodity Buildings ──────────────────────────────────
-
-  {
-    id: 'loom',
-    name: 'Loom',
+    id: 'glass_exchange',
+    name: 'Glass Exchange',
     class: 'market',
     era: 2,
     goldCost: 6,
-    altCost: [{ type: 'food', amount: 1 }],
-    placement: 'Grassland',
-    effect: 'Auto-places on a grassland on purchase. Produces 1 Cloth per round.',
-    vp: 0,
-  },
-  {
-    id: 'iron_forge',
-    name: 'Iron Forge',
-    class: 'market',
-    era: 2,
-    goldCost: 10,
-    altCost: [{ type: 'iron', amount: 2 }],
-    placement: 'Mountain',
-    effect: 'Auto-places on a mountain on purchase. Produces 2 Iron per round.',
-    vp: 0,
-  },
-  {
-    id: 'glassworks',
-    name: 'Glassworks',
-    class: 'market',
-    era: 2,
-    goldCost: 8,
-    altCost: [{ type: 'food', amount: 2 }],
-    placement: 'Desert or sea-adjacent land',
-    effect: 'Auto-places on a desert or sea-adjacent land region on purchase. Produces 1 Glass per round.',
-    vp: 0,
-  },
-
-  // ── MARKET ERA III — Commodity Buildings ─────────────────────────────────
-
-  {
-    id: 'scriptorium',
-    name: 'Scriptorium',
-    class: 'market',
-    era: 3,
-    goldCost: 10,
-    altCost: [{ type: 'paper', amount: 2 }],
-    placement: 'Any controlled region',
-    effect: 'Auto-places on any controlled region on purchase. Produces 2 Paper per round.',
+    altCost: [{ type: 'glass', amount: 1 }],
+    placement: '—',
+    effect: 'Once per turn: spend 1 market action + 2 Glass → gain 1 VP.',
     vp: 0,
   },
 
@@ -465,18 +392,6 @@ export const EMPIRE_CARDS: EmpireCard[] = [
     effect: 'Once per turn: spend 1 market action + 2 Cloth → gain 1 VP.',
     vp: 0,
   },
-  {
-    id: 'glass_exchange',
-    name: 'Glass Exchange',
-    class: 'market',
-    era: 3,
-    goldCost: 6,
-    altCost: [{ type: 'glass', amount: 1 }],
-    placement: '—',
-    effect: 'Once per turn: spend 1 market action + 2 Glass → gain 1 VP.',
-    vp: 0,
-  },
-
   // ── SCIENCE ERA I ─────────────────────────────────────────────────────────
 
   {
@@ -650,7 +565,7 @@ export const EMPIRE_CARDS: EmpireCard[] = [
     goldCost: 3,
     altCost: [{ type: 'food', amount: 1 }],
     placement: '—',
-    effect: 'All your grassland regions bordering another player produce 1 Food per round.',
+    effect: 'All your farmland regions bordering another player produce 1 Food per round.',
     vp: 0,
   },
 
@@ -926,6 +841,31 @@ export const EMPIRE_CARDS: EmpireCard[] = [
     placement: '—',
     effect: 'Gain 1 VP.',
     vp: 1,
+  },
+
+  // ── ACTION ERA I — Burst Production ──────────────────────────────────────
+
+  {
+    id: 'harvest',
+    name: 'Harvest',
+    class: 'action',
+    era: 1,
+    goldCost: 4,
+    altCost: [{ type: 'food', amount: 1 }],
+    placement: '—',
+    effect: 'All your production buildings produce once immediately (in addition to the normal round production).',
+    vp: 0,
+  },
+  {
+    id: 'surplus',
+    name: 'Surplus',
+    class: 'action',
+    era: 1,
+    goldCost: 3,
+    altCost: [],
+    placement: '—',
+    effect: 'Choose one resource or commodity type. All your buildings that produce that type produce once immediately.',
+    vp: 0,
   },
 
   // ── ACTION ERA II ─────────────────────────────────────────────────────────

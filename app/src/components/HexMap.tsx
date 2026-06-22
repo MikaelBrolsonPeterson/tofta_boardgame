@@ -5,10 +5,10 @@ import { TERRAIN } from '../data/terrainConfig'
 import type { TerrainType } from '../types/game'
 
 // Terrain gradient IDs are stable across the lifetime of this SVG.
-const TERRAIN_TYPES: TerrainType[] = ['ocean','water','grassland','mountain','swamp','desert','forest','capitol','ruins']
+const TERRAIN_TYPES: TerrainType[] = ['ocean','water','plains','farmland','mountain','desert','forest','capitol','ruins']
 
 export default function HexMap() {
-  const { regions, players, currentPlayerIndex, phase, selectedHex, attackSourceHex, selectHex, pendingClaims, pendingConquest, rearrangeSourceKey } = useGameStore()
+  const { regions, players, currentPlayerIndex, phase, selectedHex, attackSourceHex, selectHex, pendingClaims, pendingConquest, rearrangeSourceKey, pendingPlacement } = useGameStore()
   const currentPlayer = players[currentPlayerIndex]
 
   const validTargets = new Set<string>()
@@ -27,6 +27,19 @@ export default function HexMap() {
       const k = hexKey(r.q, r.r)
       if (r.owner === pendingConquest.defenderPlayerId && !r.productionMarker && k !== rearrangeSourceKey) {
         rearrangeTargets.add(k)
+      }
+    })
+  }
+
+  const validPlacements = new Set<string>()
+  if (phase === 'place-production-marker' && pendingPlacement) {
+    Object.values(regions).forEach(r => {
+      if (
+        r.owner === currentPlayer.id &&
+        pendingPlacement.validTerrains.includes(r.terrain) &&
+        !r.productionMarker
+      ) {
+        validPlacements.add(hexKey(r.q, r.r))
       }
     })
   }
@@ -72,6 +85,8 @@ export default function HexMap() {
             revoltColor={region.owner ? players.find(p => p.id === region.owner)?.color : undefined}
             isRearrangeSource={rearrangeSourceKey === key}
             isRearrangeTarget={rearrangeTargets.has(key)}
+            isValidPlacement={validPlacements.has(key)}
+            isPlacementMode={phase === 'place-production-marker'}
             onClick={() => selectHex(region.q, region.r)}
           />
         )

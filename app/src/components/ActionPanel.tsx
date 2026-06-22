@@ -12,6 +12,8 @@ export default function ActionPanel({ marketOpen, onToggleMarket }: Props) {
     players, currentPlayerIndex, phase, selectedHex, regions,
     initiateAttack, cancelAttack, abandonSelected, endTurn,
     pendingConquest, rearrangeSourceKey, confirmRearrange,
+    pendingPlacement, cancelPlacement,
+    pendingTrackChoice, selectTrackBenefit,
   } = useGameStore()
   const player = players[currentPlayerIndex]
   const selectedRegion = selectedHex ? regions[hexKey(selectedHex.q, selectedHex.r)] : null
@@ -26,6 +28,54 @@ export default function ActionPanel({ marketOpen, onToggleMarket }: Props) {
         </span>
         <button
           onClick={cancelAttack}
+          className="px-3 py-2 rounded-lg text-xs font-semibold bg-slate-700 hover:bg-slate-600 text-white transition-colors"
+        >
+          Cancel
+        </button>
+      </div>
+    )
+  }
+
+  if (phase === 'select-track-benefit' && pendingTrackChoice) {
+    return (
+      <div className="flex flex-col gap-2 p-3 h-full justify-center">
+        <span className="text-amber-300 text-xs font-semibold text-center leading-snug">
+          Choose track benefit
+        </span>
+        {pendingTrackChoice.options.map((opt, i) => {
+          const label =
+            opt.type === 'production' ? opt.label :
+            opt.type === 'gold' ? `+${opt.amount} gold` :
+            opt.type === 'attackAction' ? `+${opt.amount} attack action` :
+            opt.type === 'marketAction' ? `+${opt.amount} market action` :
+            opt.type === 'cardSlot' ? `+${opt.amount} card slot` :
+            opt.type === 'tokenDiscount' ? `-${opt.amount} token cost` :
+            opt.type === 'vp' ? `+${opt.amount} VP` : opt.type
+          return (
+            <button
+              key={i}
+              onClick={() => selectTrackBenefit(i)}
+              className="px-3 py-2 rounded-lg text-xs font-semibold bg-amber-800 hover:bg-amber-700 text-amber-100 transition-colors"
+            >
+              {label}
+            </button>
+          )
+        })}
+      </div>
+    )
+  }
+
+  if (phase === 'place-production-marker' && pendingPlacement) {
+    return (
+      <div className="flex flex-col gap-2 p-3 h-full justify-center">
+        <span className="text-emerald-300 text-xs font-semibold text-center leading-snug">
+          ⛏ Place {pendingPlacement.cardName}<br />
+          <span className="text-emerald-600 font-normal">
+            {pendingPlacement.validTerrains.join(' / ')}
+          </span>
+        </span>
+        <button
+          onClick={cancelPlacement}
           className="px-3 py-2 rounded-lg text-xs font-semibold bg-slate-700 hover:bg-slate-600 text-white transition-colors"
         >
           Cancel

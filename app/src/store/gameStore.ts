@@ -1,11 +1,12 @@
 import { create } from 'zustand'
-import type { GameState, Player, PlayerId, CombatResult, EmpireCard, CardClass, CommodityType, PendingConquest } from '../types/game'
+import type { GameState, Player, PlayerId, CombatResult, EmpireCard, CardClass, CommodityType, PendingConquest, TrackBenefit } from '../types/game'
 import { buildMap, type MapId } from '../data/initialMap'
 import { BASE_DECK, INDEPENDENT_DECK, shuffle, drawOne, modifierToNumber } from '../data/modifierDeck'
 import { TERRAIN } from '../data/terrainConfig'
 import { getNeighbors, hexKey, isAdjacent } from '../utils/hex'
 import { EMPIRE_CARDS } from '../data/empireCards'
-import { CLASS_LIMIT, TRACK_BENEFITS } from '../data/buildingTrack'
+import { CLASS_LIMIT, TRACK_TIERS } from '../data/buildingTrack'
+import { BUILDING_PRODUCTION } from '../data/productionBuildings'
 
 function shuffleArray<T>(arr: T[]): T[] {
   const a = [...arr]
@@ -67,6 +68,8 @@ interface Actions {
   replenishMarket: () => void
   purchaseVP: (commodity: CommodityType) => void
   confirmRearrange: () => void
+  cancelPlacement: () => void
+  selectTrackBenefit: (optionIndex: number) => void
   switchMap: (mapId: MapId) => void
 }
 
@@ -96,11 +99,35 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
   pendingClaims: {},
   pendingConquest: null,
   rearrangeSourceKey: null,
+  pendingPlacement: null,
+  pendingTrackChoice: null,
+  modifierDrawPile: [],
 
   selectHex: (q, r) => {
-    const { phase, pendingConquest, rearrangeSourceKey, regions } = get()
+    const { phase, pendingConquest, rearrangeSourceKey, regions, pendingPlacement, players, currentPlayerIndex, era } = get()
     if (phase === 'select-attack-target') {
       get().executeAttack(q, r)
+      return
+    }
+    if (phase === 'place-production-marker' && pendingPlacement) {
+      const key = hexKey(q, r)
+      const region = regions[key]
+      const player = players[currentPlayerIndex]
+      if (
+        region?.owner === player.id &&
+        pendingPlacement.validTerrains.includes(region.terrain) &&
+        !region.productionMarker
+      ) {
+        set(s => ({
+          regions: {
+            ...s.regions,
+            [key]: { ...region, productionMarker: { label: pendingPlacement.cardId, placedInEra: era } },
+          },
+          phase: 'action',
+          pendingPlacement: null,
+          log: [...s.log, `${player.name} placed ${pendingPlacement.cardName} on ${TERRAIN[region.terrain].label} (${q},${r}).`],
+        }))
+      }
       return
     }
     if (phase === 'defender-rearrange' && pendingConquest) {
@@ -393,18 +420,19 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         }
       }
 
-      // Apply track benefit at current position (before incrementing)
+      // Resolve track benefit at current position (before incrementing)
       const trackPos = player.buildingTrack[cls]
-      const benefits = TRACK_BENEFITS[cls]
-      const benefit = benefits[trackPos]
+      const tiers = TRACK_TIERS[cls]
+      const tier = tiers?.[trackPos]
 
       let newAttackActionsPerTurn = player.attackActionsPerTurn
       let newAttackActionsRemaining = player.attackActionsRemaining
       let newMarketActionsPerTurn = player.marketActionsPerTurn
       let newMarketActionsRemaining = player.marketActionsRemaining
       let newVP = player.victoryPoints + card.vp
+      let pendingChoice: GameState['pendingTrackChoice'] = null
 
-      if (benefit) {
+      function applyBenefit(benefit: TrackBenefit) {
         if (benefit.type === 'gold') {
           newGold += benefit.amount
         } else if (benefit.type === 'attackAction') {
@@ -416,10 +444,21 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         } else if (benefit.type === 'vp') {
           newVP += benefit.amount
         }
+        // cardSlot and tokenDiscount are structural — recalculated from track position
+      }
+
+      if (tier) {
+        if (tier.kind === 'locked') {
+          applyBenefit(tier.benefit)
+        } else {
+          pendingChoice = { cls, options: tier.options }
+        }
       }
 
       // Decrement market actions
       newMarketActionsRemaining -= 1
+
+      const isProductionBuilding = card.id in BUILDING_PRODUCTION
 
       // Build updated player
       const updatedPlayer: Player = {
@@ -427,7 +466,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         gold: newGold,
         resources: newResources,
         commodities: newCommodities,
-        activeCards: cls !== 'action' ? [...player.activeCards, card] : player.activeCards,
+        // Production buildings go on the map, not into the card rack
+        activeCards: (cls !== 'action' && !isProductionBuilding) ? [...player.activeCards, card] : player.activeCards,
         buildingTrack: cls !== 'action' ? { ...player.buildingTrack, [cls]: trackPos + 1 } : player.buildingTrack,
         attackActionsPerTurn: newAttackActionsPerTurn,
         attackActionsRemaining: newAttackActionsRemaining,
@@ -452,11 +492,73 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
           ? { ...updatedPlayer, goldProduction: calcGoldProduction(s.regions, p.id) }
           : p
       )
+
+      const choiceLabel = pendingChoice ? ' Choose track benefit.' : ''
       return {
         players: newPlayers,
         marketCards: newMarketCards,
         marketDeck: newMarketDeck,
-        log: [...s.log, `${player.name} bought ${card.name}.`],
+        log: [...s.log, `${player.name} bought ${card.name}.${choiceLabel}`],
+        ...(pendingChoice ? {
+          phase: 'select-track-benefit' as const,
+          pendingTrackChoice: pendingChoice,
+        } : {}),
+      }
+    })
+  },
+
+  selectTrackBenefit: (optionIndex: number) => {
+    set(s => {
+      if (!s.pendingTrackChoice) return s
+      const { options } = s.pendingTrackChoice
+      const benefit = options[optionIndex]
+      if (!benefit) return s
+
+      const player = s.players[s.currentPlayerIndex]
+      let newGold = player.gold
+      let newAttackActionsPerTurn = player.attackActionsPerTurn
+      let newAttackActionsRemaining = player.attackActionsRemaining
+      let newMarketActionsPerTurn = player.marketActionsPerTurn
+      let newMarketActionsRemaining = player.marketActionsRemaining
+      let newVP = player.victoryPoints
+
+      let pendingPlacement: GameState['pendingPlacement'] = null
+      let nextPhase: GameState['phase'] = 'action'
+
+      if (benefit.type === 'gold') {
+        newGold += benefit.amount
+      } else if (benefit.type === 'attackAction') {
+        newAttackActionsPerTurn += benefit.amount
+        newAttackActionsRemaining += benefit.amount
+      } else if (benefit.type === 'marketAction') {
+        newMarketActionsPerTurn += benefit.amount
+        newMarketActionsRemaining += benefit.amount
+      } else if (benefit.type === 'vp') {
+        newVP += benefit.amount
+      } else if (benefit.type === 'production') {
+        const prod = BUILDING_PRODUCTION[benefit.buildingId]
+        if (prod) {
+          pendingPlacement = { cardId: benefit.buildingId, cardName: benefit.label, validTerrains: prod.validTerrains }
+          nextPhase = 'place-production-marker'
+        }
+      }
+
+      const updatedPlayer: Player = {
+        ...player,
+        gold: newGold,
+        attackActionsPerTurn: newAttackActionsPerTurn,
+        attackActionsRemaining: newAttackActionsRemaining,
+        marketActionsPerTurn: newMarketActionsPerTurn,
+        marketActionsRemaining: newMarketActionsRemaining,
+        victoryPoints: newVP,
+      }
+
+      return {
+        players: s.players.map((p, i) => i === s.currentPlayerIndex ? updatedPlayer : p),
+        phase: nextPhase,
+        pendingTrackChoice: null,
+        pendingPlacement,
+        log: [...s.log, `${player.name} chose track benefit: ${benefit.type === 'production' ? benefit.label : benefit.type}.`],
       }
     })
   },
@@ -537,6 +639,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       }
     })
   },
+
+  cancelPlacement: () => set({ phase: 'action', pendingPlacement: null }),
 
   confirmRearrange: () => {
     set(s => {
@@ -663,6 +767,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
         pendingClaims: newPendingClaims,
         pendingConquest: null,
         rearrangeSourceKey: null,
+        pendingPlacement: null,
+        pendingTrackChoice: null,
         lastCombat: null,
         log: [...s.log, ...logs],
         marketCards: newMarketCards,
@@ -686,6 +792,8 @@ export const useGameStore = create<GameState & Actions>((set, get) => ({
       pendingClaims: {},
       pendingConquest: null,
       rearrangeSourceKey: null,
+      pendingPlacement: null,
+      pendingTrackChoice: null,
       lastCombat: null,
       log: [`Switched to map. Game restarted.`],
       marketCards: era1Shuffled.slice(0, 4),

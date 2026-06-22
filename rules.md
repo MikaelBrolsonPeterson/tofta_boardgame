@@ -16,17 +16,17 @@ You are two competing beehives in a park called Bulltofta. You race for claiming
 
 ### General
 
-The game is played across 3 Eras. Each era ends when the first player reaches a VP threshold — the era advances at the close of the round in which the threshold is crossed. Each player's base actions scale with the current era — in Era I players have 1 attack and 1 market action, in Era II they have 2 of each, and in Era III they have 3 of each. Additional actions of both types can be acquired through the Military and Market building tracks (tier 1 and tier 3 each grant +1 action/round) or by purchasing and assigning Empire cards to your Empire.
+The game is played across 3 Eras. Each era ends when the first player reaches a VP threshold — the era advances at the close of the round in which the threshold is crossed. Each player has **1 attack action and 1 market action per round** as their permanent base — this does not scale with era. Additional actions can be acquired through the Military and Market building tracks (tier 1 and tier 3 each grant +1 action/round) or by purchasing and assigning Empire cards to your Empire.
 
 ### Starting State
 
 Each player begins with:
 - **5 gold**
 - **1 Capitol** (gold production +3)
-- **1 adjacent grassland** (gold production +2)
+- **1 adjacent plains** (gold production +2)
 - Starting gold production: **+5**
 
-The first conquest decision — grassland for gold production, mountain for stone, forest for wood — sets the strategic tone for Era I.
+The first conquest decision — plains for gold production, mountain for stone, forest for wood — sets the strategic tone for Era I.
 
 ### Player Empire Mat
 
@@ -207,9 +207,9 @@ Gold production is the sum of your connected regions' gold production values plu
 | Region | Gold production value |
 |--------|----------------------|
 | Capitol | +3 |
-| Grassland | +2 |
+| Plains | +2 |
+| Farmland | 0 |
 | Mountain | −2 |
-| Swamp | −1 |
 | Desert | +1 |
 | Forest | −1 |
 | Sea | — (not ownable; gold production via adjacent Market tokens) |
@@ -227,7 +227,7 @@ Resources (Stone, Wood, Food) are **not generated automatically by terrain**. Th
 |----------|-------------|-----------------|
 | Stone | Quarry | Mountain |
 | Wood | Lumber Mill | Forest |
-| Food | Farm, Salt Mine | Grassland, Desert |
+| Food | Farm, Salt Mine | Farmland, Desert |
 
 **Empire card dual pricing:** Each card lists a gold cost and a resource or commodity cost. Pay one or the other — never both. Example: *Mountain Fort* costs `3 gold` OR `1 stone`.
 
@@ -238,8 +238,8 @@ Commodities are a processed tier above raw resources, produced by commodity buil
 | Commodity | Produced by | Eligible terrain |
 |-----------|-------------|-----------------|
 | Iron | Mine (1/round), Iron Forge (2/round) | Mountain |
-| Paper | Papyrus Workshop (1/round), Scriptorium (2/round) | Grassland, Swamp / Anywhere |
-| Cloth | Loom | Grassland |
+| Paper | Papyrus Workshop (1/round), Scriptorium (2/round) | Forest / Anywhere |
+| Cloth | Loom | Farmland |
 | Glass | Glassworks | Desert, sea-adjacent land |
 | Wild | Ancient Ruins (automatic, no building needed) | — |
 
@@ -413,11 +413,11 @@ Some Empire cards generate resources or commodities based on the position of reg
 | Type           | Gold production | Defense mod | Attack mod | Attacks to conquer | Special |
 |----------------|--------|-------------|------------|--------------------|---------|
 | Sea            | —      | —           | —          | —                  | Not ownable or conquerable. Sea-adjacent land regions gain gold production bonuses from Market tokens (see below). Naval Bastion (Military tier 3) enables attacks across a sea tile. |
-| Grassland      | +2     | 0           | 0          | 1                  | Eligible for: Farm, Papyrus Workshop, Loom |
+| Plains         | +2     | 0           | 0          | 1                  | Pure income tile. No building eligibility. |
+| Farmland       | 0      | 0           | 0          | 1                  | Eligible for: Farm, Loom |
 | Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
-| Swamp          | −1     | +1          | 0          | 2                  | Eligible for: Papyrus Workshop |
 | Desert         | +1     | 0           | 0          | 2                  | Eligible for: Glassworks, Salt Mine |
-| Forest         | −1     | +1          | 0          | 1                  | Eligible for: Lumber Mill |
+| Forest         | −1     | +1          | 0          | 1                  | Eligible for: Lumber Mill, Papyrus Workshop |
 | Capitol        | +3     | +2          | +2         | 3                  | Attacker has disadvantage |
 | Ancient Ruins  | 0      | −1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
 
@@ -450,7 +450,7 @@ Before the conquest resolves, the defender may move one production marker from a
 
 ### Multiple Attacks to Conquer
 
-Some regions (Desert: 2, Swamp: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
+Some regions (Desert: 2, Capitol: 3) require more than one attack action to conquer. The cost is paid upfront, but combat is resolved as a **single roll**. If the attacker draws Fail, no conquest occurs and the attack actions are lost.
 
 ### Strength
 
@@ -741,7 +741,7 @@ Placed on regions by Empire cards. Each shows its icon and effect summary.
 | Award VP token (2 VP) | 5 | One per Award; held by current category leader |
 | Milestone tile | 4 | Claimed permanently by first qualifier; flip to show claimed |
 | First player marker | 1 | Passes clockwise each round |
-| Conquest progress cube | 10 | Neutral color; placed on partially-conquered regions (Desert, Swamp, Capitol) |
+| Conquest progress cube | 10 | Neutral color; placed on partially-conquered regions (Desert, Capitol) |
 
 #### Resource and Commodity Tokens
 
@@ -771,7 +771,7 @@ Kept in a shared bank. Players draw from and return to the bank.
 
 - **Scoring criteria:** Settled. Milestones and Awards system adopted (see Scoring section). No interim era scoring — milestones and awards provide sufficient mid-game VP incentives.
 
-- **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 grassland. Starting gold production: 5. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
+- **Monetary system:** Settled. Starting gold: 5. Starting regions: Capitol + 1 plains. Starting gold production: 5. Card pricing averages ~4 gold (Era I), ~7 gold (Era II), ~10 gold (Era III).
 - **Event cards:** Deferred to a future edition. Core game has sufficient complexity for initial playtesting.
 - **Draft and Cull:** Settled. Always available at base rate (draw 2 keep 1 / remove 1 of 3, each costs 1 market action + 3 gold). Empire cards improve the rate — Apprenticeship draws 3, Traveling Scholar reduces cost, Grand Archive draws 4 keep 2 / chooses from 5 remove 2.
 - **Modifier deck size:** 12 vs 24 cards per player — test both to determine which feels better.
@@ -798,7 +798,9 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Drill Sergeant | I | 4 gold OR 1 food | — | +1 base defense strength for all regions while on your mat. |
 | Standing Guard | I | 3 gold OR 1 stone | — | When played, choose a region you control. Place a round disadvantage marker on it — attackers targeting that region draw with disadvantage. Remove the marker if the region is conquered or this card is discarded. |
 | Staging Ground | I | 3 gold OR 1 stone | — | When played, choose a region you control. Place a round advantage marker on it — when you attack from that region, draw with advantage. Remove the marker if the region is conquered or this card is discarded. |
+| Blitz | I | 4 gold OR 1 food | — | **Held-and-triggered.** After a successful attack, you may immediately perform one additional attack originating from the just-conquered region. Discard Blitz after triggering. |
 | Mobilization | I | 5 gold OR 2 food | — | Place 1 cube on this card when played and at the start of each era. Spend 1 cube to gain 1 extra attack action. Unspent cubes are removed at each era transition. |
+| Blitz | II | 5 gold OR 1 iron | — | **Held-and-triggered.** After a successful attack, you may immediately perform one additional attack originating from the just-conquered region. Discard Blitz after triggering. |
 | Spy Infiltration | II | 5 gold OR 1 iron | — | When played, choose one enemy region adjacent to any region you control. That region loses 1 defense while this card is on your mat. All players benefit from the reduced defense when attacking that region. |
 | Siege Tactics | II | 6 gold OR 1 iron | — | When played, choose one enemy region adjacent to any region you control. Place a siege marker on it — that region has no terrain defense bonus while this card is on your mat. Remove the marker if you discard this card. |
 | Shield Wall | II | 7 gold OR 1 iron + 1 food | — | Once per era: all your regions gain +1 defense this round. |
@@ -809,6 +811,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Fortified Perimeter | II | 7 gold OR 1 iron + 1 food | — | When played, choose two regions you control. Place a disadvantage marker on each — attackers targeting these regions draw with disadvantage. Remove markers if the regions are conquered or this card is discarded. |
 | High Ground | II | 5 gold OR 1 iron | — | While on your mat: you draw with advantage when attacking mountain regions. |
 | Guerrilla Tactics | II | 5 gold OR 1 food | — | While on your mat: attackers targeting your forest regions draw with disadvantage. |
+| Blitz | III | 6 gold OR 1 iron | — | **Held-and-triggered.** After a successful attack, you may immediately perform one additional attack originating from the just-conquered region. Discard Blitz after triggering. |
 | Bulwark | III | 9 gold OR 3 stone | — | When played, choose a region you control. Place a discipline marker on it — that region gains +2 defense while this card is on your mat. Remove the marker if you discard this card. |
 | Iron Legion | III | 8 gold OR 2 iron | — | +2 base attack strength while on your mat. Requires 2 or more Military Empire cards on your mat when purchasing. |
 | Raid | II | 5 gold OR 1 iron | — | Spend 1 market action: take 1 resource from any region adjacent to a region you control. OR spend 1 attack action instead: take 2 resources from any region adjacent to a region you control. Each use requires its own action. |
@@ -817,7 +820,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | War Banner | III | 9 gold OR 2 iron | — | When an opponent draws Fail from their modifier deck during combat against any player this era, gain +1 attack strength on your next attack. |
 | Supreme Vanguard | III | 10 gold OR 2 iron + 1 cloth | — | When played, choose up to two regions you control. Place an advantage marker on each — when attacking from these regions, draw with advantage. Remove markers if regions are conquered or this card is discarded. |
 | War of Attrition | III | 9 gold OR 2 iron | — | When played, choose up to two enemy regions adjacent to your territory. Place an advantage marker on each — when you attack those regions, draw with advantage. Remove markers if this card is discarded or the regions change ownership. |
-| Conqueror's Gambit | III | 11 gold OR 2 iron + 1 cloth | — | Once per era: declare a chain assault on up to 5 consecutive regions, each adjacent to the previously conquered region in the chain or a region you already control. Each region costs its normal attack action amount (Desert and Swamp 2, Capitol 3, others 1) — pay all attack actions upfront before rolling. All attacks draw with advantage. If any attack fails, all regions taken during this chain immediately revert — you gain none of them. If all attacks succeed, keep all conquered regions. |
+| Conqueror's Gambit | III | 11 gold OR 2 iron + 1 cloth | — | Once per era: declare a chain assault on up to 5 consecutive regions, each adjacent to the previously conquered region in the chain or a region you already control. Each region costs its normal attack action amount (Desert 2, Capitol 3, others 1) — pay all attack actions upfront before rolling. All attacks draw with advantage. If any attack fails, all regions taken during this chain immediately revert — you gain none of them. If all attacks succeed, keep all conquered regions. |
 | Mobile Doctrine | III | 8 gold OR 1 iron + 1 cloth | — | While on your mat: when a region containing one of your markers is conquered, you may immediately move that marker to any adjacent region you control instead of removing it. |
 | Master Tactician | III | 9 gold OR 2 iron + 1 food | — | Choose one terrain type when playing this card. While on your mat: you draw with advantage when attacking regions of that type, and attackers targeting your regions of that type draw with disadvantage. |
 
@@ -827,7 +830,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 |------|-----|------|-----------|--------|
 | Quarry | I | 5 gold OR 1 wood | Mountain | Auto-places on a mountain on purchase. Produces 1 Stone per round. |
 | Lumber Mill | I | 5 gold OR 1 stone | Forest | Auto-places on a forest on purchase. Produces 1 Wood per round. |
-| Farm | I | 5 gold OR 1 wood | Grassland | Auto-places on a grassland on purchase. Produces 1 Food per round. |
+| Farm | I | 5 gold OR 1 wood | Farmland | Auto-places on a farmland on purchase. Produces 1 Food per round. |
 | Salt Mine | I | 5 gold OR 1 stone | Desert | Auto-places on a desert on purchase. Produces 1 Food per round. |
 
 ### Market (Green) — Commodity buildings
@@ -835,8 +838,8 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
 | Mine | I | 6 gold OR 1 stone | Mountain | Auto-places on a mountain on purchase. Produces 1 Iron per round. |
-| Papyrus Workshop | I | 6 gold OR 1 food | Grassland or Swamp | Auto-places on a grassland or swamp on purchase. Produces 1 Paper per round. |
-| Loom | II | 6 gold OR 1 food | Grassland | Auto-places on a grassland on purchase. Produces 1 Cloth per round. |
+| Papyrus Workshop | I | 6 gold OR 1 food | Forest | Auto-places on a forest on purchase. Produces 1 Paper per round. |
+| Loom | II | 6 gold OR 1 food | Farmland | Auto-places on a farmland on purchase. Produces 1 Cloth per round. |
 | Iron Forge | II | 10 gold OR 2 iron | Mountain | Auto-places on a mountain on purchase. Produces 2 Iron per round. |
 | Glassworks | II | 8 gold OR 2 food | Desert or sea-adjacent land | Auto-places on a desert or sea-adjacent land region on purchase. Produces 1 Glass per round. |
 | Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Auto-places on any controlled region on purchase. Produces 2 Paper per round. |
@@ -886,9 +889,9 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 | Pillage ⌛ | I | 3 gold OR 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value (minimum 0). Discarded at end of Era I. |
 | Vanguard | I | 3 gold OR 1 food | — | Once per era: abandon up to 2 regions, then immediately claim 1 independent region adjacent to a region you still control, without an attack action. |
 | Traveling Scholar | I | 3 gold OR 1 food | — | Draft and Cull actions cost 1 less gold (minimum 1 gold). |
-| Border Farms | I | 3 gold OR 1 food | — | All your grassland regions bordering another player produce 1 Food per round. |
+| Border Farms | I | 3 gold OR 1 food | — | All your farmland regions bordering another player produce 1 Food per round. |
 | Plunder ⌛ | II | 6 gold OR 1 iron + 1 food | — | **Era-limited.** Whenever you conquer a region while this card is on your mat, gain gold equal to that region's terrain gold production value +1 (minimum 1). Discarded at end of Era II. |
-| Cavalry | II | 6 gold OR 2 food | — | Once per era: attack any region on the map as if it were adjacent to a region you control. Normal attack action costs apply (Desert and Swamp cost 2, Capitol costs 3). |
+| Cavalry | II | 6 gold OR 2 food | — | Once per era: attack any region on the map as if it were adjacent to a region you control. Normal attack action costs apply (Desert costs 2, Capitol costs 3). |
 | Espionage | II | 5 gold OR 1 paper | — | Once per era: steal 1 resource from a player you share a border with (they lose it). |
 | Recruiting Officer | II | 4 gold OR 1 food | — | Once per era: perform a Draft action at no market action or gold cost. |
 | Strategic Withdrawal | II | 7 gold OR 1 food + 1 cloth | — | Once per era: abandon 2 regions, then immediately claim up to 2 independent regions each adjacent to a region you still control, without attack actions. |

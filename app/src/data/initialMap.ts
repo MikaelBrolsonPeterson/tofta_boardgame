@@ -13,28 +13,28 @@ const MAP_TWO_KINGDOMS: Entry[] = [
   // Centre
   [ 0,  0, 'ruins',     null],
   // Inner ring
-  [ 1,  0, 'grassland', null],
-  [-1,  0, 'grassland', null],
+  [ 1,  0, 'plains', null],
+  [-1,  0, 'plains', null],
   [ 0,  1, 'mountain',  null],
   [ 0, -1, 'mountain',  null],
   [ 1, -1, 'forest',    null],
   [-1,  1, 'forest',    null],
   // Middle ring
-  [ 2,  0, 'grassland', null],
-  [-2,  0, 'grassland', null],
+  [ 2,  0, 'plains', null],
+  [-2,  0, 'plains', null],
   [ 2, -1, 'desert',    null],
   [-2,  1, 'desert',    null],
   [ 2, -2, 'mountain',  null],
   [-2,  2, 'mountain',  null],
-  [ 1,  1, 'swamp',     null],
-  [-1, -1, 'swamp',     null],
+  [ 1,  1, 'farmland',     null],
+  [-1, -1, 'farmland',     null],
   [ 1, -2, 'forest',    null],
   [-1,  2, 'forest',    null],
-  [ 0,  2, 'grassland', null],
-  [ 0, -2, 'grassland', null],
+  [ 0,  2, 'plains', null],
+  [ 0, -2, 'plains', null],
   // Outer ring
-  [ 3, -1, 'grassland', null],
-  [-3,  1, 'grassland', null],
+  [ 3, -1, 'plains', null],
+  [-3,  1, 'plains', null],
   [ 3, -2, 'mountain',  null],
   [-3,  2, 'mountain',  null],
   [ 3, -3, 'ocean',     null],
@@ -43,8 +43,8 @@ const MAP_TWO_KINGDOMS: Entry[] = [
   [-2, -1, 'ocean',     null],
   [ 2, -3, 'ocean',     null],  // adjacent to [3,-3] → 2-tile body
   [-2,  3, 'ocean',     null],  // adjacent to [-3,3] → 2-tile body
-  [ 1,  2, 'swamp',     null],
-  [-1, -2, 'swamp',     null],
+  [ 1,  2, 'farmland',     null],
+  [-1, -2, 'farmland',     null],
   [ 1, -3, 'desert',    null],
   [-1,  3, 'desert',    null],
   [ 0,  3, 'ocean',     null],
@@ -52,7 +52,7 @@ const MAP_TWO_KINGDOMS: Entry[] = [
 ]
 
 // ── Map 2: The Mountain Pass ─────────────────────────────────────────────────
-// A north-south mountain spine divides the map. Two narrow grassland gaps
+// A north-south mountain spine divides the map. Two narrow plains gaps
 // (chokepoints) at the equator are the main corridors. Flanking via the
 // mountain paths costs extra attack actions and slows expansion.
 const MAP_MOUNTAIN_PASS: Entry[] = [
@@ -66,34 +66,34 @@ const MAP_MOUNTAIN_PASS: Entry[] = [
   [ 0,  1, 'mountain', null],
   [ 0,  2, 'mountain', null],
   // Chokepoints — the two narrow passes
-  [-1,  0, 'grassland', null],
-  [ 1,  0, 'grassland', null],
+  [-1,  0, 'plains', null],
+  [ 1,  0, 'plains', null],
   // Left landmass
-  [-1, -1, 'grassland', null],
+  [-1, -1, 'plains', null],
   [-1,  1, 'forest',    null],
-  [-2,  0, 'grassland', null],
+  [-2,  0, 'plains', null],
   [-2, -1, 'forest',    null],
-  [-2,  1, 'swamp',     null],
+  [-2,  1, 'farmland',     null],
   [-2, -2, 'mountain',  null],
   [-2,  2, 'desert',    null],
   [-1, -2, 'desert',    null],
-  [-1,  2, 'swamp',     null],
-  [-3,  0, 'grassland', null],
+  [-1,  2, 'farmland',     null],
+  [-3,  0, 'plains', null],
   [-3,  1, 'mountain',  null],
   [-3, -2, 'forest',    null],
   [-3,  2, 'ocean',     null],
   [-2,  3, 'ocean',     null],  // 2-tile ocean body on lower-left flank
   // Right landmass
   [ 1, -1, 'forest',    null],
-  [ 1,  1, 'grassland', null],
-  [ 2,  0, 'grassland', null],
-  [ 2, -1, 'swamp',     null],
+  [ 1,  1, 'plains', null],
+  [ 2,  0, 'plains', null],
+  [ 2, -1, 'farmland',     null],
   [ 2,  1, 'forest',    null],
   [ 2, -2, 'desert',    null],
   [ 2,  2, 'mountain',  null],
-  [ 1, -2, 'swamp',     null],
+  [ 1, -2, 'farmland',     null],
   [ 1,  2, 'desert',    null],
-  [ 3,  0, 'grassland', null],
+  [ 3,  0, 'plains', null],
   [ 3, -1, 'mountain',  null],
   [ 3, -3, 'ocean',     null],
   [ 2, -3, 'ocean',     null],  // 2-tile ocean body on upper-right flank
@@ -118,36 +118,36 @@ const MAP_STRAITS: Entry[] = [
   [ 1,  2, 'ocean',    null],  // adjacent to [0,2]
   // Left landmass coastal strip
   [-1, -1, 'desert',   null],
-  [-1,  0, 'grassland',null],
+  [-1,  0, 'plains',null],
   [-1,  1, 'forest',   null],
   [-1,  2, 'ruins',    null],
   // Left landmass interior
   [-2, -1, 'forest',   null],
-  [-2,  0, 'grassland',null],
-  [-2,  1, 'swamp',    null],
+  [-2,  0, 'plains',null],
+  [-2,  1, 'farmland',    null],
   [-2, -2, 'mountain', null],
   [-2,  2, 'mountain', null],
   // Left landmass outer
   [-3, -1, 'mountain', null],
-  [-3,  0, 'grassland',null],
+  [-3,  0, 'plains',null],
   [-3,  1, 'desert',   null],
   [-3,  2, 'forest',   null],
   [-3, -2, 'ocean',    null],  // flanking ocean
   // Right landmass coastal strip
   [ 1, -2, 'ruins',    null],
   [ 1, -1, 'desert',   null],
-  [ 1,  0, 'grassland',null],
+  [ 1,  0, 'plains',null],
   [ 1,  1, 'forest',   null],
   // Right landmass interior
   [ 2, -2, 'mountain', null],
   [ 2, -1, 'forest',   null],
-  [ 2,  0, 'grassland',null],
-  [ 2,  1, 'swamp',    null],
+  [ 2,  0, 'plains',null],
+  [ 2,  1, 'farmland',    null],
   [ 2,  2, 'mountain', null],
   // Right landmass outer
   [ 3, -2, 'ocean',    null],  // flanking ocean
   [ 3, -1, 'mountain', null],
-  [ 3,  0, 'grassland',null],
+  [ 3,  0, 'plains',null],
   [ 3,  1, 'desert',   null],
   [ 3,  2, 'forest',   null],
 ]
@@ -175,24 +175,24 @@ const MAP_FENS: Entry[] = [
   [-3,  2, 'ocean',    null],
   [-2,  2, 'ocean',    null],
   // ── Canal bridge tiles (neighbours to two separate bodies) ──
-  [ 0,  0, 'grassland',null],  // Canal Cross: adj to all 4 tiles of A+B → merges into 4-tile sea
+  [ 0,  0, 'plains',null],  // Canal Cross: adj to all 4 tiles of A+B → merges into 4-tile sea
   [ 2, -1, 'desert',   null],  // Canal Bent:  adj to body B + body C → extends to 6 tiles
   [-2,  1, 'forest',   null],  // Canal Bent:  adj to body A + body D → extends to 8 tiles
   // ── Inner terrain ───────────────────────────────────────────
-  [-2,  0, 'grassland',null],
+  [-2,  0, 'plains',null],
   [-1, -1, 'ruins',    null],
   [-1,  0, 'desert',   null],
-  [-1,  2, 'swamp',    null],
+  [-1,  2, 'farmland',    null],
   [ 0, -2, 'mountain', null],
   [ 0,  2, 'forest',   null],
-  [ 1,  0, 'grassland',null],
-  [ 1,  1, 'swamp',    null],
+  [ 1,  0, 'plains',null],
+  [ 1,  1, 'farmland',    null],
   [ 1, -2, 'mountain', null],
-  [ 2,  0, 'grassland',null],
+  [ 2,  0, 'plains',null],
   // ── Outer terrain ────────────────────────────────────────────
   [-3,  1, 'mountain', null],
   [ 2,  1, 'forest',   null],
-  [ 3, -1, 'grassland',null],
+  [ 3, -1, 'plains',null],
   [ 3,  1, 'mountain', null],
 ]
 

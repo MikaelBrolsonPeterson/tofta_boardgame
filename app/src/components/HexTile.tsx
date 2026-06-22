@@ -12,8 +12,8 @@ const PLAYER_COLORS: Record<PlayerId, string> = {
 
 // Short terrain labels that fit inside a hex
 const TERRAIN_SYMBOL: Record<string, string> = {
-  ocean: '~', water: '≈', grassland: '⊹', mountain: '▲',
-  swamp: '⊗', desert: '◇', forest: '♣', capitol: '★', ruins: '⌂',
+  ocean: '~', water: '≈', plains: '∘', farmland: '⊹', mountain: '▲',
+  desert: '◇', forest: '♣', capitol: '★', ruins: '⌂',
 }
 
 interface Props {
@@ -27,12 +27,15 @@ interface Props {
   isRearrangeSource: boolean
   isRearrangeTarget: boolean
   revoltColor?: string
+  isValidPlacement: boolean
+  isPlacementMode: boolean
   onClick: () => void
 }
 
 export default function HexTile({
   region, selected, isAttackSource, isValidTarget, isAttackMode,
-  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, revoltColor, onClick,
+  hasPendingClaim, claimColor, isRearrangeSource, isRearrangeTarget, revoltColor,
+  isValidPlacement, isPlacementMode, onClick,
 }: Props) {
   const { x, y } = hexToPixel(region.q, region.r)
   const cfg = TERRAIN[region.terrain]
@@ -43,12 +46,14 @@ export default function HexTile({
   let strokeWidth = 1.2
   let opacity = 1
 
-  if (isAttackSource)       { stroke = '#facc15'; strokeWidth = 3 }
+  if (isAttackSource)         { stroke = '#facc15'; strokeWidth = 3 }
   else if (isRearrangeSource) { stroke = '#22d3ee'; strokeWidth = 3 }
   else if (isRearrangeTarget) { stroke = '#22d3ee'; strokeWidth = 2; opacity = 0.85 }
+  else if (isValidPlacement)  { stroke = '#4ade80'; strokeWidth = 2.5 }
   else if (selected)          { stroke = '#ffffff'; strokeWidth = 2.5 }
   else if (isValidTarget)     { stroke = '#f97316'; strokeWidth = 2.5 }
   else if (isAttackMode && !isValidTarget) { opacity = 0.38 }
+  else if (isPlacementMode && !isValidPlacement) { opacity = 0.38 }
 
   const hasMilitary = !!region.militaryMarker
   const hasProduction = !!region.productionMarker
@@ -115,6 +120,18 @@ export default function HexTile({
           points={points}
           fill="none"
           stroke="#f97316"
+          strokeWidth={1.8}
+          opacity={0.5}
+          style={{ pointerEvents: 'none' }}
+        />
+      )}
+
+      {/* Valid placement pulse ring */}
+      {isValidPlacement && (
+        <polygon
+          points={points}
+          fill="none"
+          stroke="#4ade80"
           strokeWidth={1.8}
           opacity={0.5}
           style={{ pointerEvents: 'none' }}
