@@ -36,9 +36,11 @@ Each player has their own empire mat with two independent tracking systems:
 
 You may not purchase an Empire card unless you already have a free slot on your mat. To make room, spend 1 market action to discard a card first, then spend a second market action to buy the new one. A freed slot does not need to be filled immediately.
 
-**Class building tracks:** Each class has a building track on the mat. The track advances each time you place an infrastructure token of that class (via build action — 1 market action + token gold cost). Empire cards of the same class are **not** required to place tokens. Each track tier unlocks a predetermined bonus permanently — track bonuses are never lost, even if tokens are later removed.
+**Class building tracks:** Each player mat has a building track per class. Each tier slot holds a physical building hex tile, which sits on top of the bonus printed below it. To purchase a building, spend 1 market action and its gold cost, then lift the tile from the mat and place it on a valid region of the main map. The bonus beneath the empty slot is now exposed and immediately active.
 
-Each tier is either **locked** (benefit is fixed) or a **choice** (player picks one option when the tier is reached).
+Ordering is enforced by the layout: a tier's tile cannot be lifted until the tile in the slot above it is already gone.
+
+Each tier bonus is either **locked** (printed directly below the slot) or a **choice** (two or more options are printed; the player picks exactly one when the slot is first exposed — the unchosen options are crossed off permanently).
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
