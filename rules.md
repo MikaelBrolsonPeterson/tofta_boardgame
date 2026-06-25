@@ -38,14 +38,19 @@ You may not purchase an Empire card unless you already have a free slot on your 
 
 **Class building tracks:** Each class has a building track on the mat. The track advances each time you place an infrastructure token of that class (via build action — 1 market action + token gold cost). Empire cards of the same class are **not** required to place tokens. Each track tier unlocks a predetermined bonus permanently — track bonuses are never lost, even if tokens are later removed.
 
+Each tier is either **locked** (benefit is fixed) or a **choice** (player picks one option when the tier is reached).
+
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
-| Military | +1 attack action/round | +3 gold production | +1 attack action/round | +2 VP |
-| Market | +1 market action/round | +3 gold production | +1 market action/round | +2 VP |
-| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
-| Wonders | +1 VP | +2 VP | +3 VP | — |
+| Military | +1 attack action/round *(locked)* | **Choice:** +3 gold OR Quarry (Stone/Mountain) OR Mine (Iron/Mountain) | **Choice:** +1 attack action/round OR Iron Forge (2× Iron/Mountain) | +2 VP *(locked)* |
+| Market | **Choice:** Farm (Food/Farmland) OR Loom (Cloth/Farmland) | +1 market action/round *(locked)* | **Choice:** +1 market action/round OR +3 gold OR Glassworks (Glass/Desert) | +2 VP *(locked)* |
+| Science | +1 Empire card slot *(locked)* | **Choice:** −2g on tokens OR Lumber Mill (Wood/Forest) OR Papyrus Workshop (Paper/Forest) | **Choice:** +1 Empire card slot OR Scriptorium (2× Paper/anywhere) | +2 VP *(locked)* |
+| Wonders | +1 VP *(locked)* | +2 VP *(locked)* | +3 VP *(locked)* | — |
+| Misc | +1 attack action/round *(locked)* | +2 gold *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
 
-*(Exact bonus values subject to playtesting.)*
+When a choice tier grants a **production building**, the player immediately places a production marker on an eligible region they control.
+
+*(Bonus values subject to playtesting.)*
 
 ### Market Mat
 
@@ -221,27 +226,29 @@ Gold production is the sum of your connected regions' gold production values plu
 
 ### Resources
 
-Resources (Stone, Wood, Food) are **not generated automatically by terrain**. They are produced only by resource buildings placed on eligible tiles via Empire cards — or by certain Empire cards that generate resources based on region position (e.g. border regions, regions adjacent to specific terrain). Controlling mountains does nothing on its own — you need a Quarry or a relevant Empire card first.
+Resources (Stone, Wood, Food) are **not generated automatically by terrain**. They are produced by production buildings — obtained either as a track choice when advancing the building track, or by certain Empire cards that generate resources based on region position (e.g. border regions). Controlling mountains does nothing on its own — you need a Quarry or Mine from the Military track first.
 
-| Resource | Produced by | Eligible terrain |
-|----------|-------------|-----------------|
-| Stone | Quarry | Mountain |
-| Wood | Lumber Mill | Forest |
-| Food | Farm, Salt Mine | Farmland, Desert |
+| Resource | Building | Eligible terrain | Track source |
+|----------|----------|-----------------|--------------|
+| Stone | Quarry | Mountain | Military T2 choice |
+| Wood | Lumber Mill | Forest | Science T2 choice |
+| Food | Farm | Farmland | Market T1 choice |
 
-**Empire card dual pricing:** Each card lists a gold cost and a resource or commodity cost. Pay one or the other — never both. Example: *Mountain Fort* costs `3 gold` OR `1 stone`.
+**Empire card dual pricing:** Each card lists a gold cost and a resource or commodity cost. Pay one or the other — never both. Example: *Drill Sergeant* costs `4 gold` OR `1 food`.
 
 ### Commodities
 
 Commodities are a processed tier above raw resources, produced by commodity buildings. They are required for most Era II and III Empire cards.
 
-| Commodity | Produced by | Eligible terrain |
-|-----------|-------------|-----------------|
-| Iron | Mine (1/round), Iron Forge (2/round) | Mountain |
-| Paper | Papyrus Workshop (1/round), Scriptorium (2/round) | Forest / Anywhere |
-| Cloth | Loom | Farmland |
-| Glass | Glassworks | Desert, sea-adjacent land |
-| Wild | Ancient Ruins (automatic, no building needed) | — |
+| Commodity | Building | Eligible terrain | Track source |
+|-----------|----------|-----------------|--------------|
+| Iron | Mine (1/round) | Mountain | Military T2 choice |
+| Iron | Iron Forge (2/round) | Mountain | Military T3 choice |
+| Paper | Papyrus Workshop (1/round) | Forest | Science T2 choice |
+| Paper | Scriptorium (2/round) | Anywhere | Science T3 choice |
+| Cloth | Loom | Farmland | Market T1 choice |
+| Glass | Glassworks | Desert | Market T3 choice |
+| Wild | Ancient Ruins (automatic) | — | No building needed |
 
 **Wild** counts as any commodity but **cannot substitute for resources**. It is generated automatically by controlling an Ancient Ruins region — no building required.
 
@@ -270,7 +277,7 @@ There are three categories of physical tokens on the board.
 
 All non-military infrastructure tokens (Market, Science, Wonders) are destroyed when the region is conquered — they do not transfer to the new owner.
 
-**Production markers** represent resource and commodity output from specific empire cards (Quarry, Mine, Farm, etc.). They are smaller square tokens placed on a region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
+**Production markers** represent resource and commodity output from buildings (Quarry, Mine, Farm, etc.). They are obtained by choosing a production option from a choice tier on the building track. They are smaller square tokens placed on an eligible region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
 
 **Round tokens** are small round markers placed on regions by certain Empire cards. They represent tactical and strategic conditions affecting combat. A region can hold one of each round token type simultaneously.
 
@@ -300,7 +307,7 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 | Shrine (Wonders tier 1) | Hexagonal (region-sized), brown | 1 MA + 4g | +1 VP immediately; conqueror takes VP and closes your tier 1 slot permanently | Region is conquered |
 | Temple (Wonders tier 2) | Hexagonal (region-sized), brown | 1 MA + 8g | +2 VP immediately; conqueror takes VP and closes your tier 2 slot permanently | Region is conquered |
 | Palace (Wonders tier 3) | Hexagonal (region-sized), brown | 1 MA + 14g | +3 VP immediately; conqueror takes VP and closes your tier 3 slot permanently | Region is conquered |
-| Production | Square | Market empire cards (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
+| Production | Square | Building track choice tiers (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
 | Siege | Round | Siege Tactics | This region has no terrain defense bonus | Placing card is discarded |
@@ -333,14 +340,15 @@ Empire cards are **not** required to unlock placement rights; any player may bui
 
 | Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
 |-------|--------|--------|--------|--------|
-| Military | +1 attack action/round | +3 gold production | +1 attack action/round | +2 VP |
-| Market | +1 market action/round | +3 gold production | +1 market action/round | +2 VP |
-| Science | +1 Empire card slot | −2g on infrastructure tokens OR −3g on Wonders (choose one) | +1 Empire card slot | +2 VP |
-| Wonders | +1 VP | +2 VP | +3 VP | — |
+| Military | +1 attack action/round *(locked)* | **Choice:** +3 gold OR Quarry (Stone/Mountain) OR Mine (Iron/Mountain) | **Choice:** +1 attack action/round OR Iron Forge (2× Iron/Mountain) | +2 VP *(locked)* |
+| Market | **Choice:** Farm (Food/Farmland) OR Loom (Cloth/Farmland) | +1 market action/round *(locked)* | **Choice:** +1 market action/round OR +3 gold OR Glassworks (Glass/Desert) | +2 VP *(locked)* |
+| Science | +1 Empire card slot *(locked)* | **Choice:** −2g on tokens OR Lumber Mill (Wood/Forest) OR Papyrus Workshop (Paper/Forest) | **Choice:** +1 Empire card slot OR Scriptorium (2× Paper/anywhere) | +2 VP *(locked)* |
+| Wonders | +1 VP *(locked)* | +2 VP *(locked)* | +3 VP *(locked)* | — |
+| Misc | +1 attack action/round *(locked)* | +2 gold *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
 
-*(Exact bonus values subject to playtesting.)*
+*(Bonus values subject to playtesting.)*
 
-**Science track tier 2 choice:** When your Science track reaches tier 2, permanently choose one: all your Military/Market/Science token placements cost 2g less (minimum 1g), or all your Wonder constructions cost 3g less (minimum 1g). The choice is made once and cannot be changed.
+**Science track tier 2 choice:** When your Science track reaches tier 2, permanently choose one: all your Military/Market/Science token placements cost 2g less (minimum 1g), or place a Lumber Mill or Papyrus Workshop production marker on an eligible region.
 
 **Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
 
@@ -416,7 +424,7 @@ Some Empire cards generate resources or commodities based on the position of reg
 | Plains         | +2     | 0           | 0          | 1                  | Pure income tile. No building eligibility. |
 | Farmland       | 0      | 0           | 0          | 1                  | Eligible for: Farm, Loom |
 | Mountain       | −2     | +2          | 0          | 1                  | Eligible for: Quarry, Mine, Iron Forge |
-| Desert         | +1     | 0           | 0          | 2                  | Eligible for: Glassworks, Salt Mine |
+| Desert         | +1     | 0           | 0          | 2                  | Eligible for: Glassworks |
 | Forest         | −1     | +1          | 0          | 1                  | Eligible for: Lumber Mill, Papyrus Workshop |
 | Capitol        | +3     | +2          | +2         | 3                  | Attacker has disadvantage |
 | Ancient Ruins  | 0      | −1          | 0          | 1                  | Produces 1 Wild (commodity) per round automatically. 1–2 placed centrally on map |
@@ -573,7 +581,7 @@ Its composition is designed to raise your average attack strength over the start
 
 ### VP Purchase
 
-VP purchase is **card-gated**. Each Era III VP conversion Empire card (one per commodity type: Iron, Paper, Cloth, Glass) allows the holder to spend a market action and 2 of the matching commodity to gain 1 VP, once per turn per card. Wild counts as any commodity. Without the relevant card, commodities cannot be converted to VP.
+VP purchase is **card-gated**. The Glass Exchange (Era II) and Iron/Paper/Cloth Exchange (Era III) allow the holder to spend a market action and 2 of the matching commodity to gain 1 VP, once per turn per card. Wild counts as any commodity. Without the relevant card, commodities cannot be converted to VP. Glass Exchange arrives in Era II because Glassworks is now obtained from the building track rather than taking a card slot.
 
 ---
 
@@ -646,10 +654,10 @@ The five player colors avoid red/green pairing (the most common colorblind confu
 
 | Component | Qty | Notes |
 |-----------|-----|-------|
-| Empire cards (Era I) | ~20 | Shuffled separately; populate market at game start |
-| Empire cards (Era II) | ~25 | Shuffled separately; replaces Era I deck at era transition |
-| Empire cards (Era III) | ~25 | Shuffled separately; replaces Era II deck at era transition |
-| Action cards (all eras) | ~15 | Mixed into era decks (Era I: Locust Swarm, Harsh Winter, Scout, Purge, Proclamation, Rally, Charter; Era II: Uprising, Plague, Royal Decree, Edict, Commission, Mandate, Forced Conscription, Reformation, Battle Hymn; Era III: Divine Judgment, Deluge, Grand Purge, Propaganda, Overhaul) |
+| Empire cards (Era I) | ~15 | Shuffled separately; populate market at game start |
+| Empire cards (Era II) | ~20 | Shuffled separately; replaces Era I deck at era transition |
+| Empire cards (Era III) | ~20 | Shuffled separately; replaces Era II deck at era transition |
+| Action cards (all eras) | ~17 | Mixed into era decks (Era I: Locust Swarm, Harsh Winter, Harvest, Surplus, Scout, Purge, Proclamation, Rally, Charter; Era II: Uprising, Plague, Royal Decree, Edict, Commission, Mandate, Forced Conscription, Reformation, Battle Hymn; Era III: Divine Judgment, Deluge, Grand Purge, Propaganda, Overhaul) |
 | Personal modifier deck | 12 per player | Fail, −2, −1×2, 0×4, +1×2, +2, Success. One deck per player, kept separate. |
 | Independent modifier deck | 1 shared | Fail, −2, −1×2, 0×4, +1×2, +2. No Success card. Reshuffled fresh for every attack. |
 | Shared modifier draw pile | ~15 | Fail×2, −1, 0×2, +1×3, +2×4, Success×3. Set up once at game start. |
@@ -706,20 +714,19 @@ All infrastructure tokens are hex-shaped and cover a region tile when placed. Ea
 
 #### Production Markers (Square, Smaller)
 
-One marker per building card in play. Each marker shows the resource or commodity icon it produces and the production rate.
+One marker per building placed. Obtained by choosing a production option from a building track choice tier. Each marker shows the resource or commodity icon it produces and the production rate.
 
-| Marker | Produces | Qty |
-|--------|----------|-----|
-| Quarry | Stone (1/round) | 8 |
-| Lumber Mill | Wood (1/round) | 8 |
-| Farm | Food (1/round) | 8 |
-| Salt Mine | Food (1/round) | 6 |
-| Mine | Iron (1/round) | 8 |
-| Iron Forge | Iron (2/round) | 4 |
-| Papyrus Workshop | Paper (1/round) | 8 |
-| Scriptorium | Paper (2/round) | 4 |
-| Loom | Cloth (1/round) | 6 |
-| Glassworks | Glass (1/round) | 6 |
+| Marker | Produces | Eligible terrain | Track source | Qty |
+|--------|----------|-----------------|--------------|-----|
+| Quarry | Stone (1/round) | Mountain | Military T2 | 6 |
+| Mine | Iron (1/round) | Mountain | Military T2 | 6 |
+| Iron Forge | Iron (2/round) | Mountain | Military T3 | 4 |
+| Farm | Food (1/round) | Farmland | Market T1 | 6 |
+| Loom | Cloth (1/round) | Farmland | Market T1 | 6 |
+| Glassworks | Glass (1/round) | Desert | Market T3 | 6 |
+| Lumber Mill | Wood (1/round) | Forest | Science T2 | 6 |
+| Papyrus Workshop | Paper (1/round) | Forest | Science T2 | 6 |
+| Scriptorium | Paper (2/round) | Anywhere | Science T3 | 4 |
 
 #### Round Tokens (Circular, Small)
 
@@ -824,36 +831,20 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 | Mobile Doctrine | III | 8 gold OR 1 iron + 1 cloth | — | While on your mat: when a region containing one of your markers is conquered, you may immediately move that marker to any adjacent region you control instead of removing it. |
 | Master Tactician | III | 9 gold OR 2 iron + 1 food | — | Choose one terrain type when playing this card. While on your mat: you draw with advantage when attacking regions of that type, and attackers targeting your regions of that type draw with disadvantage. |
 
-### Market (Green) — Resource buildings
-
-| Card | Era | Cost | Placement | Effect |
-|------|-----|------|-----------|--------|
-| Quarry | I | 5 gold OR 1 wood | Mountain | Auto-places on a mountain on purchase. Produces 1 Stone per round. |
-| Lumber Mill | I | 5 gold OR 1 stone | Forest | Auto-places on a forest on purchase. Produces 1 Wood per round. |
-| Farm | I | 5 gold OR 1 wood | Farmland | Auto-places on a farmland on purchase. Produces 1 Food per round. |
-| Salt Mine | I | 5 gold OR 1 stone | Desert | Auto-places on a desert on purchase. Produces 1 Food per round. |
-
-### Market (Green) — Commodity buildings
-
-| Card | Era | Cost | Placement | Effect |
-|------|-----|------|-----------|--------|
-| Mine | I | 6 gold OR 1 stone | Mountain | Auto-places on a mountain on purchase. Produces 1 Iron per round. |
-| Papyrus Workshop | I | 6 gold OR 1 food | Forest | Auto-places on a forest on purchase. Produces 1 Paper per round. |
-| Loom | II | 6 gold OR 1 food | Farmland | Auto-places on a farmland on purchase. Produces 1 Cloth per round. |
-| Iron Forge | II | 10 gold OR 2 iron | Mountain | Auto-places on a mountain on purchase. Produces 2 Iron per round. |
-| Glassworks | II | 8 gold OR 2 food | Desert or sea-adjacent land | Auto-places on a desert or sea-adjacent land region on purchase. Produces 1 Glass per round. |
-| Scriptorium | III | 10 gold OR 2 paper | Any controlled region | Auto-places on any controlled region on purchase. Produces 2 Paper per round. |
-
 ### Market (Green) — VP Conversion
 
+Production buildings (Quarry, Mine, Farm, Loom, Lumber Mill, Papyrus Workshop, Iron Forge, Glassworks, Scriptorium) are no longer Empire cards. They are obtained by choosing a production option when advancing the building track (see Building Track Choices above).
+
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
+| Glass Exchange | II | 6 gold OR 1 glass | — | Once per turn: spend 1 market action + 2 Glass → gain 1 VP. |
 | Iron Exchange | III | 6 gold OR 1 iron | — | Once per turn: spend 1 market action + 2 Iron → gain 1 VP. |
 | Paper Exchange | III | 6 gold OR 1 paper | — | Once per turn: spend 1 market action + 2 Paper → gain 1 VP. |
 | Cloth Exchange | III | 6 gold OR 1 cloth | — | Once per turn: spend 1 market action + 2 Cloth → gain 1 VP. |
-| Glass Exchange | III | 6 gold OR 1 glass | — | Once per turn: spend 1 market action + 2 Glass → gain 1 VP. |
 
-*(Exact VP values subject to playtesting.)*
+*(Glass Exchange moves to Era II since Glassworks is now obtained from the track rather than a card slot.)*
+
+*(VP values subject to playtesting.)*
 
 ### Science (Lilac)
 
@@ -914,6 +905,8 @@ Wonders have no Empire cards. They are built directly as tokens — see Wonder C
 |------|-----|------|--------|
 | Locust Swarm | I | 4 gold | The player with the most regions loses 2 gold and reduces their gold production by 1. On a tie, all tied players are affected. |
 | Harsh Winter | I | 3 gold | All players lose 1 gold per region they control above 3 (minimum 0 per player). |
+| Harvest | I | 4 gold OR 1 food | All your production buildings produce once immediately (in addition to normal round production). |
+| Surplus | I | 3 gold | Choose one resource or commodity type. All your buildings that produce that type produce once immediately. |
 | Proclamation | I | 4 gold OR 1 food | Gain 1 VP. |
 | Rally | I | 3 gold | Gain 1 VP. |
 | Charter | I | 4 gold OR 1 stone | Gain 1 VP. |
