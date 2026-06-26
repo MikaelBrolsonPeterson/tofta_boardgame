@@ -50,7 +50,7 @@ Each tier bonus is either **locked** (printed directly below the slot) or a **ch
 | Wonders | +1 VP *(locked)* | +2 VP *(locked)* | +3 VP *(locked)* | — |
 | Misc | +1 attack action/round *(locked)* | +2 gold *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
 
-When a choice tier grants a **production building**, the player immediately places a production marker on an eligible region they control.
+When a tier bonus is a production building, take that building tile and place it on an eligible region you control. Production from that building begins immediately.
 
 *(Bonus values subject to playtesting.)*
 
