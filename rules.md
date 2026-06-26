@@ -36,21 +36,21 @@ Each player has their own empire mat with two independent tracking systems:
 
 You may not purchase an Empire card unless you already have a free slot on your mat. To make room, spend 1 market action to discard a card first, then spend a second market action to buy the new one. A freed slot does not need to be filled immediately.
 
-**Class building tracks:** Each player mat has a building track per class. Each tier slot holds a physical building hex tile, which sits on top of the bonus printed below it. To purchase a building, spend 1 market action and its gold cost, then lift the tile from the mat and place it on a valid region of the main map. The bonus beneath the empty slot is now exposed and immediately active.
+**Class building tracks:** Each player mat has a building track per class. Each tier slot holds a physical building hex tile, which sits on top of the bonus printed beneath it. To purchase a building, spend 1 market action and the tile's printed gold cost, then lift the tile from the mat and place it on a valid region of the main map. The bonus beneath the now-empty slot is immediately active. When the bonus is a production building, the tile must be placed on an eligible terrain type; all other tiles may be placed on any region you control.
 
-Ordering is enforced by the layout: a tier's tile cannot be lifted until the tile in the slot above it is already gone.
+Ordering is enforced by the layout: a tier's tile cannot be lifted until the preceding tier's tile is already gone.
 
-Each tier bonus is either **locked** (printed directly below the slot) or a **choice** (two or more options are printed; the player picks exactly one when the slot is first exposed — the unchosen options are crossed off permanently).
+Each tier bonus is either **locked** (a single benefit printed beneath the slot) or a **choice** (two or more options printed; the player picks exactly one when the slot is first emptied — the unchosen options are crossed off permanently).
 
-| Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
-|-------|--------|--------|--------|--------|
+Most tracks have 4 tiers. The Wonders track has 3.
+
+| Class | Tier 1 (3g) | Tier 2 (5g) | Tier 3 (7g) | Tier 4 (9g) |
+|-------|-------------|-------------|-------------|-------------|
 | Military | +1 attack action/round *(locked)* | **Choice:** +3 gold OR Quarry (Stone/Mountain) OR Mine (Iron/Mountain) | **Choice:** +1 attack action/round OR Iron Forge (2× Iron/Mountain) | +2 VP *(locked)* |
 | Market | **Choice:** Farm (Food/Farmland) OR Loom (Cloth/Farmland) | +1 market action/round *(locked)* | **Choice:** +1 market action/round OR +3 gold OR Glassworks (Glass/Desert) | +2 VP *(locked)* |
 | Science | +1 Empire card slot *(locked)* | **Choice:** −2g on tokens OR Lumber Mill (Wood/Forest) OR Papyrus Workshop (Paper/Forest) | **Choice:** +1 Empire card slot OR Scriptorium (2× Paper/anywhere) | +2 VP *(locked)* |
-| Wonders | +1 VP *(locked)* | +2 VP *(locked)* | +3 VP *(locked)* | — |
-| Misc | +1 attack action/round *(locked)* | +2 gold *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
-
-When a tier bonus is a production building, take that building tile and place it on an eligible region you control. Production from that building begins immediately.
+| Wonders | +1 VP *(locked)* (4g) | +2 VP *(locked)* (7g) | +3 VP *(locked)* (10g) | — |
+| Misc | +1 attack action/round *(locked)* | +2 gold production *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
 
 *(Bonus values subject to playtesting.)*
 
