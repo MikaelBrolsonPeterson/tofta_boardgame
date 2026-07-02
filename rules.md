@@ -36,7 +36,7 @@ Each player has their own empire mat with two independent tracking systems:
 
 You may not purchase an Empire card unless you already have a free slot on your mat. To make room, spend 1 market action to discard a card first, then spend a second market action to buy the new one. A freed slot does not need to be filled immediately.
 
-**Class building tracks:** Each player mat has a building track per class. Each tier slot holds a physical building hex tile, which sits on top of the bonus printed beneath it. To purchase a building, spend 1 market action and the tile's printed gold cost, then lift the tile from the mat and place it on a valid region of the main map. The bonus beneath the now-empty slot is immediately active. When the bonus is a production building, the tile must be placed on an eligible terrain type; all other tiles may be placed on any region you control.
+**Class building tracks:** Each player mat has a building track per class. Each tier slot holds a physical building hex tile, which sits on top of the bonus printed beneath it. To purchase a building, spend 1 market action and the tile's printed gold cost, then lift the tile from the mat and place it on a valid region of the main map. The bonus beneath the now-empty slot is immediately active. All tier bonuses are visible to all players at all times. Any production building must be placed on a region the player controls of the correct terrain type: Farm and Loom on Farmland; Quarry, Mine, and Iron Forge on Mountain; Lumber Mill and Papyrus Workshop on Forest; Glassworks on Desert; Scriptorium on any terrain.
 
 Ordering is enforced by the layout: a tier's tile cannot be lifted until the preceding tier's tile is already gone.
 
@@ -49,7 +49,7 @@ Most tracks have 4 tiers. The Wonders track has 3.
 | Military | +1 attack action/round *(locked)* | **Choice:** +3 gold OR Quarry (Stone/Mountain) OR Mine (Iron/Mountain) | **Choice:** +1 attack action/round OR Iron Forge (2× Iron/Mountain) | +2 VP *(locked)* |
 | Market | **Choice:** Farm (Food/Farmland) OR Loom (Cloth/Farmland) | +1 market action/round *(locked)* | **Choice:** +1 market action/round OR +3 gold OR Glassworks (Glass/Desert) | +2 VP *(locked)* |
 | Science | +1 Empire card slot *(locked)* | **Choice:** −2g on tokens OR Lumber Mill (Wood/Forest) OR Papyrus Workshop (Paper/Forest) | **Choice:** +1 Empire card slot OR Scriptorium (2× Paper/anywhere) | +2 VP *(locked)* |
-| Wonders | +1 VP *(locked)* (4g) | +2 VP *(locked)* (7g) | +3 VP *(locked)* (10g) | — |
+| Wonders | +1 VP *(locked)* (4g) | +2 VP *(locked)* (8g) | +3 VP *(locked)* (14g) | — |
 | Misc | +1 attack action/round *(locked)* | +2 gold production *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
 
 *(Bonus values subject to playtesting.)*
@@ -118,7 +118,7 @@ A player performs their actions in any order.
 
 | Name | Description |
 |------|-------------|
-| Market action | Costs a Market action. Uses: buy any Empire card from the market (pay its cost; you must already have a free slot — see Active card slots); discard an Empire card from your mat (frees a slot; auto-discards from card effects or era expiry do not cost a market action); buy an Action card from the market (executes immediately and is trashed); place an infrastructure token (pay token cost, advance building track); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (3 gold, draw 2 modifier cards keep 1); Cull (3 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
+| Market action | Costs a Market action. Uses: buy any Empire card from the market (pay its cost; you must already have a free slot — see Active card slots); discard an Empire card from your mat (frees a slot; auto-discards from card effects or era expiry do not cost a market action); buy an Action card from the market (executes immediately and is trashed); purchase and place a building tile from your player mat (pay the tier's gold cost, lift the tile from its slot, place it on an eligible region — the bonus beneath the now-empty slot is immediately active); activate a Market token transaction (spend resources per the token's tier rate, once per token per round); bank conversion (4 identical resources → 1 resource of any type, or 3 identical commodities → 1 commodity of any type); Draft (3 gold, draw 2 modifier cards keep 1); Cull (3 gold, remove 1 of 3 modifier cards permanently); fund an Award (3 gold). VP purchase requires a specific Empire card. |
 | Attack action | Perform an attack on a region adjacent to a region you control. Costs an Attack action and initiates a comparison of strength. |
 | Abandon region | Free action. Can be performed any number of times per turn. The region immediately becomes independent (reverts to the independent state deck for defense). All infrastructure tokens except permanent military tokens are destroyed. Permanent military tokens (Naval Bastion, Fortress) remain on the region — the next player to conquer it inherits them. Gold production updates immediately — abandoning a region in the middle of your empire may isolate other tiles, reducing their gold production contribution to 0. |
 | Discard Empire card | Costs 1 market action. Discard an Empire card from your mat to free a slot. Any associated buildings and ongoing effects end immediately; one-time effects already fired persist. Auto-discards (era-expiry icons, held-and-triggered cards firing) do not cost a market action. |
@@ -268,7 +268,7 @@ There are three categories of physical tokens on the board.
 
 **Infrastructure tokens** represent buildings, installations, and economic development. All infrastructure tokens are hexagonal and the same size as a region tile — they are placed on top of the region, fully covering it. Tokens come in four class types — Military, Market, Science, and Wonders — distinguished by colour or symbol. (Misc is a card-only class; it has no infrastructure tokens or building track.) Each region can hold **one infrastructure token** at a time, regardless of class. Some token types have terrain requirements for placement (e.g. a tier 3 Military token may require a mountain region) — the requirement is printed on the token.
 
-**Military infrastructure tokens** are placed via build action and represent fortifications and tactical installations. Their orientation encodes directional effects — some affect only the region they occupy, others affect adjacent regions depending on which way they face.
+**Military infrastructure tokens** represent fortifications and tactical installations. They are lifted from the player mat building track when purchased. Their orientation encodes directional effects — some affect only the region they occupy, others affect adjacent regions depending on which way they face.
 
 - **Standard military infrastructure tokens** are removed when the region is conquered.
 - **Permanent military infrastructure tokens** (indicated by a symbol on the token) survive conquest. The new owner inherits the token's effect and may rotate it one step (60°). Permanent tokens can be upgraded via era cards; anyone may upgrade anyone's permanent token.
@@ -279,7 +279,7 @@ There are three categories of physical tokens on the board.
 
 All non-military infrastructure tokens (Market, Science, Wonders) are destroyed when the region is conquered — they do not transfer to the new owner.
 
-**Production markers** represent resource and commodity output from buildings (Quarry, Mine, Farm, etc.). They are obtained by choosing a production option from a choice tier on the building track. They are smaller square tokens placed on an eligible region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
+**Production markers** represent resource and commodity output from buildings (Quarry, Mine, Farm, etc.). They are obtained when a building track tier bonus reveals a production building. They are smaller square tokens placed on an eligible region. They are destroyed when the region is conquered — the conqueror does not inherit them. Before a conquest resolves, the defender may move one production marker to any other region they control.
 
 **Round tokens** are small round markers placed on regions by certain Empire cards. They represent tactical and strategic conditions affecting combat. A region can hold one of each round token type simultaneously.
 
@@ -289,27 +289,27 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 
 | Token / Marker | Shape | Placed by | Effect | Removed when |
 |----------------|-------|-----------|--------|--------------|
-| Watchtower (Military tier 1) | Hexagonal (region-sized), red | Build action | Advances Military building track | Region is conquered |
-| Rampart (Military tier 2) | Hexagonal (region-sized), red | Build action | Advances Military building track | Region is conquered |
-| Naval Bastion (Military tier 3) ♾ | Hexagonal (region-sized), red + permanent symbol | Build action | Owner may attack across one chosen sea tile as if adjacent; conqueror inherits and may rotate 60° | Never (permanent) |
-| Fortress (Military tier 4) ♾ | Hexagonal (region-sized), red + permanent symbol | Build action | All adjacent regions cost +1 attack action to attack; attackers draw with disadvantage; conqueror inherits and may rotate 60° | Never (permanent) |
-| Trading Post (Market tier 1) | Hexagonal (region-sized), green | Build action | Transaction: 3 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +2 gold production | Region is conquered |
-| Trading House (Market tier 2) | Hexagonal (region-sized), green | Build action | Transaction: 2 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +3 gold production | Region is conquered |
-| Canal — Bent (Market tier 2 alt) | Hexagonal (region-sized), green, 2 active sides | Build action | Region gains sea status; joins sea bodies touching the two active sides; earns +1 gp per connected sea tile | Region is conquered |
-| Merchant Exchange (Market tier 3) | Hexagonal (region-sized), green | Build action | Transaction: 2 resources of any type → 1 commodity of any type (1 MA, once/round). Border region only. | Region is conquered |
-| Grand Bazaar (Market tier 3 alt) | Hexagonal (region-sized), green | Build action | One-time: 2 gold per unique adjacent enemy terrain type (1 MA); rotate to exhaust. Border region only. | Region is conquered |
-| Canal — Cross (Market tier 3 alt) | Hexagonal (region-sized), green, 4 active sides | Build action | Region gains sea status; joins sea bodies touching the four active sides; earns +1 gp per connected sea tile | Region is conquered |
-| Trade Emporium (Market tier 4) | Hexagonal (region-sized), green | Build action | Transaction: 2 resources → 1 commodity, or 2 commodities → 1 commodity (1 MA, once/round). Sea-adjacent: +2 gold production per connected sea tile | Region is conquered |
-| Counting House (Science tier 1) | Hexagonal (region-sized), lilac | Build action | +1 market action per turn while placed | Region is conquered |
-| Library (Science tier 2A) | Hexagonal (region-sized), lilac | Build action | Once per round: spend 1 MA to take a market card costing ≤4g for free (pay only the excess above 4g) | Region is conquered |
-| Guild Hall (Science tier 2B) | Hexagonal (region-sized), lilac | Build action | All your card purchases cost 2g less (minimum 0g) | Region is conquered |
-| Academy (Science tier 3) | Hexagonal (region-sized), lilac | Build action | +1 market action per turn while placed | Region is conquered |
-| University (Science tier 4A) | Hexagonal (region-sized), lilac | Build action | Once per round: spend 1 MA to take any market card for free | Region is conquered |
-| Imperial Archive (Science tier 4B) | Hexagonal (region-sized), lilac | Build action | Once in the game: spend 1 MA to draw 4 empire cards; replace up to 3 cards on your mat | Region is conquered |
-| Shrine (Wonders tier 1) | Hexagonal (region-sized), brown | 1 MA + 4g | +1 VP immediately; conqueror takes VP and closes your tier 1 slot permanently | Region is conquered |
-| Temple (Wonders tier 2) | Hexagonal (region-sized), brown | 1 MA + 8g | +2 VP immediately; conqueror takes VP and closes your tier 2 slot permanently | Region is conquered |
-| Palace (Wonders tier 3) | Hexagonal (region-sized), brown | 1 MA + 14g | +3 VP immediately; conqueror takes VP and closes your tier 3 slot permanently | Region is conquered |
-| Production | Square | Building track choice tiers (Quarry, Farm, Mine, etc.) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
+| Watchtower (Military tier 1) | Hexagonal (region-sized), red | 1 MA + 3g (player mat) | Reveals Military T1 bonus (+1 attack/round) on player mat | Region is conquered |
+| Rampart (Military tier 2) | Hexagonal (region-sized), red | 1 MA + 5g (player mat) | Reveals Military T2 bonus choice on player mat | Region is conquered |
+| Naval Bastion (Military tier 3) ♾ | Hexagonal (region-sized), red + permanent symbol | 1 MA + 7g (player mat) | Owner may attack across one chosen sea tile as if adjacent; conqueror inherits and may rotate 60° | Never (permanent) |
+| Fortress (Military tier 4) ♾ | Hexagonal (region-sized), red + permanent symbol | 1 MA + 9g (player mat) | All adjacent regions cost +1 attack action to attack; attackers draw with disadvantage; conqueror inherits and may rotate 60° | Never (permanent) |
+| Trading Post (Market tier 1) | Hexagonal (region-sized), green | 1 MA + 3g (player mat) | Transaction: 3 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +2 gold production | Region is conquered |
+| Trading House (Market tier 2) | Hexagonal (region-sized), green | 1 MA + 5g (player mat) | Transaction: 2 identical resources → 1 resource of any type (1 MA, once/round). Sea-adjacent: +3 gold production | Region is conquered |
+| Canal — Bent (Market tier 2 alt) | Hexagonal (region-sized), green, 2 active sides | 1 MA + 5g (player mat) | Region gains sea status; joins sea bodies touching the two active sides; earns +1 gp per connected sea tile | Region is conquered |
+| Merchant Exchange (Market tier 3) | Hexagonal (region-sized), green | 1 MA + 7g (player mat) | Transaction: 2 resources of any type → 1 commodity of any type (1 MA, once/round). Border region only. | Region is conquered |
+| Grand Bazaar (Market tier 3 alt) | Hexagonal (region-sized), green | 1 MA + 7g (player mat) | One-time: 2 gold per unique adjacent enemy terrain type (1 MA); rotate to exhaust. Border region only. | Region is conquered |
+| Canal — Cross (Market tier 3 alt) | Hexagonal (region-sized), green, 4 active sides | 1 MA + 7g (player mat) | Region gains sea status; joins sea bodies touching the four active sides; earns +1 gp per connected sea tile | Region is conquered |
+| Trade Emporium (Market tier 4) | Hexagonal (region-sized), green | 1 MA + 9g (player mat) | Transaction: 2 resources → 1 commodity, or 2 commodities → 1 commodity (1 MA, once/round). Sea-adjacent: +2 gold production per connected sea tile | Region is conquered |
+| Counting House (Science tier 1) | Hexagonal (region-sized), lilac | 1 MA + 3g (player mat) | +1 market action per turn while placed | Region is conquered |
+| Library (Science tier 2A) | Hexagonal (region-sized), lilac | 1 MA + 5g (player mat) | Once per round: spend 1 MA to take a market card costing ≤4g for free (pay only the excess above 4g) | Region is conquered |
+| Guild Hall (Science tier 2B) | Hexagonal (region-sized), lilac | 1 MA + 5g (player mat) | All your card purchases cost 2g less (minimum 0g) | Region is conquered |
+| Academy (Science tier 3) | Hexagonal (region-sized), lilac | 1 MA + 7g (player mat) | +1 market action per turn while placed | Region is conquered |
+| University (Science tier 4A) | Hexagonal (region-sized), lilac | 1 MA + 9g (player mat) | Once per round: spend 1 MA to take any market card for free | Region is conquered |
+| Imperial Archive (Science tier 4B) | Hexagonal (region-sized), lilac | 1 MA + 9g (player mat) | Once in the game: spend 1 MA to draw 4 empire cards; replace up to 3 cards on your mat | Region is conquered |
+| Shrine (Wonders tier 1) | Hexagonal (region-sized), brown | 1 MA + 4g (player mat) | +1 VP immediately; conqueror takes VP and closes your tier 1 slot permanently | Region is conquered |
+| Temple (Wonders tier 2) | Hexagonal (region-sized), brown | 1 MA + 8g (player mat) | +2 VP immediately; conqueror takes VP and closes your tier 2 slot permanently | Region is conquered |
+| Palace (Wonders tier 3) | Hexagonal (region-sized), brown | 1 MA + 14g (player mat) | +3 VP immediately; conqueror takes VP and closes your tier 3 slot permanently | Region is conquered |
+| Production | Square | Building track (production option) | Produces resources or commodities each round | Region is conquered (defender may move 1 before resolution) |
 | Advantage | Round | Staging Ground, Supreme Vanguard, Scouting Report, War of Attrition | Placed on *your* region: draw with advantage when attacking from it. Placed on an *enemy* region: draw with advantage when attacking into it. | Region is conquered or placing card is discarded |
 | Disadvantage | Round | Standing Guard, Fortified Perimeter | Attackers targeting this region draw with disadvantage | Region is conquered or placing card is discarded |
 | Siege | Round | Siege Tactics | This region has no terrain defense bonus | Placing card is discarded |
@@ -317,40 +317,26 @@ Each region can hold **one infrastructure token** (any class) and **one producti
 
 ### Infrastructure Tokens and the Building Track
 
-Each player's mat has a **building track** for each class (Military, Market, Science, Wonders). Each tier slot on the track comes pre-loaded with the physical infrastructure token for that tier. Tokens sit in their slots at the start of the game; the class bonus for each tier is printed on the mat below the slot.
+Each player's mat has a **building track** for each class (Military, Market, Science, Wonders). Each tier slot comes pre-loaded with the physical infrastructure token for that tier. The tier bonus is printed on the mat beneath the slot, hidden by the token sitting on top.
 
-**To build:** Spend 1 market action and the listed gold cost, then physically remove the token from its slot on your mat and place it on any region you control that meets the token's terrain requirement. The slot on your mat now sits empty, and the tier bonus beneath it is permanently unlocked for you — even if the token is later destroyed. You cannot build the same tier of a class twice, because each tier slot contains exactly one physical token. **You must build tiers in order** — a tier 2 slot is locked until the tier 1 slot has been vacated.
+To build, spend 1 market action and the tier's gold cost, then lift the token from its slot on your mat and place it on any region you control that meets the token's terrain requirement. The slot now sits empty and the tier bonus beneath it is permanently active — even if the token is later conquered or destroyed.
 
-All tokens already on the board remain active simultaneously. Building tier 2 does not remove or deactivate tier 1 — each tier goes on a separate region and both function independently from that point on.
-
-Empire cards are **not** required to unlock placement rights; any player may build any class of token. Only one infrastructure token may occupy a region at a time. If a production marker is already on the region, leave it on top of the newly placed token — it continues functioning normally.
+All placed tokens remain active simultaneously — placing tier 2 does not remove tier 1. Any player may build any class of token without needing an Empire card. Only one infrastructure token may occupy a region at a time. A production marker on the region does not block placement — leave it on top; it continues functioning.
 
 **Wonder construction** follows a different process — see the Wonder Construction section below.
 
-**Token costs by tier:**
+| Tier | Standard cost | Wonders cost |
+|------|--------------|-------------|
+| 1    | 3g           | 4g          |
+| 2    | 5g           | 8g          |
+| 3    | 7g           | 14g         |
+| 4    | 9g           | —           |
 
-| Tier | Gold cost |
-|------|-----------|
-| 1    | 2 gold    |
-| 2    | 4 gold    |
-| 3    | 6 gold    |
-| 4    | 8 gold    |
+**Building track bonuses are permanent** — never lost even if the token is later conquered or destroyed.
 
-**Building track bonuses unlock permanently** when the token leaves its slot — the bonus is never lost even if the token is conquered or destroyed.
+**Token visual design:** Tokens that require a specific terrain type display that terrain's background art with building iconography layered on top. Tokens placeable on multiple terrain types display a pie-chart of eligible terrain icons — one wedge per valid terrain type.
 
-**Token visual design:** Tokens that require a specific terrain type display that terrain's background art with building iconography layered on top. Tokens that may be placed on multiple terrain types display a pie-chart of the eligible terrain icons in their centre — the number of equal wedges corresponds to the number of valid terrain types.
-
-| Class | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
-|-------|--------|--------|--------|--------|
-| Military | +1 attack action/round *(locked)* | **Choice:** +3 gold OR Quarry (Stone/Mountain) OR Mine (Iron/Mountain) | **Choice:** +1 attack action/round OR Iron Forge (2× Iron/Mountain) | +2 VP *(locked)* |
-| Market | **Choice:** Farm (Food/Farmland) OR Loom (Cloth/Farmland) | +1 market action/round *(locked)* | **Choice:** +1 market action/round OR +3 gold OR Glassworks (Glass/Desert) | +2 VP *(locked)* |
-| Science | +1 Empire card slot *(locked)* | **Choice:** −2g on tokens OR Lumber Mill (Wood/Forest) OR Papyrus Workshop (Paper/Forest) | **Choice:** +1 Empire card slot OR Scriptorium (2× Paper/anywhere) | +2 VP *(locked)* |
-| Wonders | +1 VP *(locked)* | +2 VP *(locked)* | +3 VP *(locked)* | — |
-| Misc | +1 attack action/round *(locked)* | +2 gold *(locked)* | +1 attack action/round *(locked)* | +2 VP *(locked)* |
-
-*(Bonus values subject to playtesting.)*
-
-**Science track tier 2 choice:** When your Science track reaches tier 2, permanently choose one: all your Military/Market/Science token placements cost 2g less (minimum 1g), or place a Lumber Mill or Papyrus Workshop production marker on an eligible region.
+**Science track tier 2:** When the Science T2 slot is first emptied, permanently choose one: all your future token placements cost 2g less (minimum 1g), or place a Lumber Mill or Papyrus Workshop on an eligible Forest region.
 
 **Market class token transactions:** Market tokens additionally enable economic transactions. Spend 1 market action to activate the token's transaction once per round. A **border region** is any region you control that is adjacent to at least one region controlled by another player. If a tier 3 or 4 token's region ceases to be a border region, its transaction is suspended until border contact is re-established.
 
@@ -393,7 +379,7 @@ A sea body touching a Canal's *inactive* side is not connected through it.
 
 Wonders exist entirely as tokens — there are no Wonder Empire cards. Each player has a personal Wonders building track with 3 tiers. Wonders must be built in order: tier 1 before tier 2 before tier 3.
 
-To build a Wonder, spend 1 market action and the listed gold cost, then place the token on any region you control. You immediately gain the VP for that tier. A region may only hold one infrastructure token — a Wonder occupies that slot.
+To build a Wonder, spend 1 market action and the listed gold cost, then lift the token from its slot on your mat and place it on any region you control. You immediately gain the VP for that tier. A region may only hold one infrastructure token — a Wonder occupies that slot.
 
 | Tier | Gold cost | VP gained |
 |------|-----------|-----------|
@@ -537,7 +523,7 @@ Empire cards are used to enact decrees in your empire.
 
 **Properties:**
 - **Cost:** Each card has two prices — a gold cost and a resource or commodity cost. Pay one or the other. Example: `3 gold OR 1 stone`. Your empire's tile composition and buildings determine which currency is easier to spend.
-- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc). Purchasing a card does **not** advance the building track — only placing infrastructure tokens does. Misc cards have no building track. Wonders have no Empire cards — they are built directly as tokens (see Wonder Construction).
+- **Class limit:** You may buy at most 4 cards of any single class (Military, Market, Science, Misc). Purchasing an Empire card does **not** advance the building track — only lifting and placing a building tile from your player mat does. Misc cards have no building track. Wonders have no Empire cards — they are built directly as tokens (see Wonder Construction).
 - **Requirement:** Buying a card with a specified requirement is only allowed if the requirement is fulfilled (e.g., Iron Legion requires 2 or more Military Empire cards on your mat).
 
 ### Empire Card Classes
@@ -716,7 +702,7 @@ All infrastructure tokens are hex-shaped and cover a region tile when placed. Ea
 
 #### Production Markers (Square, Smaller)
 
-One marker per building placed. Obtained by choosing a production option from a building track choice tier. Each marker shows the resource or commodity icon it produces and the production rate.
+One marker per building placed. Obtained when a building track tier bonus reveals a production building. Each marker shows the resource or commodity icon it produces and the production rate.
 
 | Marker | Produces | Eligible terrain | Track source | Qty |
 |--------|----------|-----------------|--------------|-----|
@@ -835,7 +821,7 @@ All costs follow the format: `gold cost OR resource/commodity cost`. Pricing use
 
 ### Market (Green) — VP Conversion
 
-Production buildings (Quarry, Mine, Farm, Loom, Lumber Mill, Papyrus Workshop, Iron Forge, Glassworks, Scriptorium) are no longer Empire cards. They are obtained by choosing a production option when advancing the building track (see Building Track Choices above).
+Production buildings (Quarry, Mine, Farm, Loom, Lumber Mill, Papyrus Workshop, Iron Forge, Glassworks, Scriptorium) are no longer Empire cards. They are obtained from the building track — revealed beneath a slot when a building tile is lifted from the player mat.
 
 | Card | Era | Cost | Placement | Effect |
 |------|-----|------|-----------|--------|
